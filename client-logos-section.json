@@ -1,0 +1,101 @@
+{
+  "section_name": "Client Logos Section",
+  "section_id": "client_logos",
+  "layout": {
+    "background": "#F5F5F5",
+    "padding": "py-16",
+    "container": "max-width container with horizontal padding"
+  },
+  "header": {
+    "layout": "left-aligned",
+    "elements": [
+      {
+        "type": "section_indicator",
+        "content": {
+          "icon": "black circle with white arrow or similar",
+          "text": "Our clients",
+          "font_size": "small",
+          "font_weight": "medium",
+          "color": "#000000",
+          "spacing": "small gap between icon and text"
+        }
+      },
+      {
+        "type": "date_range", 
+        "content": {
+          "text": "(2016-25©)",
+          "font_size": "small",
+          "font_weight": "normal",
+          "color": "#666666",
+          "position": "to the right of section indicator"
+        }
+      }
+    ]
+  },
+  "content": {
+    "layout": "grid layout, 6 columns on desktop, responsive",
+    "grid_gap": "medium spacing between items",
+    "client_logos": [
+      {
+        "logo_placeholder": "geometric logo with vertical lines",
+        "background": "#FFFFFF",
+        "border_radius": "medium rounded corners",
+        "padding": "large internal padding",
+        "shadow": "subtle drop shadow",
+        "hover_effect": "slight elevation or scale"
+      },
+      {
+        "logo_placeholder": "Warpspeed text logo",
+        "background": "#FFFFFF", 
+        "border_radius": "medium rounded corners",
+        "padding": "large internal padding",
+        "shadow": "subtle drop shadow",
+        "hover_effect": "slight elevation or scale"
+      },
+      {
+        "logo_placeholder": "asterisk/star symbol",
+        "background": "#FFFFFF",
+        "border_radius": "medium rounded corners", 
+        "padding": "large internal padding",
+        "shadow": "subtle drop shadow",
+        "hover_effect": "slight elevation or scale"
+      },
+      {
+        "logo_placeholder": "LOCO text logo",
+        "background": "#FFFFFF",
+        "border_radius": "medium rounded corners",
+        "padding": "large internal padding", 
+        "shadow": "subtle drop shadow",
+        "hover_effect": "slight elevation or scale"
+      },
+      {
+        "logo_placeholder": "stylized geometric logo",
+        "background": "#FFFFFF",
+        "border_radius": "medium rounded corners",
+        "padding": "large internal padding",
+        "shadow": "subtle drop shadow", 
+        "hover_effect": "slight elevation or scale"
+      },
+      {
+        "logo_placeholder": "letter N logo",
+        "background": "#FFFFFF",
+        "border_radius": "medium rounded corners",
+        "padding": "large internal padding",
+        "shadow": "subtle drop shadow",
+        "hover_effect": "slight elevation or scale"
+      }
+    ]
+  },
+  "styling": {
+    "logo_containers": {
+      "aspect_ratio": "square or slightly rectangular",
+      "alignment": "center aligned logos",
+      "logo_size": "medium size, properly scaled"
+    }
+  },
+  "responsive_behavior": {
+    "desktop": "6 column grid",
+    "tablet": "3 column grid", 
+    "mobile": "2 column grid"
+  }
+}

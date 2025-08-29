@@ -10,7 +10,7 @@ export const teamMembers: TeamMember[] = [
     image: '/images/team/lauren-thompson.jpg',
     socialLinks: {
       linkedin: 'https://linkedin.com/in/lauren-thompson',
-      email: 'lauren@fabrica.com'
+      email: 'lauren@hometown.com'
     },
     expertise: ['Design Strategy', 'Team Leadership', 'Client Relations'],
     yearsOfExperience: 8
@@ -25,7 +25,7 @@ export const teamMembers: TeamMember[] = [
     socialLinks: {
       linkedin: 'https://linkedin.com/in/michael-wilson',
       github: 'https://github.com/michaelwilson',
-      email: 'michael@fabrica.com'
+      email: 'michael@hometown.com'
     },
     expertise: ['React', 'Node.js', 'Database Design', 'API Development'],
     yearsOfExperience: 6
@@ -40,7 +40,7 @@ export const teamMembers: TeamMember[] = [
     socialLinks: {
       linkedin: 'https://linkedin.com/in/sarah-johnson',
       twitter: 'https://twitter.com/sarahjohnson',
-      email: 'sarah@fabrica.com'
+      email: 'sarah@hometown.com'
     },
     expertise: ['Brand Strategy', 'Visual Design', 'Creative Direction'],
     yearsOfExperience: 10
@@ -55,7 +55,7 @@ export const teamMembers: TeamMember[] = [
     socialLinks: {
       linkedin: 'https://linkedin.com/in/christopher-miller',
       twitter: 'https://twitter.com/christophermiller',
-      email: 'christopher@fabrica.com'
+      email: 'christopher@hometown.com'
     },
     expertise: ['User Experience', 'Interface Design', 'Prototyping', 'User Research'],
     yearsOfExperience: 5

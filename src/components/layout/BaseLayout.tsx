@@ -1,16 +1,19 @@
-import { BaseLayoutProps } from '@/types/navigation';
+'use client';
+
 import Header from './Header';
 import Footer from './Footer';
-import TransitionProvider from '@/app/_transition/TransitionProvider';
+import ScrollBlurOverlay from '@/components/ui/ScrollBlurOverlay';
+import { useCurrentPage } from '@/lib/hooks/useCurrentPage';
 
-export default function BaseLayout({ children, currentPage = '/' }: BaseLayoutProps) {
+export default function BaseLayout({ children }: { children: React.ReactNode }) {
+  const currentPage = useCurrentPage();
+  
   return (
     <div className="min-h-screen bg-black text-white">
       <Header currentPage={currentPage} />
-      <TransitionProvider className="pt-20">
-        {children}
-      </TransitionProvider>
+      {children}
       <Footer />
+      <ScrollBlurOverlay />
     </div>
   );
 }

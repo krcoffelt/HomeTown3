@@ -23,20 +23,16 @@ export default function Logo({ variant, animate = false, className = '' }: LogoP
         animate={animate ? "visible" : "visible"}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <span className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">fabrica</span>
-          <span className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">®</span>
+        <div className="flex items-center justify-center mb-2">
+          <span className="text-5xl md:text-7xl lg:text-8xl font-bold text-white">Hometown</span>
         </div>
-        <div className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light">Studio</div>
       </motion.div>
     );
   }
 
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <span className="text-2xl font-bold text-white">fabrica</span>
-      <span className="text-2xl font-bold text-white">®</span>
+      <span className="text-2xl font-bold text-black">Hometown</span>
     </div>
   );
 }
-

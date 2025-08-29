@@ -15,10 +15,10 @@ export default function SimpleRating({
 }: SimpleRatingProps) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <span className="text-5xl font-bold text-gray-900">
+      <span className="text-5xl font-bold text-white">
         {rating.toFixed(1)}
       </span>
-      <span className="text-2xl text-gray-600">
+      <span className="text-2xl text-gray-400">
         /{maxRating}
       </span>
     </div>

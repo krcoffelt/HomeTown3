@@ -26,7 +26,7 @@ export default function ServiceTags({ services, isVisible }: ServiceTagsProps) {
 
   return (
     <motion.div
-      className="mb-16 flex flex-wrap justify-center gap-4"
+      className="mb-12 flex flex-wrap justify-center gap-3 max-w-4xl mx-auto"
       variants={containerVariants}
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
@@ -35,7 +35,7 @@ export default function ServiceTags({ services, isVisible }: ServiceTagsProps) {
         <motion.span
           key={service}
           variants={tagVariants}
-          className="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 text-sm font-medium hover:bg-white/20 transition-all duration-300 cursor-pointer"
+          className="px-5 py-2.5 bg-transparent border border-white/30 rounded-full text-white text-sm font-normal hover:bg-white/10 transition-all duration-300"
         >
           {service}
         </motion.span>

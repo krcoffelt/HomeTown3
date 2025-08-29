@@ -1,0 +1,134 @@
+{
+  "section_name": "Statistics Section", 
+  "section_id": "statistics",
+  "layout": {
+    "background": "#F5F5F5",
+    "padding": "py-24",
+    "container": "max-width container with horizontal padding"
+  },
+  "statistics_grid": {
+    "layout": "4 column grid on desktop",
+    "items": [
+      {
+        "number": "3m+",
+        "label": "Ad impressions managed",
+        "number_style": {
+          "font_size": "very large (4-5rem)",
+          "font_weight": "bold",
+          "color": "#000000"
+        },
+        "label_style": {
+          "font_size": "medium",
+          "font_weight": "normal", 
+          "color": "#666666",
+          "line_height": "tight"
+        }
+      },
+      {
+        "number": "27+",
+        "label": "Successful projects launched",
+        "number_style": {
+          "font_size": "very large (4-5rem)",
+          "font_weight": "bold",
+          "color": "#000000"
+        },
+        "label_style": {
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666", 
+          "line_height": "tight"
+        }
+      },
+      {
+        "number": "98%",
+        "label": "Client satisfaction rate",
+        "number_style": {
+          "font_size": "very large (4-5rem)",
+          "font_weight": "bold",
+          "color": "#000000"
+        },
+        "label_style": {
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "line_height": "tight"
+        }
+      },
+      {
+        "number": "50k+", 
+        "label": "Monthly visitors driven through SEO",
+        "number_style": {
+          "font_size": "very large (4-5rem)",
+          "font_weight": "bold",
+          "color": "#000000"
+        },
+        "label_style": {
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "line_height": "tight"
+        }
+      }
+    ]
+  },
+  "bottom_content": {
+    "layout": "centered content section",
+    "elements": [
+      {
+        "type": "brand_name",
+        "content": {
+          "text": "fabrica®",
+          "font_size": "large",
+          "font_weight": "bold",
+          "color": "#000000",
+          "margin_bottom": "medium"
+        }
+      },
+      {
+        "type": "tagline",
+        "content": {
+          "text": "Every project we take on is designed for long-term success.",
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "margin_bottom": "large"
+        }
+      },
+      {
+        "type": "description_paragraph_1",
+        "content": {
+          "text": "Our approach is simple: we focus on functionality, speed, and clarity, ensuring that every project serves a clear purpose without unnecessary complexity.",
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "line_height": "relaxed",
+          "max_width": "800px",
+          "margin_bottom": "medium",
+          "emphasis_words": ["simple:", "on"]
+        }
+      },
+      {
+        "type": "description_paragraph_2", 
+        "content": {
+          "text": "We don't overpromise or use flashy marketing language. We simply build well-designed, functional websites and strategies that help businesses succeed.",
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "line_height": "relaxed", 
+          "max_width": "800px"
+        }
+      }
+    ]
+  },
+  "bottom_image": {
+    "description": "large artistic black and white photo, possibly of a person or abstract composition",
+    "aspect_ratio": "wide landscape",
+    "style": "rounded corners, full width",
+    "position": "bottom of section"
+  },
+  "responsive_behavior": {
+    "desktop": "4 column statistics grid",
+    "tablet": "2 column grid",
+    "mobile": "single column stack"
+  }
+}

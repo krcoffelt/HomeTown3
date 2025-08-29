@@ -18,7 +18,7 @@ export default function CaseStudySection() {
             UX/UI Redesign, Frontend Optimization.
           </h2>
           <div className="mb-6">
-            <span className="text-2xl font-light text-gray-400">fabrica®</span>
+            <span className="text-2xl font-light text-gray-400">Hometown</span>
           </div>
           
           <div className="flex items-center justify-center gap-4 mb-8">

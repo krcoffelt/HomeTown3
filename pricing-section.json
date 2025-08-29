@@ -1,0 +1,115 @@
+{
+  "section_name": "Pricing Section",
+  "section_id": "pricing", 
+  "layout": {
+    "background": "#000000",
+    "padding": "py-24",
+    "container": "max-width container with horizontal padding"
+  },
+  "header": {
+    "layout": "left-aligned section indicator, center main heading",
+    "elements": [
+      {
+        "type": "section_indicator",
+        "content": {
+          "icon": "white circle with arrow",
+          "text": "Simple pricing",
+          "font_size": "small",
+          "font_weight": "medium",
+          "color": "#FFFFFF", 
+          "position": "top left"
+        }
+      },
+      {
+        "type": "main_heading",
+        "content": {
+          "text": "Pricing.",
+          "font_size": "very large (6-8rem)",
+          "font_weight": "bold",
+          "color": "#FFFFFF",
+          "position": "center",
+          "letter_spacing": "tight"
+        }
+      }
+    ]
+  },
+  "pricing_toggle": {
+    "layout": "centered toggle buttons",
+    "options": [
+      {
+        "text": "Per project",
+        "state": "active",
+        "style": "white background, black text"
+      },
+      {
+        "text": "Monthly", 
+        "state": "inactive",
+        "style": "transparent background, white text"
+      }
+    ],
+    "toggle_style": "rounded pill container"
+  },
+  "pricing_content": {
+    "layout": "single centered pricing card",
+    "card": {
+      "background": "transparent with subtle border",
+      "border": "thin white/gray border",
+      "border_radius": "large rounded corners",
+      "padding": "generous internal spacing"
+    },
+    "left_section": {
+      "tagline": {
+        "text": "Want more traffic and leads?",
+        "font_size": "medium",
+        "font_weight": "bold",
+        "color": "#FFFFFF"
+      },
+      "description": {
+        "text": "Get marketing and SEO that starts with your goals.",
+        "font_size": "small-medium", 
+        "font_weight": "normal",
+        "color": "#CCCCCC"
+      }
+    },
+    "center_section": {
+      "price": {
+        "amount": "$2,490",
+        "currency": "$",
+        "period": "/project",
+        "font_size": "very large",
+        "font_weight": "bold",
+        "color": "#FFFFFF"
+      }
+    },
+    "right_section": {
+      "features": [
+        {
+          "text": "Homepage + up to 4 inner pages",
+          "icon": "plus symbol",
+          "color": "#FFFFFF"
+        },
+        {
+          "text": "Design and Development", 
+          "icon": "plus symbol",
+          "color": "#FFFFFF"
+        },
+        {
+          "text": "Mobile-Optimized Design",
+          "icon": "plus symbol", 
+          "color": "#FFFFFF"
+        }
+      ]
+    }
+  },
+  "styling": {
+    "feature_list": {
+      "icon_style": "plus symbols, white color",
+      "text_style": "medium size, white color",
+      "spacing": "comfortable line spacing"
+    },
+    "pricing_card": {
+      "hover_effect": "subtle glow or border highlight",
+      "shadow": "none or very subtle"
+    }
+  }
+}

@@ -8,6 +8,7 @@
 
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: #121212;
 }
 
 /* Custom scrollbar for webkit browsers */
@@ -16,7 +17,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #121212;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -26,4 +27,15 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #606060;
+}
+
+/* Ensure text selection uses consistent colors */
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }

@@ -1,0 +1,266 @@
+{
+  "page_title": "fabrica.framer.media Homepage",
+  "layout": {
+    "background_color": "#000000",
+    "main_container": "centered, full-width layout"
+  },
+  "header": {
+    "position": "top fixed/sticky",
+    "background": "transparent overlay on dark background",
+    "layout": "horizontal flex, space-between alignment",
+    "left_side": {
+      "logo": {
+        "text": "fabrica®",
+        "font_weight": "normal",
+        "color": "#FFFFFF",
+        "font_size": "medium"
+      }
+    },
+    "center_navigation": {
+      "items": [
+        {
+          "text": "Studio",
+          "color": "#FFFFFF",
+          "font_weight": "normal",
+          "active_state": false
+        },
+        {
+          "text": "Projects",
+          "color": "#FFFFFF", 
+          "font_weight": "normal",
+          "active_state": false,
+          "count_indicator": "37"
+        },
+        {
+          "text": "Blog",
+          "color": "#FFFFFF",
+          "font_weight": "normal", 
+          "active_state": false
+        },
+        {
+          "text": "Contact",
+          "color": "#FFFFFF",
+          "font_weight": "normal",
+          "active_state": false
+        }
+      ]
+    },
+    "right_side": {
+      "hamburger_menu": {
+        "visible": true,
+        "style": "three horizontal lines",
+        "color": "#FFFFFF"
+      }
+    }
+  },
+  "hero_section": {
+    "background": {
+      "base_color": "#000000",
+      "ink_smoke_element": {
+        "note": "IGNORE - to be replaced with gradient",
+        "position": "right side, organic curved shape",
+        "opacity": "semi-transparent"
+      }
+    },
+    "rounded_corner_wrapper": {
+      "description": "Main content container with rounded corners",
+      "style": {
+        "background": "semi-transparent dark overlay",
+        "border_radius": "large rounded corners (approximately 24-32px)",
+        "border": "subtle light border or glow effect",
+        "backdrop_filter": "blur effect",
+        "padding": "large internal spacing",
+        "margin": "centered with margins from viewport edges",
+        "width": "majority of viewport width but not full width",
+        "height": "majority of viewport height",
+        "position": "centered in viewport"
+      },
+      "visual_treatment": {
+        "background_opacity": "semi-transparent (10-20%)",
+        "border_color": "rgba(255, 255, 255, 0.1) or similar",
+        "backdrop_blur": "medium blur effect",
+        "shadow": "subtle outer glow or shadow"
+      }
+    },
+    "main_content": {
+      "layout": "centered vertical stack",
+      "elements": [
+        {
+          "type": "logo",
+          "content": {
+            "main_text": "fabrica",
+            "font_size": "very large (approximately 6-8rem)",
+            "font_weight": "bold/heavy",
+            "color": "#FFFFFF",
+            "letter_spacing": "normal"
+          },
+          "registered_trademark": {
+            "symbol": "®",
+            "position": "top-right of 'fabrica'",
+            "font_size": "large",
+            "color": "#FFFFFF",
+            "style": "circled"
+          },
+          "subtitle": {
+            "text": "Studio",
+            "position": "below main logo",
+            "font_size": "large (approximately 2-3rem)",
+            "font_weight": "normal",
+            "color": "#FFFFFF",
+            "spacing": "close to main logo"
+          }
+        },
+        {
+          "type": "service_tags",
+          "position": "right side of screen",
+          "layout": "vertical stack",
+          "items": [
+            {
+              "text": "Branding and Identity",
+              "style": "transparent background, white border, rounded",
+              "color": "#FFFFFF",
+              "font_size": "small",
+              "padding": "small"
+            },
+            {
+              "text": "Social Media Marketing",
+              "style": "transparent background, white border, rounded",
+              "color": "#FFFFFF", 
+              "font_size": "small",
+              "padding": "small"
+            },
+            {
+              "text": "Web Design and Development",
+              "style": "transparent background, white border, rounded",
+              "color": "#FFFFFF",
+              "font_size": "small", 
+              "padding": "small"
+            },
+            {
+              "text": "SEO Optimization",
+              "style": "transparent background, white border, rounded",
+              "color": "#FFFFFF",
+              "font_size": "small",
+              "padding": "small"
+            }
+          ]
+        },
+        {
+          "type": "main_tagline",
+          "position": "lower left area",
+          "content": {
+            "line_1": "No generic websites. No empty",
+            "line_2": "marketing promises. Just tools and strategies that", 
+            "line_3": "help your business grow and your brand shine.",
+            "font_size": "medium",
+            "font_weight": "normal",
+            "color": "#FFFFFF",
+            "line_height": "comfortable spacing",
+            "max_width": "approximately 400px"
+          }
+        },
+        {
+          "type": "cta_button",
+          "position": "center-bottom of main content area",
+          "content": {
+            "text": "Let's talk",
+            "background": "#FFFFFF",
+            "text_color": "#000000",
+            "style": "rounded rectangle",
+            "padding": "medium horizontal, small vertical",
+            "font_weight": "medium"
+          }
+        }
+      ]
+    },
+    "decorative_elements": [
+      {
+        "type": "plus_symbols",
+        "positions": [
+          "top left corner",
+          "top center", 
+          "top right",
+          "bottom right"
+        ],
+        "style": "+",
+        "color": "#FFFFFF",
+        "opacity": "low",
+        "size": "small"
+      }
+    ]
+  },
+  "bottom_right_card": {
+    "position": "fixed bottom-right corner",
+    "background": "#FFFFFF",
+    "border_radius": "rounded corners",
+    "shadow": "subtle drop shadow",
+    "content": {
+      "profile_section": {
+        "image": {
+          "description": "professional headshot of blonde woman",
+          "shape": "circular",
+          "size": "small-medium"
+        },
+        "text": {
+          "label": "Team Lead",
+          "name": "Lauren Thompson",
+          "font_color": "#000000"
+        }
+      },
+      "action_buttons": {
+        "primary_button": {
+          "text": "Let's talk",
+          "background": "#000000",
+          "text_color": "#FFFFFF", 
+          "style": "rounded pill shape"
+        },
+        "secondary_elements": [
+          {
+            "type": "template_button",
+            "text": "Buy template",
+            "style": "secondary/outline style"
+          },
+          {
+            "type": "framer_badge",
+            "text": "Made in Framer",
+            "style": "small badge/link"
+          }
+        ]
+      }
+    }
+  },
+  "footer_branding": {
+    "position": "bottom left",
+    "content": {
+      "text": "© 2025 fabrica® Studio",
+      "color": "#FFFFFF",
+      "font_size": "small",
+      "opacity": "medium"
+    }
+  },
+  "overall_typography": {
+    "primary_font": "modern sans-serif (appears to be Inter or similar)",
+    "font_sizes": {
+      "hero_logo": "very large (6-8rem)",
+      "hero_subtitle": "large (2-3rem)", 
+      "body_text": "medium (1rem)",
+      "small_text": "small (0.8-0.9rem)"
+    },
+    "color_scheme": {
+      "primary_text": "#FFFFFF",
+      "primary_background": "#000000", 
+      "accent_background": "#FFFFFF",
+      "accent_text": "#000000"
+    }
+  },
+  "responsive_considerations": {
+    "mobile_behavior": "hamburger menu visible, likely stacked layout",
+    "desktop_behavior": "full navigation visible, side-by-side content layout"
+  },
+  "interactive_elements": {
+    "navigation_links": "hover states likely present",
+    "cta_buttons": "hover effects expected",
+    "service_tags": "may have hover interactions",
+    "profile_card": "interactive buttons and links"
+  }
+}

@@ -28,7 +28,7 @@ export default function WhyChooseUsSection() {
                   <span className="text-gray-400 text-sm">LT</span>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Team Lead at fabrica®</p>
+                  <p className="text-gray-400 text-sm">Team Lead at Hometown</p>
                   <h3 className="text-white text-lg font-semibold">Lauren Thompson</h3>
                 </div>
               </div>

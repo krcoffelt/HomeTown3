@@ -13,25 +13,24 @@ export const heroContent = {
   ],
   ctaButton: "Let's talk",
   teamMember: {
-    name: "Lauren Thompson",
-    role: "Team Lead at fabrica®",
+    name: "Kyle Coffelt",
+    role: "Team Lead at Hometown",
     contactInfo: {
-      calendly: "https://calendly.com/fabrica-studio"
+      calendly: "https://calendly.com/hometown"
     }
   }
 };
 
 export const teamMember = {
-  name: "Lauren Thompson",
-  role: "Team Lead at fabrica®",
+  name: "Kyle Coffelt",
+  role: "Team Lead at Hometown",
   contactInfo: {
-    calendly: "https://calendly.com/fabrica-studio"
+    calendly: "https://calendly.com/hometown"
   }
 };
 
 export const logoVariants = {
-  fabrica: "fabrica",
-  registered: "®",
-  studio: "Studio"
+  fabrica: "Hometown",
+  registered: "",
+  studio: ""
 };
-

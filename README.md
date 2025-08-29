@@ -20,7 +20,7 @@ A pixel-perfect clone of the [Fabrica Studio website](https://fabrica.framer.med
 
 ✅ **Routing Structure**
 - Home page (`/`) - Hero section with service tags and CTA
-- Studio page (`/studio`) - Services showcase
+- Services page (`/services`) - Services showcase
 - Projects page (`/projects`) - Portfolio grid
 - Blog page (`/blog`) - Blog posts listing
 - Contact page (`/contact`) - Contact form and information
@@ -59,7 +59,7 @@ src/
 ├── app/
 │   ├── (routes)/
 │   │   ├── page.tsx              # Home page
-│   │   ├── studio/page.tsx       # Studio page
+│   │   ├── services/page.tsx     # Services page
 │   │   ├── projects/page.tsx     # Projects page
 │   │   ├── blog/page.tsx         # Blog page
 │   │   └── contact/page.tsx      # Contact page

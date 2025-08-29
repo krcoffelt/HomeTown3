@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useMemo } from 'react';
 import { TeamMember } from '@/types/hero';
 
 interface TeamSpotlightProps {
@@ -9,24 +10,37 @@ interface TeamSpotlightProps {
 }
 
 export default function TeamSpotlight({ teamMember, onContactClick }: TeamSpotlightProps) {
+  const initials = useMemo(() => {
+    const parts = teamMember.name.split(' ').filter(Boolean);
+    return parts.slice(0, 2).map(p => p[0]).join('').toUpperCase();
+  }, [teamMember.name]);
   return (
     <motion.div
-      className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
+      className="bg-white rounded-2xl p-4 shadow-lg max-w-sm"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.2 }}
     >
-      <div className="mb-4">
-        <p className="text-white/70 text-sm font-medium">{teamMember.role}</p>
-        <h3 className="text-white text-lg font-semibold">{teamMember.name}</h3>
+      {/* Profile Section */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
+          <span className="text-white font-semibold text-sm">{initials}</span>
+        </div>
+        <div className="text-left">
+          <p className="text-gray-600 text-xs">Team Lead</p>
+          <h3 className="text-black font-semibold text-sm">{teamMember.name}</h3>
+        </div>
       </div>
       
-      <button
-        onClick={onContactClick}
-        className="inline-flex items-center justify-center px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
-      >
-        Let's talk
-      </button>
+      {/* Action Buttons */}
+      <div className="space-y-2">
+        <button
+          onClick={onContactClick}
+          className="w-full px-4 py-2 bg-black text-white font-medium rounded-full text-sm hover:bg-gray-800 transition-colors duration-200"
+        >
+          Let's talk
+        </button>
+      </div>
     </motion.div>
   );
 }

@@ -1,24 +1,17 @@
 'use client';
 
-import BaseLayout from '@/components/layout/BaseLayout';
 import HeroSection from '@/components/sections/HeroSection';
+import ClientLogosSection from '@/components/sections/ClientLogosSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import ProcessSection from '@/components/sections/ProcessSection';
-import WhyChooseUsSection from '@/components/sections/WhyChooseUsSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import StatisticsSection from '@/components/sections/StatisticsSection';
-import CaseStudySection from '@/components/sections/CaseStudySection';
 import PricingSection from '@/components/sections/PricingSection';
 import TeamSection from '@/components/sections/TeamSection';
-import FAQSection from '@/components/sections/FAQSection';
-import BlogPreviewSection from '@/components/sections/BlogPreviewSection';
-import ContactFormSection from '@/components/sections/ContactFormSection';
-import NewsletterSection from '@/components/sections/NewsletterSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import StatisticsSection from '@/components/sections/StatisticsSection';
 import { teamMember } from '@/lib/constants/heroContent';
-import { testimonials } from '@/data/testimonials';
-import { statistics } from '@/data/statistics';
-import { teamMembers } from '@/data/team';
+// These sections render their own content and don't take props
+// TeamSection uses its own internal data; no props needed
 
 export default function Home() {
   const handleCTAClick = () => {
@@ -27,24 +20,19 @@ export default function Home() {
   };
 
   return (
-    <BaseLayout currentPage="/">
+    <>
       <HeroSection 
         onCTAClick={handleCTAClick}
         teamMember={teamMember}
       />
+      <ClientLogosSection />
       <ProjectsSection />
       <ServicesSection />
       <ProcessSection />
-      <WhyChooseUsSection />
-      <TestimonialsSection testimonials={testimonials} />
-      <StatisticsSection statistics={statistics} />
-      <CaseStudySection />
       <PricingSection />
-      <TeamSection teamMembers={teamMembers} />
-      <FAQSection />
-      <BlogPreviewSection />
-      <ContactFormSection />
-      <NewsletterSection />
-    </BaseLayout>
+      <TeamSection />
+      <TestimonialsSection />
+      <StatisticsSection />
+    </>
   );
 }

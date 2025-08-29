@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import * as React from 'react';
+import { usePageTransition } from '@/app/_transition/TransitionProvider';
 import Logo from '@/components/ui/Logo';
 import Navigation from '@/components/ui/Navigation';
 import { HeaderProps } from '@/types/navigation';
@@ -9,6 +12,7 @@ import { primaryNavigation, secondaryNavigation, contactInfo, legalLinks } from 
 export default function Header({ currentPage = '/' }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const transition = usePageTransition();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,14 +28,23 @@ export default function Header({ currentPage = '/' }: HeaderProps) {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm border-b border-gray-200`} data-qa="site-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Logo variant="header" />
+            <Link 
+              href="/" 
+              aria-label="Go to homepage"
+              onClick={(e) => {
+                if (!transition) return;
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button === 1) return;
+                e.preventDefault();
+                transition.navigate('/');
+              }}
+            >
+              <Logo variant="header" />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -40,11 +53,11 @@ export default function Header({ currentPage = '/' }: HeaderProps) {
             <Navigation items={primaryNavigation} currentPage={currentPage} />
             
             {/* Contact Information */}
-            <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <a href={`tel:${contactInfo.phone}`} className="hover:text-white transition-colors">
+            <div className="flex items-center space-x-6 text-sm text-gray-600">
+              <a href={`tel:${contactInfo.phone}`} className="hover:text-black transition-colors">
                 {contactInfo.phone}
               </a>
-              <a href={`mailto:${contactInfo.email}`} className="hover:text-white transition-colors">
+              <a href={`mailto:${contactInfo.email}`} className="hover:text-black transition-colors">
                 {contactInfo.email}
               </a>
             </div>
@@ -54,8 +67,10 @@ export default function Header({ currentPage = '/' }: HeaderProps) {
           <div className="lg:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
+              className="text-black p-2 hover:bg-black/10 rounded-md transition-colors"
               aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <svg
                 className="w-6 h-6"
@@ -85,17 +100,17 @@ export default function Header({ currentPage = '/' }: HeaderProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-black/95 backdrop-blur-sm border-t border-gray-800">
+          <div id="mobile-menu" className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200">
             <div className="px-4 py-6 space-y-6">
               {/* Mobile Navigation */}
               <Navigation items={secondaryNavigation} currentPage={currentPage} isMobile={true} />
               
               {/* Mobile Contact Information */}
-              <div className="space-y-3 text-sm text-gray-400">
-                <a href={`tel:${contactInfo.phone}`} className="block hover:text-white transition-colors">
+              <div className="space-y-3 text-sm text-gray-600">
+                <a href={`tel:${contactInfo.phone}`} className="block hover:text-black transition-colors">
                   {contactInfo.phone}
                 </a>
-                <a href={`mailto:${contactInfo.email}`} className="block hover:text-white transition-colors">
+                <a href={`mailto:${contactInfo.email}`} className="block hover:text-black transition-colors">
                   {contactInfo.email}
                 </a>
               </div>
@@ -106,7 +121,7 @@ export default function Header({ currentPage = '/' }: HeaderProps) {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="hover:text-gray-400 transition-colors"
+                    className="hover:text-gray-700 transition-colors"
                   >
                     {link.label}
                   </a>

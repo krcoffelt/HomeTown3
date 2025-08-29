@@ -1,9 +1,6 @@
-import BaseLayout from '@/components/layout/BaseLayout';
-
 export default function Blog() {
   return (
-    <BaseLayout currentPage="/blog">
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-20">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
@@ -37,8 +34,7 @@ export default function Blog() {
               <a href="#" className="text-white hover:text-gray-300 transition-colors">Read more →</a>
             </article>
           </div>
-        </div>
       </div>
-    </BaseLayout>
+    </div>
   );
 }

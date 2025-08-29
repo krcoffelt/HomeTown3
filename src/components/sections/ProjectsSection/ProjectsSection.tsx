@@ -61,121 +61,100 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section className="py-24 bg-black text-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="text-2xl font-light text-gray-400">(27)</span>
-            <h2 className="text-5xl md:text-6xl font-light">Projects.</h2>
-            <span className="text-2xl font-light text-gray-400">©2025</span>
+        <div className="relative mb-16">
+          {/* Project Count - Top Left */}
+          <div className="absolute top-0 left-0">
+            <span className="text-lg text-gray-600">(27)</span>
           </div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We've helped businesses across industries achieve their goals. Here are some of our recent projects.
-          </p>
+          
+          {/* Main Heading - Center */}
+          <div className="text-center">
+            <h2 className="text-6xl md:text-8xl font-bold text-black mb-2">Projects.</h2>
+            <p className="text-lg text-gray-600">©2025</p>
+          </div>
+          
+          {/* Description - Top Right */}
+          <div className="absolute top-0 right-0 max-w-sm hidden lg:block">
+            <p className="text-gray-600 leading-relaxed">
+              We've helped businesses across industries achieve their goals. Here are some of our recent projects.
+            </p>
+          </div>
         </div>
 
-        {/* Filter Controls */}
-        <div className="mb-12">
-          <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-center">
-            {/* Search Input */}
-            <div className="relative flex-1 max-w-md">
-              <input
-                type="text"
-                placeholder="Search..."
-                value={filterState.search}
-                onChange={(e) => handleSearchChange(e.target.value)}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white/20 transition-colors"
-              />
+        {/* Featured Projects */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Boltshift Project */}
+          <div className="group cursor-pointer">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-100 to-amber-200 aspect-[4/3] flex items-center justify-center">
+              {/* Project Image Placeholder */}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-100"></div>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+              
+              {/* Project Content */}
+              <div className="relative z-10 text-center text-white">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                    <span className="text-black font-bold text-lg">⚡</span>
+                  </div>
+                  <span className="text-2xl font-bold">Boltshift</span>
+                </div>
+              </div>
+              
+              {/* Top metadata */}
+              <div className="absolute top-6 left-6">
+                <span className="text-black font-medium">Boltshift.</span>
+              </div>
+              <div className="absolute top-6 right-6">
+                <div className="flex items-center gap-1">
+                  <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+                </div>
+              </div>
+              <div className="absolute top-6 right-20">
+                <span className="text-gray-700 text-sm">/2025</span>
+              </div>
             </div>
-
-            {/* Category Filter */}
-            <div className="relative">
-              <select
-                value={filterState.selectedCategory}
-                onChange={(e) => handleCategoryChange(e.target.value)}
-                className="appearance-none px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-white/20 transition-colors cursor-pointer pr-10"
-              >
-                {PROJECT_CATEGORIES.map((category) => (
-                  <option key={category} value={category} className="bg-black text-white">
-                    {category}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+          </div>
+          
+          {/* Ephemeral Project */}
+          <div className="group cursor-pointer">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-100 to-cyan-200 aspect-[4/3] flex items-center justify-center">
+              {/* Project Image Placeholder */}
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-blue-100"></div>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+              
+              {/* Project Content */}
+              <div className="relative z-10 text-center text-white">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                    <span className="text-black font-bold text-lg">🔗</span>
+                  </div>
+                  <span className="text-2xl font-bold">Ephemeral</span>
+                </div>
+              </div>
+              
+              {/* Top metadata */}
+              <div className="absolute top-6 left-6">
+                <span className="text-black font-medium">Ephemeral.</span>
+              </div>
+              <div className="absolute top-6 right-6">
+                <div className="flex items-center gap-1">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                </div>
+              </div>
+              <div className="absolute top-6 right-20">
+                <span className="text-gray-700 text-sm">/2025</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="sync">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ 
-                  delay: index * 0.1,
-                  duration: 0.3,
-                  ease: "easeOut"
-                }}
-                whileHover={{ 
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
-                className="group cursor-pointer"
-                onClick={() => handleProjectClick(project)}
-              >
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-semibold mb-3 group-hover:text-white/90 transition-colors">
-                      {project.name}
-                    </h3>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {project.categories.map((category) => (
-                        <span
-                          key={category}
-                          className="px-3 py-1 bg-white/10 rounded-full text-sm text-white/80 group-hover:bg-white/20 transition-colors"
-                        >
-                          {category}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-400 group-hover:text-gray-300 transition-colors">
-                      <span>/</span>
-                      <span className="text-lg">{project.year}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* No Results Message */}
-        {filteredProjects.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-12"
-          >
-            <p className="text-xl text-gray-400">
-              No projects found matching your criteria.
-            </p>
-            <button
-              onClick={() => setFilterState({ search: '', selectedCategory: 'All' })}
-              className="mt-4 px-6 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg text-white transition-colors"
-            >
-              Clear Filters
-            </button>
-          </motion.div>
-        )}
       </div>
     </section>
   );

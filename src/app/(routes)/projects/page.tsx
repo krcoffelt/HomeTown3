@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import BaseLayout from '@/components/layout/BaseLayout';
 import { Project, FilterState, PROJECT_CATEGORIES, SAMPLE_PROJECTS } from '@/types/projects';
 
 export default function Projects() {
@@ -62,9 +61,8 @@ export default function Projects() {
   };
 
   return (
-    <BaseLayout currentPage="/projects">
-      <div className="min-h-screen bg-black py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Page Header - Matching original Fabrica site */}
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-light text-white mb-6">
@@ -179,8 +177,7 @@ export default function Projects() {
               </button>
             </motion.div>
           )}
-        </div>
       </div>
-    </BaseLayout>
+    </div>
   );
 }

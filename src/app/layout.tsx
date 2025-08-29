@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import BaseLayout from '@/components/layout/BaseLayout';
+import TransitionProvider from '@/app/_transition/TransitionProvider';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "fabrica® Studio - Creative Design & Development",
-  description: "We're a creative studio focused on branding, web design, and digital marketing. Let's build something amazing together.",
+  title: "Hometown - Creative Design & Development",
+  description: "Hometown is a creative studio focused on branding, web design, and digital marketing. Let's build something amazing together.",
 };
 
 export default function RootLayout({
@@ -20,7 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+        <BaseLayout>
+          <TransitionProvider>
+            {children}
+          </TransitionProvider>
+        </BaseLayout>
       </body>
     </html>
   );

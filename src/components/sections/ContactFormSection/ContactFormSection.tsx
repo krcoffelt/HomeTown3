@@ -30,7 +30,7 @@ export default function ContactFormSection() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <div className="mb-6">
-              <span className="text-2xl font-light text-gray-400">fabrica®</span>
+              <span className="text-2xl font-light text-gray-400">Hometown</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-light mb-4">
               Have a project in mind?

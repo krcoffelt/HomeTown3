@@ -33,7 +33,7 @@ export default function AboutSection() {
         <div className="text-center mb-16">
           <p className="text-gray-400 text-lg mb-4">About us</p>
           <div className="mb-6">
-            <span className="text-2xl font-light text-gray-400">fabrica®</span>
+            <span className="text-2xl font-light text-gray-400">Hometown</span>
             <h2 className="text-5xl md:text-6xl font-light mt-2">
               How we launch websites and marketing campaigns.
             </h2>
