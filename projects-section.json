@@ -1,0 +1,110 @@
+{
+  "section_name": "Projects Section",
+  "section_id": "projects",
+  "layout": {
+    "background": "#F5F5F5",
+    "padding": "py-20",
+    "container": "max-width container with horizontal padding"
+  },
+  "header": {
+    "layout": "split layout - left aligned number, center main heading, right description",
+    "elements": [
+      {
+        "type": "project_count",
+        "content": {
+          "text": "(27)",
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "position": "top left"
+        }
+      },
+      {
+        "type": "main_heading",
+        "content": {
+          "text": "Projects.",
+          "font_size": "very large (6-8rem)",
+          "font_weight": "bold",
+          "color": "#000000",
+          "position": "center",
+          "letter_spacing": "tight"
+        }
+      },
+      {
+        "type": "description",
+        "content": {
+          "text": "We've helped businesses across industries achieve their goals. Here are some of our recent projects.",
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "position": "top right",
+          "max_width": "400px",
+          "line_height": "relaxed"
+        }
+      },
+      {
+        "type": "copyright",
+        "content": {
+          "text": "©2025",
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "position": "below main heading, center"
+        }
+      }
+    ]
+  },
+  "featured_projects": {
+    "layout": "2 column grid with large project cards",
+    "grid_gap": "medium spacing",
+    "projects": [
+      {
+        "name": "Boltshift.",
+        "year": "/2025",
+        "image": {
+          "description": "person wearing beige hoodie",
+          "aspect_ratio": "landscape",
+          "overlay": "dark overlay with white logo",
+          "logo": "Boltshift logo with lightning bolt icon"
+        },
+        "card_style": {
+          "border_radius": "large rounded corners",
+          "hover_effect": "subtle scale and shadow",
+          "background": "image with overlay"
+        },
+        "metadata": {
+          "status_indicator": "three dots icon",
+          "year_display": "/2025"
+        }
+      },
+      {
+        "name": "Ephemeral.",
+        "year": "/2025", 
+        "image": {
+          "description": "close-up of human eye with blue tones",
+          "aspect_ratio": "landscape",
+          "overlay": "dark overlay with white logo",
+          "logo": "Ephemeral logo with link chain icon"
+        },
+        "card_style": {
+          "border_radius": "large rounded corners",
+          "hover_effect": "subtle scale and shadow", 
+          "background": "image with overlay"
+        },
+        "metadata": {
+          "status_indicator": "three dots icon in different color",
+          "year_display": "/2025"
+        }
+      }
+    ]
+  },
+  "responsive_behavior": {
+    "desktop": "2 column grid for projects",
+    "tablet": "2 column grid maintained",
+    "mobile": "single column stack"
+  },
+  "interactions": {
+    "project_cards": "hover effects with subtle animation",
+    "cursor": "pointer cursor on hover"
+  }
+}

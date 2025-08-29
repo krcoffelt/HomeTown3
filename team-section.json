@@ -1,0 +1,169 @@
+{
+  "section_name": "Team Section",
+  "section_id": "team",
+  "layout": {
+    "background": "#F5F5F5",
+    "padding": "py-24", 
+    "container": "max-width container with horizontal padding"
+  },
+  "header": {
+    "layout": "left side content, right side team grid",
+    "left_content": [
+      {
+        "type": "brand_name",
+        "content": {
+          "text": "fabrica®",
+          "font_size": "large",
+          "font_weight": "bold",
+          "color": "#000000"
+        }
+      },
+      {
+        "type": "main_heading",
+        "content": {
+          "line_1": "The faces behind",
+          "line_2": "the projects.",
+          "font_size": "very large (4-5rem)",
+          "font_weight": "bold", 
+          "color": "#000000",
+          "line_height": "tight",
+          "margin_bottom": "large"
+        }
+      },
+      {
+        "type": "decorative_elements",
+        "content": [
+          {
+            "symbol": "+",
+            "position": "scattered around heading",
+            "color": "#CCCCCC",
+            "size": "medium"
+          }
+        ]
+      },
+      {
+        "type": "cta_section",
+        "content": {
+          "heading": "Be part of our mission",
+          "description": "If you're ready to create and collaborate, we'd love to hear from you.",
+          "button": {
+            "text": "Apply now",
+            "style": "black background, white text, rounded pill",
+            "hover_effect": "subtle scale"
+          }
+        }
+      },
+      {
+        "type": "philosophy",
+        "content": {
+          "text": "We believe great work comes from collaboration. That's why we work closely with each other to ensure every project meets your goals and exceeds expectations.",
+          "font_size": "medium",
+          "color": "#666666",
+          "line_height": "relaxed",
+          "emphasis_words": ["from collaboration"]
+        }
+      }
+    ]
+  },
+  "team_grid": {
+    "layout": "2x2 grid of team member cards",
+    "position": "right side of section",
+    "members": [
+      {
+        "name": "Lauren Thompson",
+        "role": "Team Lead",
+        "company": "at fabrica®",
+        "image": {
+          "description": "professional photo of Asian woman with long dark hair",
+          "aspect_ratio": "portrait",
+          "style": "rounded corners"
+        },
+        "card_style": {
+          "background": "#FFFFFF or light gray",
+          "border_radius": "large rounded corners",
+          "padding": "medium internal spacing",
+          "shadow": "subtle drop shadow",
+          "hover_effect": "slight elevation"
+        },
+        "plus_icon": {
+          "position": "top right of card",
+          "color": "dark",
+          "size": "small"
+        }
+      },
+      {
+        "name": "Michael Wilson", 
+        "role": "Full Stack Developer",
+        "company": "at fabrica®",
+        "image": {
+          "description": "professional photo of man with beard in suit",
+          "aspect_ratio": "portrait", 
+          "style": "rounded corners"
+        },
+        "card_style": {
+          "background": "#000000 or very dark",
+          "border_radius": "large rounded corners",
+          "padding": "medium internal spacing",
+          "shadow": "subtle drop shadow",
+          "hover_effect": "slight elevation"
+        },
+        "plus_icon": {
+          "position": "top right of card",
+          "color": "white",
+          "size": "small"
+        },
+        "text_color": "white"
+      },
+      {
+        "name": "Sarah Johnson",
+        "role": "Creative Director", 
+        "company": "at fabrica®",
+        "image": {
+          "description": "professional photo of woman in beige coat",
+          "aspect_ratio": "portrait",
+          "style": "rounded corners"
+        },
+        "card_style": {
+          "background": "#FFFFFF or light",
+          "border_radius": "large rounded corners", 
+          "padding": "medium internal spacing",
+          "shadow": "subtle drop shadow",
+          "hover_effect": "slight elevation"
+        },
+        "plus_icon": {
+          "position": "top right of card",
+          "color": "dark",
+          "size": "small"
+        }
+      },
+      {
+        "name": "Christopher Miller",
+        "role": "UX/UI Designer",
+        "company": "at fabrica®", 
+        "image": {
+          "description": "professional photo of man in dark clothing",
+          "aspect_ratio": "portrait",
+          "style": "rounded corners"
+        },
+        "card_style": {
+          "background": "#000000 or very dark",
+          "border_radius": "large rounded corners",
+          "padding": "medium internal spacing", 
+          "shadow": "subtle drop shadow",
+          "hover_effect": "slight elevation"
+        },
+        "plus_icon": {
+          "position": "top right of card",
+          "color": "white",
+          "size": "small"
+        },
+        "text_color": "white"
+      }
+    ]
+  },
+  "responsive_behavior": {
+    "desktop": "side-by-side layout with 2x2 team grid",
+    "tablet": "stacked layout with 2x2 team grid",
+    "mobile": "fully stacked with single column team cards"
+  }
+}

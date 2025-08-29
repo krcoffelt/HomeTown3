@@ -1,0 +1,190 @@
+{
+  "section_name": "Testimonials Section",
+  "section_id": "testimonials",
+  "layout": {
+    "background": "#F5F5F5",
+    "padding": "py-24",
+    "container": "max-width container with horizontal padding"
+  },
+  "header": {
+    "layout": "center-aligned main heading with copyright",
+    "elements": [
+      {
+        "type": "section_indicator",
+        "content": {
+          "icon": "black circle with arrow",
+          "text": "Testimonials",
+          "font_size": "small",
+          "font_weight": "medium",
+          "color": "#000000",
+          "position": "top left"
+        }
+      },
+      {
+        "type": "main_heading",
+        "content": {
+          "text": "Experiences.",
+          "font_size": "very large (6-8rem)",
+          "font_weight": "bold",
+          "color": "#000000",
+          "position": "center",
+          "letter_spacing": "tight"
+        }
+      },
+      {
+        "type": "copyright",
+        "content": {
+          "text": "©2025",
+          "font_size": "medium",
+          "font_weight": "normal",
+          "color": "#666666",
+          "position": "below main heading, center"
+        }
+      }
+    ]
+  },
+  "content_grid": {
+    "layout": "asymmetric grid layout with mixed content",
+    "items": [
+      {
+        "type": "rating_card",
+        "position": "top left",
+        "content": {
+          "rating": {
+            "score": "4.9",
+            "max_score": "/5", 
+            "font_size": "very large",
+            "font_weight": "bold",
+            "color": "#000000"
+          },
+          "description": {
+            "text": "We've delivered 56+ projects that help companies generate real results.",
+            "font_size": "medium",
+            "color": "#666666",
+            "emphasis": "56+ projects"
+          }
+        },
+        "card_style": {
+          "background": "#FFFFFF",
+          "border_radius": "large",
+          "padding": "large internal spacing",
+          "shadow": "subtle drop shadow"
+        }
+      },
+      {
+        "type": "testimonial_card",
+        "position": "top center",
+        "content": {
+          "client_info": {
+            "name": "James Carter",
+            "company": "Wilson & Co",
+            "avatar": "professional headshot photo"
+          },
+          "rating": {
+            "stars": 5,
+            "color": "#FFA500"
+          },
+          "quote": {
+            "text": "Incredible team! They delivered exactly what we needed, on time and beyond expectations.",
+            "font_size": "medium",
+            "color": "#000000",
+            "font_style": "normal"
+          }
+        },
+        "card_style": {
+          "background": "#FFFFFF", 
+          "border_radius": "large",
+          "padding": "large internal spacing",
+          "shadow": "subtle drop shadow"
+        },
+        "expand_icon": "plus symbol"
+      },
+      {
+        "type": "testimonial_card",
+        "position": "top right",
+        "content": {
+          "quote": {
+            "text": "A smooth process from start to finish. Highly professional team!",
+            "font_size": "large",
+            "font_weight": "bold",
+            "color": "#000000"
+          },
+          "client_info": {
+            "name": "Anna Martinez",
+            "company": "Marketing Director",
+            "avatar": "professional headshot photo"
+          },
+          "rating": {
+            "stars": 5,
+            "color": "#FFA500"
+          }
+        },
+        "card_style": {
+          "background": "#FFFFFF",
+          "border_radius": "large", 
+          "padding": "large internal spacing",
+          "shadow": "subtle drop shadow"
+        },
+        "expand_icon": "plus symbol"
+      },
+      {
+        "type": "company_info_card",
+        "position": "bottom left",
+        "content": {
+          "brand": "fabrica®",
+          "client_avatars": {
+            "description": "row of small client profile photos",
+            "count": "56+",
+            "style": "overlapping circular avatars"
+          },
+          "rating_info": {
+            "stars": 5,
+            "text": "Trusted by clients worldwide",
+            "color": "#FFA500"
+          },
+          "cta_button": {
+            "text": "Leave a review",
+            "style": "black background, white text, full width, rounded"
+          }
+        },
+        "card_style": {
+          "background": "#FFFFFF",
+          "border_radius": "large",
+          "padding": "large internal spacing",
+          "shadow": "subtle drop shadow"
+        }
+      },
+      {
+        "type": "testimonial_card",
+        "position": "bottom center",
+        "content": {
+          "quote": {
+            "text": "Our new branding is exactly what we envisioned—clean, modern, and unique. #1 in our industry.",
+            "font_size": "medium",
+            "color": "#000000"
+          },
+          "client_info": {
+            "name": "Emily Davis",
+            "avatar": "professional headshot photo"
+          },
+          "rating": {
+            "stars": 5,
+            "color": "#FFA500"
+          }
+        },
+        "card_style": {
+          "background": "#FFFFFF",
+          "border_radius": "large",
+          "padding": "large internal spacing", 
+          "shadow": "subtle drop shadow"
+        },
+        "expand_icon": "plus symbol"
+      }
+    ]
+  },
+  "responsive_behavior": {
+    "desktop": "asymmetric masonry-style grid",
+    "tablet": "2 column grid", 
+    "mobile": "single column stack"
+  }
+}

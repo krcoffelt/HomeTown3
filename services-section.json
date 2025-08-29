@@ -1,0 +1,109 @@
+{
+  "section_name": "Services Section", 
+  "section_id": "services",
+  "layout": {
+    "background": "#000000",
+    "padding": "py-24",
+    "container": "max-width container with horizontal padding"
+  },
+  "header": {
+    "layout": "left-aligned section indicator, center large heading with count",
+    "elements": [
+      {
+        "type": "section_indicator",
+        "content": {
+          "icon": "white circle with arrow",
+          "text": "What we do",
+          "font_size": "small",
+          "font_weight": "medium", 
+          "color": "#FFFFFF",
+          "position": "top left"
+        }
+      },
+      {
+        "type": "main_heading",
+        "content": {
+          "text": "Services.",
+          "font_size": "very large (6-8rem)",
+          "font_weight": "bold",
+          "color": "#FFFFFF",
+          "position": "center",
+          "letter_spacing": "tight"
+        }
+      },
+      {
+        "type": "service_count",
+        "content": {
+          "text": "(4)",
+          "font_size": "large",
+          "font_weight": "normal",
+          "color": "#999999",
+          "position": "next to main heading"
+        }
+      }
+    ]
+  },
+  "services_list": {
+    "layout": "vertical list with expandable items",
+    "items": [
+      {
+        "number": "(001)",
+        "title": "Web design and development",
+        "description": "Modern, responsive, and user-friendly websites designed to engage visitors and drive conversions.",
+        "image": {
+          "description": "wooden blocks with letters/symbols",
+          "aspect_ratio": "square",
+          "style": "rounded corners"
+        },
+        "categories": {
+          "label": "Categories",
+          "tags": [
+            "Packaging design",
+            "Logo design", 
+            "Rebranding",
+            "Typography",
+            "Guidelines",
+            "Visual identity",
+            "6+"
+          ],
+          "tag_style": "white border pills on dark background"
+        },
+        "state": "expanded",
+        "expand_icon": "minus icon (collapsed state)"
+      },
+      {
+        "number": "(002)",
+        "title": "Social media marketing",
+        "state": "collapsed",
+        "expand_icon": "plus icon"
+      },
+      {
+        "number": "(003)", 
+        "title": "SEO and content marketing",
+        "state": "collapsed",
+        "expand_icon": "plus icon"
+      }
+    ]
+  },
+  "styling": {
+    "service_items": {
+      "border": "none",
+      "padding": "large vertical padding",
+      "hover_effect": "subtle background change",
+      "typography": {
+        "number": "large, light gray",
+        "title": "large, white, bold",
+        "description": "medium, light gray"
+      }
+    },
+    "expanded_content": {
+      "layout": "grid with image on left, content on right",
+      "background": "transparent",
+      "spacing": "generous padding and margins"
+    }
+  },
+  "interactions": {
+    "expand_collapse": "smooth animation",
+    "hover_states": "subtle background and text color changes"
+  }
+}
