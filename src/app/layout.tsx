@@ -21,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <BaseLayout>
           <TransitionProvider>

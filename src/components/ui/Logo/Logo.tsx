@@ -24,7 +24,7 @@ export default function Logo({ variant, animate = false, className = '' }: LogoP
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="flex items-center justify-center mb-2">
-          <span className="text-5xl md:text-7xl lg:text-8xl font-bold text-white">Hometown</span>
+          <span className="text-5xl md:text-7xl lg:text-8xl font-bold text-white font-times-condensed">Hometown</span>
         </div>
       </motion.div>
     );

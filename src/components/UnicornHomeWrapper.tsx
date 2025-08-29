@@ -1,18 +1,20 @@
 "use client";
 
-import Script from "next/script";
 import UnicornEmbed from "@/components/graphics/UnicornEmbed";
+import Script from "next/script";
 
 export default function UnicornHomeWrapper() {
   return (
     <div className="w-full h-full min-h-[560px]">
-      {/* Load a local copy of UnicornStudio to avoid CDN flakiness */}
-      <Script src="/vendor/unicornStudio.umd.v1.4.29.js" strategy="afterInteractive" />
-
-      {/* Render the Unicorn scene from a local JSON file */}
+      {/* Load UnicornStudio only on pages that render the hero */}
+      <Script
+        src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
+        strategy="afterInteractive"
+      />
+      {/* Render the Unicorn scene via embed project ID (CDN) */}
       <UnicornEmbed
         className="w-full h-full"
-        jsonPath="/unicorn/hero.json"
+        projectId="eJdQ0V1xDfG9H88kbrGf"
         dpi={1.5}
         scale={1}
         lazy={false}
