@@ -9,9 +9,10 @@ type Props = {
   dpi?: number;
   scale?: number;
   lazy?: boolean;
+  production?: boolean;
 };
 
-export default function UnicornEmbed({ className = '', jsonPath, projectId, dpi = 1.5, scale = 1, lazy = false }: Props) {
+export default function UnicornEmbed({ className = '', jsonPath, projectId, dpi = 1.5, scale = 1, lazy = false, production = true }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function UnicornEmbed({ className = '', jsonPath, projectId, dpi 
             dpi,
             scale,
             lazyLoad: lazy,
-            production: false,
+            production,
             interactivity: { mouse: { disableMobile: true, disabled: false } },
             includeLogo: false,
           };

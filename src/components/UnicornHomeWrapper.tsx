@@ -1,20 +1,22 @@
 "use client";
-import UnicornScene from "unicornstudio-react/next";
+
+import Script from "next/script";
+import UnicornEmbed from "@/components/graphics/UnicornEmbed";
 
 export default function UnicornHomeWrapper() {
   return (
     <div className="w-full h-full min-h-[560px]">
-      <UnicornScene
-        jsonFilePath="/unicorn/hero.json"
-        width="100%"
-        height="100%"
+      {/* Load a local copy of UnicornStudio to avoid CDN flakiness */}
+      <Script src="/vendor/unicornStudio.umd.v1.4.29.js" strategy="afterInteractive" />
+
+      {/* Render the Unicorn scene from a local JSON file */}
+      <UnicornEmbed
+        className="w-full h-full"
+        jsonPath="/unicorn/hero.json"
         dpi={1.5}
-        fps={60}
         scale={1}
-        production
-        altText="Animated Hometown scene"
-        ariaLabel="Decorative animation"
-        lazyLoad={false}
+        lazy={false}
+        production={true}
       />
     </div>
   );
