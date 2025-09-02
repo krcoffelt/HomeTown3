@@ -50,10 +50,25 @@ export default function HeroSection({ onCTAClick, teamMember }: HeroSectionProps
 
           {/* Main Content Grid */}
           <div className="relative h-full flex flex-col">
-            {/* Center Logo */}
-            <div className="flex-1 flex items-center justify-center">
-              <div className="text-center">
+            {/* Center Stack: Logo, Tagline, CTA */}
+            <div className="flex-1 flex items-center justify-center px-6">
+              <div className="text-center max-w-3xl mx-auto space-y-6">
                 <Logo variant="hero" animate={true} />
+                <motion.div
+                  variants={taglineVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <p className="text-white/90 text-base md:text-lg lg:text-xl leading-relaxed">
+                    No generic websites. No empty marketing promises. Just tools and strategies that
+                    help your business grow and your brand shine.
+                  </p>
+                </motion.div>
+                <div className="flex justify-center pt-2">
+                  <CTAButton onClick={onCTAClick}>
+                    {heroContent.ctaButton}
+                  </CTAButton>
+                </div>
               </div>
             </div>
 
@@ -74,27 +89,7 @@ export default function HeroSection({ onCTAClick, teamMember }: HeroSectionProps
               </div>
             </div>
 
-            {/* Main Tagline - Lower Left */}
-            <div className="absolute bottom-20 left-8 max-w-lg hidden md:block">
-              <motion.div
-                variants={taglineVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <p className="text-white text-lg leading-relaxed">
-                  No generic websites. No empty<br />
-                  marketing promises. Just tools and strategies that<br />
-                  help your business grow and your brand shine.
-                </p>
-              </motion.div>
-            </div>
-
-            {/* CTA Button - Center Bottom */}
-            <div className="flex justify-center pb-16">
-              <CTAButton onClick={onCTAClick}>
-                {heroContent.ctaButton}
-              </CTAButton>
-            </div>
+            {/* Removed bottom-left tagline and bottom CTA; both centered above */}
           </div>
         </div>
       </div>
