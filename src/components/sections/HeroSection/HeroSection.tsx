@@ -69,25 +69,13 @@ export default function HeroSection({ onCTAClick, teamMember }: HeroSectionProps
                     {heroContent.ctaButton}
                   </CTAButton>
                 </div>
+
+                {/* Centered Service Tags - Horizontal, wraps as needed */}
+                <ServiceTags services={heroContent.serviceTags} isVisible={serviceTagsVisible} />
               </div>
             </div>
 
-            {/* Service Tags - Right Side */}
-            <div className="absolute top-1/2 right-8 transform -translate-y-1/2 hidden lg:block">
-              <div className="flex flex-col space-y-3">
-                {heroContent.serviceTags.map((service, index) => (
-                  <motion.span
-                    key={service}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: serviceTagsVisible ? 1 : 0, x: serviceTagsVisible ? 0 : 20 }}
-                    transition={{ delay: index * 0.1 + 0.8 }}
-                    className="px-4 py-2 bg-transparent border border-white/30 rounded-full text-white text-sm font-normal hover:bg-white/10 transition-all duration-300 whitespace-nowrap"
-                  >
-                    {service}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
+            {/* Removed right-side vertical service tags; now centered above */}
 
             {/* Removed bottom-left tagline and bottom CTA; both centered above */}
           </div>
