@@ -28,7 +28,7 @@ export default function Header({ currentPage = '/' }: HeaderProps) {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm border-b border-gray-200`} data-qa="site-header">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-200`} data-qa="site-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -100,7 +100,7 @@ export default function Header({ currentPage = '/' }: HeaderProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div id="mobile-menu" className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200">
+          <div id="mobile-menu" className="lg:hidden bg-white border-t border-gray-200">
             <div className="px-4 py-6 space-y-6">
               {/* Mobile Navigation */}
               <Navigation items={secondaryNavigation} currentPage={currentPage} isMobile={true} />
