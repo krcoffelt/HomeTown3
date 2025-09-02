@@ -14,7 +14,7 @@ export default function UnicornHomeWrapper() {
       {/* Render the Unicorn scene via embed project ID (CDN) */}
       <UnicornEmbed
         className="w-full h-full"
-        projectId="eJdQ0V1xDfG9H88kbrGf"
+        projectId="jr3Je0XN8Fc3dt3e4tTi"
         dpi={1.5}
         scale={1}
         lazy={false}
