@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 interface ServiceTagsProps {
   services: string[];
   isVisible: boolean;
+  singleLine?: boolean; // force tags into one line (with overflow on small widths)
 }
 
-export default function ServiceTags({ services, isVisible }: ServiceTagsProps) {
+export default function ServiceTags({ services, isVisible, singleLine = false }: ServiceTagsProps) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -24,9 +25,20 @@ export default function ServiceTags({ services, isVisible }: ServiceTagsProps) {
     visible: { opacity: 1, y: 0 }
   };
 
+  const containerClasses = [
+    "mb-12",
+    "flex",
+    "justify-center",
+    "gap-3",
+    "w-full",
+    "mx-auto",
+    "max-w-6xl",
+    singleLine ? "flex-nowrap whitespace-nowrap overflow-x-auto lg:overflow-visible" : "flex-wrap",
+  ].join(" ");
+
   return (
     <motion.div
-      className="mb-12 flex flex-wrap justify-center gap-3 max-w-4xl mx-auto"
+      className={containerClasses}
       variants={containerVariants}
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}

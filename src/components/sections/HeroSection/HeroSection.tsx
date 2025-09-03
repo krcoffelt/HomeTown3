@@ -52,7 +52,7 @@ export default function HeroSection({ onCTAClick, teamMember }: HeroSectionProps
           <div className="relative h-full flex flex-col">
             {/* Center Stack: Logo, Tagline, CTA */}
             <div className="flex-1 flex items-center justify-center px-6">
-              <div className="text-center max-w-3xl mx-auto space-y-6">
+              <div className="text-center max-w-5xl mx-auto space-y-6">
                 <Logo variant="hero" animate={true} />
                 <motion.div
                   variants={taglineVariants}
@@ -70,8 +70,8 @@ export default function HeroSection({ onCTAClick, teamMember }: HeroSectionProps
                   </CTAButton>
                 </div>
 
-                {/* Centered Service Tags - Horizontal, wraps as needed */}
-                <ServiceTags services={heroContent.serviceTags} isVisible={serviceTagsVisible} />
+                {/* Service Tags - single line on large screens */}
+                <ServiceTags services={heroContent.serviceTags} isVisible={serviceTagsVisible} singleLine />
               </div>
             </div>
 
