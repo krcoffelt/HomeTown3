@@ -17,7 +17,7 @@ export default function Home() {
       <div className="bg-texture" aria-hidden="true" />
 
       <header className="topbar">
-        <div className="logo-mark">HKC</div>
+        <div className="logo-mark" aria-label="Hometown">Hometown</div>
         <nav className="nav-links" aria-label="Primary">
           <a href="#services">Services</a>
           <a href="#pricing">Pricing</a>
