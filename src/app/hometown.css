@@ -1,10 +1,10 @@
 :root {
-  --bg: #f6f2ea;
-  --ink: #171512;
-  --muted: #5e5348;
-  --accent: #2f4f3a;       /* deep evergreen */
-  --accent-2: #c18a46;     /* warm brass */
-  --accent-soft: #e7ddcd;  /* clay */
+  --bg: #f4efe7;
+  --ink: #0f0d0a;
+  --muted: #5b5147;
+  --accent: #1f3b2b;       /* deep evergreen */
+  --accent-2: #b07a33;     /* brass */
+  --accent-soft: #e6d7c2;  /* clay */
   --card: #ffffff;
   --shadow: 0 24px 70px rgba(0,0,0,0.08);
   --radius: 18px;
@@ -27,9 +27,9 @@ body {
 .bg-texture {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 18% 18%, rgba(47,79,58,0.12), transparent 34%),
-              radial-gradient(circle at 82% 20%, rgba(193,138,70,0.14), transparent 32%),
-              radial-gradient(circle at 64% 78%, rgba(23,21,18,0.08), transparent 48%);
+  background: radial-gradient(circle at 18% 18%, rgba(31,59,43,0.12), transparent 34%),
+              radial-gradient(circle at 82% 20%, rgba(176,122,51,0.12), transparent 32%),
+              radial-gradient(circle at 64% 78%, rgba(15,13,10,0.10), transparent 48%);
   pointer-events: none;
   z-index: 0;
 }
@@ -42,7 +42,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 16px 5vw;
-  background: rgba(246,242,234,0.94);
+  background: rgba(244,239,231,0.96);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0,0,0,0.04);
 }
@@ -75,13 +75,13 @@ body {
 
 main { position: relative; z-index: 1; }
 section.strip {
-  padding: 64px 5vw 40px;
+  padding: 70px 5vw 46px;
 }
 section.strip.alt {
   background: #fff;
   border: 1px solid rgba(0,0,0,0.04);
-  box-shadow: var(--shadow);
-  margin: 48px 3vw;
+  box-shadow: 0 22px 70px rgba(0,0,0,0.08);
+  margin: 56px 3vw;
   border-radius: var(--radius);
 }
 .section-heading { max-width: 800px; margin-bottom: 32px; }
@@ -101,9 +101,9 @@ h3 { font-size: 20px; }
 
 .hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 36px;
-  padding: 96px 5vw 64px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 38px;
+  padding: 110px 5vw 70px;
   align-items: stretch;
 }
 .hero-grid { align-items: stretch; }

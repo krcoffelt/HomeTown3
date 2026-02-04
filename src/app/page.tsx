@@ -29,111 +29,89 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="hero hero-grid" id="top">
+        <section className="hero luxe-hero" id="top">
           <div className="hero-copy">
             <div className="pill-dark">Kansas City • Boutique marketing</div>
-            <h1>Premium marketing, hometown heart.</h1>
+            <h1>KC marketing that feels bespoke—without agency bloat.</h1>
             <p className="lede">
-              We build luxury-grade web, social, and local presence for KC small businesses that need polish without agency overhead. Clear offers,
-              smooth funnels, and human follow-through.
+              We craft disciplined web, local, and demand programs for Kansas City owners who want an elevated presence, faster leads, and calm reporting.
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#contact">
-                Schedule a KC audit
+                Book the 48-hour audit
               </a>
-              <a className="button ghost" href="#pricing">
-                View retainers
+              <a className="button ghost" href="#services">
+                See how we work
               </a>
             </div>
-            <div className="hero-meta">
-              <div>
-                <p className="meta-label">Response time</p>
-                <p className="meta-value">48 hrs</p>
-              </div>
-              <div>
-                <p className="meta-label">Avg. ROI window</p>
-                <p className="meta-value">60 days</p>
-              </div>
-              <div>
-                <p className="meta-label">Setup fee</p>
-                <p className="meta-value">$0</p>
-              </div>
+            <div className="hero-points">
+              <span>No setup fees</span>
+              <span>KC-only team</span>
+              <span>One Slack thread</span>
             </div>
           </div>
 
-          <div className="metric-card" aria-label="Engagement highlights">
-            <div className="metric-head">
-              <p className="eyebrow">Signals we track</p>
-              <h3>Every month, crystal clear.</h3>
+          <div className="score-card" aria-label="Before and after snapshot">
+            <header>
+              <p className="eyebrow">Presence score</p>
+              <h3>From “hidden” to “booked.”</h3>
+            </header>
+            <div className="score-rows">
+              <div className="score-row">
+                <div>
+                  <p className="meta-label">Before</p>
+                  <p className="meta-value weak">62 / 100</p>
+                </div>
+                <div>
+                  <p className="meta-label">After 60 days</p>
+                  <p className="meta-value strong">91 / 100</p>
+                </div>
+              </div>
+              <ul className="score-list">
+                <li>Local SEO fixes + offer clarity</li>
+                <li>Maps posts and photo cadence</li>
+                <li>Retargeting with tight negative lists</li>
+              </ul>
             </div>
-            <div className="metric-rows">
-              <div className="metric-row">
-                <span>Leads captured</span>
-                <strong>+38%</strong>
-              </div>
-              <div className="metric-row">
-                <span>Maps calls</span>
-                <strong>+2.4x</strong>
-              </div>
-              <div className="metric-row">
-                <span>Ad spend protected</span>
-                <strong>$150</strong>
-              </div>
-              <div className="metric-row">
-                <span>New reviews</span>
-                <strong>+24</strong>
-              </div>
-            </div>
-            <p className="metric-note">KC-only team, live reporting link, and a single Slack thread.</p>
           </div>
         </section>
 
         <section className="strip" id="services">
           <div className="section-heading">
             <p className="eyebrow">What we deliver</p>
-            <h2>Concise, conversion-led marketing built for KC owners.</h2>
-            <p className="section-sub">Choose a lane or let us run the whole play. Every service ships with measurement and a responsible budget.</p>
+            <h2>Three pillars, zero fluff.</h2>
+            <p className="section-sub">Each pillar has a fixed scope, measurable signals, and a calm handoff.</p>
           </div>
-          <div className="services-grid">
-            <article className="service-card">
-              <div className="tag">Web + Local SEO</div>
-              <h3>Signature sites in a week</h3>
-              <p>Elegant, responsive sites with copy that sounds like you. Local schema, speed, and lead capture baked in.</p>
-              <ul>
-                <li>1–5 page builds</li>
-                <li>Lead routing + alerts</li>
-                <li>On-page SEO for KC terms</li>
-              </ul>
+          <div className="pillar-grid">
+            <article className="pillar">
+              <div className="tag">Presence</div>
+              <h3>Signature sites + local SEO</h3>
+              <p>Luxury-grade single or multi-page builds with KC search intent and instant lead routing.</p>
+              <div className="mini-list">
+                <span>1–5 page builds</span>
+                <span>Schema + speed</span>
+                <span>Forms wired to your inbox</span>
+              </div>
             </article>
-            <article className="service-card">
-              <div className="tag">Google Business</div>
-              <h3>Own the map pack</h3>
-              <p>Profile clean-up, weekly posts, photo cadence, and review replies that feel human and on-brand.</p>
-              <ul>
-                <li>Audit + overhaul</li>
-                <li>Review response playbook</li>
-                <li>Photo + post calendar</li>
-              </ul>
+            <article className="pillar">
+              <div className="tag">Demand</div>
+              <h3>Disciplined ads + funnels</h3>
+              <p>Hyperlocal Google + Meta with controlled tests, negative lists, and conversion-first landing tweaks.</p>
+              <div className="mini-list">
+                <span>Launch + $150 ad credit</span>
+                <span>Offer + landing pair</span>
+                <span>Scale/stop rules in writing</span>
+              </div>
             </article>
-            <article className="service-card">
-              <div className="tag">Social Systems</div>
-              <h3>Presence without burnout</h3>
-              <p>Monthly content kits, caption bank, and in-the-comments community care so you stay top-of-mind.</p>
-              <ul>
-                <li>Reels + story templates</li>
-                <li>Reply guidelines we follow</li>
-                <li>Weekly performance recap</li>
-              </ul>
-            </article>
-            <article className="service-card">
-              <div className="tag">Paid Media</div>
-              <h3>Disciplined ad spend</h3>
-              <p>Hyperlocal Google + Meta with test budgets, negative lists, and ruthless reporting.</p>
-              <ul>
-                <li>Launch + $150 ad credit</li>
-                <li>Landing page optimization</li>
-                <li>Stop/scale rules you see</li>
-              </ul>
+            <article className="pillar">
+              <div className="tag">Reputation</div>
+              <h3>Google Business + reviews</h3>
+              <p>Map pack dominance with weekly posts, photo cadence, and on-brand review replies.</p>
+              <div className="mini-list">
+                <span>Profile clean-up</span>
+                <span>Review ask &amp; reply system</span>
+                <span>Photo/post calendar</span>
+              </div>
             </article>
           </div>
         </section>
