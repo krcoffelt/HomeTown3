@@ -21,137 +21,123 @@ export default function Home() {
         <nav className="nav-links" aria-label="Primary">
           <a href="#services">Services</a>
           <a href="#pricing">Pricing</a>
-          <a href="#work">KC Wins</a>
+          <a href="#process">Process</a>
           <a href="#contact" className="pill">
-            Start a Project
+            Book an Audit
           </a>
         </nav>
       </header>
 
       <main>
-        <section className="hero luxe-hero" id="top">
-          <div className="hero-copy">
-            <div className="pill-dark">Kansas City • Boutique marketing</div>
-            <h1>KC marketing that feels bespoke—without agency bloat.</h1>
+        <section className="hero hero-cover" id="top">
+          <div className="hero-inner">
+            <p className="eyebrow">Kansas City • Boutique marketing</p>
+            <h1>Elevated marketing for KC businesses that need to look and feel premium—without agency bloat.</h1>
             <p className="lede">
-              We craft disciplined web, local, and demand programs for Kansas City owners who want an elevated presence, faster leads, and calm reporting.
+              Websites, Google Business, social, and ads built with restraint, clear offers, and disciplined reporting.
             </p>
             <div className="hero-actions">
-              <a className="button primary" href="#contact">
-                Book the 48-hour audit
-              </a>
-              <a className="button ghost" href="#services">
-                See how we work
-              </a>
+              <a className="button primary" href="#contact">Book the 48-hour audit</a>
+              <a className="button ghost" href="#pricing">See retainers</a>
             </div>
-            <div className="hero-points">
+            <div className="hero-bullets">
               <span>No setup fees</span>
               <span>KC-only team</span>
               <span>One Slack thread</span>
             </div>
           </div>
+        </section>
 
-          <div className="score-card" aria-label="Before and after snapshot">
-            <header>
-              <p className="eyebrow">Presence score</p>
-              <h3>From “hidden” to “booked.”</h3>
-            </header>
-            <div className="score-rows">
-              <div className="score-row">
-                <div>
-                  <p className="meta-label">Before</p>
-                  <p className="meta-value weak">62 / 100</p>
-                </div>
-                <div>
-                  <p className="meta-label">After 60 days</p>
-                  <p className="meta-value strong">91 / 100</p>
-                </div>
-              </div>
-              <ul className="score-list">
-                <li>Local SEO fixes + offer clarity</li>
-                <li>Maps posts and photo cadence</li>
-                <li>Retargeting with tight negative lists</li>
-              </ul>
-            </div>
+        <section className="strip alt quick-stats" aria-label="Key metrics">
+          <div className="stat-card">
+            <p className="stat-label">Response</p>
+            <p className="stat-value">48 hrs</p>
+            <p className="stat-note">Audit + plan delivered</p>
+          </div>
+          <div className="stat-card">
+            <p className="stat-label">ROI window</p>
+            <p className="stat-value">60 days</p>
+            <p className="stat-note">Typical lift period</p>
+          </div>
+          <div className="stat-card">
+            <p className="stat-label">Setup fee</p>
+            <p className="stat-value">$0</p>
+            <p className="stat-note">Always waived</p>
           </div>
         </section>
 
         <section className="strip" id="services">
-          <div className="section-heading">
-            <p className="eyebrow">What we deliver</p>
-            <h2>Three pillars, zero fluff.</h2>
-            <p className="section-sub">Each pillar has a fixed scope, measurable signals, and a calm handoff.</p>
+          <div className="section-heading centered">
+            <p className="eyebrow">Services</p>
+            <h2>Three pillars. Clear scope. Calm delivery.</h2>
+            <p className="section-sub">Pick one or roll all three into a single retainer.</p>
           </div>
           <div className="pillar-grid">
             <article className="pillar">
               <div className="tag">Presence</div>
               <h3>Signature sites + local SEO</h3>
-              <p>Luxury-grade single or multi-page builds with KC search intent and instant lead routing.</p>
-              <div className="mini-list">
-                <span>1–5 page builds</span>
-                <span>Schema + speed</span>
-                <span>Forms wired to your inbox</span>
-              </div>
+              <p>Luxury-grade one- to five-page builds with KC search intent, speed, and instant lead routing.</p>
+              <ul>
+                <li>Offer + copy workshop</li>
+                <li>Schema, speed, on-page SEO</li>
+                <li>Forms wired to inbox + SMS</li>
+              </ul>
             </article>
             <article className="pillar">
               <div className="tag">Demand</div>
               <h3>Disciplined ads + funnels</h3>
-              <p>Hyperlocal Google + Meta with controlled tests, negative lists, and conversion-first landing tweaks.</p>
-              <div className="mini-list">
-                <span>Launch + $150 ad credit</span>
-                <span>Offer + landing pair</span>
-                <span>Scale/stop rules in writing</span>
-              </div>
+              <p>Hyperlocal Google + Meta with controlled tests, negative lists, and conversion-first landers.</p>
+              <ul>
+                <li>Launch + $150 ad credit</li>
+                <li>Landing page optimization</li>
+                <li>Scale/stop rules in writing</li>
+              </ul>
             </article>
             <article className="pillar">
               <div className="tag">Reputation</div>
               <h3>Google Business + reviews</h3>
               <p>Map pack dominance with weekly posts, photo cadence, and on-brand review replies.</p>
-              <div className="mini-list">
-                <span>Profile clean-up</span>
-                <span>Review ask &amp; reply system</span>
-                <span>Photo/post calendar</span>
-              </div>
+              <ul>
+                <li>Profile clean-up + tracking</li>
+                <li>Review request + reply playbook</li>
+                <li>Photo/post calendar</li>
+              </ul>
             </article>
           </div>
         </section>
 
         <section className="strip alt" id="pricing">
-          <div className="section-heading">
-            <p className="eyebrow">Pricing built for KC</p>
-            <h2>Three clear retainers. Pause anytime. No setup fees.</h2>
-            <p className="section-sub">All plans include reporting, inbox wiring, and a KC-only team.</p>
+          <div className="section-heading centered">
+            <p className="eyebrow">Pricing</p>
+            <h2>Three retainers for KC operators.</h2>
+            <p className="section-sub">Pause anytime. All include reporting and a KC-only team.</p>
           </div>
           <div className="pricing-grid luxe">
             <div className="price-card framed">
               <h3>KC Starter</h3>
               <p className="price">$349/mo</p>
-              <p className="desc">Site polish + social presence, sized for single-location shops.</p>
+              <p className="desc">Site polish + social presence for single-location shops.</p>
               <ul>
                 <li>1-page site or refresh</li>
                 <li>Google Business tune-up</li>
                 <li>8 social posts + replies</li>
                 <li>Monthly signal summary</li>
               </ul>
-              <a className="button ghost" href="#contact">
-                Start here
-              </a>
+              <a className="button ghost" href="#contact">Start here</a>
             </div>
             <div className="price-card framed featured">
               <div className="badge">Most chosen</div>
               <h3>KC Boost</h3>
               <p className="price">$549/mo</p>
-              <p className="desc">Lead growth with ads, reviews, and multi-page site performance.</p>
+              <p className="desc">Lead growth with ads, reviews, and multi-page performance.</p>
               <ul>
                 <li>Multi-page site + lead forms</li>
                 <li>Weekly Google Business updates</li>
-                <li>12 social posts + community mgmt</li>
+                <li>12 social posts + community</li>
                 <li>Ads launch + $150 ad credit</li>
-                <li>Review automation &amp; replies</li>
+                <li>Review automation & replies</li>
               </ul>
-              <a className="button primary" href="#contact">
-                Get KC Boost
-              </a>
+              <a className="button primary" href="#contact">Get KC Boost</a>
             </div>
             <div className="price-card framed">
               <h3>Neighborhood All-In</h3>
@@ -159,23 +145,42 @@ export default function Home() {
               <p className="desc">Fractional marketing lead and continuous optimization.</p>
               <ul>
                 <li>Custom pages + testing</li>
-                <li>Weekly content + short-form video</li>
+                <li>Weekly content + short video</li>
                 <li>Always-on ads management</li>
                 <li>Quarterly strategy sessions</li>
                 <li>Priority turnaround</li>
               </ul>
-              <a className="button ghost" href="#contact">
-                Talk with us
-              </a>
+              <a className="button ghost" href="#contact">Talk with us</a>
             </div>
           </div>
-          <p className="fineprint">
-            One-time needs? <a href="#contact">Tell us the scope</a> — we quote fast.
-          </p>
         </section>
 
-        <section className="strip" id="work">
-          <div className="section-heading">
+        <section className="strip" id="process">
+          <div className="section-heading centered">
+            <p className="eyebrow">Process</p>
+            <h2>Documented, calm, and timeboxed.</h2>
+          </div>
+          <div className="process-grid">
+            <div className="process-step">
+              <span className="step-num">01</span>
+              <h3>Audit & plan</h3>
+              <p>48-hour review of web, Google Business, socials, and ads with a concise plan + budget.</p>
+            </div>
+            <div className="process-step">
+              <span className="step-num">02</span>
+              <h3>Build & launch</h3>
+              <p>Pages, creatives, automations. Approvals in one shared board. Launch within 7–14 days.</p>
+            </div>
+            <div className="process-step">
+              <span className="step-num">03</span>
+              <h3>Run & report</h3>
+              <p>Weekly optimizations, monthly narrative report, clear rules for when we scale or pause.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="strip alt" id="work">
+          <div className="section-heading centered">
             <p className="eyebrow">KC proof</p>
             <h2>Recent neighborhood wins.</h2>
           </div>
@@ -194,30 +199,6 @@ export default function Home() {
               <div className="chip">River Market</div>
               <h3>Vintage shop</h3>
               <p>Tripled foot traffic from map pack visibility and weekly product drops.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="strip alt" id="process">
-          <div className="section-heading">
-            <p className="eyebrow">How we work</p>
-            <h2>Intentional, documented, and calm.</h2>
-          </div>
-          <div className="process-grid">
-            <div className="process-step">
-              <span className="step-num">01</span>
-              <h3>Audit &amp; plan</h3>
-              <p>48-hour review of web, Google Business, socials, and ads. You get a concise plan with budgets.</p>
-            </div>
-            <div className="process-step">
-              <span className="step-num">02</span>
-              <h3>Build &amp; launch</h3>
-              <p>We build pages, creatives, and automations. Approvals happen in one shared board.</p>
-            </div>
-            <div className="process-step">
-              <span className="step-num">03</span>
-              <h3>Run &amp; report</h3>
-              <p>Weekly optimizations, monthly narrative report, and rules for when we scale or pause.</p>
             </div>
           </div>
         </section>
@@ -254,7 +235,7 @@ export default function Home() {
       <footer className="footer">
         <div className="logo-mark">Hometown</div>
         <div className="footer-meta">
-          <p>Kansas City born. Serving KC Metro &amp; nearby towns.</p>
+          <p>Kansas City born. Serving KC Metro & nearby towns.</p>
           <p>hello@hometownkc.com · (816) 555-1910</p>
         </div>
         <div className="footer-links">
