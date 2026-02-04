@@ -7,11 +7,15 @@ export default function Home() {
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    document.body.classList.add('loaded');
     const handler = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setMenuOpen(false);
     };
     window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
+    return () => {
+      document.body.classList.remove('loaded');
+      window.removeEventListener('keydown', handler);
+    };
   }, []);
 
   useEffect(() => {
@@ -58,17 +62,29 @@ export default function Home() {
         <div className="menu-content">
           <div className="menu-brand">Hometown</div>
           <nav className="menu-nav">
-            <a href="#programs" onClick={() => setMenuOpen(false)}>Programs</a>
-            <a href="#case-studies" onClick={() => setMenuOpen(false)}>Case Studies</a>
-            <a href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a>
-            <a href="#process" onClick={() => setMenuOpen(false)}>Process</a>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+            {[
+              { label: 'Programs', href: '#programs' },
+              { label: 'Case Studies', href: '#case-studies' },
+              { label: 'Pricing', href: '#pricing' },
+              { label: 'Process', href: '#process' },
+              { label: 'Contact', href: '#contact' },
+            ].map((item, index) => (
+              <a
+                key={item.label}
+                href={item.href}
+                style={{ ['--i' as any]: index }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
           <div className="menu-links">
-            <button className="menu-pill">Work with us</button>
-            <button className="menu-pill">Team</button>
-            <button className="menu-pill">Careers</button>
-            <button className="menu-pill">Press</button>
+            {['Work with us', 'Team', 'Careers', 'Press'].map((label, index) => (
+              <button key={label} className="menu-pill" style={{ ['--i' as any]: index + 5 }}>
+                {label}
+              </button>
+            ))}
           </div>
           <div className="menu-meta">
             <p>Keep up to date</p>
@@ -88,13 +104,18 @@ export default function Home() {
       <main>
         <section className="hero" id="top">
           <div className="hero-inner">
-            <p className="eyebrow">Kansas City • Boutique marketing</p>
-            <h1>Make your business impossible to ignore.</h1>
-            <p className="lede">Hometown helps KC small businesses look premium, get found, and convert—without agency bloat.</p>
-            <div className="hero-actions">
+            <p className="eyebrow" data-hero style={{ ['--delay' as any]: '0.1s' }}>Kansas City • Boutique marketing</p>
+            <h1 data-hero style={{ ['--delay' as any]: '0.2s' }}>
+              <span className="line">Make your business</span>
+              <span className="line">impossible to ignore.</span>
+            </h1>
+            <p className="lede" data-hero style={{ ['--delay' as any]: '0.35s' }}>
+              Hometown helps KC small businesses look premium, get found, and convert—without agency bloat.
+            </p>
+            <div className="hero-actions" data-hero style={{ ['--delay' as any]: '0.45s' }}>
               <a className="button primary" href="#contact">Book the 48‑hour audit</a>
             </div>
-            <div className="hero-awards">
+            <div className="hero-awards" data-hero style={{ ['--delay' as any]: '0.55s' }}>
               <span>KC Small Business Awards</span>
               <span>2021</span>
               <span>2022</span>
@@ -103,7 +124,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-media" aria-hidden="true" />
-          <div className="hero-badges">
+          <div className="hero-badges" data-hero style={{ ['--delay' as any]: '0.65s' }}>
             <span>Crossroads</span>
             <span>Brookside</span>
             <span>River Market</span>
@@ -121,31 +142,31 @@ export default function Home() {
             <a className="text-link" href="#contact">Explore Programs</a>
           </div>
           <div className="program-list reveal">
-            <a className="program-row" href="#contact">
+            <a className="program-row" href="#contact" style={{ ['--i' as any]: 0 }}>
               <span>Website Launch</span>
               <span>Fast, elegant, search‑ready.</span>
             </a>
-            <a className="program-row" href="#contact">
+            <a className="program-row" href="#contact" style={{ ['--i' as any]: 1 }}>
               <span>Local Visibility</span>
               <span>Own the map pack in KC.</span>
             </a>
-            <a className="program-row" href="#contact">
+            <a className="program-row" href="#contact" style={{ ['--i' as any]: 2 }}>
               <span>Social Systems</span>
               <span>Presence without burnout.</span>
             </a>
-            <a className="program-row" href="#contact">
+            <a className="program-row" href="#contact" style={{ ['--i' as any]: 3 }}>
               <span>Review Engine</span>
               <span>More reviews, better replies.</span>
             </a>
-            <a className="program-row" href="#contact">
+            <a className="program-row" href="#contact" style={{ ['--i' as any]: 4 }}>
               <span>Paid Growth</span>
               <span>Disciplined, local ad spend.</span>
             </a>
-            <a className="program-row" href="#contact">
+            <a className="program-row" href="#contact" style={{ ['--i' as any]: 5 }}>
               <span>Design Refresh</span>
               <span>Consistent, premium visuals.</span>
             </a>
-            <a className="program-row muted" href="#contact">
+            <a className="program-row muted" href="#contact" style={{ ['--i' as any]: 6 }}>
               <span>All Programs (11)</span>
               <span>Build a custom stack.</span>
             </a>
@@ -167,19 +188,19 @@ export default function Home() {
                 <h3>Artisan bakery</h3>
                 <p>+63% orders after a two‑page relaunch and map pack cadence.</p>
               </article>
-              <article className="case-card">
+              <article className="case-card" style={{ ['--i' as any]: 1 }}>
                 <div className="case-media" />
                 <div className="case-tag">Brookside</div>
                 <h3>Yoga studio</h3>
                 <p>2× intro pass purchases via refined offer ladder and reels kit.</p>
               </article>
-              <article className="case-card">
+              <article className="case-card" style={{ ['--i' as any]: 2 }}>
                 <div className="case-media" />
                 <div className="case-tag">River Market</div>
                 <h3>Vintage shop</h3>
                 <p>Tripled foot traffic from review engine + weekly drops.</p>
               </article>
-              <article className="case-card">
+              <article className="case-card" style={{ ['--i' as any]: 3 }}>
                 <div className="case-media" />
                 <div className="case-tag">West Plaza</div>
                 <h3>Dental studio</h3>
