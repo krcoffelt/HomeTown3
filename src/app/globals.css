@@ -501,3 +501,31 @@ body.loaded .hero-inner [data-hero] {
   .program-row { flex-direction: column; gap: 6px; }
   .story-row { flex-direction: column; align-items: flex-start; }
 }
+
+/* Motion refinements to mirror Collins-style sequencing */
+.mask { display: block; overflow: hidden; }
+.mask-text { display: block; transform: translateY(120%); }
+.reveal.in-view .mask-text { transform: translateY(0); transition: transform 1200ms var(--ease-out); }
+.hero h1 .mask-text { transition: transform 1600ms var(--ease-out); transition-delay: var(--delay, 0.2s); }
+body.loaded .hero h1 .mask-text { transform: translateY(0); }
+
+.hero-media-wrap {
+  margin: 60px auto 40px;
+  width: min(720px, 80vw);
+  height: min(360px, 42vw);
+  transform: translateY(var(--parallax, 0px));
+  transition: transform 0.4s var(--ease-out);
+  will-change: transform;
+}
+.hero-media {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-track { cursor: grab; }
+.carousel-track.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}

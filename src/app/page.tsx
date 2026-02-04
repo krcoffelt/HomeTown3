@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const heroMediaRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     document.body.classList.add('loaded');
@@ -33,6 +34,61 @@ export default function Home() {
     );
     revealItems.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const heroMedia = heroMediaRef.current;
+    if (!heroMedia) return;
+
+    const update = () => {
+      const offset = window.scrollY * 0.08;
+      heroMedia.style.setProperty('--parallax', `${offset}px`);
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    const onPointerDown = (event: PointerEvent) => {
+      isDown = true;
+      startX = event.clientX;
+      startScroll = track.scrollLeft;
+      track.classList.add('dragging');
+      track.setPointerCapture?.(event.pointerId);
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      if (!isDown) return;
+      const delta = event.clientX - startX;
+      track.scrollLeft = startScroll - delta;
+    };
+
+    const onPointerUp = (event: PointerEvent) => {
+      isDown = false;
+      track.classList.remove('dragging');
+      track.releasePointerCapture?.(event.pointerId);
+    };
+
+    track.addEventListener('pointerdown', onPointerDown);
+    track.addEventListener('pointermove', onPointerMove);
+    track.addEventListener('pointerup', onPointerUp);
+    track.addEventListener('pointercancel', onPointerUp);
+
+    return () => {
+      track.removeEventListener('pointerdown', onPointerDown);
+      track.removeEventListener('pointermove', onPointerMove);
+      track.removeEventListener('pointerup', onPointerUp);
+      track.removeEventListener('pointercancel', onPointerUp);
+    };
   }, []);
 
   const scrollCarousel = (direction: 'prev' | 'next') => {
@@ -106,8 +162,8 @@ export default function Home() {
           <div className="hero-inner">
             <p className="eyebrow" data-hero style={{ ['--delay' as any]: '0.1s' }}>Kansas City • Boutique marketing</p>
             <h1 data-hero style={{ ['--delay' as any]: '0.2s' }}>
-              <span className="line">Make your business</span>
-              <span className="line">impossible to ignore.</span>
+              <span className="mask"><span className="mask-text line">Make your business</span></span>
+              <span className="mask"><span className="mask-text line">impossible to ignore.</span></span>
             </h1>
             <p className="lede" data-hero style={{ ['--delay' as any]: '0.35s' }}>
               Hometown helps KC small businesses look premium, get found, and convert—without agency bloat.
@@ -123,7 +179,9 @@ export default function Home() {
               <span>2024</span>
             </div>
           </div>
-          <div className="hero-media" aria-hidden="true" />
+          <div className="hero-media-wrap" ref={heroMediaRef} aria-hidden="true">
+            <div className="hero-media" />
+          </div>
           <div className="hero-badges" data-hero style={{ ['--delay' as any]: '0.65s' }}>
             <span>Crossroads</span>
             <span>Brookside</span>
@@ -137,7 +195,7 @@ export default function Home() {
         <section className="section split" id="programs">
           <div className="section-intro reveal">
             <p className="eyebrow">Programs</p>
-            <h2>Eleven ways we help KC businesses command attention and premium.</h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Eleven ways we help KC businesses command attention and premium.</span></span></h2>
             <p className="section-sub">Start with a targeted program or combine for a full‑stack retainer.</p>
             <a className="text-link" href="#contact">Explore Programs</a>
           </div>
@@ -176,7 +234,7 @@ export default function Home() {
         <section className="section split" id="case-studies">
           <div className="section-intro reveal">
             <p className="eyebrow">Case Studies</p>
-            <h2>We make your business so irresistible, success is inevitable.</h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">We make your business so irresistible, success is inevitable.</span></span></h2>
             <a className="text-link" href="#contact">Explore</a>
           </div>
           <div className="carousel reveal" aria-label="Case studies">
@@ -219,7 +277,7 @@ export default function Home() {
         <section className="culture" id="culture">
           <div className="culture-inner reveal">
             <p className="eyebrow">Arts & Culture</p>
-            <h2>Learning to see.</h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Learning to see.</span></span></h2>
             <a className="button ghost" href="#contact">Explore</a>
           </div>
         </section>
@@ -227,7 +285,7 @@ export default function Home() {
         <section className="section" id="pricing">
           <div className="section-heading centered reveal">
             <p className="eyebrow">Pricing</p>
-            <h2>Three retainers for KC operators.</h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Three retainers for KC operators.</span></span></h2>
             <p className="section-sub">Pause anytime. All include reporting and a KC‑only team.</p>
           </div>
           <div className="pricing-grid reveal">
@@ -276,7 +334,7 @@ export default function Home() {
         <section className="section" id="process">
           <div className="section-heading centered reveal">
             <p className="eyebrow">Process</p>
-            <h2>Documented, calm, and timeboxed.</h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Documented, calm, and timeboxed.</span></span></h2>
           </div>
           <div className="process-grid reveal">
             <div className="process-step">
@@ -301,7 +359,7 @@ export default function Home() {
           <div className="cta reveal">
             <div>
               <p className="eyebrow">Start here</p>
-              <h2>Tell us about your KC business. We’ll send a mini‑plan in 48 hours.</h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Tell us about your KC business. We’ll send a mini‑plan in 48 hours.</span></span></h2>
               <p className="section-sub">Simple, clear, and focused on what moves the needle.</p>
             </div>
             <form className="cta-form" onSubmit={(event) => event.preventDefault()}>
