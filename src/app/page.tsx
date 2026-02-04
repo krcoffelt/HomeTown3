@@ -29,173 +29,193 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="hero" id="top">
+        <section className="hero hero-grid" id="top">
           <div className="hero-copy">
-            <p className="eyebrow">Kansas City • Small business marketing</p>
-            <h1>Local, scrappy, and obsessed with getting KC businesses found.</h1>
+            <div className="pill-dark">Kansas City • Boutique marketing</div>
+            <h1>Premium marketing, hometown heart.</h1>
             <p className="lede">
-              Hometown KC gives neighborhood shops and service pros a Pinterest-pretty presence without big-agency price tags. Websites, socials,
-              Google Business, reviews, ads—done-for-you and done on budget.
+              We build luxury-grade web, social, and local presence for KC small businesses that need polish without agency overhead. Clear offers,
+              smooth funnels, and human follow-through.
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#contact">
-                Book a free KC audit
+                Schedule a KC audit
               </a>
               <a className="button ghost" href="#pricing">
-                See budget plans
+                View retainers
               </a>
             </div>
-            <div className="trust" aria-label="Performance stats">
-              <div className="stat">
-                <span>48 hrs</span>
-                <small>launch-ready starter sites</small>
+            <div className="hero-meta">
+              <div>
+                <p className="meta-label">Response time</p>
+                <p className="meta-value">48 hrs</p>
               </div>
-              <div className="stat">
-                <span>92%</span>
-                <small>clients rank higher on Maps</small>
+              <div>
+                <p className="meta-label">Avg. ROI window</p>
+                <p className="meta-value">60 days</p>
               </div>
-              <div className="stat">
-                <span>$0</span>
-                <small>setup on any plan</small>
+              <div>
+                <p className="meta-label">Setup fee</p>
+                <p className="meta-value">$0</p>
               </div>
             </div>
           </div>
-          <div className="hero-mood" aria-label="Pinterest style inspiration board">
-            <div className="pin board">KC coffee crawl itinerary</div>
-            <div className="pin photo warm">Crossroads mural inspo</div>
-            <div className="pin card">
-              Google Business tune-up
-              <br />
-              <strong>Included</strong>
+
+          <div className="metric-card" aria-label="Engagement highlights">
+            <div className="metric-head">
+              <p className="eyebrow">Signals we track</p>
+              <h3>Every month, crystal clear.</h3>
             </div>
-            <div className="pin photo cool">Westside storefront glow-up</div>
-            <div className="pin note">“They feel like part of our shop team.” — Sarah, Brookside</div>
+            <div className="metric-rows">
+              <div className="metric-row">
+                <span>Leads captured</span>
+                <strong>+38%</strong>
+              </div>
+              <div className="metric-row">
+                <span>Maps calls</span>
+                <strong>+2.4x</strong>
+              </div>
+              <div className="metric-row">
+                <span>Ad spend protected</span>
+                <strong>$150</strong>
+              </div>
+              <div className="metric-row">
+                <span>New reviews</span>
+                <strong>+24</strong>
+              </div>
+            </div>
+            <p className="metric-note">KC-only team, live reporting link, and a single Slack thread.</p>
           </div>
         </section>
 
         <section className="strip" id="services">
           <div className="section-heading">
-            <p className="eyebrow">What we make for you</p>
-            <h2>Services built to look good on the Plaza and on your P&amp;L.</h2>
-            <p className="lede">Pick the pieces you need or let us bundle them. Every deliverable is optimized to convert and tracked so you see results.</p>
+            <p className="eyebrow">What we deliver</p>
+            <h2>Concise, conversion-led marketing built for KC owners.</h2>
+            <p className="section-sub">Choose a lane or let us run the whole play. Every service ships with measurement and a responsible budget.</p>
           </div>
-          <div className="masonry">
-            <article className="tile tall">
-              <div className="tag">Web + SEO</div>
-              <h3>Launch-worthy sites in days</h3>
-              <p>Fast, mobile-first sites with local SEO baked in. Copywriting that sounds like your shop, not a template.</p>
+          <div className="services-grid">
+            <article className="service-card">
+              <div className="tag">Web + Local SEO</div>
+              <h3>Signature sites in a week</h3>
+              <p>Elegant, responsive sites with copy that sounds like you. Local schema, speed, and lead capture baked in.</p>
               <ul>
-                <li>48-hour starter builds</li>
-                <li>On-page SEO for KC searches</li>
-                <li>Lead forms wired to your inbox</li>
+                <li>1–5 page builds</li>
+                <li>Lead routing + alerts</li>
+                <li>On-page SEO for KC terms</li>
               </ul>
             </article>
-            <article className="tile photo" aria-label="KC skyline illustration" />
-            <article className="tile">
-              <div className="tag">Social</div>
-              <h3>Social that feels like your block</h3>
-              <p>Monthly content calendars, Reel scripts, Canva-ready templates, and community replies so you stay present.</p>
-            </article>
-            <article className="tile wide">
+            <article className="service-card">
               <div className="tag">Google Business</div>
-              <h3>Map pack domination</h3>
-              <p>Profile clean-up, photo strategy, weekly updates, and review replies that sound human.</p>
+              <h3>Own the map pack</h3>
+              <p>Profile clean-up, weekly posts, photo cadence, and review replies that feel human and on-brand.</p>
+              <ul>
+                <li>Audit + overhaul</li>
+                <li>Review response playbook</li>
+                <li>Photo + post calendar</li>
+              </ul>
             </article>
-            <article className="tile">
-              <div className="tag">Reviews</div>
-              <h3>Earn love, showcase it</h3>
-              <p>Automated asks post-visit, balanced responses, and website widgets that show your KC love notes.</p>
+            <article className="service-card">
+              <div className="tag">Social Systems</div>
+              <h3>Presence without burnout</h3>
+              <p>Monthly content kits, caption bank, and in-the-comments community care so you stay top-of-mind.</p>
+              <ul>
+                <li>Reels + story templates</li>
+                <li>Reply guidelines we follow</li>
+                <li>Weekly performance recap</li>
+              </ul>
             </article>
-            <article className="tile">
-              <div className="tag">Ads</div>
-              <h3>Neighborhood-focused ads</h3>
-              <p>Hyperlocal targeting for Google + Meta. Start with tiny budgets, scale only when ROI shows up.</p>
-            </article>
-            <article className="tile tall soft">
-              <div className="tag">Design</div>
-              <h3>Brand refreshes without the bloat</h3>
-              <p>Menus, flyers, truck wraps, and story highlights that all feel like the same friendly voice.</p>
+            <article className="service-card">
+              <div className="tag">Paid Media</div>
+              <h3>Disciplined ad spend</h3>
+              <p>Hyperlocal Google + Meta with test budgets, negative lists, and ruthless reporting.</p>
+              <ul>
+                <li>Launch + $150 ad credit</li>
+                <li>Landing page optimization</li>
+                <li>Stop/scale rules you see</li>
+              </ul>
             </article>
           </div>
         </section>
 
         <section className="strip alt" id="pricing">
           <div className="section-heading">
-            <p className="eyebrow">Budget-first pricing</p>
-            <h2>Pick a plan, pause anytime. No setup fees. Local rates.</h2>
+            <p className="eyebrow">Pricing built for KC</p>
+            <h2>Three clear retainers. Pause anytime. No setup fees.</h2>
+            <p className="section-sub">All plans include reporting, inbox wiring, and a KC-only team.</p>
           </div>
-          <div className="pricing-grid">
-            <div className="price-card">
-              <div className="badge">Most Popular</div>
+          <div className="pricing-grid luxe">
+            <div className="price-card framed">
               <h3>KC Starter</h3>
               <p className="price">$349/mo</p>
-              <p className="desc">For shops that need a site + consistent socials.</p>
+              <p className="desc">Site polish + social presence, sized for single-location shops.</p>
               <ul>
                 <li>1-page site or refresh</li>
                 <li>Google Business tune-up</li>
                 <li>8 social posts + replies</li>
-                <li>Monthly performance note</li>
+                <li>Monthly signal summary</li>
               </ul>
-              <a className="button primary" href="#contact">
-                Get KC Starter
+              <a className="button ghost" href="#contact">
+                Start here
               </a>
             </div>
-            <div className="price-card">
+            <div className="price-card framed featured">
+              <div className="badge">Most chosen</div>
               <h3>KC Boost</h3>
               <p className="price">$549/mo</p>
-              <p className="desc">Best for growing crews ready for ads + reviews.</p>
+              <p className="desc">Lead growth with ads, reviews, and multi-page site performance.</p>
               <ul>
-                <li>Multi-page site with lead forms</li>
+                <li>Multi-page site + lead forms</li>
                 <li>Weekly Google Business updates</li>
                 <li>12 social posts + community mgmt</li>
                 <li>Ads launch + $150 ad credit</li>
                 <li>Review automation &amp; replies</li>
               </ul>
-              <a className="button ghost" href="#contact">
+              <a className="button primary" href="#contact">
                 Get KC Boost
               </a>
             </div>
-            <div className="price-card">
+            <div className="price-card framed">
               <h3>Neighborhood All-In</h3>
               <p className="price">$899/mo</p>
-              <p className="desc">Fractional marketing lead without hiring.</p>
+              <p className="desc">Fractional marketing lead and continuous optimization.</p>
               <ul>
-                <li>Custom site, landing pages, A/B tests</li>
-                <li>Weekly content + video snippets</li>
+                <li>Custom pages + testing</li>
+                <li>Weekly content + short-form video</li>
                 <li>Always-on ads management</li>
                 <li>Quarterly strategy sessions</li>
                 <li>Priority turnaround</li>
               </ul>
               <a className="button ghost" href="#contact">
-                Talk to us
+                Talk with us
               </a>
             </div>
           </div>
           <p className="fineprint">
-            Need a one-time project? <a href="#contact">Tell us what you need</a> — we quote fast.
+            One-time needs? <a href="#contact">Tell us the scope</a> — we quote fast.
           </p>
         </section>
 
         <section className="strip" id="work">
           <div className="section-heading">
             <p className="eyebrow">KC proof</p>
-            <h2>Neighborhood wins we’re proud of.</h2>
+            <h2>Recent neighborhood wins.</h2>
           </div>
-          <div className="wins">
+          <div className="wins luxe-wins">
             <div className="win-card">
               <div className="chip">Crossroads</div>
               <h3>Artisan bakery</h3>
-              <p>+63% orders after a 2-page site and Google Business refresh.</p>
+              <p>+63% orders after a two-page relaunch and photo-led Google Business cadence.</p>
             </div>
             <div className="win-card">
               <div className="chip">Brookside</div>
               <h3>Yoga studio</h3>
-              <p>2x intro pass purchases with a Pinterest-inspired landing page and reels kit.</p>
+              <p>2× intro pass purchases via refined offer ladder and quarterly reel kits.</p>
             </div>
             <div className="win-card">
               <div className="chip">River Market</div>
               <h3>Vintage shop</h3>
-              <p>Tripled foot traffic from map pack visibility and weekly photo drops.</p>
+              <p>Tripled foot traffic from map pack visibility and weekly product drops.</p>
             </div>
           </div>
         </section>
@@ -203,35 +223,35 @@ export default function Home() {
         <section className="strip alt" id="process">
           <div className="section-heading">
             <p className="eyebrow">How we work</p>
-            <h2>Simple, calm, and transparent.</h2>
+            <h2>Intentional, documented, and calm.</h2>
           </div>
-          <div className="steps">
-            <div className="step">
+          <div className="process-grid">
+            <div className="process-step">
               <span className="step-num">01</span>
-              <h3>KC audit</h3>
-              <p>We review your presence (site, socials, Google Business) and share a punchy plan within 24 hours.</p>
+              <h3>Audit &amp; plan</h3>
+              <p>48-hour review of web, Google Business, socials, and ads. You get a concise plan with budgets.</p>
             </div>
-            <div className="step">
+            <div className="process-step">
               <span className="step-num">02</span>
-              <h3>Build fast</h3>
-              <p>Design, copy, and setup shipped in days, not months. You approve in a clean, visual board.</p>
+              <h3>Build &amp; launch</h3>
+              <p>We build pages, creatives, and automations. Approvals happen in one shared board.</p>
             </div>
-            <div className="step">
+            <div className="process-step">
               <span className="step-num">03</span>
-              <h3>Run + report</h3>
-              <p>We post, manage reviews, and optimize ads. You get a simple monthly note with what changed and what’s next.</p>
+              <h3>Run &amp; report</h3>
+              <p>Weekly optimizations, monthly narrative report, and rules for when we scale or pause.</p>
             </div>
           </div>
         </section>
 
         <section className="strip" id="contact">
-          <div className="cta-card">
+          <div className="cta-card luxe-cta">
             <div className="cta-copy">
               <p className="eyebrow">Start here</p>
-              <h2>Tell us about your KC business and we’ll send a tailored mini-plan.</h2>
+              <h2>Tell us about your KC business. We’ll send a mini-plan and budget in 48 hours.</h2>
               <ul className="cta-list">
-                <li>48-hour response with recommendations</li>
-                <li>Realistic budgets &amp; timelines</li>
+                <li>Tailored recommendations</li>
+                <li>Clear scope + timing</li>
                 <li>No pressure to commit</li>
               </ul>
             </div>
@@ -243,7 +263,7 @@ export default function Home() {
               <label htmlFor="business">Business name</label>
               <input id="business" name="business" type="text" placeholder="Westside Floral" required />
               <label htmlFor="need">What do you need most?</label>
-              <textarea id="need" name="need" rows={3} placeholder="New site, keep Google updated, and light ads." required />
+              <textarea id="need" name="need" rows={3} placeholder="New site, keep Google updated, and disciplined ads." required />
               <button className="button primary" type="submit">
                 Send my KC mini-plan
               </button>
@@ -254,7 +274,7 @@ export default function Home() {
       </main>
 
       <footer className="footer">
-        <div className="logo-mark">HKC</div>
+        <div className="logo-mark">Hometown</div>
         <div className="footer-meta">
           <p>Kansas City born. Serving KC Metro &amp; nearby towns.</p>
           <p>hello@hometownkc.com · (816) 555-1910</p>
