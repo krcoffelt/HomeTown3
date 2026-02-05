@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const heroMediaRef = useRef<HTMLDivElement | null>(null);
 
@@ -17,6 +18,13 @@ export default function Home() {
       document.body.classList.remove('loaded');
       window.removeEventListener('keydown', handler);
     };
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -101,7 +109,7 @@ export default function Home() {
     <div className={menuOpen ? 'menu-open' : ''}>
       <div className="bg-grain" aria-hidden="true" />
 
-      <header className="site-header">
+      <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="wordmark">Hometown</div>
         <button
           className="menu-toggle"
@@ -201,32 +209,39 @@ export default function Home() {
           </div>
           <div className="program-list reveal">
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 0 }}>
-              <span>Website Launch</span>
-              <span>Fast, elegant, search‑ready.</span>
+              <span className="program-title">Website Launch</span>
+              <span className="program-sub">Fast, elegant, search‑ready.</span>
+              <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 1 }}>
-              <span>Local Visibility</span>
-              <span>Own the map pack in KC.</span>
+              <span className="program-title">Local Visibility</span>
+              <span className="program-sub">Own the map pack in KC.</span>
+              <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 2 }}>
-              <span>Social Systems</span>
-              <span>Presence without burnout.</span>
+              <span className="program-title">Social Systems</span>
+              <span className="program-sub">Presence without burnout.</span>
+              <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 3 }}>
-              <span>Review Engine</span>
-              <span>More reviews, better replies.</span>
+              <span className="program-title">Review Engine</span>
+              <span className="program-sub">More reviews, better replies.</span>
+              <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 4 }}>
-              <span>Paid Growth</span>
-              <span>Disciplined, local ad spend.</span>
+              <span className="program-title">Paid Growth</span>
+              <span className="program-sub">Disciplined, local ad spend.</span>
+              <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 5 }}>
-              <span>Design Refresh</span>
-              <span>Consistent, premium visuals.</span>
+              <span className="program-title">Design Refresh</span>
+              <span className="program-sub">Consistent, premium visuals.</span>
+              <span className="program-arrow">→</span>
             </a>
             <a className="program-row muted" href="#contact" style={{ ['--i' as any]: 6 }}>
-              <span>All Programs (11)</span>
-              <span>Build a custom stack.</span>
+              <span className="program-title">All Programs (11)</span>
+              <span className="program-sub">Build a custom stack.</span>
+              <span className="program-arrow">→</span>
             </a>
           </div>
         </section>
