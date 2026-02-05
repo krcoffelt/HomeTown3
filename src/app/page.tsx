@@ -168,8 +168,11 @@ export default function Home() {
               ))}
             </nav>
             <div className="menu-links">
-              {['Work with us', 'Team', 'Careers', 'Press'].map((label, index) => (
-                <button key={label} className="menu-pill" style={{ ['--i' as any]: index + 3 }}>
+              <a className="menu-primary" href="#contact" style={{ ['--i' as any]: 3 }} onClick={() => setMenuOpen(false)}>
+                Work with us
+              </a>
+              {['Team', 'Careers', 'Press'].map((label, index) => (
+                <button key={label} className="menu-pill" style={{ ['--i' as any]: index + 4 }}>
                   {label}
                 </button>
               ))}
@@ -207,7 +210,7 @@ export default function Home() {
           <div className="hero-inner">
             <h1 data-hero style={{ ['--delay' as any]: '0.15s' }}>
               <span className="mask"><span className="mask-text line">Make your business the</span></span>
-              <span className="mask"><span className="mask-text line">first name locals think of.</span></span>
+              <span className="mask"><span className="mask-text line">first call locals make.</span></span>
             </h1>
             <div className="hero-awards" data-hero style={{ ['--delay' as any]: '0.35s' }}>
               <span>Clients across KC</span>
@@ -236,7 +239,7 @@ export default function Home() {
             <a className="text-link" href="#contact">Explore Services</a>
           </div>
           <div className="program-list reveal">
-            <a className="program-row" href="#contact" style={{ ['--i' as any]: 0 }}>
+            <a className="program-row featured" href="#contact" style={{ ['--i' as any]: 0 }}>
               <span className="program-title">Website Launch</span>
               <span className="program-sub">Fast, clean, conversion‑ready.</span>
               <span className="program-arrow">→</span>
