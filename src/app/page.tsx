@@ -105,6 +105,27 @@ export default function Home() {
     trackRef.current.scrollBy({ left: offset, behavior: 'smooth' });
   };
 
+  const menuStories = [
+    {
+      label: 'Story',
+      title: 'First Fridays x Hometown',
+      image:
+        'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=640&q=80',
+    },
+    {
+      label: 'Story',
+      title: 'The Mural District',
+      image:
+        'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=640&q=80',
+    },
+    {
+      label: 'Story',
+      title: 'Small Business Saturdays',
+      image:
+        'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=640&q=80',
+    },
+  ];
+
   return (
     <div className={menuOpen ? 'menu-open' : ''}>
       <div className="bg-grain" aria-hidden="true" />
@@ -123,44 +144,56 @@ export default function Home() {
       </header>
 
       <div className={`menu-overlay ${menuOpen ? 'active' : ''}`} aria-hidden={!menuOpen}>
-        <div className="menu-content">
-          <div className="menu-brand">Hometown</div>
-          <nav className="menu-nav">
-            {[
-              { label: 'Programs', href: '#programs' },
-              { label: 'Case Studies', href: '#case-studies' },
-              { label: 'Pricing', href: '#pricing' },
-              { label: 'Process', href: '#process' },
-              { label: 'Contact', href: '#contact' },
-            ].map((item, index) => (
-              <a
-                key={item.label}
-                href={item.href}
-                style={{ ['--i' as any]: index }}
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="menu-links">
-            {['Work with us', 'Team', 'Careers', 'Press'].map((label, index) => (
-              <button key={label} className="menu-pill" style={{ ['--i' as any]: index + 5 }}>
-                {label}
-              </button>
-            ))}
+        <div className="menu-panel">
+          <div className="menu-left">
+            <div className="menu-brand">Hometown</div>
+            <nav className="menu-nav">
+              {[
+                { label: 'Case Studies', href: '#case-studies' },
+                { label: 'Programs', href: '#programs' },
+                { label: 'Arts & Culture', href: '#culture' },
+              ].map((item, index) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  style={{ ['--i' as any]: index }}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <div className="menu-links">
+              {['Work with us', 'Team', 'Careers', 'Press'].map((label, index) => (
+                <button key={label} className="menu-pill" style={{ ['--i' as any]: index + 3 }}>
+                  {label}
+                </button>
+              ))}
+            </div>
+            <div className="menu-meta">
+              <p>Keep up to date</p>
+              <div className="menu-field">
+                <input type="email" placeholder="Your email" />
+                <button>Subscribe</button>
+              </div>
+              <div className="menu-social">
+                <a href="#">X (Twitter)</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+              </div>
+            </div>
           </div>
-          <div className="menu-meta">
-            <p>Keep up to date</p>
-            <div className="menu-field">
-              <input type="email" placeholder="Your email" />
-              <button>Subscribe</button>
-            </div>
-            <div className="menu-social">
-              <a href="#">X (Twitter)</a>
-              <a href="#">LinkedIn</a>
-              <a href="#">Instagram</a>
-            </div>
+          <div className="menu-right">
+            {menuStories.map((story, index) => (
+              <div key={story.title} className="menu-story" style={{ ['--i' as any]: index + 2 }}>
+                <div className="menu-story-media" style={{ backgroundImage: `url(${story.image})` }} />
+                <div className="menu-story-text">
+                  <span>{story.label}</span>
+                  <h4>{story.title}</h4>
+                </div>
+                <span className="menu-story-arrow">→</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -173,30 +206,22 @@ export default function Home() {
               <span className="mask"><span className="mask-text line">Make your business</span></span>
               <span className="mask"><span className="mask-text line">impossible to ignore.</span></span>
             </h1>
-            <p className="lede" data-hero style={{ ['--delay' as any]: '0.35s' }}>
-              Hometown helps KC small businesses look premium, get found, and convert—without agency bloat.
-            </p>
-            <div className="hero-actions" data-hero style={{ ['--delay' as any]: '0.45s' }}>
-              <a className="button primary" href="#contact">Book the 48‑hour audit</a>
-            </div>
-            <div className="hero-awards" data-hero style={{ ['--delay' as any]: '0.55s' }}>
+            <div className="hero-awards" data-hero style={{ ['--delay' as any]: '0.35s' }}>
               <span>KC Small Business Awards</span>
               <span>2021</span>
               <span>2022</span>
               <span>2023</span>
               <span>2024</span>
             </div>
+            <div className="hero-actions" data-hero style={{ ['--delay' as any]: '0.45s' }}>
+              <a className="button outline" href="#contact">Book the 48‑hour audit</a>
+            </div>
           </div>
-          <div className="hero-media-wrap" ref={heroMediaRef} aria-hidden="true">
+        </section>
+
+        <section className="hero-media-block" aria-hidden="true">
+          <div className="hero-media-wrap" ref={heroMediaRef}>
             <div className="hero-media" />
-          </div>
-          <div className="hero-badges" data-hero style={{ ['--delay' as any]: '0.65s' }}>
-            <span>Crossroads</span>
-            <span>Brookside</span>
-            <span>River Market</span>
-            <span>Waldo</span>
-            <span>Plaza</span>
-            <span>Westport</span>
           </div>
         </section>
 
@@ -224,21 +249,11 @@ export default function Home() {
               <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 3 }}>
-              <span className="program-title">Review Engine</span>
-              <span className="program-sub">More reviews, better replies.</span>
-              <span className="program-arrow">→</span>
-            </a>
-            <a className="program-row" href="#contact" style={{ ['--i' as any]: 4 }}>
               <span className="program-title">Paid Growth</span>
               <span className="program-sub">Disciplined, local ad spend.</span>
               <span className="program-arrow">→</span>
             </a>
-            <a className="program-row" href="#contact" style={{ ['--i' as any]: 5 }}>
-              <span className="program-title">Design Refresh</span>
-              <span className="program-sub">Consistent, premium visuals.</span>
-              <span className="program-arrow">→</span>
-            </a>
-            <a className="program-row muted" href="#contact" style={{ ['--i' as any]: 6 }}>
+            <a className="program-row muted" href="#contact" style={{ ['--i' as any]: 4 }}>
               <span className="program-title">All Programs (11)</span>
               <span className="program-sub">Build a custom stack.</span>
               <span className="program-arrow">→</span>
@@ -256,28 +271,76 @@ export default function Home() {
             <button className="carousel-btn prev" aria-label="Previous" onClick={() => scrollCarousel('prev')}>‹</button>
             <div className="carousel-track" ref={trackRef}>
               <article className="case-card">
-                <div className="case-media" />
+                <div
+                  className="case-media"
+                  style={{
+                    backgroundImage:
+                      'url(https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80)',
+                  }}
+                />
                 <div className="case-tag">Crossroads</div>
                 <h3>Artisan bakery</h3>
                 <p>+63% orders after a two‑page relaunch and map pack cadence.</p>
               </article>
               <article className="case-card" style={{ ['--i' as any]: 1 }}>
-                <div className="case-media" />
+                <div
+                  className="case-media"
+                  style={{
+                    backgroundImage:
+                      'url(https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80)',
+                  }}
+                />
                 <div className="case-tag">Brookside</div>
                 <h3>Yoga studio</h3>
                 <p>2× intro pass purchases via refined offer ladder and reels kit.</p>
               </article>
               <article className="case-card" style={{ ['--i' as any]: 2 }}>
-                <div className="case-media" />
+                <div
+                  className="case-media"
+                  style={{
+                    backgroundImage:
+                      'url(https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80)',
+                  }}
+                />
                 <div className="case-tag">River Market</div>
                 <h3>Vintage shop</h3>
                 <p>Tripled foot traffic from review engine + weekly drops.</p>
               </article>
               <article className="case-card" style={{ ['--i' as any]: 3 }}>
-                <div className="case-media" />
+                <div
+                  className="case-media"
+                  style={{
+                    backgroundImage:
+                      'url(https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80)',
+                  }}
+                />
                 <div className="case-tag">West Plaza</div>
                 <h3>Dental studio</h3>
                 <p>41% lift in booked consults after funnel rebuild.</p>
+              </article>
+              <article className="case-card" style={{ ['--i' as any]: 4 }}>
+                <div
+                  className="case-media"
+                  style={{
+                    backgroundImage:
+                      'url(https://images.unsplash.com/photo-1491972690050-ba117db4dc09?auto=format&fit=crop&w=900&q=80)',
+                  }}
+                />
+                <div className="case-tag">Waldo</div>
+                <h3>Neighborhood cafe</h3>
+                <p>58% lift in repeat visits after loyalty and menu refresh.</p>
+              </article>
+              <article className="case-card" style={{ ['--i' as any]: 5 }}>
+                <div
+                  className="case-media"
+                  style={{
+                    backgroundImage:
+                      'url(https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80)',
+                  }}
+                />
+                <div className="case-tag">Plaza</div>
+                <h3>Salon collective</h3>
+                <p>Booked calendar in 30 days with a new offer ladder.</p>
               </article>
             </div>
             <button className="carousel-btn next" aria-label="Next" onClick={() => scrollCarousel('next')}>›</button>
@@ -293,7 +356,7 @@ export default function Home() {
           <div className="culture-inner reveal">
             <p className="eyebrow">Arts & Culture</p>
             <h2 className="mask-title"><span className="mask"><span className="mask-text">Learning to see.</span></span></h2>
-            <a className="button ghost" href="#contact">Explore</a>
+            <a className="button outline" href="#contact">Explore</a>
           </div>
         </section>
 
@@ -314,7 +377,7 @@ export default function Home() {
                 <li>8 social posts + replies</li>
                 <li>Monthly signal summary</li>
               </ul>
-              <a className="button ghost" href="#contact">Start here</a>
+              <a className="button outline" href="#contact">Start here</a>
             </div>
             <div className="price-card featured">
               <div className="badge">Most chosen</div>
@@ -341,7 +404,7 @@ export default function Home() {
                 <li>Quarterly strategy sessions</li>
                 <li>Priority turnaround</li>
               </ul>
-              <a className="button ghost" href="#contact">Talk with us</a>
+              <a className="button outline" href="#contact">Talk with us</a>
             </div>
           </div>
         </section>
