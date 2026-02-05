@@ -10,6 +10,9 @@
   --radius: 14px;
   --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
   --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --dur-fast: 280ms;
+  --dur-med: 600ms;
+  --dur-slow: 1200ms;
 }
 
 * { box-sizing: border-box; }
@@ -102,7 +105,7 @@ body {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 260ms ease;
+  transition: opacity var(--dur-fast) var(--ease-out);
   z-index: 30;
 }
 .menu-overlay.active {
@@ -117,7 +120,7 @@ body {
   gap: 60px;
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity 400ms var(--ease-out), transform 600ms var(--ease-out);
+  transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
 }
 .menu-overlay.active .menu-panel {
   opacity: 1;
@@ -145,7 +148,7 @@ body {
   line-height: 1.05;
   opacity: 0;
   transform: translateY(10px);
-  transition: color 0.7s var(--ease-out), opacity 500ms var(--ease-out), transform 700ms var(--ease-out);
+  transition: color 700ms var(--ease-out), opacity var(--dur-med) var(--ease-out), transform 700ms var(--ease-out);
   transition-delay: calc(var(--i, 0) * 0.06s);
 }
 .menu-overlay.active .menu-nav a {
@@ -173,9 +176,10 @@ body {
   letter-spacing: 0.16em;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 500ms var(--ease-out), transform 700ms var(--ease-out);
+  transition: opacity var(--dur-med) var(--ease-out), transform 700ms var(--ease-out), filter var(--dur-med) var(--ease-out);
   transition-delay: calc(var(--i, 0) * 0.06s);
 }
+.menu-primary:hover { filter: brightness(0.95); }
 .menu-overlay.active .menu-primary {
   opacity: 1;
   transform: translateY(0);
@@ -273,7 +277,7 @@ main { position: relative; z-index: 1; padding-top: 80px; }
 .hero-media-block [data-hero] {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 1000ms var(--ease-out), transform 2000ms var(--ease-expo);
+  transition: opacity var(--dur-slow) var(--ease-out), transform 2000ms var(--ease-expo);
   transition-delay: var(--delay, 0s);
 }
 body.loaded .hero [data-hero],
@@ -487,7 +491,9 @@ body.loaded .hero-media-block [data-hero] {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding-bottom: 10px;
+  scrollbar-width: none;
 }
+.carousel-track::-webkit-scrollbar { display: none; }
 .case-card {
   background: transparent;
   color: var(--ink);
@@ -502,6 +508,23 @@ body.loaded .hero-media-block [data-hero] {
   flex: 0 0 var(--card-width, 320px);
   transition: transform 600ms var(--ease-out), box-shadow 600ms var(--ease-out);
 }
+.case-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.case-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  opacity: 0.95;
+}
 .case-card.wide { --card-width: 420px; }
 .case-card.tall .case-media { height: 260px; }
 .case-card:hover {
@@ -512,7 +535,10 @@ body.loaded .hero-media-block [data-hero] {
   border-radius: 18px;
   background-size: cover;
   background-position: center;
+  transition: transform 900ms var(--ease-expo), filter 900ms var(--ease-expo);
+  will-change: transform;
 }
+.case-card:hover .case-media { transform: scale(1.02); filter: saturate(1.05); }
 .case-tag { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 .carousel-btn {
   background: none;
