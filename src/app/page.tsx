@@ -363,18 +363,30 @@ export default function Home() {
         <section className="section" id="pricing">
           <div className="section-heading centered reveal">
             <p className="eyebrow">Pricing</p>
-            <h2 className="mask-title"><span className="mask"><span className="mask-text">Three retainers for KC operators.</span></span></h2>
-            <p className="section-sub">Pause anytime. All include reporting and a KC‑only team.</p>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Budget‑friendly plans for KC operators.</span></span></h2>
+            <p className="section-sub">Start free, upgrade anytime. All paid plans include monthly reporting.</p>
           </div>
           <div className="pricing-grid reveal">
             <div className="price-card">
-              <h3>KC Starter</h3>
-              <p className="price">$349/mo</p>
-              <p className="desc">Site polish + social presence for single‑location shops.</p>
+              <h3>KC Free</h3>
+              <p className="price">$0</p>
+              <p className="desc">DIY essentials to get visible and stay consistent.</p>
               <ul>
-                <li>1‑page site or refresh</li>
-                <li>Google Business tune‑up</li>
-                <li>8 social posts + replies</li>
+                <li>Local visibility checklist</li>
+                <li>Google Business starter audit</li>
+                <li>Template social calendar</li>
+                <li>One‑time 30‑min consult</li>
+              </ul>
+              <a className="button outline" href="#contact">Claim free kit</a>
+            </div>
+            <div className="price-card">
+              <h3>KC Starter</h3>
+              <p className="price">$149/mo</p>
+              <p className="desc">Polish your presence with light monthly support.</p>
+              <ul>
+                <li>1‑page site refresh</li>
+                <li>Google Business tune‑ups</li>
+                <li>6 social posts + replies</li>
                 <li>Monthly signal summary</li>
               </ul>
               <a className="button outline" href="#contact">Start here</a>
@@ -382,27 +394,25 @@ export default function Home() {
             <div className="price-card featured">
               <div className="badge">Most chosen</div>
               <h3>KC Boost</h3>
-              <p className="price">$549/mo</p>
-              <p className="desc">Lead growth with ads, reviews, and multi‑page performance.</p>
+              <p className="price">$349/mo</p>
+              <p className="desc">Growth support for leads, reviews, and a multi‑page site.</p>
               <ul>
                 <li>Multi‑page site + lead forms</li>
                 <li>Weekly Google Business updates</li>
-                <li>12 social posts + community</li>
-                <li>Ads launch + $150 credit</li>
+                <li>10 social posts + community</li>
                 <li>Review automation & replies</li>
               </ul>
               <a className="button primary" href="#contact">Get KC Boost</a>
             </div>
             <div className="price-card">
               <h3>Neighborhood All‑In</h3>
-              <p className="price">$899/mo</p>
+              <p className="price">$599/mo</p>
               <p className="desc">Fractional marketing lead and continuous optimization.</p>
               <ul>
                 <li>Custom pages + testing</li>
                 <li>Weekly content + short video</li>
                 <li>Always‑on ads management</li>
                 <li>Quarterly strategy sessions</li>
-                <li>Priority turnaround</li>
               </ul>
               <a className="button outline" href="#contact">Talk with us</a>
             </div>
