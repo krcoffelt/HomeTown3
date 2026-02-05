@@ -131,7 +131,11 @@ export default function Home() {
       <div className="bg-grain" aria-hidden="true" />
 
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
-        <div className="wordmark">Hometown</div>
+        <img
+          className="logo"
+          src="/images/HometownLogo2026_white.png"
+          alt="Hometown"
+        />
         <button
           className="menu-toggle"
           aria-label="Toggle menu"
