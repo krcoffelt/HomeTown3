@@ -150,7 +150,7 @@ export default function Home() {
             <nav className="menu-nav">
               {[
                 { label: 'Case Studies', href: '#case-studies' },
-                { label: 'Programs', href: '#programs' },
+                { label: 'Services', href: '#services' },
                 { label: 'Arts & Culture', href: '#culture' },
               ].map((item, index) => (
                 <a
@@ -201,8 +201,7 @@ export default function Home() {
       <main>
         <section className="hero" id="top">
           <div className="hero-inner">
-            <p className="eyebrow" data-hero style={{ ['--delay' as any]: '0.1s' }}>Kansas City • Marketing partner</p>
-            <h1 data-hero style={{ ['--delay' as any]: '0.2s' }}>
+            <h1 data-hero style={{ ['--delay' as any]: '0.15s' }}>
               <span className="mask"><span className="mask-text line">Make your business</span></span>
               <span className="mask"><span className="mask-text line">impossible to ignore.</span></span>
             </h1>
@@ -213,9 +212,6 @@ export default function Home() {
               <span>2023</span>
               <span>2024</span>
             </div>
-            <div className="hero-actions" data-hero style={{ ['--delay' as any]: '0.45s' }}>
-              <a className="button outline" href="#contact">Book the 48‑hour audit</a>
-            </div>
           </div>
         </section>
 
@@ -223,14 +219,17 @@ export default function Home() {
           <div className="hero-media-wrap" ref={heroMediaRef}>
             <div className="hero-media" />
           </div>
+          <div className="hero-actions" data-hero style={{ ['--delay' as any]: '0.55s' }}>
+            <a className="button outline" href="#contact">Book the 48‑hour audit</a>
+          </div>
         </section>
 
-        <section className="section split" id="programs">
+        <section className="section split" id="services">
           <div className="section-intro reveal">
-            <p className="eyebrow">Programs</p>
-            <h2 className="mask-title"><span className="mask"><span className="mask-text">Eleven ways we help KC businesses command attention and premium.</span></span></h2>
-            <p className="section-sub">Start with a targeted program or combine for a full‑stack retainer.</p>
-            <a className="text-link" href="#contact">Explore Programs</a>
+            <p className="eyebrow">Services</p>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Eleven ways we help KC businesses get seen and chosen.</span></span></h2>
+            <p className="section-sub">Start with one service or combine a full‑stack retainer.</p>
+            <a className="text-link" href="#contact">Explore Services</a>
           </div>
           <div className="program-list reveal">
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 0 }}>
@@ -254,7 +253,7 @@ export default function Home() {
               <span className="program-arrow">→</span>
             </a>
             <a className="program-row muted" href="#contact" style={{ ['--i' as any]: 4 }}>
-              <span className="program-title">All Programs (11)</span>
+              <span className="program-title">All Services (11)</span>
               <span className="program-sub">Build a custom stack.</span>
               <span className="program-arrow">→</span>
             </a>
@@ -270,7 +269,7 @@ export default function Home() {
           <div className="carousel reveal" aria-label="Case studies">
             <button className="carousel-btn prev" aria-label="Previous" onClick={() => scrollCarousel('prev')}>‹</button>
             <div className="carousel-track" ref={trackRef}>
-              <article className="case-card">
+              <article className="case-card wide">
                 <div
                   className="case-media"
                   style={{
@@ -294,7 +293,7 @@ export default function Home() {
                 <h3>Yoga studio</h3>
                 <p>2× intro pass purchases via refined offer ladder and reels kit.</p>
               </article>
-              <article className="case-card" style={{ ['--i' as any]: 2 }}>
+              <article className="case-card tall" style={{ ['--i' as any]: 2 }}>
                 <div
                   className="case-media"
                   style={{
@@ -318,7 +317,7 @@ export default function Home() {
                 <h3>Dental studio</h3>
                 <p>41% lift in booked consults after funnel rebuild.</p>
               </article>
-              <article className="case-card" style={{ ['--i' as any]: 4 }}>
+              <article className="case-card wide" style={{ ['--i' as any]: 4 }}>
                 <div
                   className="case-media"
                   style={{
@@ -472,7 +471,7 @@ export default function Home() {
           <p>hello@hometownkc.com · (816) 555‑1910</p>
         </div>
         <div className="footer-links">
-          <a href="#programs">Programs</a>
+          <a href="#services">Services</a>
           <a href="#case-studies">Case Studies</a>
           <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
