@@ -201,7 +201,7 @@ export default function Home() {
       <main>
         <section className="hero" id="top">
           <div className="hero-inner">
-            <p className="eyebrow" data-hero style={{ ['--delay' as any]: '0.1s' }}>Kansas City • Boutique marketing</p>
+            <p className="eyebrow" data-hero style={{ ['--delay' as any]: '0.1s' }}>Kansas City • Marketing partner</p>
             <h1 data-hero style={{ ['--delay' as any]: '0.2s' }}>
               <span className="mask"><span className="mask-text line">Make your business</span></span>
               <span className="mask"><span className="mask-text line">impossible to ignore.</span></span>
