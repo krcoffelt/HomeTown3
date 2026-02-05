@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Hometown — Kansas City Marketing Studio",
-  description: "Marketing for KC small businesses: websites, local visibility, social systems, and ads that convert.",
+  description: "Kansas City marketing for small businesses: websites, local visibility, social systems, and ads that convert.",
 };
 
 export default function RootLayout({

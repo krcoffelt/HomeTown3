@@ -206,15 +206,15 @@ export default function Home() {
         <section className="hero" id="top">
           <div className="hero-inner">
             <h1 data-hero style={{ ['--delay' as any]: '0.15s' }}>
-              <span className="mask"><span className="mask-text line">Make your business</span></span>
-              <span className="mask"><span className="mask-text line">impossible to ignore.</span></span>
+              <span className="mask"><span className="mask-text line">Make your business the</span></span>
+              <span className="mask"><span className="mask-text line">first name locals think of.</span></span>
             </h1>
             <div className="hero-awards" data-hero style={{ ['--delay' as any]: '0.35s' }}>
-              <span>KC Small Business Awards</span>
-              <span>2021</span>
-              <span>2022</span>
-              <span>2023</span>
-              <span>2024</span>
+              <span>Clients across KC</span>
+              <span>Retail</span>
+              <span>Food</span>
+              <span>Home</span>
+              <span>Wellness</span>
             </div>
           </div>
         </section>
@@ -231,29 +231,29 @@ export default function Home() {
         <section className="section split" id="services">
           <div className="section-intro reveal">
             <p className="eyebrow">Services</p>
-            <h2 className="mask-title"><span className="mask"><span className="mask-text">Eleven ways we help KC businesses get seen and chosen.</span></span></h2>
-            <p className="section-sub">Start with one service or combine a full‑stack retainer.</p>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Practical marketing for real‑world operators who want steady growth.</span></span></h2>
+            <p className="section-sub">Start with one service or combine a full, simple monthly plan.</p>
             <a className="text-link" href="#contact">Explore Services</a>
           </div>
           <div className="program-list reveal">
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 0 }}>
               <span className="program-title">Website Launch</span>
-              <span className="program-sub">Fast, elegant, search‑ready.</span>
+              <span className="program-sub">Fast, clean, conversion‑ready.</span>
               <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 1 }}>
               <span className="program-title">Local Visibility</span>
-              <span className="program-sub">Own the map pack in KC.</span>
+              <span className="program-sub">Own search, maps, and reviews.</span>
               <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 2 }}>
               <span className="program-title">Social Systems</span>
-              <span className="program-sub">Presence without burnout.</span>
+              <span className="program-sub">Show up consistently without the scramble.</span>
               <span className="program-arrow">→</span>
             </a>
             <a className="program-row" href="#contact" style={{ ['--i' as any]: 3 }}>
               <span className="program-title">Paid Growth</span>
-              <span className="program-sub">Disciplined, local ad spend.</span>
+              <span className="program-sub">Tight targeting, careful spend, clear results.</span>
               <span className="program-arrow">→</span>
             </a>
             <a className="program-row muted" href="#contact" style={{ ['--i' as any]: 4 }}>
@@ -267,7 +267,7 @@ export default function Home() {
         <section className="section split" id="case-studies">
           <div className="section-intro reveal">
             <p className="eyebrow">Case Studies</p>
-            <h2 className="mask-title"><span className="mask"><span className="mask-text">We make your business so irresistible, success is inevitable.</span></span></h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Proof over promises. Real results for KC businesses.</span></span></h2>
             <a className="text-link" href="#contact">Explore</a>
           </div>
           <div className="carousel reveal" aria-label="Case studies">
@@ -352,13 +352,13 @@ export default function Home() {
 
         <section className="story-row reveal">
           <span className="story-label">Story</span>
-          <a href="#contact">The House of Hometown</a>
+          <a href="#contact">Built in KC. Working everywhere.</a>
         </section>
 
         <section className="culture" id="culture">
           <div className="culture-inner reveal">
             <p className="eyebrow">Arts & Culture</p>
-            <h2 className="mask-title"><span className="mask"><span className="mask-text">Learning to see.</span></span></h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Learning to see—and create.</span></span></h2>
             <a className="button outline" href="#contact">Explore</a>
           </div>
         </section>
@@ -366,18 +366,18 @@ export default function Home() {
         <section className="section" id="pricing">
           <div className="section-heading centered reveal">
             <p className="eyebrow">Pricing</p>
-            <h2 className="mask-title"><span className="mask"><span className="mask-text">Budget‑friendly plans for KC operators.</span></span></h2>
-            <p className="section-sub">Start free, upgrade anytime. All paid plans include monthly reporting.</p>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Budget‑friendly plans for KC businesses (and beyond).</span></span></h2>
+            <p className="section-sub">Start free, upgrade anytime. Month‑to‑month with clear reporting.</p>
           </div>
           <div className="pricing-grid reveal">
             <div className="price-card">
               <h3>KC Free</h3>
               <p className="price">$0</p>
-              <p className="desc">DIY essentials to get visible and stay consistent.</p>
+              <p className="desc">Free tools to get found and stay consistent.</p>
               <ul>
                 <li>Local visibility checklist</li>
                 <li>Google Business starter audit</li>
-                <li>Template social calendar</li>
+                <li>Monthly content planner</li>
                 <li>One‑time 30‑min consult</li>
               </ul>
               <a className="button outline" href="#contact">Claim free kit</a>
@@ -385,7 +385,7 @@ export default function Home() {
             <div className="price-card">
               <h3>KC Starter</h3>
               <p className="price">$149/mo</p>
-              <p className="desc">Polish your presence with light monthly support.</p>
+              <p className="desc">Light monthly support for visibility and content.</p>
               <ul>
                 <li>1‑page site refresh</li>
                 <li>Google Business tune‑ups</li>
@@ -398,7 +398,7 @@ export default function Home() {
               <div className="badge">Most chosen</div>
               <h3>KC Boost</h3>
               <p className="price">$349/mo</p>
-              <p className="desc">Growth support for leads, reviews, and a multi‑page site.</p>
+              <p className="desc">Full local growth system for leads and reviews.</p>
               <ul>
                 <li>Multi‑page site + lead forms</li>
                 <li>Weekly Google Business updates</li>
@@ -410,7 +410,7 @@ export default function Home() {
             <div className="price-card">
               <h3>Neighborhood All‑In</h3>
               <p className="price">$599/mo</p>
-              <p className="desc">Fractional marketing lead and continuous optimization.</p>
+              <p className="desc">Fractional marketing lead with ongoing optimization.</p>
               <ul>
                 <li>Custom pages + testing</li>
                 <li>Weekly content + short video</li>
@@ -431,17 +431,17 @@ export default function Home() {
             <div className="process-step">
               <span className="step-num">01</span>
               <h3>Audit & plan</h3>
-              <p>48‑hour review of web, Google Business, socials, and ads with a concise plan + budget.</p>
+              <p>48‑hour review of web, Google Business, social, and ads with a clear plan + budget.</p>
             </div>
             <div className="process-step">
               <span className="step-num">02</span>
               <h3>Build & launch</h3>
-              <p>Pages, creatives, automations. Approvals in one shared board. Launch within 7–14 days.</p>
+              <p>Pages, creatives, automations. Approvals in one board. Launch within 7–14 days.</p>
             </div>
             <div className="process-step">
               <span className="step-num">03</span>
               <h3>Run & report</h3>
-              <p>Weekly optimizations, monthly narrative report, clear rules for when we scale or pause.</p>
+              <p>Weekly optimizations, monthly report, clear rules for when we scale or pause.</p>
             </div>
           </div>
         </section>
@@ -450,7 +450,7 @@ export default function Home() {
           <div className="cta reveal">
             <div>
               <p className="eyebrow">Start here</p>
-            <h2 className="mask-title"><span className="mask"><span className="mask-text">Tell us about your KC business. We’ll send a mini‑plan in 48 hours.</span></span></h2>
+            <h2 className="mask-title"><span className="mask"><span className="mask-text">Tell us about your business. We’ll send a clear mini‑plan in 48 hours.</span></span></h2>
               <p className="section-sub">Simple, clear, and focused on what moves the needle.</p>
             </div>
             <form className="cta-form" onSubmit={(event) => event.preventDefault()}>
@@ -471,7 +471,7 @@ export default function Home() {
       <footer className="footer">
         <div>
           <div className="wordmark">Hometown</div>
-          <p>Kansas City born. Serving KC Metro & nearby towns.</p>
+          <p>Kansas City based. Working with small businesses everywhere.</p>
           <p>hello@hometownkc.com · (816) 555‑1910</p>
         </div>
         <div className="footer-links">
