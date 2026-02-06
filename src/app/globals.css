@@ -108,6 +108,37 @@ body {
   transition: opacity var(--dur-fast) var(--ease-out);
   z-index: 30;
 }
+.menu-close {
+  position: fixed;
+  top: 22px;
+  right: 6vw;
+  z-index: 31;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.menu-overlay.active .menu-close {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.menu-close span {
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background: rgba(247,244,239,0.85);
+  border-radius: 2px;
+}
+.menu-close span:first-child { transform: rotate(45deg); }
+.menu-close span:last-child { transform: rotate(-45deg); }
 .menu-overlay.active {
   opacity: 1;
   pointer-events: auto;

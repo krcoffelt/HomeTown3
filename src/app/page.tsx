@@ -148,6 +148,10 @@ export default function Home() {
       </header>
 
       <div className={`menu-overlay ${menuOpen ? 'active' : ''}`} aria-hidden={!menuOpen}>
+        <button className="menu-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
+          <span />
+          <span />
+        </button>
         <div className="menu-panel">
           <div className="menu-left">
             <div className="menu-brand">Hometown</div>
