@@ -335,6 +335,7 @@ body.loaded .hero-media-block [data-hero] {
 }
 .hero h1 .line {
   display: block;
+  white-space: nowrap;
 }
 .hero-actions {
   display: flex;
@@ -707,6 +708,7 @@ body.loaded .hero-media-block [data-hero] {
 
 @media (max-width: 720px) {
   .hero { padding: 120px 6vw 40px; }
+  .hero h1 .line { white-space: normal; }
   .menu-panel { grid-template-columns: 1fr; padding: 12vh 0 6vh; }
   .menu-right { display: none; }
   .menu-nav a { font-size: clamp(28px, 10vw, 40px); }
