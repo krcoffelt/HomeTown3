@@ -13,8 +13,8 @@ Primary target reference: https://www.wearecollins.com/
 - [x] Step 5: Recompose homepage from section components.
 - [x] Step 6: Build listing/detail templates for programs and case studies.
 - [x] Step 7: Add story and arts/culture templates.
-- [ ] Step 8: Implement metadata and social cards.
-- [ ] Step 9: Run QA, fix regressions, and freeze for release.
+- [x] Step 8: Implement metadata and social cards.
+- [x] Step 9: Run QA, fix regressions, and freeze for release.
 
 ## 1. Objective and Scope
 

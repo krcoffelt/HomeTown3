@@ -1,51 +1,29 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import type { CSSProperties } from 'react';
+
+const proofItems = ['Retail', 'Food & Beverage', 'Home Services', 'Wellness', 'Professional Services'];
+const heroHeadingStyle = { '--delay': '0.15s' } as CSSProperties;
+const heroProofStyle = { '--delay': '0.35s' } as CSSProperties;
 
 export default function HomeHeroSection() {
-  const heroMediaRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const heroMedia = heroMediaRef.current;
-    if (!heroMedia) return;
-
-    const update = () => {
-      const offset = window.scrollY * 0.08;
-      heroMedia.style.setProperty('--parallax', `${offset}px`);
-    };
-
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
-  }, []);
-
   return (
-    <>
-      <section className="hero" id="top">
-        <div className="hero-inner">
-          <h1 data-hero style={{ ['--delay' as any]: '0.15s' }}>
-            <span className="mask"><span className="mask-text line">Make your business the</span></span>
-            <span className="mask"><span className="mask-text line">first call locals make.</span></span>
-          </h1>
-          <div className="hero-awards" data-hero style={{ ['--delay' as any]: '0.35s' }}>
-            <span>Clients across KC</span>
-            <span>Retail</span>
-            <span>Food</span>
-            <span>Home</span>
-            <span>Wellness</span>
-          </div>
+    <section className="hero" id="top">
+      <div className="hero-inner">
+        <h1 data-hero style={heroHeadingStyle}>
+          <span className="mask">
+            <span className="mask-text line">Make your business the first call locals make.</span>
+          </span>
+        </h1>
+        <div className="hero-proof" data-hero style={heroProofStyle}>
+          <p className="hero-proof-label">Kansas City Marketing Studio</p>
+          <ul className="hero-proof-list" aria-label="Industries served">
+            {proofItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
-      </section>
-
-      <section className="hero-media-block" aria-hidden="true">
-        <div className="hero-media-wrap" ref={heroMediaRef}>
-          <div className="hero-media" />
-        </div>
-        <div className="hero-actions" data-hero style={{ ['--delay' as any]: '0.55s' }}>
-          <a className="button outline" href="#contact">Book the 48-hour audit</a>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
-

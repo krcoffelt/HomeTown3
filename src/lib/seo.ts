@@ -6,7 +6,7 @@ export const siteConfig = {
   description:
     'Kansas City marketing for small businesses: websites, local visibility, social systems, and ads that convert.',
   url: 'https://hometownkc.agency',
-  ogImage: '/images/hero-bg.jpg',
+  ogImage: '/opengraph-image',
   xHandle: '@hometown',
 } as const;
 
