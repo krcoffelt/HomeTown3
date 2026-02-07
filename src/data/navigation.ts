@@ -1,23 +1,26 @@
 import { NavigationItem } from '@/types/navigation';
 
 export const primaryNavigation: NavigationItem[] = [
-  { label: 'Services', href: '/services' },
-  { label: 'Projects', href: '/projects', count: '27' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Programs', href: '/programs' },
+  { label: 'Arts & Culture', href: '/arts-culture' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export const secondaryNavigation: NavigationItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'Services', href: '/services' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Programs', href: '/programs' },
+  { label: 'Arts & Culture', href: '/arts-culture' },
+  { label: 'Team', href: '/team' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Press', href: '/press' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export const contactInfo = {
-  phone: '(312) 555-2468',
-  email: 'hello@hometown.com',
+  phone: '(816) 555-1910',
+  email: 'hello@hometownkc.com',
 };
 
 export const legalLinks = [
@@ -26,7 +29,7 @@ export const legalLinks = [
 ];
 
 export const socialLinks = [
-  { label: 'Twitter', href: 'https://twitter.com/hometown', icon: 'twitter' },
-  { label: 'Instagram', href: 'https://instagram.com/hometown', icon: 'instagram' },
-  { label: 'Dribbble', href: 'https://dribbble.com/hometown', icon: 'dribbble' },
+  { label: 'X (Twitter)', href: 'https://x.com/hometown', icon: 'twitter' },
+  { label: 'Instagram', href: 'https://www.instagram.com/hometownkc/', icon: 'instagram' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/hometownkc/', icon: 'linkedin' },
 ];
