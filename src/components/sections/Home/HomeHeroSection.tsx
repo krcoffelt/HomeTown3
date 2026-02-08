@@ -25,7 +25,6 @@ export default function HomeHeroSection() {
           altText="Hero background animation"
           ariaLabel="Hero background animation"
         />
-        <div className="hero-bg-overlay" />
       </div>
       <div className="hero-inner">
         <h1 data-hero style={heroHeadingStyle}>
