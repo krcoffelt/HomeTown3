@@ -1044,11 +1044,14 @@ body.loaded .hero [data-hero] {
   --case-item-width: clamp(360px, 32vw, 500px);
 }
 .case-rail-media {
+  position: relative;
+  overflow: hidden;
   height: clamp(320px, 34vw, 500px);
   border-radius: 6px;
-  background-size: cover;
-  background-position: center;
   transition: transform 700ms var(--ease-out), filter 700ms var(--ease-out);
+}
+.case-rail-media-img {
+  object-fit: cover;
 }
 .case-rail-item.tall .case-rail-media {
   height: clamp(380px, 42vw, 620px);

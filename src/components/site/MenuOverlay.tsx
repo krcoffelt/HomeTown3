@@ -159,22 +159,24 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
           </div>
         </div>
         <div className="menu-right">
-          {menuStories.map((story, index) => (
-            <a
-              key={story.slug}
-              href={story.href}
-              className="menu-story"
-              style={{ '--i': index + 2 } as CSSProperties}
-              tabIndex={interactiveTabIndex}
-            >
-              <div className="menu-story-media" style={{ backgroundImage: `url(${story.image})` }} />
-              <div className="menu-story-text">
-                <span>{story.label}</span>
-                <h4>{story.title}</h4>
-              </div>
-              <span className="menu-story-arrow">→</span>
-            </a>
-          ))}
+          {menuOpen
+            ? menuStories.map((story, index) => (
+                <a
+                  key={story.slug}
+                  href={story.href}
+                  className="menu-story"
+                  style={{ '--i': index + 2 } as CSSProperties}
+                  tabIndex={interactiveTabIndex}
+                >
+                  <div className="menu-story-media" style={{ backgroundImage: `url(${story.image})` }} />
+                  <div className="menu-story-text">
+                    <span>{story.label}</span>
+                    <h4>{story.title}</h4>
+                  </div>
+                  <span className="menu-story-arrow">→</span>
+                </a>
+              ))
+            : null}
         </div>
       </div>
     </div>
