@@ -1,7 +1,6 @@
 'use client';
 
 import { type CSSProperties, type MouseEvent, useEffect, useRef } from 'react';
-import { menuStories } from '@/data/stories';
 
 type MenuOverlayProps = {
   menuOpen: boolean;
@@ -9,21 +8,27 @@ type MenuOverlayProps = {
 };
 
 const mainNavItems = [
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Programs', href: '/programs' },
-  { label: 'Arts & Culture', href: '/arts-culture' },
+  { label: '$800 Websites', href: '/#website-package' },
+  { label: 'Social Media', href: '/#services' },
+  { label: 'Logos', href: '/#services' },
+  { label: 'Process', href: '/#process' },
 ];
 
 const utilityItems = [
-  { label: 'Team', href: '/team' },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Press', href: '/press' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Case Studies', href: '/case-studies' },
 ];
 
 const socialItems = [
   { label: 'X (Twitter)', href: 'https://x.com/hometown' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/hometownkc/' },
   { label: 'Instagram', href: 'https://www.instagram.com/hometownkc/' },
+];
+
+const quickStartChecklist = [
+  'Start with the $800 website package',
+  'Add social media management if needed',
+  'Add logo design if your brand needs a reset',
 ];
 
 export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps) {
@@ -100,7 +105,7 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
       </button>
       <div ref={panelRef} className="menu-panel" role="dialog" aria-modal="true" aria-label="Main menu">
         <div className="menu-left">
-          <div className="menu-brand">Hometown</div>
+          <div className="menu-brand">Hometown Agency</div>
           <nav className="menu-nav">
             {mainNavItems.map((item, index) => (
               <a
@@ -122,7 +127,7 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
               onClick={onCloseMenu}
               tabIndex={interactiveTabIndex}
             >
-              Work with us
+              Start $800 Website
             </a>
             {utilityItems.map((item, index) => (
               <a
@@ -138,11 +143,7 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
             ))}
           </div>
           <div className="menu-meta">
-            <p>Keep up to date</p>
-            <div className="menu-field">
-              <input type="email" placeholder="Your email" tabIndex={interactiveTabIndex} />
-              <button tabIndex={interactiveTabIndex}>Subscribe</button>
-            </div>
+            <p>Need help fast? We can scope your website in one kickoff call.</p>
             <div className="menu-social">
               {socialItems.map((item) => (
                 <a
@@ -159,24 +160,23 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
           </div>
         </div>
         <div className="menu-right">
-          {menuOpen
-            ? menuStories.map((story, index) => (
-                <a
-                  key={story.slug}
-                  href={story.href}
-                  className="menu-story"
-                  style={{ '--i': index + 2 } as CSSProperties}
-                  tabIndex={interactiveTabIndex}
-                >
-                  <div className="menu-story-media" style={{ backgroundImage: `url(${story.image})` }} />
-                  <div className="menu-story-text">
-                    <span>{story.label}</span>
-                    <h4>{story.title}</h4>
-                  </div>
-                  <span className="menu-story-arrow">→</span>
-                </a>
-              ))
-            : null}
+          <article className="menu-quick-card">
+            <p className="menu-quick-label">Quick Start Plan</p>
+            <h4>What to expect</h4>
+            <ul>
+              {quickStartChecklist.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <a
+              className="menu-primary"
+              href="/contact"
+              onClick={onCloseMenu}
+              tabIndex={interactiveTabIndex}
+            >
+              Book Kickoff
+            </a>
+          </article>
         </div>
       </div>
     </div>

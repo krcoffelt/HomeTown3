@@ -4,8 +4,8 @@ import { createPageMetadata } from '@/lib/seo';
 import { contactInfo } from '@/data/navigation';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Work With Us',
-  description: 'Start a conversation with Hometown about programs, campaigns, and creative systems.',
+  title: 'Start Your Website',
+  description: 'Start your $800 website project with Hometown. Add social media or logo support when needed.',
   path: '/contact',
 });
 
@@ -14,17 +14,18 @@ export default function ContactPage() {
     <SiteShell>
       <main className="section listing-page">
         <header className="listing-hero">
-          <p className="eyebrow">Work With Us</p>
-          <h1>Let&apos;s build the next chapter.</h1>
+          <p className="eyebrow">Start Project</p>
+          <h1>Launch your $800 website.</h1>
           <p className="listing-lead">
-            Tell us what you&apos;re building and where traction is getting stuck. We&apos;ll recommend the
-            best next program and timeline.
+            Share your business details and we&apos;ll map a clean, fast launch plan. If needed, we&apos;ll
+            also scope social media and logo support.
           </p>
         </header>
 
         <section className="detail-panels">
           <article className="detail-panel">
             <h2>Contact</h2>
+            <p>Most projects start with the website package first.</p>
             <p>{contactInfo.email}</p>
             <p>{contactInfo.phone}</p>
             <p>Kansas City, Missouri</p>
@@ -35,8 +36,8 @@ export default function ContactPage() {
             <input type="text" name="name" placeholder="Name" />
             <input type="email" name="email" placeholder="Email" />
             <input type="text" name="company" placeholder="Company" />
-            <textarea name="message" rows={5} placeholder="What do you need help with?" />
-            <button className="button primary" type="submit">Send</button>
+            <textarea name="message" rows={5} placeholder="Tell us about your business and what you need." />
+            <button className="button primary" type="submit">Start My Website</button>
           </form>
         </section>
       </main>

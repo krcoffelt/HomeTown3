@@ -3,10 +3,11 @@
 import { useEffect } from 'react';
 import SiteShell from '@/components/site/SiteShell';
 import {
-  CaseStudiesPreviewSection,
+  AgencyServicesSection,
+  BuildProcessSection,
+  ConversionCtaSection,
   HomeHeroSection,
-  ProgramsPreviewSection,
-  StoryFeatureSection,
+  WebsitePackageSection,
 } from '@/components/sections/Home';
 
 export default function HomePageClient() {
@@ -38,9 +39,10 @@ export default function HomePageClient() {
     <SiteShell>
       <main className="home-main">
         <HomeHeroSection />
-        <ProgramsPreviewSection />
-        <CaseStudiesPreviewSection />
-        <StoryFeatureSection />
+        <AgencyServicesSection />
+        <WebsitePackageSection />
+        <BuildProcessSection />
+        <ConversionCtaSection />
       </main>
     </SiteShell>
   );

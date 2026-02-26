@@ -1,20 +1,19 @@
 import { NavigationItem } from '@/types/navigation';
 
 export const primaryNavigation: NavigationItem[] = [
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Programs', href: '/programs' },
-  { label: 'Arts & Culture', href: '/arts-culture' },
+  { label: '$800 Websites', href: '/#website-package' },
+  { label: 'Social Media', href: '/#services' },
+  { label: 'Logos', href: '/#services' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export const secondaryNavigation: NavigationItem[] = [
   { label: 'Home', href: '/' },
+  { label: '$800 Websites', href: '/#website-package' },
+  { label: 'Social Media', href: '/#services' },
+  { label: 'Logos', href: '/#services' },
+  { label: 'Process', href: '/#process' },
   { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Programs', href: '/programs' },
-  { label: 'Arts & Culture', href: '/arts-culture' },
-  { label: 'Team', href: '/team' },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Press', href: '/press' },
   { label: 'Contact', href: '/contact' },
 ];
 

@@ -3,9 +3,9 @@ import HomePageClient from '@/components/pages/HomePageClient';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Hometown — Kansas City Marketing Studio',
+  title: 'Hometown — $800 Website Agency',
   description:
-    'Kansas City marketing for small businesses: websites, local visibility, social systems, and ads that convert.',
+    'Launch a conversion-focused website for $800. Hometown also supports social media and logo design for local businesses.',
   path: '/',
 });
 

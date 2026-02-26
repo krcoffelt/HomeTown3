@@ -3,9 +3,17 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import UnicornScene from 'unicornstudio-react/next';
 
-const proofItems = ['Retail', 'Food & Beverage', 'Home Services', 'Wellness', 'Professional Services'];
-const heroHeadingStyle = { '--delay': '0.15s' } as CSSProperties;
-const heroProofStyle = { '--delay': '0.35s' } as CSSProperties;
+const servicePills = ['Websites', 'Social Media', 'Logos'];
+const proofStats = [
+  { label: 'Launch Time', value: '7-10 days' },
+  { label: 'Flat Price', value: '$800' },
+  { label: 'Built For', value: 'Local Business' },
+];
+const eyebrowStyle = { '--delay': '0.12s' } as CSSProperties;
+const heroHeadingStyle = { '--delay': '0.2s' } as CSSProperties;
+const heroSubStyle = { '--delay': '0.3s' } as CSSProperties;
+const heroCtaStyle = { '--delay': '0.38s' } as CSSProperties;
+const heroProofStyle = { '--delay': '0.46s' } as CSSProperties;
 type SceneConfig = { scale: number; dpi: number; fps: 30 | 60; paused: boolean };
 
 export default function HomeHeroSection() {
@@ -47,7 +55,7 @@ export default function HomeHeroSection() {
   }, []);
 
   return (
-    <section className="hero" id="top">
+    <section className="hero agency-hero" id="top">
       <div className="hero-bg" aria-hidden="true">
         <UnicornScene
           projectId="67bMayuIex6ZsrkBXpsY"
@@ -65,19 +73,34 @@ export default function HomeHeroSection() {
           ariaLabel="Hero background animation"
         />
       </div>
-      <div className="hero-inner">
+      <div className="hero-inner agency-hero-inner">
+        <p className="eyebrow agency-hero-eyebrow" data-hero style={eyebrowStyle}>
+          Kansas City Marketing Agency
+        </p>
         <h1 data-hero style={heroHeadingStyle}>
-          <span className="mask">
-            <span className="mask-text line">Make your business the first call locals make.</span>
-          </span>
+          <span className="mask"><span className="mask-text line">Websites that look premium.</span></span>
+          <span className="mask"><span className="mask-text line">Flat $800 to launch.</span></span>
         </h1>
-        <div className="hero-proof" data-hero style={heroProofStyle}>
-          <p className="hero-proof-label">Kansas City Marketing Studio</p>
-          <ul className="hero-proof-list" aria-label="Industries served">
-            {proofItems.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <p className="agency-hero-sub" data-hero style={heroSubStyle}>
+          We build high-converting websites first, then support growth with social media management and
+          logo design.
+        </p>
+        <div className="agency-hero-cta" data-hero style={heroCtaStyle}>
+          <a className="button primary" href="/contact">Start My $800 Website</a>
+          <a className="button ghost" href="#website-package">See What&apos;s Included</a>
+        </div>
+        <ul className="agency-hero-pills" data-hero style={heroCtaStyle} aria-label="Core services">
+          {servicePills.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <div className="hero-proof agency-proof-grid" data-hero style={heroProofStyle}>
+          {proofStats.map((item) => (
+            <article key={item.label} className="agency-proof-card">
+              <p className="agency-proof-value">{item.value}</p>
+              <p className="agency-proof-label">{item.label}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
