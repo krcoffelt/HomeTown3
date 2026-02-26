@@ -1,6 +1,8 @@
 'use client';
 
 import { type CSSProperties, type MouseEvent, useEffect, useRef } from 'react';
+import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
+import { siteConfig } from '@/lib/seo';
 
 type MenuOverlayProps = {
   menuOpen: boolean;
@@ -144,6 +146,18 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
           </div>
           <div className="menu-meta">
             <p>Need help fast? We can scope your website in one kickoff call.</p>
+            <TrackedPhoneLink
+              href={`tel:${siteConfig.phoneE164}`}
+              eventName="click_call_cta_section"
+              location="menu_overlay"
+              className="menu-primary"
+              tabIndex={interactiveTabIndex}
+            >
+              Call {siteConfig.phoneDisplay}
+            </TrackedPhoneLink>
+            <a className="menu-pill" href={`mailto:${siteConfig.email}`} tabIndex={interactiveTabIndex}>
+              {siteConfig.email}
+            </a>
             <div className="menu-social">
               {socialItems.map((item) => (
                 <a

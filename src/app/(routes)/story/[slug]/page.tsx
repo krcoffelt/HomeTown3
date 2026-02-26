@@ -19,6 +19,7 @@ export function generateMetadata({ params }: StoryDetailPageProps): Metadata {
       title: 'Story',
       description: 'Story details from Hometown.',
       path: '/arts-culture',
+      noIndex: true,
     });
   }
 
@@ -27,6 +28,7 @@ export function generateMetadata({ params }: StoryDetailPageProps): Metadata {
     description: story.excerpt ?? 'Story from Hometown.',
     path: story.href,
     image: story.image,
+    noIndex: true,
   });
 }
 

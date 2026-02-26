@@ -7,6 +7,7 @@ import {
   BuildProcessSection,
   ConversionCtaSection,
   HomeHeroSection,
+  LocalServiceAreaSection,
   WebsitePackageSection,
 } from '@/components/sections/Home';
 
@@ -42,6 +43,7 @@ export default function HomePageClient() {
         <AgencyServicesSection />
         <WebsitePackageSection />
         <BuildProcessSection />
+        <LocalServiceAreaSection />
         <ConversionCtaSection />
       </main>
     </SiteShell>

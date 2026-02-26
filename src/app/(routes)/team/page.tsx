@@ -6,6 +6,7 @@ export const metadata: Metadata = createPageMetadata({
   title: 'Team',
   description: 'Meet the people behind Hometown programs, strategy, and delivery.',
   path: '/team',
+  noIndex: true,
 });
 
 export default function TeamPage() {

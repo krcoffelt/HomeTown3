@@ -1,3 +1,8 @@
+'use client';
+
+import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
+import { siteConfig } from '@/lib/seo';
+
 const checklist = [
   'Clear timeline and deliverables before kickoff',
   'One team handling website, social media, and brand design',
@@ -20,8 +25,18 @@ export default function ConversionCtaSection() {
         </ul>
         <div className="agency-final-actions">
           <a className="button primary" href="/contact">Start My Website</a>
-          <a className="button ghost" href="mailto:hello@hometownkc.com">Email The Team</a>
+          <TrackedPhoneLink
+            href={`tel:${siteConfig.phoneE164}`}
+            eventName="click_call_cta_section"
+            location="homepage_final_cta"
+            className="button ghost"
+          >
+            Call {siteConfig.phoneDisplay}
+          </TrackedPhoneLink>
         </div>
+        <p className="agency-final-email">
+          Prefer email? <a className="text-link" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        </p>
       </div>
     </section>
   );

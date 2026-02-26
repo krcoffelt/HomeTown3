@@ -8,6 +8,11 @@ export const metadata: Metadata = createPageMetadata({
   title: 'Case Studies',
   description: 'Review selected work and measurable outcomes across local business engagements.',
   path: '/case-studies',
+  keywords: [
+    'kansas city website case studies',
+    'local business website results',
+    'small business marketing outcomes kansas city',
+  ],
 });
 
 export default function CaseStudiesPage() {

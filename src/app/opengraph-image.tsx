@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Hometown — Kansas City Marketing Studio';
+export const alt = 'Hometown — Kansas City $800 Website Setup';
 export const size = {
   width: 1200,
   height: 630,
@@ -37,10 +37,10 @@ export default function OpenGraphImage() {
               marginBottom: 16,
             }}
           >
-            Make your business the first call locals make.
+            Kansas City websites for local businesses with no current website.
           </div>
           <div style={{ fontSize: 24, opacity: 0.8 }}>
-            Kansas City Marketing Studio
+            Launch for $800 and start converting calls and form leads.
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ export const metadata: Metadata = createPageMetadata({
   title: 'Careers',
   description: 'Explore current opportunities to join the Hometown team.',
   path: '/careers',
+  noIndex: true,
 });
 
 export default function CareersPage() {

@@ -19,6 +19,7 @@ export function generateMetadata({ params }: ProgramDetailPageProps): Metadata {
       title: 'Program',
       description: 'Program details from Hometown.',
       path: '/programs',
+      noIndex: true,
     });
   }
 
@@ -26,6 +27,7 @@ export function generateMetadata({ params }: ProgramDetailPageProps): Metadata {
     title: program.title,
     description: program.overview ?? program.subtitle,
     path: program.href,
+    noIndex: true,
   });
 }
 

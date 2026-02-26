@@ -9,6 +9,7 @@ export const metadata: Metadata = createPageMetadata({
   title: 'Arts & Culture',
   description: 'Stories and collaborations rooted in Kansas City arts and culture.',
   path: '/arts-culture',
+  noIndex: true,
 });
 
 export default function ArtsCulturePage() {

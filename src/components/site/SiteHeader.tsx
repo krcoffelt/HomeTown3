@@ -1,5 +1,8 @@
 'use client';
 
+import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
+import { siteConfig } from '@/lib/seo';
+
 type SiteHeaderProps = {
   scrolled: boolean;
   menuOpen: boolean;
@@ -19,8 +22,16 @@ export default function SiteHeader({ scrolled, menuOpen, onToggleMenu }: SiteHea
         <a href="/#process">Process</a>
       </nav>
       <div className="site-header-actions">
-        <a className="site-header-cta" href="/contact">Start Website</a>
-        <a className="site-header-phone" href="tel:+18165551910">(816) 555-1910</a>
+        <a className="site-header-cta" href="/contact">Start My Website</a>
+        <TrackedPhoneLink
+          className="site-header-phone"
+          href={`tel:${siteConfig.phoneE164}`}
+          eventName="click_call_header"
+          location="site_header"
+        >
+          <span className="phone-label-full">{siteConfig.phoneDisplay}</span>
+          <span className="phone-label-short">Call</span>
+        </TrackedPhoneLink>
       </div>
       <button
         className="menu-toggle"

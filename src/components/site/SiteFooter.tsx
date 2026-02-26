@@ -1,5 +1,8 @@
 'use client';
 
+import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
+import { siteConfig } from '@/lib/seo';
+
 export default function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -12,8 +15,17 @@ export default function SiteFooter() {
         </nav>
         <div className="site-footer-actions">
           <a className="footer-pill footer-pill-primary" href="/contact">Start My Website</a>
-          <a className="footer-pill" href="mailto:hello@hometownkc.com">hello@hometownkc.com</a>
-          <a className="footer-pill" href="tel:+18165551910">(816) 555-1910</a>
+          <TrackedPhoneLink
+            className="footer-pill"
+            href={`tel:${siteConfig.phoneE164}`}
+            eventName="click_call_footer"
+            location="site_footer"
+          >
+            {siteConfig.phoneDisplay}
+          </TrackedPhoneLink>
+          <a className="footer-pill footer-pill-muted" href={`mailto:${siteConfig.email}`}>
+            {siteConfig.email}
+          </a>
         </div>
       </div>
 

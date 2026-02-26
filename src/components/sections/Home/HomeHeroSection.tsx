@@ -2,12 +2,14 @@
 
 import { useEffect, useState, type CSSProperties } from 'react';
 import UnicornScene from 'unicornstudio-react/next';
+import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
+import { siteConfig } from '@/lib/seo';
 
 const servicePills = ['Websites', 'Social Media', 'Logos'];
 const proofStats = [
   { label: 'Launch Time', value: '7-10 days' },
   { label: 'Flat Price', value: '$800' },
-  { label: 'Built For', value: 'Local Business' },
+  { label: 'Built For', value: 'Businesses Without Websites' },
 ];
 const eyebrowStyle = { '--delay': '0.12s' } as CSSProperties;
 const heroHeadingStyle = { '--delay': '0.2s' } as CSSProperties;
@@ -75,25 +77,36 @@ export default function HomeHeroSection() {
       </div>
       <div className="hero-inner agency-hero-inner">
         <p className="eyebrow agency-hero-eyebrow" data-hero style={eyebrowStyle}>
-          Kansas City Marketing Agency
+          Kansas City Metro Website Setup
         </p>
         <h1 data-hero style={heroHeadingStyle}>
-          <span className="mask"><span className="mask-text line">Websites that look premium.</span></span>
-          <span className="mask"><span className="mask-text line">Flat $800 to launch.</span></span>
+          <span className="mask"><span className="mask-text line">No website yet? Launch in days.</span></span>
+          <span className="mask"><span className="mask-text line">Flat $800 for Kansas City businesses.</span></span>
         </h1>
         <p className="agency-hero-sub" data-hero style={heroSubStyle}>
-          We build high-converting websites first, then support growth with social media management and
-          logo design.
+          We build lead-focused websites for local businesses across the Kansas City metro, then support
+          growth with social media and logo design.
         </p>
         <div className="agency-hero-cta" data-hero style={heroCtaStyle}>
           <a className="button primary" href="/contact">Start My $800 Website</a>
-          <a className="button ghost" href="#website-package">See What&apos;s Included</a>
+          <TrackedPhoneLink
+            href={`tel:${siteConfig.phoneE164}`}
+            eventName="click_call_cta_section"
+            location="homepage_hero"
+            className="button ghost"
+          >
+            Call {siteConfig.phoneDisplay}
+          </TrackedPhoneLink>
         </div>
         <ul className="agency-hero-pills" data-hero style={heroCtaStyle} aria-label="Core services">
           {servicePills.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
+        <p className="agency-hero-service-area" data-hero style={heroProofStyle}>
+          Serving Kansas City, Overland Park, Olathe, Lee&apos;s Summit, Independence, Shawnee, Lenexa,
+          and surrounding metro areas.
+        </p>
         <div className="hero-proof agency-proof-grid" data-hero style={heroProofStyle}>
           {proofStats.map((item) => (
             <article key={item.label} className="agency-proof-card">

@@ -2,11 +2,33 @@ import type { Metadata } from 'next';
 
 export const siteConfig = {
   name: 'Hometown',
-  title: 'Hometown — Kansas City Marketing Studio',
+  title: 'Hometown — Kansas City $800 Website Agency',
   description:
-    'Kansas City marketing for small businesses: websites, local visibility, social systems, and ads that convert.',
+    'Affordable website setup for Kansas City metro small businesses that need to launch quickly and start getting leads.',
   url: 'https://hometownkc.agency',
   ogImage: '/opengraph-image',
+  phoneDisplay: '913-991-6641',
+  phoneE164: '+19139916641',
+  email: 'krcoffelt@gmail.com',
+  serviceAreas: [
+    'Kansas City, MO',
+    'Kansas City, KS',
+    'Overland Park, KS',
+    'Olathe, KS',
+    "Lee's Summit, MO",
+    'Independence, MO',
+    'Shawnee, KS',
+    'Lenexa, KS',
+    'Blue Springs, MO',
+  ],
+  primaryOffer: '$800 Website Setup',
+  defaultKeywords: [
+    'kansas city website design',
+    'affordable website design kansas city',
+    'small business website kansas city',
+    'website setup kansas city metro',
+    '$800 website',
+  ],
   xHandle: '@hometown',
 } as const;
 
@@ -19,29 +41,40 @@ type PageMetadataInput = {
   title: string;
   description: string;
   path?: string;
+  canonicalPath?: string;
   image?: string;
+  openGraphImage?: string;
+  keywords?: string[];
+  noIndex?: boolean;
 };
 
 export function createPageMetadata({
   title,
   description,
   path = '/',
-  image = siteConfig.ogImage,
+  canonicalPath,
+  image,
+  openGraphImage,
+  keywords,
+  noIndex = false,
 }: PageMetadataInput): Metadata {
-  const ogImage = toAbsoluteUrl(image);
+  const resolvedPath = canonicalPath ?? path;
+  const ogImage = toAbsoluteUrl(openGraphImage ?? image ?? siteConfig.ogImage);
 
   return {
     title,
     description,
+    keywords: keywords ?? [...siteConfig.defaultKeywords],
+    robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
     alternates: {
-      canonical: path,
+      canonical: resolvedPath,
     },
     openGraph: {
       title,
       description,
-      url: path,
+      url: resolvedPath,
       type: 'website',
-      siteName: siteConfig.title,
+      siteName: siteConfig.name,
       images: [
         {
           url: ogImage,

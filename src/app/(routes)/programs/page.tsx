@@ -8,6 +8,7 @@ export const metadata: Metadata = createPageMetadata({
   title: 'Programs',
   description: 'Explore practical marketing programs designed for measurable growth.',
   path: '/programs',
+  noIndex: true,
 });
 
 export default function ProgramsPage() {

@@ -18,8 +18,9 @@ export const secondaryNavigation: NavigationItem[] = [
 ];
 
 export const contactInfo = {
-  phone: '(816) 555-1910',
-  email: 'hello@hometownkc.com',
+  phone: '913-991-6641',
+  phoneHref: '+19139916641',
+  email: 'krcoffelt@gmail.com',
 };
 
 export const legalLinks = [
