@@ -28,7 +28,6 @@ export const legalLinks = [
 ];
 
 export const socialLinks = [
-  { label: 'X (Twitter)', href: 'https://x.com/hometown', icon: 'twitter' },
-  { label: 'Instagram', href: 'https://www.instagram.com/hometownkc/', icon: 'instagram' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/hometownkc/', icon: 'linkedin' },
+  { label: 'Instagram', href: 'https://www.instagram.com/hometown.kc/', icon: 'instagram' },
+  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61581320222706', icon: 'facebook' },
 ];

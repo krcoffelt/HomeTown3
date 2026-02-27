@@ -21,9 +21,8 @@ const supportLinks = [
 ];
 
 const socialItems = [
-  { label: 'X (Twitter)', href: 'https://x.com/hometown' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/hometownkc/' },
-  { label: 'Instagram', href: 'https://www.instagram.com/hometownkc/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/hometown.kc/' },
+  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61581320222706' },
 ];
 
 const quickStartChecklist = [

@@ -28,9 +28,8 @@ export function buildProfessionalServiceSchema(overrides?: {
     name: siteConfig.name,
     url: siteConfig.url,
     sameAs: [
-      'https://x.com/hometown',
-      'https://www.linkedin.com/company/hometownkc/',
-      'https://www.instagram.com/hometownkc/',
+      'https://www.instagram.com/hometown.kc/',
+      'https://www.facebook.com/profile.php?id=61581320222706',
     ],
     description: overrides?.description ?? siteConfig.description,
     telephone: siteConfig.phoneE164,
