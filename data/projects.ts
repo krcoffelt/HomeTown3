@@ -9,7 +9,7 @@ export const projects: ProjectItem[] = [
     summary: "Refreshed site architecture and booking flow for stronger local inquiries.",
     servicesProvided: ["Website Design", "Local SEO Structure"],
     featuredImageUrl:
-      "/images/work/plate-kc.jpg",
+      "/images/work/PlateKCScreenshot.png",
     liveUrl: "https://example.com",
     isFeatured: true,
     sortOrder: 1
@@ -22,7 +22,7 @@ export const projects: ProjectItem[] = [
     summary: "Built a cleaner trust-focused website with appointment conversion emphasis.",
     servicesProvided: ["Website Design", "Brand Refresh"],
     featuredImageUrl:
-      "/images/work/lupi-docs.png",
+      "/images/work/LupiDocsScreenshot.png",
     liveUrl: "https://example.com",
     isFeatured: true,
     sortOrder: 2
@@ -35,9 +35,22 @@ export const projects: ProjectItem[] = [
     summary: "Created a modern portfolio and service page system with stronger CTA clarity.",
     servicesProvided: ["Website Design"],
     featuredImageUrl:
-      "/images/work/jose-isai-valdez.jpg",
+      "/images/work/JoseIsaiValdezScreenshot.png",
     liveUrl: "https://example.com",
     isFeatured: true,
     sortOrder: 3
+  },
+  {
+    title: "voxwhite.com",
+    slug: "voxwhite",
+    clientName: "voxwhite",
+    industry: "Music Artist",
+    summary: "Designed a clean artist site experience with high-contrast visuals and clear listening CTAs.",
+    servicesProvided: ["Website Design", "Creative Direction"],
+    featuredImageUrl:
+      "/images/work/VoxwhiteScreenshot.png",
+    liveUrl: "https://voxwhite.com",
+    isFeatured: true,
+    sortOrder: 4
   }
 ];
