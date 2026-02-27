@@ -1,70 +1,47 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+type ScrollBlurOverlayProps = {
+  active?: boolean;
+};
 
-export default function ScrollBlurOverlay() {
-  const [scrollProgress, setScrollProgress] = useState(0);
+const blurLayers = [
+  {
+    blur: 7,
+    mask: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 38%, rgba(0,0,0,0.15) 80%, transparent 100%)',
+  },
+  {
+    blur: 4,
+    mask: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.35) 50%, transparent 100%)',
+  },
+  {
+    blur: 2,
+    mask: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 46%, transparent 100%)',
+  },
+];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-      const totalScrollable = docHeight - windowHeight;
-      const progress = Math.min(scrollTop / totalScrollable, 1);
-      
-      setScrollProgress(progress);
-    };
+export default function ScrollBlurOverlay({ active = true }: ScrollBlurOverlayProps) {
+  if (!active) {
+    return null;
+  }
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initialize
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // More gradual blur intensity - increased overall blur
-  const maxBlur = Math.max(8, 20 - scrollProgress * 10);
-  
   return (
-    <motion.div
-      className="fixed inset-x-0 bottom-0 pointer-events-none z-40"
-      style={{
-        height: '10vh', // 20% of viewport
-      }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+    <div
+      aria-hidden="true"
+      className="fixed inset-x-0 bottom-0 pointer-events-none z-30"
+      style={{ height: 'min(12vh, 104px)' }}
     >
-      {/* Multiple blur layers for gradient effect */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `linear-gradient(to top, rgba(255,255,255,0.1) 0%, transparent 100%)`,
-          backdropFilter: `blur(${maxBlur}px)`,
-          WebkitBackdropFilter: `blur(${maxBlur}px)`,
-          mask: `linear-gradient(to top, black 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)`,
-          WebkitMask: `linear-gradient(to top, black 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)`,
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          backdropFilter: `blur(${maxBlur * 0.6}px)`,
-          WebkitBackdropFilter: `blur(${maxBlur * 0.6}px)`,
-          mask: `linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.1) 70%, transparent 100%)`,
-          WebkitMask: `linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.1) 70%, transparent 100%)`,
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          backdropFilter: `blur(${maxBlur * 0.3}px)`,
-          WebkitBackdropFilter: `blur(${maxBlur * 0.3}px)`,
-          mask: `linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)`,
-          WebkitMask: `linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)`,
-        }}
-      />
-    </motion.div>
+      {blurLayers.map(({ blur, mask }, index) => (
+        <div
+          key={index}
+          className="absolute inset-0"
+          style={{
+            backdropFilter: `blur(${blur}px)`,
+            WebkitBackdropFilter: `blur(${blur}px)`,
+            maskImage: mask,
+            WebkitMaskImage: mask,
+          }}
+        />
+      ))}
+    </div>
   );
 }

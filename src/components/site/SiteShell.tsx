@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import MenuOverlay from '@/components/site/MenuOverlay';
 import SiteFooter from '@/components/site/SiteFooter';
 import SiteHeader from '@/components/site/SiteHeader';
+import ScrollBlurOverlay from '@/components/ui/ScrollBlurOverlay';
 
 type SiteShellProps = {
   children: ReactNode;
@@ -38,9 +39,9 @@ export default function SiteShell({ children }: SiteShellProps) {
         onToggleMenu={() => setMenuOpen((prev) => !prev)}
       />
       <MenuOverlay menuOpen={menuOpen} onCloseMenu={() => setMenuOpen(false)} />
+      <ScrollBlurOverlay active={!menuOpen} />
       {children}
       <SiteFooter />
     </div>
   );
 }
-

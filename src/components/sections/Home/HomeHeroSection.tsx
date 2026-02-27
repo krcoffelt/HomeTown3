@@ -3,6 +3,7 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import UnicornScene from 'unicornstudio-react/next';
 import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
+import RadiusOnScroll from '@/components/ui/RadiusOnScroll';
 import { siteConfig } from '@/lib/seo';
 
 const eyebrowStyle = { '--delay': '0.12s' } as CSSProperties;
@@ -50,7 +51,7 @@ export default function HomeHeroSection() {
   }, []);
 
   return (
-    <section className="hero agency-hero" id="top">
+    <RadiusOnScroll className="hero agency-hero" id="top">
       <div className="hero-bg" aria-hidden="true">
         <UnicornScene
           projectId="67bMayuIex6ZsrkBXpsY"
@@ -91,6 +92,6 @@ export default function HomeHeroSection() {
           </TrackedPhoneLink>
         </div>
       </div>
-    </section>
+    </RadiusOnScroll>
   );
 }
