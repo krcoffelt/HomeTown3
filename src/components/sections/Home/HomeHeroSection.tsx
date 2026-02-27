@@ -51,47 +51,49 @@ export default function HomeHeroSection() {
   }, []);
 
   return (
-    <RadiusOnScroll className="hero agency-hero" id="top">
-      <div className="hero-bg" aria-hidden="true">
-        <UnicornScene
-          projectId="67bMayuIex6ZsrkBXpsY"
-          sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js"
-          width="100%"
-          height="100%"
-          scale={sceneConfig.scale}
-          dpi={sceneConfig.dpi}
-          fps={sceneConfig.fps}
-          lazyLoad={true}
-          production={true}
-          paused={sceneConfig.paused}
-          className="hero-unicorn-scene"
-          altText="Hero background animation"
-          ariaLabel="Hero background animation"
-        />
-      </div>
-      <div className="hero-inner agency-hero-inner">
-        <p className="eyebrow agency-hero-eyebrow" data-hero style={eyebrowStyle}>
-          Kansas City Website Setup
-        </p>
-        <h1 data-hero style={heroHeadingStyle}>
-          <span className="mask"><span className="mask-text line">No website yet? Launch in days.</span></span>
-          <span className="mask"><span className="mask-text line">Built for Kansas City businesses.</span></span>
-        </h1>
-        <p className="agency-hero-sub" data-hero style={heroSubStyle}>
-          We build conversion-focused websites for Kansas City businesses, then layer social and logo support as you grow.
-        </p>
-        <div className="agency-hero-cta" data-hero style={heroCtaStyle}>
-          <a className="button primary" href="/contact">Start My Website</a>
-          <TrackedPhoneLink
-            href={`tel:${siteConfig.phoneE164}`}
-            eventName="click_call_cta_section"
-            location="homepage_hero"
-            className="button ghost"
-          >
-            Call {siteConfig.phoneDisplay}
-          </TrackedPhoneLink>
+    <div className="home-hero-stage">
+      <RadiusOnScroll className="hero agency-hero home-hero-card" id="top">
+        <div className="hero-bg" aria-hidden="true">
+          <UnicornScene
+            projectId="67bMayuIex6ZsrkBXpsY"
+            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js"
+            width="100%"
+            height="100%"
+            scale={sceneConfig.scale}
+            dpi={sceneConfig.dpi}
+            fps={sceneConfig.fps}
+            lazyLoad={true}
+            production={true}
+            paused={sceneConfig.paused}
+            className="hero-unicorn-scene"
+            altText="Hero background animation"
+            ariaLabel="Hero background animation"
+          />
         </div>
-      </div>
-    </RadiusOnScroll>
+        <div className="hero-inner agency-hero-inner">
+          <p className="eyebrow agency-hero-eyebrow" data-hero style={eyebrowStyle}>
+            Kansas City Website Setup
+          </p>
+          <h1 data-hero style={heroHeadingStyle}>
+            <span className="mask"><span className="mask-text line">No website yet? Launch in days.</span></span>
+            <span className="mask"><span className="mask-text line">Built for Kansas City businesses.</span></span>
+          </h1>
+          <p className="agency-hero-sub" data-hero style={heroSubStyle}>
+            We build conversion-focused websites for Kansas City businesses, then layer social and logo support as you grow.
+          </p>
+          <div className="agency-hero-cta" data-hero style={heroCtaStyle}>
+            <a className="button primary" href="/contact">Start My Website</a>
+            <TrackedPhoneLink
+              href={`tel:${siteConfig.phoneE164}`}
+              eventName="click_call_cta_section"
+              location="homepage_hero"
+              className="button ghost"
+            >
+              Call {siteConfig.phoneDisplay}
+            </TrackedPhoneLink>
+          </div>
+        </div>
+      </RadiusOnScroll>
+    </div>
   );
 }

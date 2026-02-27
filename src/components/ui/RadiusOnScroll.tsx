@@ -1,30 +1,58 @@
 'use client';
 
-import { type ReactNode, useRef } from 'react';
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
+import {
+  motion,
+  useMotionTemplate,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
 
 type RadiusOnScrollProps = {
   children: ReactNode;
   className?: string;
   id?: string;
-  minRadius?: number;
-  maxRadius?: number;
+  startRadius?: number;
+  endRadius?: number;
+  startScale?: number;
 };
 
 export default function RadiusOnScroll({
   children,
   className,
   id,
-  minRadius = 0,
-  maxRadius = 34,
+  startRadius = 34,
+  endRadius = 0,
+  startScale = 0.96,
 }: RadiusOnScrollProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotion();
+  const [startInset, setStartInset] = useState(36);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
+
+  useEffect(() => {
+    const updateInset = () => {
+      const width = window.innerWidth;
+
+      if (width < 640) {
+        setStartInset(12);
+      } else if (width < 1024) {
+        setStartInset(24);
+      } else {
+        setStartInset(42);
+      }
+    };
+
+    updateInset();
+    window.addEventListener('resize', updateInset, { passive: true });
+    return () => window.removeEventListener('resize', updateInset);
+  }, []);
 
   const smoothedProgress = useSpring(scrollYProgress, {
     stiffness: 160,
@@ -32,8 +60,13 @@ export default function RadiusOnScroll({
     mass: 0.24,
   });
 
-  const radiusProgress = useTransform(smoothedProgress, [0, 0.9], [minRadius, maxRadius]);
-  const radius = useTransform(radiusProgress, (value) => `${value}px`);
+  const inset = useTransform(smoothedProgress, [0, 0.42], [startInset, 0]);
+  const radius = useTransform(smoothedProgress, [0, 0.42], [startRadius, endRadius]);
+  const scale = useTransform(smoothedProgress, [0, 0.42], [startScale, 1]);
+  const shadowAlpha = useTransform(smoothedProgress, [0, 0.42], [0.18, 0]);
+  const borderAlpha = useTransform(smoothedProgress, [0, 0.42], [0.12, 0]);
+  const boxShadow = useMotionTemplate`0 28px 72px rgba(0, 0, 0, ${shadowAlpha})`;
+  const borderColor = useMotionTemplate`rgba(12, 12, 12, ${borderAlpha})`;
 
   return (
     <motion.section
@@ -43,12 +76,25 @@ export default function RadiusOnScroll({
       style={
         prefersReducedMotion
           ? {
-              borderBottomLeftRadius: `${maxRadius}px`,
-              borderBottomRightRadius: `${maxRadius}px`,
+              marginInline: startInset,
+              borderRadius: `${startRadius}px`,
+              scale: startScale,
+              transformOrigin: 'top center',
+              borderWidth: '1px',
+              borderStyle: 'solid',
+              borderColor: 'rgba(12, 12, 12, 0.12)',
+              boxShadow: '0 28px 72px rgba(0, 0, 0, 0.18)',
             }
           : {
-              borderBottomLeftRadius: radius,
-              borderBottomRightRadius: radius,
+              marginInline: inset,
+              borderRadius: radius,
+              scale,
+              transformOrigin: 'top center',
+              borderWidth: '1px',
+              borderStyle: 'solid',
+              borderColor,
+              boxShadow,
+              willChange: 'transform, border-radius, margin',
             }
       }
     >

@@ -452,6 +452,14 @@ main { position: relative; z-index: 1; padding-top: 84px; }
   padding-top: 0;
 }
 
+.home-hero-stage {
+  background: #ffffff;
+  padding-top: clamp(10px, 2vw, 22px);
+}
+.hero.home-hero-card {
+  min-height: min(740px, 92vh);
+}
+
 .hero {
   position: relative;
   isolation: isolate;
