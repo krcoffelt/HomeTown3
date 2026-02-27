@@ -32,7 +32,7 @@ export default function WebsiteOfferLandingPage() {
             looks legit and gets more inquiries.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button href="#form">Claim This Offer</Button>
+            <Button href="#claim-form">Claim This Offer</Button>
             <p className="section-eyebrow text-white/70">Regular Price $999</p>
           </div>
         </div>
@@ -65,6 +65,7 @@ export default function WebsiteOfferLandingPage() {
       </SectionShell>
 
       <SectionShell className="pt-4">
+        <div id="claim-form" className="scroll-mt-28" />
         <div className="mb-10 max-w-3xl">
           <p className="section-eyebrow text-muted">Start Here</p>
           <h2 className="mt-4 text-[clamp(2rem,5vw,3.6rem)] font-semibold leading-[0.96] tracking-tight text-ink">
