@@ -7,7 +7,7 @@ export default function ServicesPricingSection() {
     <section className="services-page-section" id="services-pricing" aria-labelledby="services-pricing-heading">
       <div className="section-intro">
         <p className="eyebrow">Pricing Summary</p>
-        <h2 id="services-pricing-heading">Clear packages with the $800 website offer up front.</h2>
+        <h2 id="services-pricing-heading">Clear pricing across websites, GBP, and social.</h2>
       </div>
 
       <div className="agency-pricing-grid services-pricing-grid">

@@ -9,11 +9,11 @@ export default function WebsitePackageSection() {
         <p className="eyebrow">Pricing</p>
         <h2 className="mask-title">
           <span className="mask">
-            <span className="mask-text">Choose a plan and start with the $800 website launch.</span>
+            <span className="mask-text">Simple pricing for the services you need.</span>
           </span>
         </h2>
         <p className="section-sub">
-          Form submission is the fastest path to kickoff. Phone support is always available.
+          Website setup, Google Business Profile setup, and monthly social management.
         </p>
       </div>
 
