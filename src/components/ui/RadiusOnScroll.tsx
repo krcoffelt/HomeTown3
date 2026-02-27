@@ -25,7 +25,7 @@ export default function RadiusOnScroll({
   id,
   startRadius = 34,
   endRadius = 0,
-  startScale = 0.96,
+  startScale = 0.965,
 }: RadiusOnScrollProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -55,9 +55,9 @@ export default function RadiusOnScroll({
   }, []);
 
   const smoothedProgress = useSpring(scrollYProgress, {
-    stiffness: 160,
-    damping: 30,
-    mass: 0.24,
+    stiffness: 120,
+    damping: 28,
+    mass: 0.85,
   });
 
   const inset = useTransform(smoothedProgress, [0, 0.42], [startInset, 0]);
@@ -65,6 +65,7 @@ export default function RadiusOnScroll({
   const scale = useTransform(smoothedProgress, [0, 0.42], [startScale, 1]);
   const shadowAlpha = useTransform(smoothedProgress, [0, 0.42], [0.18, 0]);
   const borderAlpha = useTransform(smoothedProgress, [0, 0.42], [0.12, 0]);
+  const clipPath = useMotionTemplate`inset(0px ${inset}px 0px ${inset}px round ${radius}px)`;
   const boxShadow = useMotionTemplate`0 28px 72px rgba(0, 0, 0, ${shadowAlpha})`;
   const borderColor = useMotionTemplate`rgba(12, 12, 12, ${borderAlpha})`;
 
@@ -76,7 +77,8 @@ export default function RadiusOnScroll({
       style={
         prefersReducedMotion
           ? {
-              marginInline: startInset,
+              clipPath: `inset(0px ${startInset}px 0px ${startInset}px round ${startRadius}px)`,
+              WebkitClipPath: `inset(0px ${startInset}px 0px ${startInset}px round ${startRadius}px)`,
               borderRadius: `${startRadius}px`,
               scale: startScale,
               transformOrigin: 'top center',
@@ -86,7 +88,8 @@ export default function RadiusOnScroll({
               boxShadow: '0 28px 72px rgba(0, 0, 0, 0.18)',
             }
           : {
-              marginInline: inset,
+              clipPath,
+              WebkitClipPath: clipPath,
               borderRadius: radius,
               scale,
               transformOrigin: 'top center',
@@ -94,7 +97,7 @@ export default function RadiusOnScroll({
               borderStyle: 'solid',
               borderColor,
               boxShadow,
-              willChange: 'transform, border-radius, margin',
+              willChange: 'transform, border-radius, clip-path',
             }
       }
     >
