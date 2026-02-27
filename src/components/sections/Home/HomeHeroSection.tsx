@@ -77,11 +77,11 @@ export default function HomeHeroSection() {
       </div>
       <div className="hero-inner agency-hero-inner">
         <p className="eyebrow agency-hero-eyebrow" data-hero style={eyebrowStyle}>
-          Kansas City Metro Website Setup
+          Kansas City Website Setup
         </p>
         <h1 data-hero style={heroHeadingStyle}>
           <span className="mask"><span className="mask-text line">No website yet? Launch in days.</span></span>
-          <span className="mask"><span className="mask-text line">Flat $800 for Kansas City businesses.</span></span>
+          <span className="mask"><span className="mask-text line">Flat $800 website setup.</span></span>
         </h1>
         <p className="agency-hero-sub" data-hero style={heroSubStyle}>
           We build lead-focused websites for local businesses across the Kansas City metro, then support
@@ -105,8 +105,22 @@ export default function HomeHeroSection() {
         </ul>
         <p className="agency-hero-service-area" data-hero style={heroProofStyle}>
           Serving Kansas City, Overland Park, Olathe, Lee&apos;s Summit, Independence, Shawnee, Lenexa,
-          and surrounding metro areas.
+          and nearby areas.
         </p>
+        <div className="agency-hero-collage" data-hero style={heroProofStyle} aria-hidden="true">
+          <article>
+            <p>Websites</p>
+            <span>$800 Launch</span>
+          </article>
+          <article>
+            <p>Social Media</p>
+            <span>Monthly Support</span>
+          </article>
+          <article>
+            <p>Logos</p>
+            <span>Brand Basics</span>
+          </article>
+        </div>
         <div className="hero-proof agency-proof-grid" data-hero style={heroProofStyle}>
           {proofStats.map((item) => (
             <article key={item.label} className="agency-proof-card">

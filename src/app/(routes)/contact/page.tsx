@@ -37,7 +37,7 @@ export default function ContactPage() {
 
   return (
     <SiteShell>
-      <main className="section listing-page">
+      <main className="section listing-page contact-page">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(contactFaqSchema) }}
@@ -46,41 +46,44 @@ export default function ContactPage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
         />
-        <header className="listing-hero">
+        <header className="contact-page-hero">
           <p className="eyebrow">Start Project</p>
-          <h1>Launch your Kansas City website for $800.</h1>
+          <h1>Start your website setup and we&apos;ll map the fastest launch path.</h1>
           <p className="listing-lead">
-            Submit the form and we&apos;ll map a clean, fast launch plan for your local business. Prefer
-            phone? Call us and we can scope it immediately.
+            Form submission is the primary route. If you want to talk first, call us and we can scope your
+            project immediately.
           </p>
-          <TrackedPhoneLink
-            href={`tel:${contactInfo.phoneHref}`}
-            eventName="click_call_cta_section"
-            location="contact_page_hero"
-            className="button ghost"
-          >
-            Call {contactInfo.phone}
-          </TrackedPhoneLink>
+          <div className="contact-page-hero-actions">
+            <a className="button primary" href="#contact-form">Start My Website</a>
+            <TrackedPhoneLink
+              href={`tel:${contactInfo.phoneHref}`}
+              eventName="click_call_cta_section"
+              location="contact_page_hero"
+              className="button ghost"
+            >
+              Call {contactInfo.phone}
+            </TrackedPhoneLink>
+          </div>
         </header>
 
-        <section className="detail-panels">
-          <article className="detail-panel">
-            <h2>Contact</h2>
-            <p>Most projects start with the website package first.</p>
-            <p>
-              <TrackedPhoneLink
-                href={`tel:${contactInfo.phoneHref}`}
-                eventName="click_call_cta_section"
-                location="contact_page_detail_panel"
-                className="text-link"
-              >
-                {contactInfo.phone}
-              </TrackedPhoneLink>
-            </p>
-            <p><a className="text-link" href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
-            <p>Kansas City Metro service area</p>
-          </article>
+        <section className="contact-page-grid">
           <ContactLeadForm />
+          <aside className="detail-panel contact-page-aside">
+            <h2>Need to talk first?</h2>
+            <p>Phone is always available as the secondary conversion path.</p>
+            <TrackedPhoneLink
+              href={`tel:${contactInfo.phoneHref}`}
+              eventName="click_call_cta_section"
+              location="contact_page_aside"
+              className="button ghost"
+            >
+              Call {contactInfo.phone}
+            </TrackedPhoneLink>
+            <p className="contact-page-aside-note">Kansas City service area</p>
+            <p className="contact-page-aside-email">
+              Email (fallback): <a className="text-link" href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+            </p>
+          </aside>
         </section>
       </main>
     </SiteShell>

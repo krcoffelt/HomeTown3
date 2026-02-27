@@ -11,14 +11,13 @@ type MenuOverlayProps = {
 
 const mainNavItems = [
   { label: '$800 Websites', href: '/#website-package' },
-  { label: 'Social Media', href: '/#services' },
-  { label: 'Logos', href: '/#services' },
-  { label: 'Process', href: '/#process' },
+  { label: 'Services', href: '/services' },
+  { label: 'Contact', href: '/contact' },
 ];
 
-const utilityItems = [
-  { label: 'Contact', href: '/contact' },
-  { label: 'Case Studies', href: '/case-studies' },
+const supportLinks = [
+  { label: 'Kansas City City Pages', href: '/#kc-metro' },
+  { label: 'How We Build', href: '/#process' },
 ];
 
 const socialItems = [
@@ -28,9 +27,9 @@ const socialItems = [
 ];
 
 const quickStartChecklist = [
-  'Start with the $800 website package',
-  'Add social media management if needed',
-  'Add logo design if your brand needs a reset',
+  'Start with the contact form so we can scope quickly',
+  'Get a build timeline and launch date',
+  'Go live with a conversion-focused $800 website',
 ];
 
 export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps) {
@@ -107,7 +106,10 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
       </button>
       <div ref={panelRef} className="menu-panel" role="dialog" aria-modal="true" aria-label="Main menu">
         <div className="menu-left">
-          <div className="menu-brand">Hometown Agency</div>
+          <div className="menu-brand">Hometown Kansas City</div>
+          <p className="menu-lead">
+            For Kansas City businesses without a website yet.
+          </p>
           <nav className="menu-nav">
             {mainNavItems.map((item, index) => (
               <a
@@ -125,18 +127,27 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
             <a
               className="menu-primary"
               href="/contact"
-              style={{ '--i': 3 } as CSSProperties}
+              style={{ '--i': 4 } as CSSProperties}
               onClick={onCloseMenu}
               tabIndex={interactiveTabIndex}
             >
-              Start $800 Website
+              Start My Website
             </a>
-            {utilityItems.map((item, index) => (
+            <TrackedPhoneLink
+              href={`tel:${siteConfig.phoneE164}`}
+              eventName="click_call_cta_section"
+              location="menu_overlay"
+              className="menu-pill"
+              tabIndex={interactiveTabIndex}
+            >
+              Call {siteConfig.phoneDisplay}
+            </TrackedPhoneLink>
+            {supportLinks.map((item, index) => (
               <a
                 key={item.label}
                 href={item.href}
                 className="menu-pill"
-                style={{ '--i': index + 4 } as CSSProperties}
+                style={{ '--i': index + 5 } as CSSProperties}
                 onClick={onCloseMenu}
                 tabIndex={interactiveTabIndex}
               >
@@ -145,17 +156,8 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
             ))}
           </div>
           <div className="menu-meta">
-            <p>Need help fast? We can scope your website in one kickoff call.</p>
-            <TrackedPhoneLink
-              href={`tel:${siteConfig.phoneE164}`}
-              eventName="click_call_cta_section"
-              location="menu_overlay"
-              className="menu-primary"
-              tabIndex={interactiveTabIndex}
-            >
-              Call {siteConfig.phoneDisplay}
-            </TrackedPhoneLink>
-            <a className="menu-pill" href={`mailto:${siteConfig.email}`} tabIndex={interactiveTabIndex}>
+            <p>Need a quick answer? Call now or submit the form and we can start your build right away.</p>
+            <a className="menu-pill menu-pill-muted" href={`mailto:${siteConfig.email}`} tabIndex={interactiveTabIndex}>
               {siteConfig.email}
             </a>
             <div className="menu-social">
@@ -175,8 +177,8 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
         </div>
         <div className="menu-right">
           <article className="menu-quick-card">
-            <p className="menu-quick-label">Quick Start Plan</p>
-            <h4>What to expect</h4>
+            <p className="menu-quick-label">Kickoff Checklist</p>
+            <h4>Simple and fast setup</h4>
             <ul>
               {quickStartChecklist.map((item) => (
                 <li key={item}>{item}</li>
@@ -188,7 +190,7 @@ export default function MenuOverlay({ menuOpen, onCloseMenu }: MenuOverlayProps)
               onClick={onCloseMenu}
               tabIndex={interactiveTabIndex}
             >
-              Book Kickoff
+              Start My Website
             </a>
           </article>
         </div>

@@ -13,7 +13,6 @@ export const secondaryNavigation: NavigationItem[] = [
   { label: 'Social Media', href: '/#services' },
   { label: 'Logos', href: '/#services' },
   { label: 'Process', href: '/#process' },
-  { label: 'Case Studies', href: '/case-studies' },
   { label: 'Contact', href: '/contact' },
 ];
 

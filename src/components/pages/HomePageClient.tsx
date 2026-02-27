@@ -5,9 +5,16 @@ import SiteShell from '@/components/site/SiteShell';
 import {
   AgencyServicesSection,
   BuildProcessSection,
+  CapabilityStripSection,
+  ComparisonSection,
   ConversionCtaSection,
+  HomeFaqSection,
   HomeHeroSection,
   LocalServiceAreaSection,
+  LogoProofSection,
+  MetricsBandSection,
+  PainContrastSection,
+  TestimonialsCarouselSection,
   WebsitePackageSection,
 } from '@/components/sections/Home';
 
@@ -40,8 +47,15 @@ export default function HomePageClient() {
     <SiteShell>
       <main className="home-main">
         <HomeHeroSection />
+        <LogoProofSection />
+        <PainContrastSection />
+        <CapabilityStripSection />
+        <MetricsBandSection />
         <AgencyServicesSection />
+        <TestimonialsCarouselSection />
         <WebsitePackageSection />
+        <ComparisonSection />
+        <HomeFaqSection />
         <BuildProcessSection />
         <LocalServiceAreaSection />
         <ConversionCtaSection />

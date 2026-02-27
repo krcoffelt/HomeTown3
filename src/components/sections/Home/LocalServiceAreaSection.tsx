@@ -24,7 +24,7 @@ export default function LocalServiceAreaSection() {
   return (
     <section className="section local-service-area reveal" id="kc-metro">
       <div className="section-intro">
-        <p className="eyebrow">Kansas City Metro Focus</p>
+        <p className="eyebrow">Kansas City Focus</p>
         <h2 className="mask-title">
           <span className="mask">
             <span className="mask-text">Built for local businesses that need their first website now.</span>

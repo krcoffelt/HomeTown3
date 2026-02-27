@@ -50,8 +50,9 @@ export default function ContactLeadForm() {
   };
 
   return (
-    <form className="detail-panel cta-form" onSubmit={handleSubmit} noValidate>
-      <h2>Project Notes</h2>
+    <form className="detail-panel cta-form contact-lead-form" id="contact-form" onSubmit={handleSubmit} noValidate>
+      <h2>Project Form</h2>
+      <p className="contact-lead-intro">Tell us about your business and we will reply with next steps.</p>
       <p className="detail-note">
         Prefer to call?{' '}
         <TrackedPhoneLink
@@ -63,10 +64,20 @@ export default function ContactLeadForm() {
           {siteConfig.phoneDisplay}
         </TrackedPhoneLink>
       </p>
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="text" name="company" placeholder="Company" />
-      <textarea name="message" rows={5} placeholder="Tell us about your business and what you need." required />
+      <label htmlFor="contact-name">Name</label>
+      <input id="contact-name" type="text" name="name" placeholder="Your name" required />
+      <label htmlFor="contact-email">Email</label>
+      <input id="contact-email" type="email" name="email" placeholder="you@business.com" required />
+      <label htmlFor="contact-company">Company (optional)</label>
+      <input id="contact-company" type="text" name="company" placeholder="Business name" />
+      <label htmlFor="contact-message">What do you need built?</label>
+      <textarea
+        id="contact-message"
+        name="message"
+        rows={5}
+        placeholder="Share your services, timeline, and goals."
+        required
+      />
       <button className="button primary" type="submit" disabled={submitState === 'submitting'}>
         {submitState === 'submitting' ? 'Submitting...' : 'Start My Website'}
       </button>

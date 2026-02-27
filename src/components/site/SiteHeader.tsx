@@ -9,17 +9,23 @@ type SiteHeaderProps = {
   onToggleMenu: () => void;
 };
 
+const navItems = [
+  { label: '$800 Websites', href: '/#website-package' },
+  { label: 'Services', href: '/services' },
+  { label: 'Contact', href: '/contact' },
+];
+
 export default function SiteHeader({ scrolled, menuOpen, onToggleMenu }: SiteHeaderProps) {
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${menuOpen ? 'menu-is-open' : ''}`}>
       <a className="site-mark" href="/" aria-label="Go to homepage">
         <span className="site-mark-word">Hometown</span>
+        <span className="site-mark-kicker">Kansas City Web Agency</span>
       </a>
       <nav className="site-header-nav" aria-label="Primary navigation">
-        <a href="/#website-package">$800 Websites</a>
-        <a href="/#services">Social Media</a>
-        <a href="/#services">Logos</a>
-        <a href="/#process">Process</a>
+        {navItems.map((item) => (
+          <a key={item.label} href={item.href}>{item.label}</a>
+        ))}
       </nav>
       <div className="site-header-actions">
         <a className="site-header-cta" href="/contact">Start My Website</a>
@@ -29,7 +35,7 @@ export default function SiteHeader({ scrolled, menuOpen, onToggleMenu }: SiteHea
           eventName="click_call_header"
           location="site_header"
         >
-          <span className="phone-label-full">{siteConfig.phoneDisplay}</span>
+          <span className="phone-label-full">Call {siteConfig.phoneDisplay}</span>
           <span className="phone-label-short">Call</span>
         </TrackedPhoneLink>
       </div>
