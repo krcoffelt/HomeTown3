@@ -14,6 +14,9 @@
   --color-border-subtle: rgba(255, 255, 255, 0.12);
   --color-border-medium: rgba(255, 255, 255, 0.16);
   --color-border-strong: rgba(255, 255, 255, 0.25);
+  --color-panel-solid: #151515;
+  --color-panel-muted: #1b1b1b;
+  --color-panel-border: rgba(255, 255, 255, 0.2);
   --color-accent-primary: #dbd0bb;
   --color-accent-secondary: #7f8f7d;
 
@@ -2446,6 +2449,47 @@ body.loaded .hero [data-hero] {
   margin: 0;
   color: var(--color-text-muted);
   font-size: 14px;
+}
+
+/* Replace translucent card surfaces with solid panels. */
+.agency-proof-card,
+.agency-hero-collage article,
+.home-proof-logo,
+.home-contrast-card,
+.home-capability-card,
+.home-metrics-grid,
+.agency-service-card,
+.agency-package-card,
+.agency-addon-list li,
+.agency-process-card,
+.agency-final-cta-card,
+.home-testimonial-card,
+.home-comparison-table-wrap,
+.home-faq-item,
+.services-category-card,
+.services-process-card,
+.services-matrix-wrap,
+.services-proof-strip article,
+.services-page-final-cta-card,
+.site-footer-cta-row {
+  background: var(--color-panel-solid);
+  border-color: var(--color-panel-border);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.agency-package-card-featured,
+.agency-final-cta-card,
+.home-testimonial-card,
+.services-page-final-cta-card,
+.site-footer-cta-row {
+  background: var(--color-panel-muted);
+}
+
+.agency-hero-pills li,
+.agency-package-badge {
+  background: var(--color-panel-muted);
+  border-color: var(--color-panel-border);
 }
 
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 800ms var(--ease-out), transform 1200ms var(--ease-out); }
