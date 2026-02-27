@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-base: #05070b;
+  --color-canvas: #f5f7ff;
+  --color-ink: #f5f7ff;
+  --color-text: #d7dff0;
+  --color-muted: #96a3bd;
+  --color-accent: #305cde;
+  --color-surface: #0d131d;
+  --color-surface-elevated: #111a28;
+  --color-line: rgba(255, 255, 255, 0.15);
+  --color-line-strong: rgba(255, 255, 255, 0.24);
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at top, #0d1422 0%, var(--color-base) 36%);
+  color: var(--color-text);
+  font-family: var(--font-sans), sans-serif;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss02";
+}
+
+.serif {
+  font-family: var(--font-serif), serif;
+}
+
+.display-xl {
+  font-size: clamp(2.8rem, 8vw, 6.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.display-lg {
+  font-size: clamp(2.2rem, 5.3vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.section-eyebrow {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
