@@ -43,9 +43,6 @@ export function WhyHometown() {
               <span className="section-eyebrow text-muted transition-colors duration-300 group-hover:text-white/85">
                 {String(idx + 1).padStart(2, "0")}
               </span>
-              <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full border border-white/15 px-2 text-xs text-muted">
-                KC
-              </span>
             </div>
             <h3 className="max-w-[18ch] text-[clamp(2rem,3.3vw,2.6rem)] font-medium leading-[1.02] tracking-tight text-ink">
               {item.title}

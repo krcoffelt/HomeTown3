@@ -38,7 +38,9 @@ export function HomeHero() {
           <div className="relative p-8 md:p-10">
             <p className="section-eyebrow text-white/70">Project Snapshot</p>
             <p className="mt-4 text-2xl font-medium leading-tight text-white md:text-[2rem]">
-              Clear process. Fast execution. Premium local presence.
+              <span className="block">Clear process.</span>
+              <span className="block">Fast execution.</span>
+              <span className="block">Premium local presence.</span>
             </p>
             <div className="mt-10 space-y-6">
               <div className="flex items-start gap-4">
