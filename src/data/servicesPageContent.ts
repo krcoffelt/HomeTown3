@@ -2,6 +2,8 @@ export type ServiceCategory = {
   title: string;
   summary: string;
   deliverables: string[];
+  mediaTag?: string;
+  mediaCaption?: string;
 };
 
 export type ServiceProcessStep = {
@@ -9,8 +11,8 @@ export type ServiceProcessStep = {
   description: string;
 };
 
-export type DeliverableMatrixRow = {
-  item: string;
+export type ServiceValuePillar = {
+  title: string;
   websites: string;
   social: string;
   logos: string;
@@ -19,33 +21,39 @@ export type DeliverableMatrixRow = {
 export const serviceCategories: ServiceCategory[] = [
   {
     title: 'Websites',
-    summary: 'Conversion-focused website setup for Kansas City businesses that need to launch quickly and look credible.',
+    summary: 'Launch-ready website setups for Kansas City businesses that need trust and leads quickly.',
     deliverables: [
       'Offer-focused page structure and copy',
       'Mobile optimization and fast load performance',
       'Lead form and click-to-call conversion setup',
       'Launch support and revision rounds',
     ],
+    mediaTag: 'Primary',
+    mediaCaption: 'Best first move when your business has no real website yet.',
   },
   {
     title: 'Social Media',
-    summary: 'Monthly content support that keeps your website connected to active local buyers.',
+    summary: 'Monthly content execution that keeps your website connected to active local demand.',
     deliverables: [
       'Content planning aligned to services and seasons',
       'Post creative direction and caption support',
       'Offer-driven campaign ideas tied to landing pages',
       'Performance check-ins and optimization notes',
     ],
+    mediaTag: 'Momentum',
+    mediaCaption: 'Adds visibility once the site conversion path is in place.',
   },
   {
     title: 'Logos',
-    summary: 'Clean visual identity support so your business appears established everywhere customers evaluate you.',
+    summary: 'Clean identity support so your business looks established anywhere customers evaluate you.',
     deliverables: [
       'Primary and alternate logo lockups',
       'Color and typography starter system',
       'Simple brand usage guide',
       'Social profile logo assets',
     ],
+    mediaTag: 'Credibility',
+    mediaCaption: 'Unifies your visual presence across website, social, and profiles.',
   },
 ];
 
@@ -68,27 +76,27 @@ export const servicesProcess: ServiceProcessStep[] = [
   },
 ];
 
-export const deliverablesMatrix: DeliverableMatrixRow[] = [
+export const serviceValuePillars: ServiceValuePillar[] = [
   {
-    item: 'Primary conversion path',
+    title: 'Conversion Role',
     websites: 'Form + phone CTA architecture',
     social: 'Traffic and engagement support',
     logos: 'Trust and visual consistency',
   },
   {
-    item: 'Best use case',
+    title: 'Best Use Case',
     websites: 'No current website or low conversion',
     social: 'Need consistent local visibility',
     logos: 'Brand looks inconsistent or outdated',
   },
   {
-    item: 'Typical engagement style',
+    title: 'Engagement Style',
     websites: 'One-time launch project',
     social: 'Monthly retainer support',
     logos: 'Project-based refresh',
   },
   {
-    item: 'Time to value',
+    title: 'Time to Value',
     websites: '7-10 day launch window',
     social: '2-4 weeks for cadence to stabilize',
     logos: '1-2 weeks for core assets',

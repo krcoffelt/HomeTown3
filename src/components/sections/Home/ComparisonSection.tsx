@@ -1,6 +1,4 @@
-import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
 import { comparisonRows } from '@/data/homeAgencyContent';
-import { siteConfig } from '@/lib/seo';
 
 export default function ComparisonSection() {
   return (
@@ -29,18 +27,6 @@ export default function ComparisonSection() {
             ))}
           </tbody>
         </table>
-      </div>
-
-      <div className="home-inline-cta">
-        <a className="button primary" href="/contact">Start My Website</a>
-        <TrackedPhoneLink
-          href={`tel:${siteConfig.phoneE164}`}
-          eventName="click_call_cta_section"
-          location="home_comparison"
-          className="button outline"
-        >
-          Call {siteConfig.phoneDisplay}
-        </TrackedPhoneLink>
       </div>
     </section>
   );

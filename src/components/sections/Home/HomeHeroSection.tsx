@@ -5,17 +5,10 @@ import UnicornScene from 'unicornstudio-react/next';
 import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
 import { siteConfig } from '@/lib/seo';
 
-const servicePills = ['Websites', 'Social Media', 'Logos'];
-const proofStats = [
-  { label: 'Launch Time', value: '7-10 days' },
-  { label: 'Flat Price', value: '$800' },
-  { label: 'Built For', value: 'Businesses Without Websites' },
-];
 const eyebrowStyle = { '--delay': '0.12s' } as CSSProperties;
 const heroHeadingStyle = { '--delay': '0.2s' } as CSSProperties;
 const heroSubStyle = { '--delay': '0.3s' } as CSSProperties;
 const heroCtaStyle = { '--delay': '0.38s' } as CSSProperties;
-const heroProofStyle = { '--delay': '0.46s' } as CSSProperties;
 type SceneConfig = { scale: number; dpi: number; fps: 30 | 60; paused: boolean };
 
 export default function HomeHeroSection() {
@@ -81,14 +74,13 @@ export default function HomeHeroSection() {
         </p>
         <h1 data-hero style={heroHeadingStyle}>
           <span className="mask"><span className="mask-text line">No website yet? Launch in days.</span></span>
-          <span className="mask"><span className="mask-text line">Flat $800 website setup.</span></span>
+          <span className="mask"><span className="mask-text line">Built for Kansas City businesses.</span></span>
         </h1>
         <p className="agency-hero-sub" data-hero style={heroSubStyle}>
-          We build lead-focused websites for local businesses across the Kansas City metro, then support
-          growth with social media and logo design.
+          We build conversion-focused websites for Kansas City businesses, then layer social and logo support as you grow.
         </p>
         <div className="agency-hero-cta" data-hero style={heroCtaStyle}>
-          <a className="button primary" href="/contact">Start My $800 Website</a>
+          <a className="button primary" href="/contact">Start My Website</a>
           <TrackedPhoneLink
             href={`tel:${siteConfig.phoneE164}`}
             eventName="click_call_cta_section"
@@ -97,37 +89,6 @@ export default function HomeHeroSection() {
           >
             Call {siteConfig.phoneDisplay}
           </TrackedPhoneLink>
-        </div>
-        <ul className="agency-hero-pills" data-hero style={heroCtaStyle} aria-label="Core services">
-          {servicePills.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <p className="agency-hero-service-area" data-hero style={heroProofStyle}>
-          Serving Kansas City, Overland Park, Olathe, Lee&apos;s Summit, Independence, Shawnee, Lenexa,
-          and nearby areas.
-        </p>
-        <div className="agency-hero-collage" data-hero style={heroProofStyle} aria-hidden="true">
-          <article>
-            <p>Websites</p>
-            <span>$800 Launch</span>
-          </article>
-          <article>
-            <p>Social Media</p>
-            <span>Monthly Support</span>
-          </article>
-          <article>
-            <p>Logos</p>
-            <span>Brand Basics</span>
-          </article>
-        </div>
-        <div className="hero-proof agency-proof-grid" data-hero style={heroProofStyle}>
-          {proofStats.map((item) => (
-            <article key={item.label} className="agency-proof-card">
-              <p className="agency-proof-value">{item.value}</p>
-              <p className="agency-proof-label">{item.label}</p>
-            </article>
-          ))}
         </div>
       </div>
     </section>

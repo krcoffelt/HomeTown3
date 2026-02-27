@@ -1,6 +1,4 @@
 import type { CSSProperties } from 'react';
-import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
-import { siteConfig } from '@/lib/seo';
 
 const services = [
   {
@@ -58,18 +56,6 @@ export default function AgencyServicesSection() {
             <a className="text-link" href={service.href}>{service.linkLabel}</a>
           </article>
         ))}
-      </div>
-
-      <div className="home-inline-cta">
-        <a className="button primary" href="/contact">Start My Website</a>
-        <TrackedPhoneLink
-          href={`tel:${siteConfig.phoneE164}`}
-          eventName="click_call_cta_section"
-          location="home_services_rail"
-          className="button ghost"
-        >
-          Call {siteConfig.phoneDisplay}
-        </TrackedPhoneLink>
       </div>
     </section>
   );

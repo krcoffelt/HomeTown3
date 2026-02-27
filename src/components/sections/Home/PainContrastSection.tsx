@@ -1,6 +1,4 @@
-import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
 import { painSolutionCards } from '@/data/homeAgencyContent';
-import { siteConfig } from '@/lib/seo';
 
 export default function PainContrastSection() {
   return (
@@ -16,6 +14,7 @@ export default function PainContrastSection() {
       <div className="home-contrast-grid">
         {painSolutionCards.map((item) => (
           <article key={item.title} className="home-contrast-card">
+            {item.mediaTag ? <p className="home-contrast-tag">{item.mediaTag}</p> : null}
             <h3>{item.title}</h3>
             <div className="home-contrast-columns">
               <div>
@@ -29,18 +28,6 @@ export default function PainContrastSection() {
             </div>
           </article>
         ))}
-      </div>
-
-      <div className="home-inline-cta">
-        <a className="button primary" href="/contact">Start My Website</a>
-        <TrackedPhoneLink
-          href={`tel:${siteConfig.phoneE164}`}
-          eventName="click_call_cta_section"
-          location="home_before_after"
-          className="button outline"
-        >
-          Call {siteConfig.phoneDisplay}
-        </TrackedPhoneLink>
       </div>
     </section>
   );

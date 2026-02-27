@@ -1,6 +1,6 @@
-import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
+import Image from 'next/image';
 import { proofLogos } from '@/data/homeAgencyContent';
-import { siteConfig } from '@/lib/seo';
+import { homeMediaProof } from '@/data/mediaProof';
 
 export default function LogoProofSection() {
   return (
@@ -19,20 +19,21 @@ export default function LogoProofSection() {
           <article key={logo.name} className="home-proof-logo" role="listitem">
             <p>{logo.name}</p>
             <span>{logo.category}</span>
+            {logo.note ? <small>{logo.note}</small> : null}
           </article>
         ))}
       </div>
 
-      <div className="home-inline-cta">
-        <a className="button primary" href="/contact">Start My Website</a>
-        <TrackedPhoneLink
-          href={`tel:${siteConfig.phoneE164}`}
-          eventName="click_call_cta_section"
-          location="home_proof_wall"
-          className="button ghost"
-        >
-          Call {siteConfig.phoneDisplay}
-        </TrackedPhoneLink>
+      <div className="home-proof-media-grid" aria-label="Recent creative proof">
+        {homeMediaProof.map((item) => (
+          <article key={item.src} className="home-proof-media-card">
+            <div className="home-proof-media">
+              <Image src={item.src} alt={item.alt} width={1200} height={800} />
+            </div>
+            <p>{item.tag}</p>
+            <span>{item.caption}</span>
+          </article>
+        ))}
       </div>
     </section>
   );

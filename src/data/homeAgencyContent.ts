@@ -1,12 +1,14 @@
 export type ProofLogo = {
   name: string;
   category: string;
+  note?: string;
 };
 
 export type PainSolutionCard = {
   title: string;
   before: string;
   after: string;
+  mediaTag?: string;
 };
 
 export type CapabilityItem = {
@@ -18,6 +20,7 @@ export type MetricItem = {
   value: string;
   label: string;
   note: string;
+  emphasis?: string;
 };
 
 export type HomeTestimonial = {
@@ -50,12 +53,12 @@ export type HomeFaq = {
 };
 
 export const proofLogos: ProofLogo[] = [
-  { name: 'Riverbend HVAC', category: 'Home Services' },
-  { name: 'South Plaza Dental', category: 'Healthcare' },
-  { name: 'Summit Legal Group', category: 'Legal' },
-  { name: 'Waldo Auto Care', category: 'Automotive' },
-  { name: 'Mainstreet Med Spa', category: 'Beauty' },
-  { name: 'Crossroads Kitchen Co.', category: 'Hospitality' },
+  { name: 'Riverbend HVAC', category: 'Home Services', note: 'Lead flow stabilized after launch.' },
+  { name: 'South Plaza Dental', category: 'Healthcare', note: 'Stronger trust from search visitors.' },
+  { name: 'Summit Legal Group', category: 'Legal', note: 'Clearer conversion path for consultations.' },
+  { name: 'Waldo Auto Care', category: 'Automotive', note: 'Faster routing from profile to phone.' },
+  { name: 'Mainstreet Med Spa', category: 'Beauty', note: 'Consistent identity across channels.' },
+  { name: 'Crossroads Kitchen Co.', category: 'Hospitality', note: 'Stronger weekend booking intent.' },
 ];
 
 export const painSolutionCards: PainSolutionCard[] = [
@@ -63,16 +66,19 @@ export const painSolutionCards: PainSolutionCard[] = [
     title: 'No website, no trust signal',
     before: 'Potential customers search your business, cannot find a real website, and choose a competitor.',
     after: 'A clean Kansas City-focused website explains your offer fast and routes visitors directly to your form or phone line.',
+    mediaTag: 'Credibility',
   },
   {
     title: 'No clear next step',
     before: 'People see your social profile but do not know how to contact you or what to do next.',
     after: 'Your site uses clear calls-to-action so visitors can submit the form or call in seconds.',
+    mediaTag: 'Conversion',
   },
   {
     title: 'Inconsistent brand presence',
     before: 'Your logo, messaging, and social look disconnected and reduce confidence.',
     after: 'Website, social, and logo support are aligned so your business looks established from day one.',
+    mediaTag: 'Consistency',
   },
 ];
 
@@ -98,23 +104,27 @@ export const capabilityItems: CapabilityItem[] = [
 export const metricsBand: MetricItem[] = [
   {
     value: '7-10 Days',
-    label: 'Average launch window',
-    note: 'Fast onboarding and focused scope.',
+    label: 'Launch window',
+    note: 'Focused setup with clear milestones.',
+    emphasis: 'Speed',
   },
   {
     value: '$800',
-    label: 'Entry website package',
-    note: 'A clear one-time starting point.',
+    label: 'Entry package',
+    note: 'Simple first investment to get online.',
+    emphasis: 'Clarity',
   },
   {
     value: '2-Click',
-    label: 'Conversion path target',
-    note: 'Form and phone actions stay obvious.',
+    label: 'Action path',
+    note: 'Visitors reach form or call in seconds.',
+    emphasis: 'Conversion',
   },
   {
     value: 'Kansas City',
-    label: 'Primary market focus',
+    label: 'Market focus',
     note: 'Built for local businesses first.',
+    emphasis: 'Local',
   },
 ];
 

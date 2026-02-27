@@ -1,9 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
-import { homeTestimonials } from '@/data/homeAgencyContent';
-import { siteConfig } from '@/lib/seo';
+import { homeTestimonials, metricsBand } from '@/data/homeAgencyContent';
 
 export default function TestimonialsCarouselSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -35,16 +33,14 @@ export default function TestimonialsCarouselSection() {
         </div>
       </article>
 
-      <div className="home-inline-cta">
-        <a className="button primary" href="/contact">Start My Website</a>
-        <TrackedPhoneLink
-          href={`tel:${siteConfig.phoneE164}`}
-          eventName="click_call_cta_section"
-          location="home_testimonials"
-          className="button ghost"
-        >
-          Call {siteConfig.phoneDisplay}
-        </TrackedPhoneLink>
+      <div className="home-results-band" aria-label="Performance highlights">
+        {metricsBand.map((metric) => (
+          <article key={metric.label} className="home-result-card">
+            <p className="home-result-value">{metric.value}</p>
+            <p className="home-result-label">{metric.label}</p>
+            <p className="home-result-note">{metric.note}</p>
+          </article>
+        ))}
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ export default function SiteHeader({ scrolled, menuOpen, onToggleMenu }: SiteHea
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${menuOpen ? 'menu-is-open' : ''}`}>
       <a className="site-mark" href="/" aria-label="Go to homepage">
         <span className="site-mark-word">Hometown</span>
-        <span className="site-mark-kicker">Kansas City Web Agency</span>
+        <span className="site-mark-kicker">Marketing Agency</span>
       </a>
       <nav className="site-header-nav" aria-label="Primary navigation">
         {navItems.map((item) => (

@@ -1,34 +1,33 @@
-import { deliverablesMatrix } from '@/data/servicesPageContent';
+import { serviceValuePillars } from '@/data/servicesPageContent';
 
 export default function ServicesOverviewSection() {
   return (
-    <section className="services-page-section" aria-labelledby="deliverables-matrix-heading">
+    <section className="services-page-section" aria-labelledby="services-value-map-heading">
       <div className="section-intro">
-        <p className="eyebrow">Deliverables Matrix</p>
-        <h2 id="deliverables-matrix-heading">Compare how each service contributes to growth.</h2>
+        <p className="eyebrow">Value Map</p>
+        <h2 id="services-value-map-heading">How each service contributes to growth.</h2>
       </div>
 
-      <div className="services-matrix-wrap">
-        <table className="services-matrix">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Websites</th>
-              <th>Social Media</th>
-              <th>Logos</th>
-            </tr>
-          </thead>
-          <tbody>
-            {deliverablesMatrix.map((row) => (
-              <tr key={row.item}>
-                <td>{row.item}</td>
-                <td>{row.websites}</td>
-                <td>{row.social}</td>
-                <td>{row.logos}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="services-value-map">
+        {serviceValuePillars.map((pillar) => (
+          <article key={pillar.title} className="services-value-row">
+            <p className="services-value-title">{pillar.title}</p>
+            <div className="services-value-columns">
+              <div>
+                <h3>Websites</h3>
+                <p>{pillar.websites}</p>
+              </div>
+              <div>
+                <h3>Social Media</h3>
+                <p>{pillar.social}</p>
+              </div>
+              <div>
+                <h3>Logos</h3>
+                <p>{pillar.logos}</p>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

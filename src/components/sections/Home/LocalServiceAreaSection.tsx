@@ -1,4 +1,3 @@
-import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
 import { localSeoCities } from '@/data/localSeoCities';
 import { siteConfig } from '@/lib/seo';
 
@@ -53,18 +52,6 @@ export default function LocalServiceAreaSection() {
             <p>{item.answer}</p>
           </article>
         ))}
-      </div>
-
-      <div className="local-service-actions">
-        <a className="button primary" href="/contact">Start My Website</a>
-        <TrackedPhoneLink
-          href={`tel:${siteConfig.phoneE164}`}
-          eventName="click_call_cta_section"
-          location="homepage_local_service_area"
-          className="button outline"
-        >
-          Call {siteConfig.phoneDisplay}
-        </TrackedPhoneLink>
       </div>
     </section>
   );

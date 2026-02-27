@@ -1,9 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import TrackedPhoneLink from '@/components/ui/TrackedPhoneLink';
 import { homeFaqItems } from '@/data/homeAgencyContent';
-import { siteConfig } from '@/lib/seo';
 
 export default function HomeFaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -12,7 +10,7 @@ export default function HomeFaqSection() {
     <section className="section home-faq reveal" aria-labelledby="home-faq-heading">
       <div className="section-intro">
         <p className="eyebrow">FAQ</p>
-        <h2 id="home-faq-heading">Questions local business owners ask before kickoff.</h2>
+        <h2 id="home-faq-heading">Quick answers before you start.</h2>
       </div>
 
       <div className="home-faq-list">
@@ -33,18 +31,6 @@ export default function HomeFaqSection() {
             </article>
           );
         })}
-      </div>
-
-      <div className="home-inline-cta">
-        <a className="button primary" href="/contact">Start My Website</a>
-        <TrackedPhoneLink
-          href={`tel:${siteConfig.phoneE164}`}
-          eventName="click_call_cta_section"
-          location="home_faq"
-          className="button ghost"
-        >
-          Call {siteConfig.phoneDisplay}
-        </TrackedPhoneLink>
       </div>
     </section>
   );

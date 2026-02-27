@@ -35,17 +35,19 @@ export default function WebsitePackageSection() {
             </ul>
             <div className="agency-package-actions">
               <a className="button primary" href="/contact">{tier.ctaLabel}</a>
-              <TrackedPhoneLink
-                href={`tel:${siteConfig.phoneE164}`}
-                eventName="click_call_cta_section"
-                location={`home_pricing_${tier.name.toLowerCase().replace(/\s+/g, '_')}`}
-                className="button outline"
-              >
-                Call
-              </TrackedPhoneLink>
             </div>
           </article>
         ))}
+      </div>
+      <div className="pricing-phone-row">
+        <TrackedPhoneLink
+          href={`tel:${siteConfig.phoneE164}`}
+          eventName="click_call_cta_section"
+          location="home_pricing_shared_phone"
+          className="button outline"
+        >
+          Prefer phone? Call {siteConfig.phoneDisplay}
+        </TrackedPhoneLink>
       </div>
     </section>
   );

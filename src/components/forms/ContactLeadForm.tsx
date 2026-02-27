@@ -51,8 +51,8 @@ export default function ContactLeadForm() {
 
   return (
     <form className="detail-panel cta-form contact-lead-form" id="contact-form" onSubmit={handleSubmit} noValidate>
-      <h2>Project Form</h2>
-      <p className="contact-lead-intro">Tell us about your business and we will reply with next steps.</p>
+      <h2>Project Details</h2>
+      <p className="contact-lead-intro">Tell us what you need and we will reply with scope and next steps.</p>
       <p className="detail-note">
         Prefer to call?{' '}
         <TrackedPhoneLink
@@ -75,7 +75,7 @@ export default function ContactLeadForm() {
         id="contact-message"
         name="message"
         rows={5}
-        placeholder="Share your services, timeline, and goals."
+        placeholder="Share services, timeline, and priorities."
         required
       />
       <button className="button primary" type="submit" disabled={submitState === 'submitting'}>
