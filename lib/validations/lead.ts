@@ -5,13 +5,8 @@ export const leadSchema = z.object({
   businessName: z.string().min(2).max(120),
   email: z.string().email(),
   phone: z.string().max(30).optional(),
-  serviceNeeded: z.enum([
-    "Website Design",
-    "Google Business Profile Setup",
-    "Logo Design + Mini Brand Kit",
-    "Social Media Management"
-  ]),
-  projectDetails: z.string().min(20).max(2000)
+  serviceNeeded: z.string().min(1).max(120),
+  projectDetails: z.string().min(8).max(2000)
 });
 
 export type LeadInput = z.infer<typeof leadSchema>;

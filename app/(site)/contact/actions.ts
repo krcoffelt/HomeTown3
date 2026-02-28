@@ -22,7 +22,18 @@ export async function submitLead(
   });
 
   if (!parsed.success) {
-    return { ok: false, message: "Please complete all required fields correctly." };
+    const issue = parsed.error.issues[0];
+    const fieldMap: Record<string, string> = {
+      name: "Name",
+      businessName: "Business Name",
+      email: "Email",
+      phone: "Phone",
+      serviceNeeded: "Service Needed",
+      projectDetails: "Project Details"
+    };
+    const field = issue?.path?.[0] ? fieldMap[String(issue.path[0])] ?? "Form" : "Form";
+    const message = issue?.message ? `${field}: ${issue.message}` : "Please complete all required fields correctly.";
+    return { ok: false, message };
   }
 
   try {

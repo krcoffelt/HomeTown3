@@ -14,7 +14,7 @@ const initialValues = {
   businessName: "",
   email: "",
   phone: "",
-  serviceNeeded: "",
+  serviceNeeded: "Website Design",
   projectDetails: ""
 };
 
@@ -94,9 +94,6 @@ export function ContactForm() {
           value={values.serviceNeeded}
           onChange={(event) => setValues((prev) => ({ ...prev, serviceNeeded: event.target.value }))}
         >
-          <option value="" disabled>
-            Select a service
-          </option>
           {services.map((service) => (
             <option key={service.slug} value={service.title}>
               {service.title}
