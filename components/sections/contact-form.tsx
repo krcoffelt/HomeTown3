@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useState } from "react";
 import { submitLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,12 +21,6 @@ const initialValues = {
 export function ContactForm() {
   const [state, action, pending] = useActionState(submitLead, initialState);
   const [values, setValues] = useState(initialValues);
-
-  useEffect(() => {
-    if (state.ok) {
-      setValues(initialValues);
-    }
-  }, [state.ok]);
 
   return (
     <form id="form" action={action} className="grid gap-4 rounded-lg border border-line bg-surface p-6 shadow-soft">
