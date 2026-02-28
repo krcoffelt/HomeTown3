@@ -6,8 +6,8 @@ import { services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata(
-  "Website Design and Branding Services for Kansas City Small Businesses",
-  "Service offerings from Hometown including website design, GBP setup, logo kits, and social media management.",
+  "Website Design and Marketing Services | Hometown Marketing Agency Kansas City",
+  "Service offerings from Hometown Marketing Agency including website design, GBP setup, logo kits, and social media management.",
   "/services"
 );
 

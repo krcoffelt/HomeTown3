@@ -1,6 +1,10 @@
 export const site = {
+  brand: {
+    shortName: "Hometown",
+    fullName: "Hometown Marketing Agency"
+  },
   name: "Hometown",
-  title: "Hometown | Affordable Website Design for Kansas City Businesses",
+  title: "Affordable Website Design for Kansas City Businesses",
   description:
     "Custom, premium-looking websites for Kansas City service businesses that want more leads.",
   url: "https://hometownstudio.co",
@@ -10,4 +14,3 @@ export const site = {
   heroPrice: "$800",
   regularPrice: "$999"
 };
-

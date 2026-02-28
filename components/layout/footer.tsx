@@ -35,6 +35,9 @@ export function Footer() {
               Premium, lead-focused website design for Kansas City service
               businesses.
             </p>
+            <p className="mt-2 text-xs uppercase tracking-[0.1em] text-muted">
+              Hometown Marketing Agency, Kansas City
+            </p>
           </div>
           <div>
             <h3 className="text-sm uppercase tracking-[0.12em] text-muted">

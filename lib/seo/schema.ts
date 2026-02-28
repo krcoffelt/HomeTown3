@@ -5,7 +5,8 @@ export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: site.name,
+    name: site.brand.fullName,
+    alternateName: site.brand.shortName,
     description: site.description,
     areaServed: "Kansas City, Missouri",
     telephone: site.contactPhone,
@@ -29,4 +30,3 @@ export function faqSchema(page: "home" | "pricing") {
     }))
   };
 }
-

@@ -7,8 +7,8 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { faqSchema } from "@/lib/seo/schema";
 
 export const metadata = createPageMetadata(
-  "Website Pricing for Kansas City Small Businesses | Hometown",
-  "Transparent website package pricing and add-ons for Kansas City service businesses.",
+  "Website Pricing for Kansas City Small Businesses | Hometown Marketing Agency",
+  "Transparent website package pricing and add-ons from Hometown Marketing Agency for Kansas City service businesses.",
   "/pricing"
 );
 
@@ -59,7 +59,10 @@ export default function PricingPage() {
       <FAQSection page="pricing" />
       <SectionShell className="pt-6">
         <Card className="flex items-center justify-between gap-4">
-          <p className="text-lg text-text">Ready to launch your new site?</p>
+          <p className="text-lg text-text">
+            Ready to launch your new site and start with Hometown Marketing
+            Agency?
+          </p>
           <Button href="/contact#form">Get Started</Button>
         </Card>
       </SectionShell>

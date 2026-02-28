@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
@@ -23,12 +24,23 @@ export function HomeHero() {
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-white">
             {homepageCopy.heroSubtitle}
           </p>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/75">
+            Hometown Marketing Agency builds premium, lead-focused websites for
+            Kansas City service businesses.
+          </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Button href="/contact#form" className="bg-accent text-white">
               Get Started
             </Button>
             <p className="section-eyebrow text-white">NOW ONLY $800</p>
           </div>
+          <p className="mt-4 text-sm text-white/70">
+            Explore our{" "}
+            <Link href="/services" className="underline underline-offset-4">
+              Kansas City marketing services
+            </Link>
+            .
+          </p>
         </Reveal>
         <Reveal
           delay={0.08}

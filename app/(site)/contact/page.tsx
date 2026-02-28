@@ -6,8 +6,8 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/data/site";
 
 export const metadata = createPageMetadata(
-  "Contact Hometown | Kansas City Website Design",
-  "Contact Hometown for premium website design and lead-focused web strategy for Kansas City businesses.",
+  "Contact Hometown Marketing Agency | Kansas City",
+  "Contact Hometown Marketing Agency for premium website design and lead-focused web strategy for Kansas City businesses.",
   "/contact"
 );
 
@@ -33,6 +33,9 @@ export default function ContactPage() {
             <div className="rounded-md border border-line bg-surface p-5">
               <p className="text-sm uppercase tracking-[0.12em] text-muted">
                 Fallback contact
+              </p>
+              <p className="mt-3 text-sm text-muted">
+                Hometown Marketing Agency, Kansas City
               </p>
               <p className="mt-3 text-base text-text">
                 Email: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>

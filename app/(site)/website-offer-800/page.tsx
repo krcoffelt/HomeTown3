@@ -3,13 +3,15 @@ import { SectionShell } from "@/components/layout/section-shell";
 import { ContactForm } from "@/components/sections/contact-form";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   ...createPageMetadata(
     "Kansas City Website Offer | Now Only $800",
     "Limited-time $800 custom website offer for Kansas City service businesses.",
-    "/website-offer-800"
+    "/website-offer-800",
+    site.brand.shortName
   ),
   robots: {
     index: false,

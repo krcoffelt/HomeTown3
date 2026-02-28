@@ -6,8 +6,8 @@ import { projects } from "@/data/projects";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata(
-  "Recent Website Projects for Kansas City Businesses | Hometown",
-  "View recent website projects built for Kansas City and local service businesses.",
+  "Recent Website Projects | Hometown Marketing Agency",
+  "View recent website projects built by Hometown Marketing Agency for Kansas City and local service businesses.",
   "/work"
 );
 

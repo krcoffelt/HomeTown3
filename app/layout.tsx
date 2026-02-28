@@ -18,8 +18,16 @@ const serif = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: site.title,
-  description: site.description
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.title} | ${site.brand.fullName}`,
+    template: `%s | ${site.brand.fullName}`
+  },
+  applicationName: site.brand.fullName,
+  description: site.description,
+  openGraph: {
+    siteName: site.brand.fullName
+  }
 };
 
 export default function RootLayout({
