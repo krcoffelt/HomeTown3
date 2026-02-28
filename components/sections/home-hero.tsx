@@ -25,8 +25,8 @@ export function HomeHero() {
             {homepageCopy.heroSubtitle}
           </p>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/75">
-            Hometown Marketing Agency builds premium, lead-focused websites for
-            Kansas City service businesses.
+            Kansas City-based Hometown Marketing Agency. Clear strategy,
+            premium execution, and a clean path to more inquiries.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Button href="/contact#form" className="bg-accent text-white">
