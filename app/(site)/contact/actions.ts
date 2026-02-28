@@ -2,7 +2,6 @@
 
 import { leadSchema } from "@/lib/validations/lead";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { sendLeadNotification } from "@/lib/email/resend";
 
 export interface SubmitLeadState {
   ok: boolean;
@@ -38,23 +37,40 @@ export async function submitLead(
     });
 
     if (error) {
+      if (error.code === "42P01") {
+        return {
+          ok: false,
+          message: "Leads table is not set up yet. Please run the Supabase schema SQL."
+        };
+      }
+      if (error.code === "42501" || error.code === "401" || error.code === "403") {
+        return {
+          ok: false,
+          message: "Supabase permissions are blocking inserts. Check service role key in env."
+        };
+      }
+
       return {
         ok: false,
-        message: "Submission failed. Please try again or email us directly."
+        message: `Submission failed: ${error.message}`
       };
     }
-
-    await sendLeadNotification(parsed.data);
 
     return {
       ok: true,
       message: "Thanks. Your request was sent successfully."
     };
-  } catch {
+  } catch (error) {
+    if (error instanceof Error && error.message.startsWith("Missing env var:")) {
+      return {
+        ok: false,
+        message: `${error.message}. Add it in Netlify environment variables.`
+      };
+    }
+
     return {
       ok: false,
       message: "Something went wrong. Please try again shortly."
     };
   }
 }
-

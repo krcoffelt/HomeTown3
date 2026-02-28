@@ -18,10 +18,10 @@ export function Navbar() {
           <Image
             src="/images/HometownLogo_white2026.png"
             alt="Hometown"
-            width={250}
-            height={54}
+            width={375}
+            height={81}
             priority
-            className="h-10 w-auto md:h-12"
+            className="h-[3.75rem] w-auto md:h-[4.5rem]"
           />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">

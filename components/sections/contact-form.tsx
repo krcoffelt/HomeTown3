@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { submitLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,9 +9,24 @@ import { Textarea } from "@/components/ui/textarea";
 import { services } from "@/data/services";
 
 const initialState: SubmitLeadState = { ok: false, message: "" };
+const initialValues = {
+  name: "",
+  businessName: "",
+  email: "",
+  phone: "",
+  serviceNeeded: "",
+  projectDetails: ""
+};
 
 export function ContactForm() {
   const [state, action, pending] = useActionState(submitLead, initialState);
+  const [values, setValues] = useState(initialValues);
+
+  useEffect(() => {
+    if (state.ok) {
+      setValues(initialValues);
+    }
+  }, [state.ok]);
 
   return (
     <form id="form" action={action} className="grid gap-4 rounded-lg border border-line bg-surface p-6 shadow-soft">
@@ -20,13 +35,25 @@ export function ContactForm() {
           <label htmlFor="name" className="mb-2 block text-sm text-muted">
             Name
           </label>
-          <Input id="name" name="name" required />
+          <Input
+            id="name"
+            name="name"
+            required
+            value={values.name}
+            onChange={(event) => setValues((prev) => ({ ...prev, name: event.target.value }))}
+          />
         </div>
         <div>
           <label htmlFor="businessName" className="mb-2 block text-sm text-muted">
             Business Name
           </label>
-          <Input id="businessName" name="businessName" required />
+          <Input
+            id="businessName"
+            name="businessName"
+            required
+            value={values.businessName}
+            onChange={(event) => setValues((prev) => ({ ...prev, businessName: event.target.value }))}
+          />
         </div>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
@@ -34,20 +61,39 @@ export function ContactForm() {
           <label htmlFor="email" className="mb-2 block text-sm text-muted">
             Email
           </label>
-          <Input id="email" name="email" type="email" required />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            required
+            value={values.email}
+            onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
+          />
         </div>
         <div>
           <label htmlFor="phone" className="mb-2 block text-sm text-muted">
             Phone
           </label>
-          <Input id="phone" name="phone" type="tel" />
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            value={values.phone}
+            onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
+          />
         </div>
       </div>
       <div>
         <label htmlFor="serviceNeeded" className="mb-2 block text-sm text-muted">
           Service Needed
         </label>
-        <Select id="serviceNeeded" name="serviceNeeded" required defaultValue="">
+        <Select
+          id="serviceNeeded"
+          name="serviceNeeded"
+          required
+          value={values.serviceNeeded}
+          onChange={(event) => setValues((prev) => ({ ...prev, serviceNeeded: event.target.value }))}
+        >
           <option value="" disabled>
             Select a service
           </option>
@@ -62,7 +108,13 @@ export function ContactForm() {
         <label htmlFor="projectDetails" className="mb-2 block text-sm text-muted">
           Project Details
         </label>
-        <Textarea id="projectDetails" name="projectDetails" required />
+        <Textarea
+          id="projectDetails"
+          name="projectDetails"
+          required
+          value={values.projectDetails}
+          onChange={(event) => setValues((prev) => ({ ...prev, projectDetails: event.target.value }))}
+        />
       </div>
       {state.message ? (
         <p className={state.ok ? "text-[#4ade80]" : "text-[#f87171]"}>{state.message}</p>
