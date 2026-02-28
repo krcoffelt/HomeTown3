@@ -34,7 +34,9 @@ export default function WebsiteOfferLandingPage() {
             looks legit and gets more inquiries.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button href="#claim-form">Claim This Offer</Button>
+            <Button href="#claim-form" dataAnalytics="cta-offer-800">
+              Claim This Offer
+            </Button>
             <p className="section-eyebrow text-white/70">Regular Price $999</p>
           </div>
         </div>

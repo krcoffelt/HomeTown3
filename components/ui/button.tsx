@@ -7,6 +7,7 @@ type ButtonVariant = "primary" | "secondary" | "ghost";
 interface ButtonProps {
   children: ReactNode;
   className?: string;
+  dataAnalytics?: string;
   href?: string;
   type?: "button" | "submit";
   variant?: ButtonVariant;
@@ -23,10 +24,12 @@ const variants: Record<ButtonVariant, string> = {
 export function Button({
   children,
   className,
+  dataAnalytics,
   href,
   type = "button",
   variant = "primary"
 }: ButtonProps) {
+  const analyticsTag = dataAnalytics ?? (variant === "primary" ? "cta-primary" : undefined);
   const classes = cn(
     "inline-flex items-center justify-center rounded-md px-6 py-3 text-[0.98rem] font-medium tracking-[-0.01em] transition duration-300",
     variants[variant],
@@ -35,14 +38,14 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} data-analytics={analyticsTag}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={classes}>
+    <button type={type} className={classes} data-analytics={analyticsTag}>
       {children}
     </button>
   );
