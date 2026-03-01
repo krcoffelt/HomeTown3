@@ -27,8 +27,9 @@ export function Footer() {
             <Image
               src="/images/HometownLogo_white2026.png"
               alt="Hometown"
-              width={180}
-              height={38}
+              width={167}
+              height={36}
+              sizes="(min-width: 768px) 167px, 148px"
               className="h-8 w-auto md:h-9"
             />
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">

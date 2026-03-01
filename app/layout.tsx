@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Manrope, Cormorant_Garamond } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { site } from "@/data/site";
 import { localBusinessSchema } from "@/lib/seo/schema";
+import { GtmLoader } from "@/components/analytics/gtm-loader";
 
 const sans = Manrope({
   subsets: ["latin"],
@@ -43,7 +43,7 @@ export default function RootLayout({
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
         />
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+        <GtmLoader gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
         {children}
       </body>
     </html>

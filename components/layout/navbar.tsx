@@ -18,8 +18,9 @@ export function Navbar() {
           <Image
             src="/images/HometownLogo_white2026.png"
             alt="Hometown"
-            width={375}
-            height={81}
+            width={333}
+            height={72}
+            sizes="(min-width: 768px) 333px, 278px"
             priority
             className="h-[3.75rem] w-auto md:h-[4.5rem]"
           />

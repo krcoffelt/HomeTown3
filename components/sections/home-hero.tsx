@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/ui/reveal";
 import { SectionShell } from "@/components/layout/section-shell";
 import { homepageCopy } from "@/data/copy";
 import { UnicornHeroBackground } from "@/components/sections/unicorn-hero-background";
@@ -13,7 +12,7 @@ export function HomeHero() {
         <UnicornHeroBackground />
       </div>
       <div className="relative z-10 grid items-end gap-8 md:grid-cols-12 md:gap-10">
-        <Reveal className="md:col-span-7">
+        <div className="hero-reveal md:col-span-7">
           <Badge className="mb-6 border-white/20 bg-white/10 text-white">
             {homepageCopy.trustLabel}
           </Badge>
@@ -41,11 +40,8 @@ export function HomeHero() {
             </Link>
             .
           </p>
-        </Reveal>
-        <Reveal
-          delay={0.08}
-          className="relative overflow-hidden rounded-lg border border-white/12 bg-[#0f141b]/80 md:col-span-5"
-        >
+        </div>
+        <div className="hero-reveal hero-reveal-delay relative overflow-hidden rounded-lg border border-white/12 bg-[#0f141b]/80 md:col-span-5">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.1),transparent_56%)]" />
           <div className="relative p-8 md:p-10">
             <p className="section-eyebrow text-white/70">Project Snapshot</p>
@@ -94,7 +90,7 @@ export function HomeHero() {
               </div>
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </SectionShell>
   );
