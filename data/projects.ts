@@ -10,7 +10,7 @@ export const projects: ProjectItem[] = [
     servicesProvided: ["Website Design", "Local SEO Structure"],
     featuredImageUrl:
       "/images/work/PlateKCScreenshot.png",
-    liveUrl: "https://example.com",
+    liveUrl: "https://plateitalianomoderno.com",
     isFeatured: true,
     sortOrder: 1
   },
@@ -23,7 +23,7 @@ export const projects: ProjectItem[] = [
     servicesProvided: ["Website Design", "Brand Refresh"],
     featuredImageUrl:
       "/images/work/LupiDocsScreenshot.png",
-    liveUrl: "https://example.com",
+    liveUrl: "https://lupidocs.com",
     isFeatured: true,
     sortOrder: 2
   },
@@ -36,7 +36,7 @@ export const projects: ProjectItem[] = [
     servicesProvided: ["Website Design"],
     featuredImageUrl:
       "/images/work/JoseIsaiValdezScreenshot.png",
-    liveUrl: "https://example.com",
+    liveUrl: "https://joseisaivaldez.com",
     isFeatured: true,
     sortOrder: 3
   },

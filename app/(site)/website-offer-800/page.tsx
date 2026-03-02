@@ -34,28 +34,6 @@ export default function WebsiteOfferLandingPage() {
             Built for local service businesses that need a stronger first impression
             and more qualified leads without waiting months.
           </p>
-          <div className="mt-6 max-w-5xl overflow-hidden rounded-2xl border border-white/18 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02)_38%,rgba(8,14,28,0.7)_100%)] backdrop-blur-sm">
-            <div className="grid md:grid-cols-3 md:divide-x md:divide-white/14">
-              <div className="px-5 py-4 md:px-6 md:py-5">
-                <p className="section-eyebrow text-[#9bb6ff]">What&apos;s Included</p>
-                <p className="mt-2 text-base leading-relaxed text-white">
-                  Custom design, mobile optimization, and lead form setup.
-                </p>
-              </div>
-              <div className="border-t border-white/10 px-5 py-4 md:border-t-0 md:px-6 md:py-5">
-                <p className="section-eyebrow text-[#9bb6ff]">What&apos;s Not</p>
-                <p className="mt-2 text-base leading-relaxed text-white">
-                  Paid ads management or long-term SEO retainers.
-                </p>
-              </div>
-              <div className="border-t border-white/10 px-5 py-4 md:border-t-0 md:px-6 md:py-5">
-                <p className="section-eyebrow text-[#9bb6ff]">Turnaround</p>
-                <p className="mt-2 text-base leading-relaxed text-white">
-                  Most projects launch in about 14 days.
-                </p>
-              </div>
-            </div>
-          </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button href="#claim-form" dataAnalytics="cta-offer-800">
               Claim My $800 Website
@@ -99,7 +77,15 @@ export default function WebsiteOfferLandingPage() {
                 &ldquo;Clear process and easy communication. The site made us look
                 way more established.&rdquo;
               </p>
-              <p className="mt-5 text-sm text-white/75">Christine Lesinger, LibiDoc</p>
+              <p className="mt-5 text-sm text-white/75">Christine Leninger, LupiDocs</p>
+              <a
+                href="https://lupidocs.com"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
+              >
+                Visit lupidocs.com
+              </a>
             </article>
             <article className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
               <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
@@ -108,8 +94,16 @@ export default function WebsiteOfferLandingPage() {
                 matches the quality of our business.&rdquo;
               </p>
               <p className="mt-5 text-sm text-white/75">
-                Christian Joseph, Play Italiano Moderno
+                Christian Joseph, Plate Italiano Moderno
               </p>
+              <a
+                href="https://plateitalianomoderno.com"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
+              >
+                Visit plateitalianomoderno.com
+              </a>
             </article>
             <article className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
               <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
@@ -118,8 +112,16 @@ export default function WebsiteOfferLandingPage() {
                 for people to discover and reach out.&rdquo;
               </p>
               <p className="mt-5 text-sm text-white/75">
-                Jose Valdez, Jose Isai Valdez Music
+                Jose Valdez, Music Artist
               </p>
+              <a
+                href="https://joseisaivaldez.com"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
+              >
+                Visit joseisaivaldez.com
+              </a>
             </article>
           </div>
         </div>
