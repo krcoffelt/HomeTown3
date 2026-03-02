@@ -34,11 +34,28 @@ export default function WebsiteOfferLandingPage() {
             Built for local service businesses that need a stronger first impression
             and more qualified leads without waiting months.
           </p>
-          <ul className="mt-6 grid max-w-3xl gap-2 text-sm text-white/85 md:grid-cols-3">
-            <li className="rounded-md border border-white/20 bg-white/6 px-3 py-2">What&apos;s included: custom design + mobile optimization + lead form</li>
-            <li className="rounded-md border border-white/20 bg-white/6 px-3 py-2">What&apos;s not: paid ads management or long-term SEO retainers</li>
-            <li className="rounded-md border border-white/20 bg-white/6 px-3 py-2">Turnaround: most projects launch in about 14 days</li>
-          </ul>
+          <div className="mt-6 max-w-5xl overflow-hidden rounded-2xl border border-white/18 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02)_38%,rgba(8,14,28,0.7)_100%)] backdrop-blur-sm">
+            <div className="grid md:grid-cols-3 md:divide-x md:divide-white/14">
+              <div className="px-5 py-4 md:px-6 md:py-5">
+                <p className="section-eyebrow text-[#9bb6ff]">What&apos;s Included</p>
+                <p className="mt-2 text-base leading-relaxed text-white/92">
+                  Custom design, mobile optimization, and lead form setup.
+                </p>
+              </div>
+              <div className="border-t border-white/10 px-5 py-4 md:border-t-0 md:px-6 md:py-5">
+                <p className="section-eyebrow text-[#9bb6ff]">What&apos;s Not</p>
+                <p className="mt-2 text-base leading-relaxed text-white/92">
+                  Paid ads management or long-term SEO retainers.
+                </p>
+              </div>
+              <div className="border-t border-white/10 px-5 py-4 md:border-t-0 md:px-6 md:py-5">
+                <p className="section-eyebrow text-[#9bb6ff]">Turnaround</p>
+                <p className="mt-2 text-base leading-relaxed text-white/92">
+                  Most projects launch in about 14 days.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button href="#claim-form" dataAnalytics="cta-offer-800">
               Claim My $800 Website
@@ -49,34 +66,62 @@ export default function WebsiteOfferLandingPage() {
       </SectionShell>
 
       <SectionShell className="pt-2">
-        <div className="grid gap-4 md:grid-cols-3">
-          <Card className="bg-surface">
-            <p className="section-eyebrow text-muted">Proof</p>
-            <p className="mt-4 text-lg text-text">10+ sites launched</p>
-          </Card>
-          <Card className="bg-surface">
-            <p className="section-eyebrow text-muted">Local</p>
-            <p className="mt-4 text-lg text-text">Kansas City-based</p>
-          </Card>
-          <Card className="bg-surface">
-            <p className="section-eyebrow text-muted">Response Time</p>
-            <p className="mt-4 text-lg text-text">Average response in less than 24 hours</p>
-          </Card>
+        <div className="overflow-hidden rounded-2xl border border-white/16 bg-[linear-gradient(155deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02)_36%,rgba(8,14,28,0.82)_100%)] backdrop-blur-sm">
+          <div className="grid md:grid-cols-3 md:divide-x md:divide-white/12">
+            <div className="px-6 py-6 md:px-8">
+              <p className="section-eyebrow text-[#9bb6ff]">Proof</p>
+              <p className="mt-3 text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-tight text-white">
+                10+ websites launched
+              </p>
+            </div>
+            <div className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
+              <p className="section-eyebrow text-[#9bb6ff]">Local</p>
+              <p className="mt-3 text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-tight text-white">
+                Kansas City-based team
+              </p>
+            </div>
+            <div className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
+              <p className="section-eyebrow text-[#9bb6ff]">Response Time</p>
+              <p className="mt-3 text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-tight text-white">
+                Average response under 24 hours
+              </p>
+            </div>
+          </div>
         </div>
       </SectionShell>
 
       <SectionShell className="pt-4">
-        <div className="grid gap-4 md:grid-cols-2">
-          <Card className="bg-surface">
-            <p className="section-eyebrow text-muted">Client Story</p>
-            <p className="mt-4 text-lg text-text">&quot;Clear process and easy communication. The site made us look way more established.&quot;</p>
-            <p className="mt-3 text-sm text-muted">Christine Lesinger, LupiDocs</p>
-          </Card>
-          <Card className="bg-surface">
-            <p className="section-eyebrow text-muted">Client Story</p>
-            <p className="mt-4 text-lg text-text">&quot;The new site gave us a premium online presence that finally matches the quality of our business.&quot;</p>
-            <p className="mt-3 text-sm text-muted">Jose Valdez and Christian Joseph, Plate Italiano Moderno</p>
-          </Card>
+        <div className="overflow-hidden rounded-2xl border border-white/16 bg-[linear-gradient(160deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015)_42%,rgba(6,11,23,0.9)_100%)] backdrop-blur-sm">
+          <div className="grid md:grid-cols-3 md:divide-x md:divide-white/12">
+            <article className="px-6 py-6 md:px-8">
+              <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
+              <p className="mt-4 text-[1.15rem] leading-relaxed text-white/92">
+                &ldquo;Clear process and easy communication. The site made us look
+                way more established.&rdquo;
+              </p>
+              <p className="mt-5 text-sm text-white/65">Christine Lesinger, LibiDoc</p>
+            </article>
+            <article className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
+              <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
+              <p className="mt-4 text-[1.15rem] leading-relaxed text-white/92">
+                &ldquo;The new site gave us a premium online presence that finally
+                matches the quality of our business.&rdquo;
+              </p>
+              <p className="mt-5 text-sm text-white/65">
+                Christian Joseph, Play Italiano Moderno
+              </p>
+            </article>
+            <article className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
+              <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
+              <p className="mt-4 text-[1.15rem] leading-relaxed text-white/92">
+                &ldquo;The website finally reflects the music brand and makes it easier
+                for people to discover and reach out.&rdquo;
+              </p>
+              <p className="mt-5 text-sm text-white/65">
+                Jose Valdez, Jose Isai Valdez Music
+              </p>
+            </article>
+          </div>
         </div>
       </SectionShell>
 

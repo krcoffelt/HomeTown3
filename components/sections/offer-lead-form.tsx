@@ -12,7 +12,6 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ShineBorder } from "@/components/ui/shine-border";
 
 const initialState: SubmitLeadState = { ok: false, message: "" };
 const initialValues = {
@@ -42,11 +41,10 @@ export function OfferLeadForm() {
   };
 
   return (
-    <Card className="relative overflow-hidden p-0 shadow-soft">
-      <ShineBorder shineColor={["#6ea2ff", "#95f2ff", "#d8b5ff"]} />
-      <CardHeader>
+    <Card className="p-0 shadow-soft">
+      <CardHeader className="border-b border-line/70">
         <CardTitle>Get your Website for only $800</CardTitle>
-        <CardDescription>Basic form. Takes 2 minutes.</CardDescription>
+        <CardDescription>Quick form. Takes about 2 minutes.</CardDescription>
       </CardHeader>
       <CardContent>
         <form
@@ -65,6 +63,7 @@ export function OfferLeadForm() {
               id="offer-name"
               name="name"
               value={values.name}
+              placeholder="Your full name"
               onFocus={markStarted}
               onChange={(event) => setValues((prev) => ({ ...prev, name: event.target.value }))}
             />
@@ -77,6 +76,7 @@ export function OfferLeadForm() {
               id="offer-businessName"
               name="businessName"
               value={values.businessName}
+              placeholder="Business name"
               onFocus={markStarted}
               onChange={(event) => setValues((prev) => ({ ...prev, businessName: event.target.value }))}
             />
@@ -90,6 +90,7 @@ export function OfferLeadForm() {
               name="phone"
               type="tel"
               value={values.phone}
+              placeholder="(913) 991-6641"
               onFocus={markStarted}
               onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
             />
@@ -103,6 +104,7 @@ export function OfferLeadForm() {
               name="email"
               type="email"
               value={values.email}
+              placeholder="you@business.com"
               onFocus={markStarted}
               onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
             />
@@ -113,7 +115,7 @@ export function OfferLeadForm() {
           ) : null}
         </form>
       </CardContent>
-      <CardFooter className="w-full">
+      <CardFooter className="w-full border-t border-line/70">
         <Button type="submit" form="offer-form" className="w-full" variant="primary" dataAnalytics="cta-offer-800">
           {pending ? "Sending..." : "Get Offer"}
         </Button>
