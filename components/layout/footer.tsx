@@ -25,7 +25,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <Image
-              src="/images/HometownLogo_white2026.png"
+              src="/images/HometownLogoWhite2026.png"
               alt="Hometown"
               width={167}
               height={36}

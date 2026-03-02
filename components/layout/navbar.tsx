@@ -16,7 +16,7 @@ export function Navbar() {
       <div className="mx-auto flex w-full max-w-shell items-center justify-between px-5 py-4 md:px-8">
         <Link href="/" aria-label="Hometown home" className="inline-flex items-center">
           <Image
-            src="/images/HometownLogo_white2026.png"
+            src="/images/HometownLogoWhite2026.png"
             alt="Hometown"
             width={333}
             height={72}
