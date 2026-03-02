@@ -38,19 +38,19 @@ export default function WebsiteOfferLandingPage() {
             <div className="grid md:grid-cols-3 md:divide-x md:divide-white/14">
               <div className="px-5 py-4 md:px-6 md:py-5">
                 <p className="section-eyebrow text-[#9bb6ff]">What&apos;s Included</p>
-                <p className="mt-2 text-base leading-relaxed text-white/92">
+                <p className="mt-2 text-base leading-relaxed text-white">
                   Custom design, mobile optimization, and lead form setup.
                 </p>
               </div>
               <div className="border-t border-white/10 px-5 py-4 md:border-t-0 md:px-6 md:py-5">
                 <p className="section-eyebrow text-[#9bb6ff]">What&apos;s Not</p>
-                <p className="mt-2 text-base leading-relaxed text-white/92">
+                <p className="mt-2 text-base leading-relaxed text-white">
                   Paid ads management or long-term SEO retainers.
                 </p>
               </div>
               <div className="border-t border-white/10 px-5 py-4 md:border-t-0 md:px-6 md:py-5">
                 <p className="section-eyebrow text-[#9bb6ff]">Turnaround</p>
-                <p className="mt-2 text-base leading-relaxed text-white/92">
+                <p className="mt-2 text-base leading-relaxed text-white">
                   Most projects launch in about 14 days.
                 </p>
               </div>
@@ -95,29 +95,29 @@ export default function WebsiteOfferLandingPage() {
           <div className="grid md:grid-cols-3 md:divide-x md:divide-white/12">
             <article className="px-6 py-6 md:px-8">
               <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
-              <p className="mt-4 text-[1.15rem] leading-relaxed text-white/92">
+              <p className="mt-4 text-[1.15rem] leading-relaxed text-white">
                 &ldquo;Clear process and easy communication. The site made us look
                 way more established.&rdquo;
               </p>
-              <p className="mt-5 text-sm text-white/65">Christine Lesinger, LibiDoc</p>
+              <p className="mt-5 text-sm text-white/75">Christine Lesinger, LibiDoc</p>
             </article>
             <article className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
               <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
-              <p className="mt-4 text-[1.15rem] leading-relaxed text-white/92">
+              <p className="mt-4 text-[1.15rem] leading-relaxed text-white">
                 &ldquo;The new site gave us a premium online presence that finally
                 matches the quality of our business.&rdquo;
               </p>
-              <p className="mt-5 text-sm text-white/65">
+              <p className="mt-5 text-sm text-white/75">
                 Christian Joseph, Play Italiano Moderno
               </p>
             </article>
             <article className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
               <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
-              <p className="mt-4 text-[1.15rem] leading-relaxed text-white/92">
+              <p className="mt-4 text-[1.15rem] leading-relaxed text-white">
                 &ldquo;The website finally reflects the music brand and makes it easier
                 for people to discover and reach out.&rdquo;
               </p>
-              <p className="mt-5 text-sm text-white/65">
+              <p className="mt-5 text-sm text-white/75">
                 Jose Valdez, Jose Isai Valdez Music
               </p>
             </article>
