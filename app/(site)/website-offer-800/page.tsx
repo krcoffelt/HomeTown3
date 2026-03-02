@@ -28,8 +28,7 @@ export default function WebsiteOfferLandingPage() {
         <div className="mx-auto max-w-5xl">
           <p className="section-eyebrow text-[#9bb6ff]">Limited Offer</p>
           <h1 className="mt-5 text-balance text-[clamp(2.4rem,7vw,5.6rem)] font-semibold leading-[0.94] tracking-tight text-white">
-            Kansas City service business website in ~14 days.
-            <span className="block text-[#9bb6ff]">Now only $800.</span>
+            Get your Website for only $800
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
             Built for local service businesses that need a stronger first impression
@@ -111,23 +110,29 @@ export default function WebsiteOfferLandingPage() {
             Tell us about your business and claim the $800 offer
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted">
-            2-step form. No pressure. Takes 2 minutes.
+            Basic form. No pressure. Takes 2 minutes.
           </p>
         </div>
         <OfferLeadForm />
         <div className="mt-6 rounded-md border border-line bg-surface p-4">
-          <p className="text-sm text-muted">Prefer to talk first?</p>
-          <p className="mt-2 text-base text-text">
-            Call{" "}
-            <a href={`tel:${site.contactPhone}`} data-analytics="phone_click" className="underline underline-offset-4">
-              {site.contactPhone}
-            </a>{" "}
-            or email{" "}
-            <a href={`mailto:${site.contactEmail}`} data-analytics="email_click" className="underline underline-offset-4">
-              {site.contactEmail}
+          <p className="text-sm text-muted">Or give me a call</p>
+          <p className="mt-2 text-xl font-semibold text-ink">{site.contactPhone}</p>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <a
+              href={`tel:${site.contactPhone}`}
+              data-analytics="phone_click"
+              className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-[0.98rem] font-medium tracking-[-0.01em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#3d67e4]"
+            >
+              Call Now
             </a>
-            .
-          </p>
+            <a
+              href={`mailto:${site.contactEmail}`}
+              data-analytics="email_click"
+              className="text-sm text-muted underline underline-offset-4"
+            >
+              or email {site.contactEmail}
+            </a>
+          </div>
         </div>
       </SectionShell>
 

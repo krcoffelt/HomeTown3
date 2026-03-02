@@ -8,43 +8,23 @@ export interface SubmitLeadState {
   message: string;
 }
 
-export async function submitLead(
-  _prevState: SubmitLeadState,
-  formData: FormData
-): Promise<SubmitLeadState> {
-  const parsed = leadSchema.safeParse({
-    name: String(formData.get("name") ?? ""),
-    businessName: String(formData.get("businessName") ?? ""),
-    email: String(formData.get("email") ?? ""),
-    phone: String(formData.get("phone") ?? ""),
-    serviceNeeded: String(formData.get("serviceNeeded") ?? ""),
-    projectDetails: String(formData.get("projectDetails") ?? "")
-  });
-
-  if (!parsed.success) {
-    const issue = parsed.error.issues[0];
-    const fieldMap: Record<string, string> = {
-      name: "Name",
-      businessName: "Business Name",
-      email: "Email",
-      phone: "Phone",
-      serviceNeeded: "Service Needed",
-      projectDetails: "Project Details"
-    };
-    const field = issue?.path?.[0] ? fieldMap[String(issue.path[0])] ?? "Form" : "Form";
-    const message = issue?.message ? `${field}: ${issue.message}` : "Please complete all required fields correctly.";
-    return { ok: false, message };
-  }
-
+async function insertLead(values: {
+  name: string;
+  businessName: string;
+  email: string;
+  phone: string;
+  serviceNeeded: string;
+  projectDetails: string;
+}): Promise<SubmitLeadState> {
   try {
     const supabase = createSupabaseServerClient();
     const { error } = await supabase.from("leads").insert({
-      name: parsed.data.name,
-      business_name: parsed.data.businessName,
-      email: parsed.data.email,
-      phone: parsed.data.phone,
-      service_needed: parsed.data.serviceNeeded,
-      project_details: parsed.data.projectDetails
+      name: values.name,
+      business_name: values.businessName,
+      email: values.email,
+      phone: values.phone,
+      service_needed: values.serviceNeeded,
+      project_details: values.projectDetails
     });
 
     if (error) {
@@ -84,4 +64,56 @@ export async function submitLead(
       message: "Something went wrong. Please try again shortly."
     };
   }
+}
+
+export async function submitLead(
+  _prevState: SubmitLeadState,
+  formData: FormData
+): Promise<SubmitLeadState> {
+  const parsed = leadSchema.safeParse({
+    name: String(formData.get("name") ?? ""),
+    businessName: String(formData.get("businessName") ?? ""),
+    email: String(formData.get("email") ?? ""),
+    phone: String(formData.get("phone") ?? ""),
+    serviceNeeded: String(formData.get("serviceNeeded") ?? ""),
+    projectDetails: String(formData.get("projectDetails") ?? "")
+  });
+
+  if (!parsed.success) {
+    const issue = parsed.error.issues[0];
+    const fieldMap: Record<string, string> = {
+      name: "Name",
+      businessName: "Business Name",
+      email: "Email",
+      phone: "Phone",
+      serviceNeeded: "Service Needed",
+      projectDetails: "Project Details"
+    };
+    const field = issue?.path?.[0] ? fieldMap[String(issue.path[0])] ?? "Form" : "Form";
+    const message = issue?.message ? `${field}: ${issue.message}` : "Please complete all required fields correctly.";
+    return { ok: false, message };
+  }
+
+  return insertLead({
+    name: parsed.data.name,
+    businessName: parsed.data.businessName,
+    email: parsed.data.email,
+    phone: parsed.data.phone ?? "",
+    serviceNeeded: parsed.data.serviceNeeded,
+    projectDetails: parsed.data.projectDetails
+  });
+}
+
+export async function submitOfferLead(
+  _prevState: SubmitLeadState,
+  formData: FormData
+): Promise<SubmitLeadState> {
+  return insertLead({
+    name: String(formData.get("name") ?? ""),
+    businessName: String(formData.get("businessName") ?? ""),
+    email: String(formData.get("email") ?? ""),
+    phone: String(formData.get("phone") ?? ""),
+    serviceNeeded: "Website Design",
+    projectDetails: "Website offer landing page inquiry."
+  });
 }
