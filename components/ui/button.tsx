@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
+import type { MouseEventHandler } from "react";
 import type { ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
@@ -8,7 +9,10 @@ interface ButtonProps {
   children: ReactNode;
   className?: string;
   dataAnalytics?: string;
+  disabled?: boolean;
+  form?: string;
   href?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   type?: "button" | "submit";
   variant?: ButtonVariant;
 }
@@ -25,13 +29,16 @@ export function Button({
   children,
   className,
   dataAnalytics,
+  disabled,
+  form,
   href,
+  onClick,
   type = "button",
   variant = "primary"
 }: ButtonProps) {
   const analyticsTag = dataAnalytics ?? (variant === "primary" ? "cta-primary" : undefined);
   const classes = cn(
-    "inline-flex items-center justify-center rounded-md px-6 py-3 text-[0.98rem] font-medium tracking-[-0.01em] transition duration-300",
+    "inline-flex items-center justify-center rounded-md px-6 py-3 text-[0.98rem] font-medium tracking-[-0.01em] transition duration-300 disabled:cursor-not-allowed disabled:opacity-55",
     variants[variant],
     className
   );
@@ -45,7 +52,14 @@ export function Button({
   }
 
   return (
-    <button type={type} className={classes} data-analytics={analyticsTag}>
+    <button
+      type={type}
+      className={classes}
+      data-analytics={analyticsTag}
+      form={form}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

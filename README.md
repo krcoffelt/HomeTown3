@@ -17,7 +17,10 @@
   - Measurement ID: `G-4FYSV8WK5P`
   - Trigger: `All Pages`
 - Event tags:
+  - `view_offer_page`
   - `cta_click`
   - `phone_click`
   - `email_click`
+  - `form_start`
+  - `form_submit`
   - `generate_lead` (form submit)
