@@ -7,6 +7,8 @@ interface ProgressiveBlurProps {
   height?: string;
   width?: string;
   blurIntensity?: number;
+  blurAmount?: string;
+  backgroundColor?: string;
   className?: string;
 }
 
@@ -15,22 +17,36 @@ export function ProgressiveBlur({
   height = "35%",
   width = "100%",
   blurIntensity = 14,
+  blurAmount,
+  backgroundColor = "#05070b",
   className
 }: ProgressiveBlurProps) {
   const isVertical = position === "top" || position === "bottom";
-  const direction =
-    position === "top"
-      ? "to bottom"
-      : position === "bottom"
-        ? "to top"
-        : position === "left"
-          ? "to right"
-          : "to left";
+  const resolvedBlurAmount = blurAmount ?? `${blurIntensity}px`;
+  const isTop = position === "top";
+  const isBottom = position === "bottom";
+
+  const background =
+    isTop
+      ? `linear-gradient(to top, transparent, ${backgroundColor})`
+      : isBottom
+        ? `linear-gradient(to bottom, rgba(5,7,11,0), rgba(5,7,11,0.18) 36%, ${backgroundColor})`
+        : `linear-gradient(to right, transparent, ${backgroundColor})`;
+
+  const maskImage =
+    isTop
+      ? `linear-gradient(to bottom, ${backgroundColor} 50%, transparent)`
+      : isBottom
+        ? "linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.94) 26%, rgba(0,0,0,0.78) 52%, rgba(0,0,0,0.46) 74%, rgba(0,0,0,0.2) 88%, rgba(0,0,0,0) 100%)"
+        : undefined;
 
   const style = {
-    backdropFilter: `blur(${blurIntensity}px)`,
-    WebkitBackdropFilter: `blur(${blurIntensity}px)`,
-    backgroundImage: `linear-gradient(${direction}, rgba(5,7,11,0.65), rgba(5,7,11,0.36) 45%, rgba(5,7,11,0))`,
+    backdropFilter: `blur(${resolvedBlurAmount})`,
+    WebkitBackdropFilter: `blur(${resolvedBlurAmount})`,
+    background,
+    maskImage,
+    WebkitMaskImage: maskImage,
+    opacity: 1,
     ...(isVertical ? { height, width: "100%" } : { width, height: "100%" })
   };
 

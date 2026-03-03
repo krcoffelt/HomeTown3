@@ -11,15 +11,10 @@ export default function SiteLayout({
       <main>{children}</main>
       <ProgressiveBlur
         position="bottom"
-        height="26%"
-        blurIntensity={16}
-        className="!fixed z-30"
-      />
-      <ProgressiveBlur
-        position="top"
-        height="14%"
-        blurIntensity={14}
-        className="!fixed z-30"
+        height="96px"
+        blurAmount="9px"
+        backgroundColor="rgba(5, 7, 11, 0.88)"
+        className="!fixed !inset-x-0 !bottom-0 z-[90]"
       />
       <Footer />
     </>
