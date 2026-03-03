@@ -46,9 +46,6 @@ export function OfferLeadForm() {
         <CardDescription className="text-base text-[#36405d]">
           Quick form. Clear follow-up. Response in under 24 hours.
         </CardDescription>
-        <div className="inline-flex w-fit items-center rounded-full border border-[#d6cdb8] bg-[#fffdf8] px-3 py-1 text-xs font-medium tracking-wide text-[#253055]">
-          2-minute form
-        </div>
       </CardHeader>
       <CardContent className="pt-7">
         <form
@@ -71,7 +68,7 @@ export function OfferLeadForm() {
                 required
                 autoComplete="name"
                 placeholder="Your full name"
-                className="h-13 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-14 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onFocus={markStarted}
                 onChange={(event) => setValues((prev) => ({ ...prev, name: event.target.value }))}
               />
@@ -87,7 +84,7 @@ export function OfferLeadForm() {
                 required
                 autoComplete="organization"
                 placeholder="Business name"
-                className="h-13 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-14 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onFocus={markStarted}
                 onChange={(event) => setValues((prev) => ({ ...prev, businessName: event.target.value }))}
               />
@@ -106,7 +103,7 @@ export function OfferLeadForm() {
                 required
                 autoComplete="tel"
                 placeholder="(913) 991-6641"
-                className="h-13 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-14 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onFocus={markStarted}
                 onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
               />
@@ -123,7 +120,7 @@ export function OfferLeadForm() {
                 required
                 autoComplete="email"
                 placeholder="you@business.com"
-                className="h-13 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-14 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onFocus={markStarted}
                 onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
               />
