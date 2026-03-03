@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
 import { Button } from "@/components/ui/button";
+import { services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata(
@@ -10,61 +11,55 @@ export const metadata = createPageMetadata(
 );
 
 export default function ServicesPage() {
-  const services = [
-    "Website Design",
-    "Google Business Profile Setup",
-    "Social Media",
-    "Graphic Design",
-    "Logo and Brand Work"
-  ];
+  const featuredService = services.find((service) => service.slug === "website-design");
+  const supportingServices = services.filter((service) => service.slug !== "website-design");
 
   return (
     <>
-      <SectionShell className="pb-10 pt-16 md:pt-24">
+      <SectionShell className="pb-8 pt-16 md:pt-24">
         <PageHero
           eyebrow="Services"
           title={
             <>
-              Website and branding services for Kansas City{" "}
-              <span className="serif italic font-normal">small businesses</span>
+              Website-first services for Kansas City{" "}
+              <span className="serif italic font-normal">businesses</span>
             </>
           }
-          subtitle="Each service is structured to improve visibility, trust, and local lead generation."
+          subtitle="Clean execution across web and supporting marketing services."
         />
       </SectionShell>
-      <SectionShell className="pt-6">
-        <section className="overflow-hidden rounded-[2rem] border border-white/14 bg-[linear-gradient(150deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015)_35%,rgba(8,12,22,0.93)_100%)]">
-          <div className="border-b border-white/12 px-7 py-6 md:px-9">
-            <p className="section-eyebrow text-[#9bb6ff]">Featured</p>
-            <div className="mt-3 flex flex-wrap items-center gap-4">
-              <h2 className="text-[clamp(2rem,4vw,3.3rem)] font-medium tracking-tight text-white">
-                Website Design
-              </h2>
-              <p className="text-lg font-semibold text-[#82a7ff]">
-                $800 <span className="ml-2 text-base font-medium text-white/55 line-through">$1,000</span>
-              </p>
+
+      <SectionShell className="pt-4">
+        <div className="surface-primary px-7 py-7 md:px-10 md:py-10">
+          <div className="service-row">
+            <div>
+              <p className="kicker">Featured</p>
+              <h2 className="mt-3 editorial-headline">{featuredService?.title}</h2>
+            </div>
+            <div className="text-right">
+              <p className="text-2xl font-semibold text-[#7da2ff]">$800</p>
+              <p className="mt-1 text-sm text-white/65 line-through">$1,000</p>
             </div>
           </div>
-          <ul className="divide-y divide-white/12 px-7 md:px-9">
-            {services.slice(1).map((service) => (
-              <li key={service} className="py-5 text-[clamp(1.3rem,2.7vw,2rem)] font-medium tracking-tight text-white/92">
-                {service}
-              </li>
-            ))}
-          </ul>
-        </section>
+          {supportingServices.map((service) => (
+            <div key={service.slug} className="service-row">
+              <h3 className="text-[clamp(1.2rem,2.5vw,1.85rem)] font-medium text-white">
+                {service.title}
+              </h3>
+            </div>
+          ))}
+        </div>
       </SectionShell>
+
       <SectionShell className="pt-8">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-lg border border-line bg-surface p-6 md:flex-row md:items-center">
+        <div className="surface-secondary flex flex-col items-start justify-between gap-6 px-7 py-7 md:flex-row md:items-center md:px-10">
           <div>
-            <h3 className="text-3xl font-medium text-ink">Ready to get started?</h3>
-            <p className="mt-3 max-w-xl text-text">
-              Tell us what you need and we will send a clear next-step plan.
-            </p>
+            <p className="kicker">Next Step</p>
+            <h3 className="mt-3 text-3xl font-medium text-white md:text-4xl">
+              Ready to start your project?
+            </h3>
           </div>
-          <Button href="/contact#form">
-            Get Started
-          </Button>
+          <Button href="/contact#form">Get Started</Button>
         </div>
       </SectionShell>
     </>

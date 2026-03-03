@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
-import { Card } from "@/components/ui/card";
 import { projects } from "@/data/projects";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
@@ -14,7 +13,7 @@ export const metadata = createPageMetadata(
 export default function WorkPage() {
   return (
     <>
-      <SectionShell className="pb-10 pt-16 md:pt-24">
+      <SectionShell className="pb-8 pt-16 md:pt-24">
         <PageHero
           eyebrow="Work"
           title={
@@ -23,43 +22,39 @@ export default function WorkPage() {
               <span className="serif italic font-normal">businesses</span>
             </>
           }
-          subtitle="Visual proof of premium website execution built to improve trust and inquiry flow."
+          subtitle="A focused look at how we build premium local business websites."
         />
       </SectionShell>
-      <SectionShell className="pt-6">
-        <div className="grid gap-5 md:grid-cols-2">
+
+      <SectionShell className="pt-4">
+        <div className="surface-secondary divide-y divide-white/12 px-6 py-2 md:px-10">
           {projects.map((project) => (
-            <Card key={project.slug} className="overflow-hidden p-0">
-              <div className="relative h-80 w-full">
+            <article key={project.slug} className="grid gap-6 py-8 md:grid-cols-12 md:items-center">
+              <div className="relative h-56 overflow-hidden rounded-xl border border-white/10 md:col-span-5">
                 <Image
                   src={project.featuredImageUrl}
                   alt={`${project.clientName} project preview`}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 42vw"
                   className="object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h2 className="text-2xl font-medium text-ink">{project.clientName}</h2>
-                <p className="mt-1 text-sm uppercase tracking-[0.12em] text-muted">
-                  {project.industry}
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-muted">
-                  {project.summary}
-                </p>
-                <p className="mt-4 text-sm text-text">
-                  What was built: {project.servicesProvided.join(", ")}
-                </p>
+              <div className="md:col-span-7">
+                <p className="kicker">{project.industry}</p>
+                <h2 className="mt-3 text-[clamp(1.8rem,3.2vw,2.8rem)] font-medium tracking-tight text-white">
+                  {project.clientName}
+                </h2>
+                <p className="mt-3 text-base leading-relaxed text-white/78">{project.summary}</p>
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-5 inline-flex text-sm font-medium text-ink underline-offset-4 hover:underline"
+                  className="mt-4 inline-flex text-sm font-medium text-[#9bb6ff] underline underline-offset-4"
                 >
                   Visit live site
                 </a>
               </div>
-            </Card>
+            </article>
           ))}
         </div>
       </SectionShell>

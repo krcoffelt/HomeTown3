@@ -30,20 +30,20 @@ export default function ContactPage() {
         <div className="grid gap-6 md:grid-cols-12">
           <div className="space-y-6 md:col-span-4">
             <FounderNote />
-            <div className="rounded-md border border-line bg-surface p-5">
-              <p className="text-sm uppercase tracking-[0.12em] text-muted">
+            <div className="surface-secondary p-6">
+              <p className="kicker">
                 Fallback contact
               </p>
-              <p className="mt-3 text-sm text-muted">
+              <p className="mt-3 text-sm text-white/72">
                 Hometown Marketing Agency, Kansas City
               </p>
-              <p className="mt-3 text-base text-text">
-                Email: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+              <p className="mt-3 text-base text-white/88">
+                Email: <a href={`mailto:${site.contactEmail}`} data-analytics="email_click" className="text-[#9bb6ff] underline underline-offset-4">{site.contactEmail}</a>
               </p>
-              <p className="mt-2 text-base text-text">
-                Phone: <a href={`tel:${site.contactPhone}`}>{site.contactPhone}</a>
+              <p className="mt-2 text-base text-white/88">
+                Phone: <a href={`tel:${site.contactPhone}`} data-analytics="phone_click" className="text-[#9bb6ff] underline underline-offset-4">{site.contactPhone}</a>
               </p>
-              <p className="mt-3 text-sm text-muted">{site.location}</p>
+              <p className="mt-3 text-sm text-white/72">{site.location}</p>
             </div>
           </div>
           <div className="md:col-span-8">

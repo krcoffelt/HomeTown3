@@ -1,5 +1,4 @@
 import { SectionShell } from "@/components/layout/section-shell";
-import { Card } from "@/components/ui/card";
 
 const items = [
   {
@@ -24,33 +23,27 @@ export function WhyHometown() {
   return (
     <SectionShell>
       <div className="mb-12 flex items-end justify-between gap-6">
-        <h2 className="display-lg font-semibold text-ink">
+        <h2 className="display-lg font-semibold text-white">
           Why Hometown
         </h2>
-        <p className="max-w-sm text-base leading-relaxed text-muted">
+        <p className="max-w-sm text-base leading-relaxed text-white/78">
           A Kansas City website studio built to make local businesses look legit
           and get more inquiries.
         </p>
       </div>
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="surface-secondary divide-y divide-white/12 px-7 py-3 md:px-10">
         {items.map((item, idx) => (
-          <Card
-            key={item.title}
-            className="group relative min-h-[260px] overflow-hidden bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 md:p-10"
-          >
-            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#305CDE]/70 via-white/30 to-transparent" />
-            <div className="mb-10 flex items-center justify-between">
-              <span className="section-eyebrow text-muted transition-colors duration-300 group-hover:text-white/85">
+          <div key={item.title} className="grid gap-5 py-5 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-2">
+              <span className="section-eyebrow text-[#9bb6ff]">
                 {String(idx + 1).padStart(2, "0")}
               </span>
             </div>
-            <h3 className="max-w-[18ch] text-[clamp(2rem,3.3vw,2.6rem)] font-medium leading-[1.02] tracking-tight text-ink">
+            <h3 className="md:col-span-4 text-[clamp(1.4rem,2.8vw,2.2rem)] font-medium leading-[1.04] tracking-tight text-white">
               {item.title}
             </h3>
-            <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-muted">
-              {item.body}
-            </p>
-          </Card>
+            <p className="md:col-span-6 text-lg leading-relaxed text-white/76">{item.body}</p>
+          </div>
         ))}
       </div>
     </SectionShell>

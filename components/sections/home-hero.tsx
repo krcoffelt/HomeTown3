@@ -7,23 +7,23 @@ import { UnicornHeroBackground } from "@/components/sections/unicorn-hero-backgr
 
 export function HomeHero() {
   return (
-    <SectionShell className="relative overflow-hidden pb-14 pt-20 md:pb-20 md:pt-28">
+    <SectionShell className="relative overflow-hidden pb-10 pt-20 md:pb-16 md:pt-28">
       <div className="pointer-events-none absolute inset-0">
         <UnicornHeroBackground />
       </div>
-      <div className="relative z-10 grid items-end gap-8 md:grid-cols-12 md:gap-10">
-        <div className="hero-reveal md:col-span-7">
+      <div className="relative z-10">
+        <div className="hero-reveal max-w-4xl">
           <Badge className="mb-6 border-white/20 bg-white/10 text-white">
             {homepageCopy.trustLabel}
           </Badge>
-          <h1 className="display-xl max-w-3xl text-balance font-semibold text-white">
+          <h1 className="display-xl max-w-4xl text-balance font-semibold text-white">
             Affordable websites for Kansas City{" "}
             <span className="font-serif italic font-normal">businesses</span>
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-white">
+          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white">
             {homepageCopy.heroSubtitle}
           </p>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/75">
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/82">
             Kansas City-based Hometown Marketing Agency. Clear strategy,
             premium execution, and a clean path to more inquiries.
           </p>
@@ -33,7 +33,7 @@ export function HomeHero() {
             </Button>
             <p className="section-eyebrow text-white">NOW ONLY $800</p>
           </div>
-          <p className="mt-4 text-sm text-white/70">
+          <p className="mt-4 text-sm text-white/82">
             Explore our{" "}
             <Link href="/services" className="underline underline-offset-4">
               Kansas City marketing services
@@ -41,53 +41,25 @@ export function HomeHero() {
             .
           </p>
         </div>
-        <div className="hero-reveal hero-reveal-delay relative overflow-hidden rounded-lg border border-white/12 bg-[#0f141b]/80 md:col-span-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.1),transparent_56%)]" />
-          <div className="relative p-8 md:p-10">
-            <p className="section-eyebrow text-white/70">Project Snapshot</p>
-            <p className="mt-4 text-2xl font-medium leading-tight text-white md:text-[2rem]">
-              <span className="block">Clear process.</span>
-              <span className="block">Fast execution.</span>
-              <span className="block">Premium local presence.</span>
-            </p>
-            <div className="mt-10 space-y-6">
-              <div className="flex items-start gap-4">
-                <span className="section-eyebrow text-[#9bb6ff]">01</span>
-                <div>
-                  <p className="text-base font-medium text-white">Strategy + Structure</p>
-                  <p className="mt-1 text-sm text-white/70">
-                    Messaging, page structure, and conversion flow tailored to your business.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="section-eyebrow text-[#9bb6ff]">02</span>
-                <div>
-                  <p className="text-base font-medium text-white">Design + Build</p>
-                  <p className="mt-1 text-sm text-white/70">
-                    Custom website design and development with mobile-first polish.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="section-eyebrow text-[#9bb6ff]">03</span>
-                <div>
-                  <p className="text-base font-medium text-white">Launch + Leads</p>
-                  <p className="mt-1 text-sm text-white/70">
-                    Go live with local SEO foundations and a clean inquiry path.
-                  </p>
-                </div>
-              </div>
+        <div className="hero-reveal hero-reveal-delay mt-12 section-frame">
+          <div className="grid gap-5 md:grid-cols-3 md:gap-8">
+            <div className="surface-plain px-5 py-5">
+              <p className="kicker">What&apos;s Included</p>
+              <p className="mt-3 text-lg font-medium text-white">
+                Custom design, mobile optimization, and lead form setup.
+              </p>
             </div>
-            <div className="mt-10 grid grid-cols-2 gap-3 border-t border-white/12 pt-6">
-              <div>
-                <p className="section-eyebrow text-white/55">Turnaround</p>
-                <p className="mt-1 text-lg font-medium text-white">Typically 2 weeks</p>
-              </div>
-              <div>
-                <p className="section-eyebrow text-white/55">Communication</p>
-                <p className="mt-1 text-lg font-medium text-white">Direct with founder</p>
-              </div>
+            <div className="surface-plain px-5 py-5">
+              <p className="kicker">What&apos;s Not</p>
+              <p className="mt-3 text-lg font-medium text-white">
+                Paid ads management or long-term SEO retainers.
+              </p>
+            </div>
+            <div className="surface-plain px-5 py-5">
+              <p className="kicker">Turnaround</p>
+              <p className="mt-3 text-lg font-medium text-white">
+                Most projects launch in about 14 days.
+              </p>
             </div>
           </div>
         </div>

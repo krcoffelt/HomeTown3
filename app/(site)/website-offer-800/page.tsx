@@ -3,7 +3,6 @@ import { OfferPageTracker } from "@/components/analytics/offer-page-tracker";
 import { SectionShell } from "@/components/layout/section-shell";
 import { OfferLeadForm } from "@/components/sections/offer-lead-form";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
@@ -24,13 +23,14 @@ export default function WebsiteOfferLandingPage() {
   return (
     <>
       <OfferPageTracker />
-      <SectionShell className="relative overflow-hidden pb-10 pt-16 md:pt-24">
+
+      <SectionShell className="pb-8 pt-16 md:pt-24">
         <div className="mx-auto max-w-5xl">
-          <p className="section-eyebrow text-[#9bb6ff]">Limited Offer</p>
-          <h1 className="mt-5 text-balance text-[clamp(2.4rem,7vw,5.6rem)] font-semibold leading-[0.94] tracking-tight text-white">
+          <p className="kicker">Limited Offer</p>
+          <h1 className="mt-5 editorial-display max-w-4xl">
             Get your Website for only $800
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/80">
             Built for local service businesses that need a stronger first impression
             and more qualified leads without waiting months.
           </p>
@@ -38,132 +38,116 @@ export default function WebsiteOfferLandingPage() {
             <Button href="#claim-form" dataAnalytics="cta-offer-800">
               Claim My $800 Website
             </Button>
-            <p className="section-eyebrow text-white/70">Takes 2 minutes</p>
+            <p className="section-eyebrow text-white/75">Takes 2 minutes</p>
           </div>
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-2">
-        <div className="overflow-hidden rounded-2xl border border-white/16 bg-[linear-gradient(155deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02)_36%,rgba(8,14,28,0.82)_100%)] backdrop-blur-sm">
-          <div className="grid md:grid-cols-3 md:divide-x md:divide-white/12">
-            <div className="px-6 py-6 md:px-8">
-              <p className="section-eyebrow text-[#9bb6ff]">Proof</p>
-              <p className="mt-3 text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-tight text-white">
-                10+ websites launched
-              </p>
+      <SectionShell className="pt-4">
+        <div className="surface-primary px-7 py-6 md:px-10">
+          <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+            <div>
+              <p className="kicker">Proof</p>
+              <p className="mt-3 text-xl font-medium text-white">10+ websites launched</p>
             </div>
-            <div className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
-              <p className="section-eyebrow text-[#9bb6ff]">Local</p>
-              <p className="mt-3 text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-tight text-white">
-                Kansas City-based team
-              </p>
+            <div>
+              <p className="kicker">Local</p>
+              <p className="mt-3 text-xl font-medium text-white">Kansas City-based team</p>
             </div>
-            <div className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
-              <p className="section-eyebrow text-[#9bb6ff]">Response Time</p>
-              <p className="mt-3 text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-tight text-white">
-                Average response under 24 hours
-              </p>
+            <div>
+              <p className="kicker">Response Time</p>
+              <p className="mt-3 text-xl font-medium text-white">Average response under 24 hours</p>
             </div>
           </div>
         </div>
       </SectionShell>
 
       <SectionShell className="pt-4">
-        <div className="overflow-hidden rounded-2xl border border-white/16 bg-[linear-gradient(160deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015)_42%,rgba(6,11,23,0.9)_100%)] backdrop-blur-sm">
-          <div className="grid md:grid-cols-3 md:divide-x md:divide-white/12">
-            <article className="px-6 py-6 md:px-8">
-              <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
-              <p className="mt-4 text-[1.15rem] leading-relaxed text-white">
-                &ldquo;Clear process and easy communication. The site made us look
-                way more established.&rdquo;
-              </p>
-              <p className="mt-5 text-sm text-white/75">Christine Leninger, LupiDocs</p>
-              <a
-                href="https://lupidocs.com"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
-              >
-                Visit lupidocs.com
-              </a>
-            </article>
-            <article className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
-              <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
-              <p className="mt-4 text-[1.15rem] leading-relaxed text-white">
-                &ldquo;The new site gave us a premium online presence that finally
-                matches the quality of our business.&rdquo;
-              </p>
-              <p className="mt-5 text-sm text-white/75">
-                Christian Joseph, Plate Italiano Moderno
-              </p>
-              <a
-                href="https://plateitalianomoderno.com"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
-              >
-                Visit plateitalianomoderno.com
-              </a>
-            </article>
-            <article className="border-t border-white/10 px-6 py-6 md:border-t-0 md:px-8">
-              <p className="section-eyebrow text-[#9bb6ff]">Testimonial</p>
-              <p className="mt-4 text-[1.15rem] leading-relaxed text-white">
-                &ldquo;The website finally reflects the music brand and makes it easier
-                for people to discover and reach out.&rdquo;
-              </p>
-              <p className="mt-5 text-sm text-white/75">
-                Jose Valdez, Music Artist
-              </p>
-              <a
-                href="https://joseisaivaldez.com"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
-              >
-                Visit joseisaivaldez.com
-              </a>
-            </article>
-          </div>
+        <div className="surface-secondary divide-y divide-white/12 px-7 py-3 md:px-10">
+          <article className="py-6">
+            <p className="kicker">Christine Leninger - LupiDocs</p>
+            <p className="mt-3 max-w-4xl text-xl leading-relaxed text-white">
+              &ldquo;Clear process and easy communication. The site made us look way more established.&rdquo;
+            </p>
+            <a
+              href="https://lupidocs.com"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
+            >
+              lupidocs.com
+            </a>
+          </article>
+          <article className="py-6">
+            <p className="kicker">Jose Valdez - Music Artist</p>
+            <p className="mt-3 max-w-4xl text-xl leading-relaxed text-white">
+              &ldquo;The website finally reflects the music brand and makes it easier for people to discover and reach out.&rdquo;
+            </p>
+            <a
+              href="https://joseisaivaldez.com"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
+            >
+              joseisaivaldez.com
+            </a>
+          </article>
+          <article className="py-6">
+            <p className="kicker">Christian Joseph - Plate Italiano Moderno</p>
+            <p className="mt-3 max-w-4xl text-xl leading-relaxed text-white">
+              &ldquo;The new site gave us a premium online presence that finally matches the quality of our business.&rdquo;
+            </p>
+            <a
+              href="https://plateitalianomoderno.com"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-block text-sm text-[#9bb6ff] underline underline-offset-4"
+            >
+              plateitalianomoderno.com
+            </a>
+          </article>
         </div>
       </SectionShell>
 
       <SectionShell className="pt-4">
-        <div className="grid gap-4 md:grid-cols-3">
-          <Card className="bg-surface">
-            <p className="section-eyebrow text-muted">Offer Price</p>
-            <p className="mt-4 text-lg text-text">$800 this month</p>
-          </Card>
-          <Card className="bg-surface">
-            <p className="section-eyebrow text-muted">Regular Price</p>
-            <p className="mt-4 text-lg text-text">$1,000</p>
-          </Card>
-          <Card className="bg-surface">
-            <p className="section-eyebrow text-muted">You Save</p>
-            <p className="mt-4 text-lg text-text">Save $200 this month</p>
-          </Card>
-        </div>
-        <div className="mt-8">
-          <Button href="#claim-form" dataAnalytics="cta-offer-800">
-            Claim My $800 Website
-          </Button>
+        <div className="surface-plain px-7 py-6 md:px-10">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div>
+              <p className="kicker">Offer Price</p>
+              <p className="mt-2 text-2xl font-semibold text-[#7da2ff]">$800</p>
+            </div>
+            <div>
+              <p className="kicker">Regular Price</p>
+              <p className="mt-2 text-2xl text-white/80 line-through">$1,000</p>
+            </div>
+            <div>
+              <p className="kicker">This Month</p>
+              <p className="mt-2 text-2xl font-semibold text-white">Save $200</p>
+            </div>
+          </div>
+          <div className="mt-6">
+            <Button href="#claim-form" dataAnalytics="cta-offer-800">
+              Claim My $800 Website
+            </Button>
+          </div>
         </div>
       </SectionShell>
 
       <SectionShell className="pt-4">
         <div id="claim-form" className="scroll-mt-28" />
         <div className="mb-10 max-w-3xl">
-          <p className="section-eyebrow text-muted">Start Here</p>
-          <h2 className="mt-4 text-[clamp(2rem,5vw,3.6rem)] font-semibold leading-[0.96] tracking-tight text-ink">
+          <p className="kicker">Start Here</p>
+          <h2 className="mt-4 text-[clamp(2rem,5vw,3.8rem)] font-semibold leading-[0.97] tracking-tight text-white">
             Tell us about your business and claim the $800 offer
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted">
+          <p className="mt-4 text-lg leading-relaxed text-white/80">
             Basic form. No pressure. Takes 2 minutes.
           </p>
         </div>
         <OfferLeadForm />
-        <div className="mt-6 rounded-md border border-line bg-surface p-4">
-          <p className="text-sm text-muted">Or give me a call</p>
-          <p className="mt-2 text-xl font-semibold text-ink">{site.contactPhone}</p>
+        <div className="mt-6 surface-plain px-6 py-5">
+          <p className="text-sm text-white/70">Or give me a call</p>
+          <p className="mt-2 text-xl font-semibold text-white">{site.contactPhone}</p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <a
               href={`tel:${site.contactPhone}`}
@@ -175,7 +159,7 @@ export default function WebsiteOfferLandingPage() {
             <a
               href={`mailto:${site.contactEmail}`}
               data-analytics="email_click"
-              className="text-sm text-muted underline underline-offset-4"
+              className="text-sm text-white/75 underline underline-offset-4"
             >
               or email {site.contactEmail}
             </a>
@@ -184,18 +168,20 @@ export default function WebsiteOfferLandingPage() {
       </SectionShell>
 
       <SectionShell className="pt-4">
-        <Card className="bg-surface">
-          <p className="section-eyebrow text-muted">Guarantee</p>
-          <h3 className="mt-4 text-2xl font-semibold tracking-tight text-ink">If you are not fully satisfied, no payment.</h3>
-          <p className="mt-3 max-w-3xl text-lg text-muted">
+        <div className="surface-secondary px-7 py-7 md:px-10">
+          <p className="kicker">Guarantee</p>
+          <h3 className="mt-4 text-3xl font-semibold tracking-tight text-white">
+            If you are not fully satisfied, no payment.
+          </h3>
+          <p className="mt-3 max-w-3xl text-lg text-white/80">
             We keep the process straightforward and transparent. If the direction
             is not right, you can walk away before payment.
           </p>
-        </Card>
-        <div className="mt-8">
-          <Button href="#claim-form" dataAnalytics="cta-offer-800">
-            Claim My $800 Website
-          </Button>
+          <div className="mt-6">
+            <Button href="#claim-form" dataAnalytics="cta-offer-800">
+              Claim My $800 Website
+            </Button>
+          </div>
         </div>
       </SectionShell>
     </>

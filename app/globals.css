@@ -15,6 +15,9 @@
   --color-line-strong: rgba(255, 255, 255, 0.24);
   --color-success: #4ade80;
   --color-danger: #f87171;
+  --surface-primary: rgba(12, 18, 30, 0.92);
+  --surface-secondary: rgba(11, 16, 28, 0.78);
+  --surface-plain: rgba(255, 255, 255, 0.02);
 }
 
 * {
@@ -58,6 +61,68 @@ body {
   font-weight: 700;
 }
 
+.kicker {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #9bb6ff;
+}
+
+.editorial-display {
+  font-size: clamp(2.2rem, 6vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: #f5f7ff;
+}
+
+.editorial-headline {
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  font-weight: 550;
+  color: #f5f7ff;
+}
+
+.surface-primary {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.08), var(--surface-primary) 48%);
+  border-radius: 1.5rem;
+}
+
+.surface-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), var(--surface-secondary) 52%);
+  border-radius: 1.25rem;
+}
+
+.surface-plain {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-plain);
+  border-radius: 1rem;
+}
+
+.section-frame {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: clamp(2rem, 5vw, 3.25rem);
+  padding-bottom: clamp(2rem, 5vw, 3.25rem);
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.service-row:last-child {
+  border-bottom: none;
+}
+
 .text-balance {
   text-wrap: balance;
 }
@@ -70,6 +135,12 @@ body {
 
 .hero-reveal-delay {
   animation-delay: 0.08s;
+}
+
+.subtle-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: hero-reveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes hero-reveal {

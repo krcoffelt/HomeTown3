@@ -1,47 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
-import { Card } from "@/components/ui/card";
 import { projects } from "@/data/projects";
 
 export function FeaturedWork() {
   return (
     <SectionShell>
       <div className="mb-10 flex items-end justify-between gap-5">
-        <h2 className="display-lg font-semibold text-ink">
+        <h2 className="display-lg font-semibold text-white">
           Featured Work
         </h2>
-        <Link href="/work" className="section-eyebrow text-muted">
+        <Link href="/work" className="section-eyebrow text-white/75">
           See all projects
         </Link>
       </div>
-      <div className="grid gap-5 md:grid-cols-6">
+      <div className="surface-secondary divide-y divide-white/12 px-6 py-2 md:px-10">
         {projects.map((project, index) => (
-          <Card
-            key={project.slug}
-            className={`overflow-hidden p-0 ${index === 0 ? "md:col-span-4" : "md:col-span-2"}`}
-          >
-            <div className={`relative w-full ${index === 0 ? "h-80 md:h-[440px]" : "h-64 md:h-[320px]"}`}>
+          <article key={project.slug} className="grid gap-5 py-7 md:grid-cols-12 md:items-center">
+            <div className={`relative w-full overflow-hidden rounded-xl border border-white/10 ${index === 0 ? "h-64 md:col-span-5 md:h-72" : "h-56 md:col-span-5 md:h-64"}`}>
               <Image
                 src={project.featuredImageUrl}
                 alt={`${project.title} website preview`}
                 fill
-                sizes={index === 0 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
-                className="object-cover transition duration-500 hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 42vw"
+                className="object-cover"
               />
             </div>
-            <div className="p-6">
-              <p className="section-eyebrow text-muted">
+            <div className="md:col-span-7">
+              <p className="kicker">
                 {project.industry}
               </p>
-              <h3 className="mt-2 text-2xl font-medium tracking-tight text-ink md:text-3xl">
+              <h3 className="mt-3 text-[clamp(1.8rem,3.2vw,2.6rem)] font-medium tracking-tight text-white">
                 {project.title}
               </h3>
-              <p className="mt-3 text-base leading-relaxed text-muted">
+              <p className="mt-3 text-base leading-relaxed text-white/78">
                 {project.summary}
               </p>
               <a
-                className="mt-4 inline-flex text-sm font-medium text-ink underline-offset-4 hover:underline"
+                className="mt-4 inline-flex text-sm font-medium text-[#9bb6ff] underline-offset-4 hover:underline"
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
@@ -49,7 +45,7 @@ export function FeaturedWork() {
                 View project
               </a>
             </div>
-          </Card>
+          </article>
         ))}
       </div>
     </SectionShell>
