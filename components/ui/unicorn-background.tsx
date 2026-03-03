@@ -12,7 +12,7 @@ export function UnicornBackground({ children, className }: UnicornBackgroundProp
     <div className={cn("relative isolate overflow-hidden", className)}>
       <div className="absolute inset-0">
         <Image
-          src="/images/Screenshot 2026-03-03 at 11.00.02 AM.png"
+          src="/images/Screenshot 2026-03-03 at 11.00.02 AM.webp"
           alt=""
           fill
           priority
