@@ -20,7 +20,7 @@ export function HomeHero() {
         <UnicornBackground className="h-full w-full" />
       </div>
       <div className="relative z-10">
-        <div className="hero-reveal max-w-5xl">
+        <div className="max-w-5xl">
           <Badge className="mb-6 border-white/20 bg-white/10 text-white">
             {homepageCopy.trustLabel}
           </Badge>
@@ -31,7 +31,7 @@ export function HomeHero() {
             <span className="block lg:-mt-[0.6rem] lg:whitespace-nowrap">websites for</span>
             <span className="block lg:whitespace-nowrap">local businesses</span>
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white">
+          <p className="mt-7 whitespace-nowrap text-lg leading-relaxed text-white">
             {homepageCopy.heroSubtitle}
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-4">

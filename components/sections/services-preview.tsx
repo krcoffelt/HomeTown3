@@ -1,6 +1,3 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
 import { services } from "@/data/services";
@@ -15,8 +12,7 @@ const serviceMeta: Record<string, string[]> = {
 
 export function ServicesPreview() {
   const featuredService = services.find((service) => service.slug === "website-design");
-  const allRows = useMemo(() => services, []);
-  const [activeSlug, setActiveSlug] = useState("website-design");
+  const allRows = services;
 
   return (
     <SectionShell className="bg-base text-ink">
@@ -42,13 +38,10 @@ export function ServicesPreview() {
           {allRows
             .filter((service) => service.slug !== "website-design")
             .map((service) => {
-              const isActive = activeSlug === service.slug;
               return (
                 <div
                   key={service.slug}
-                  className="service-row cursor-default border-b-[#d9deea]"
-                  onMouseEnter={() => setActiveSlug(service.slug)}
-                  onFocus={() => setActiveSlug(service.slug)}
+                  className="service-row group cursor-default border-b-[#d9deea]"
                 >
                   <h4 className="text-[clamp(1.2rem,2.4vw,1.8rem)] font-medium text-[#10172b]">
                     {service.title}
@@ -57,11 +50,7 @@ export function ServicesPreview() {
                     {(serviceMeta[service.slug] ?? []).map((tag) => (
                       <span
                         key={tag}
-                        className={`rounded-full border px-3 py-1 text-xs uppercase tracking-[0.09em] transition ${
-                          isActive
-                            ? "border-[#305cde] bg-[#305cde] text-white"
-                            : "border-[#d3daea] bg-[#f4f6fb] text-[#5c6684]"
-                        }`}
+                        className="rounded-full border border-[#d3daea] bg-[#f4f6fb] px-3 py-1 text-xs uppercase tracking-[0.09em] text-[#5c6684] transition group-hover:border-[#305cde] group-hover:bg-[#305cde] group-hover:text-white"
                       >
                         {tag}
                       </span>
