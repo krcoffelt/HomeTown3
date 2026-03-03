@@ -15,7 +15,7 @@ export const services: ServiceItem[] = [
     slug: "google-business-profile-setup",
     shortDescription: "Optimize your local profile for stronger discovery.",
     fullDescription: "Setup and optimization of your Google Business Profile for stronger local visibility.",
-    price: "",
+    price: "$250",
     sortOrder: 2
   },
   {
@@ -23,7 +23,7 @@ export const services: ServiceItem[] = [
     slug: "social-media",
     shortDescription: "Consistent social support that aligns with your website.",
     fullDescription: "Social media support focused on consistency and lead-quality messaging.",
-    price: "",
+    price: "$499/mo",
     sortOrder: 3
   },
   {
@@ -31,6 +31,7 @@ export const services: ServiceItem[] = [
     slug: "graphic-design",
     shortDescription: "Marketing visuals that support your brand and campaigns.",
     fullDescription: "Marketing graphics for social, web, and promotional materials.",
+    price: "Custom quote",
     sortOrder: 4
   },
   {
@@ -38,7 +39,7 @@ export const services: ServiceItem[] = [
     slug: "logo-and-brand-work",
     shortDescription: "Identity foundations for a stronger local brand.",
     fullDescription: "Logo and brand direction to keep your business visuals consistent.",
-    price: "",
+    price: "$250",
     sortOrder: 5
   }
 ];
