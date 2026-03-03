@@ -49,7 +49,7 @@ export function ContactForm() {
                 required
                 autoComplete="name"
                 placeholder="Your full name"
-                className="h-13 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-16 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onChange={(event) => setValues((prev) => ({ ...prev, name: event.target.value }))}
               />
             </div>
@@ -64,7 +64,7 @@ export function ContactForm() {
                 required
                 autoComplete="organization"
                 placeholder="Business name"
-                className="h-13 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-16 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onChange={(event) => setValues((prev) => ({ ...prev, businessName: event.target.value }))}
               />
             </div>
@@ -82,7 +82,7 @@ export function ContactForm() {
                 required
                 autoComplete="tel"
                 placeholder="(913) 991-6641"
-                className="h-13 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-16 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
               />
             </div>
@@ -98,7 +98,7 @@ export function ContactForm() {
                 required
                 autoComplete="email"
                 placeholder="you@business.com"
-                className="h-13 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-16 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
               />
             </div>
