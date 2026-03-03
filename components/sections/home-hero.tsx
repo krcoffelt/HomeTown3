@@ -28,7 +28,7 @@ export function HomeHero() {
             <span className="block lg:whitespace-nowrap">
               <AnimatedHeroWord words={rotatingHeroWords} className="text-[#305cde]" />
             </span>
-            <span className="block lg:-mt-[0.6rem] lg:whitespace-nowrap">websites for</span>
+            <span className="block lg:whitespace-nowrap">websites for</span>
             <span className="block lg:whitespace-nowrap">local businesses</span>
           </h1>
           <p className="mt-7 whitespace-nowrap text-lg leading-relaxed text-white">
