@@ -26,6 +26,11 @@ export const metadata: Metadata = {
   },
   applicationName: site.brand.fullName,
   description: site.description,
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico"
+  },
   openGraph: {
     siteName: site.brand.fullName
   }

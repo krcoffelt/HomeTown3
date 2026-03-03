@@ -10,7 +10,7 @@ export const projects: ProjectItem[] = [
     servicesProvided: ["Website Design", "Local SEO Structure"],
     featuredImageUrl:
       "/images/work/PlateKCScreenshot.png",
-    liveUrl: "https://plateitalianomoderno.com",
+    liveUrl: "https://platekc.com",
     isFeatured: true,
     sortOrder: 1
   },

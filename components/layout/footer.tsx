@@ -30,7 +30,7 @@ export function Footer() {
               width={167}
               height={36}
               sizes="(min-width: 768px) 167px, 148px"
-              className="h-8 w-auto md:h-9"
+              className="h-8 w-[9.25rem] md:h-9 md:w-[10.4375rem]"
             />
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
               Premium, lead-focused website design for Kansas City service

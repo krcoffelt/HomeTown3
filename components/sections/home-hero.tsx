@@ -1,14 +1,23 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { AnimatedHeroWord } from "@/components/ui/animated-hero-word";
+import { UnicornBackground } from "@/components/ui/unicorn-background";
 import { SectionShell } from "@/components/layout/section-shell";
 import { homepageCopy } from "@/data/copy";
+
+const rotatingHeroWords = [
+  "Affordable",
+  "Custom",
+  "Premium",
+  "Strategic",
+  "Local"
+];
 
 export function HomeHero() {
   return (
     <SectionShell className="relative overflow-hidden pb-8 pt-16 md:pb-12 md:pt-20">
       <div className="pointer-events-none absolute inset-0">
-        <AuroraBackground className="h-full w-full" />
+        <UnicornBackground className="h-full w-full" />
       </div>
       <div className="relative z-10">
         <div className="hero-reveal max-w-5xl">
@@ -16,8 +25,11 @@ export function HomeHero() {
             {homepageCopy.trustLabel}
           </Badge>
           <h1 className="max-w-5xl text-balance text-[clamp(2.8rem,9.6vw,8rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-white">
-            Affordable websites for Kansas City{" "}
-            <span className="font-serif italic font-normal tracking-[-0.02em]">businesses</span>
+            <span className="block lg:whitespace-nowrap">
+              <AnimatedHeroWord words={rotatingHeroWords} className="text-[#305cde]" />
+            </span>
+            <span className="block lg:-mt-[0.6rem] lg:whitespace-nowrap">websites for</span>
+            <span className="block lg:whitespace-nowrap">local businesses</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white">
             {homepageCopy.heroSubtitle}

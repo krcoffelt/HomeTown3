@@ -33,8 +33,8 @@ export function Navbar() {
         className={cn(
           "sticky top-0 z-40 transition duration-300",
           isScrolled
-            ? "border-white/12 bg-[#05070b]/75 backdrop-blur-xl"
-            : "bg-[#05070b]/96 backdrop-blur-md"
+            ? "border-white/8 bg-[#05070b]/58 backdrop-blur-md"
+            : "bg-[#05070b]/90 backdrop-blur-sm"
         )}
       >
         <div className="mx-auto flex w-full max-w-shell items-center justify-between px-5 py-4 md:px-8">
@@ -42,11 +42,11 @@ export function Navbar() {
           <Image
             src="/images/HometownLogoWhite2026.png"
             alt="Hometown"
-            width={333}
-            height={72}
-            sizes="(min-width: 768px) 333px, 278px"
+            width={2000}
+            height={800}
+            sizes="(min-width: 768px) 180px, 150px"
             priority
-            className="h-[3.75rem] w-auto md:h-[4.5rem]"
+            className="h-[3.75rem] w-[9.375rem] md:h-[4.5rem] md:w-[11.25rem]"
           />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
