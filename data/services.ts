@@ -5,9 +5,8 @@ export const services: ServiceItem[] = [
     title: "Website Design",
     slug: "website-design",
     shortDescription: "Custom websites built to turn local traffic into inquiries.",
-    fullDescription:
-      "A strategic, custom-built website designed for local service businesses that need to look legitimate and convert visitors into leads.",
-    price: "$800 this month ($999 regular)",
+    fullDescription: "Custom websites designed to make your business look credible and convert visitors into leads.",
+    price: "$800",
     isFeatured: true,
     sortOrder: 1
   },
@@ -15,28 +14,31 @@ export const services: ServiceItem[] = [
     title: "Google Business Profile Setup",
     slug: "google-business-profile-setup",
     shortDescription: "Optimize your local profile for stronger discovery.",
-    fullDescription:
-      "Complete setup and optimization of your Google Business Profile so your business appears stronger in local map and search results.",
-    price: "$250",
+    fullDescription: "Setup and optimization of your Google Business Profile for stronger local visibility.",
+    price: "",
     sortOrder: 2
   },
   {
-    title: "Logo Design + Mini Brand Kit",
-    slug: "logo-design-mini-brand-kit",
-    shortDescription: "A clean, credible visual identity for small businesses.",
-    fullDescription:
-      "A polished logo and small brand kit with practical usage guidance so your website, social, and print assets stay consistent.",
-    price: "$250",
+    title: "Social Media",
+    slug: "social-media",
+    shortDescription: "Consistent social support that aligns with your website.",
+    fullDescription: "Social media support focused on consistency and lead-quality messaging.",
+    price: "",
     sortOrder: 3
   },
   {
-    title: "Social Media Management",
-    slug: "social-media-management",
-    shortDescription: "Consistent social execution that supports your website funnel.",
-    fullDescription:
-      "Monthly social media management for local service businesses that need cleaner messaging, stronger consistency, and better lead alignment.",
-    price: "$499/month",
+    title: "Graphic Design",
+    slug: "graphic-design",
+    shortDescription: "Marketing visuals that support your brand and campaigns.",
+    fullDescription: "Marketing graphics for social, web, and promotional materials.",
     sortOrder: 4
+  },
+  {
+    title: "Logo and Brand Work",
+    slug: "logo-and-brand-work",
+    shortDescription: "Identity foundations for a stronger local brand.",
+    fullDescription: "Logo and brand direction to keep your business visuals consistent.",
+    price: "",
+    sortOrder: 5
   }
 ];
-
