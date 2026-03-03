@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
 import { services } from "@/data/services";
+import { ProgressiveBlur } from "@/registry/magicui/progressive-blur";
 
 export function ServicesPreview() {
   const featuredService = services.find((service) => service.isFeatured);
@@ -24,7 +25,8 @@ export function ServicesPreview() {
           </Link>
         </div>
 
-        <section className="overflow-hidden rounded-[2rem] border border-white/14 bg-[linear-gradient(155deg,rgba(255,255,255,0.06),rgba(255,255,255,0.012)_35%,rgba(7,11,20,0.92)_100%)]">
+        <section className="relative overflow-hidden rounded-[2rem] border border-white/14 bg-[linear-gradient(155deg,rgba(255,255,255,0.06),rgba(255,255,255,0.012)_35%,rgba(7,11,20,0.92)_100%)]">
+          <ProgressiveBlur position="top" height="16%" blurIntensity={10} className="opacity-65" />
           <div className="grid lg:grid-cols-12">
             <article className="border-b border-white/12 px-8 py-10 lg:col-span-7 lg:border-b-0 lg:border-r lg:border-white/12 lg:px-10 lg:py-12">
               <p className="section-eyebrow text-[#9bb6ff]">Primary Focus</p>
@@ -45,7 +47,7 @@ export function ServicesPreview() {
               </div>
             </article>
 
-            <aside className="lg:col-span-5">
+            <aside className="relative overflow-hidden lg:col-span-5">
               <div className="border-b border-white/12 px-8 py-7 lg:px-9">
                 <p className="section-eyebrow text-[#9bb6ff]">Marketing Add-ons</p>
                 <p className="mt-3 text-lg leading-relaxed text-white/72">
@@ -65,6 +67,7 @@ export function ServicesPreview() {
                   </article>
                 ))}
               </div>
+              <ProgressiveBlur position="bottom" height="28%" blurIntensity={14} className="opacity-80" />
             </aside>
           </div>
         </section>
