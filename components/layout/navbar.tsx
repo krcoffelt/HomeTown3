@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils/cn";
 
 const links = [
   { href: "/", label: "Home" },
@@ -11,9 +15,29 @@ const links = [
 ];
 
 export function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-base backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-shell items-center justify-between px-5 py-4 md:px-8">
+    <>
+      <header
+        className={cn(
+          "sticky top-0 z-40 transition duration-300",
+          isScrolled
+            ? "border-white/12 bg-[#05070b]/75 backdrop-blur-xl"
+            : "bg-[#05070b]/96 backdrop-blur-md"
+        )}
+      >
+        <div className="mx-auto flex w-full max-w-shell items-center justify-between px-5 py-4 md:px-8">
         <Link href="/" aria-label="Hometown home" className="inline-flex items-center">
           <Image
             src="/images/HometownLogoWhite2026.png"
@@ -39,7 +63,14 @@ export function Navbar() {
         <Button href="/contact#form" className="hidden bg-accent text-white md:inline-flex">
           Get Started
         </Button>
-      </div>
-    </header>
+        </div>
+      </header>
+      <Link
+        href="/contact#form"
+        className="fixed bottom-5 right-5 z-50 hidden rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-md transition hover:border-white/35 hover:bg-white/15 md:inline-flex"
+      >
+        Let&apos;s Talk
+      </Link>
+    </>
   );
 }

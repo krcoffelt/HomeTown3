@@ -5,26 +5,23 @@ export function PricingPreview() {
   return (
     <SectionShell className="bg-base text-ink">
       <div className="mb-10">
-        <p className="kicker">Pricing</p>
-        <h2 className="display-lg mt-4 font-semibold text-white">
-          Hometown Website Package
-        </h2>
+        <h2 className="display-lg font-semibold text-white">Pricing</h2>
       </div>
       <div className="grid gap-4 md:grid-cols-12">
-        <div className="surface-primary px-7 py-7 text-white md:col-span-8 md:px-10">
-          <p className="kicker">This month</p>
+        <div className="rounded-3xl border border-[#5c80f5] bg-[#305cde] px-7 py-7 text-white shadow-[0_16px_40px_rgba(48,92,222,0.3)] transition duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_22px_50px_rgba(48,92,222,0.38)] md:col-span-8 md:px-10">
+          <p className="section-eyebrow text-white/85">Special this month</p>
           <div className="mt-2 flex items-end gap-4">
             <p className="text-6xl font-semibold tracking-tight">$800</p>
-            <p className="mb-2 text-lg text-white/68 line-through">$1,000</p>
+            <p className="mb-2 text-lg text-white/75 line-through">$1,000</p>
           </div>
-          <ul className="mt-6 space-y-2 text-base text-white/86">
+          <ul className="mt-6 space-y-2 text-base text-white">
             <li>Custom multi-page website</li>
             <li>Mobile-first responsive build</li>
             <li>Lead-focused conversion sections</li>
             <li>Local SEO-ready metadata structure</li>
           </ul>
         </div>
-        <div className="surface-secondary px-7 py-7 md:col-span-4">
+        <div className="surface-secondary px-7 py-7 transition duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 hover:shadow-[0_18px_40px_rgba(6,11,22,0.45)] md:col-span-4">
           <p className="kicker">Add-ons</p>
           <ul className="mt-4 space-y-3 text-white/82">
             <li>Google Business Profile Setup</li>

@@ -28,6 +28,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background: var(--color-base);
 }
 
 body {
@@ -150,11 +151,42 @@ body {
   }
 }
 
+@keyframes aurora-float-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(40px, -20px, 0) scale(1.07);
+  }
+}
+
+@keyframes aurora-float-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-35px, 18px, 0) scale(1.06);
+  }
+}
+
+@keyframes aurora-float-3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(18px, -30px, 0) scale(1.08);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal,
   .hero-reveal-delay {
     opacity: 1;
     transform: none;
     animation: none;
+  }
+
+  [class*="aurora-float"] {
+    animation: none !important;
   }
 }

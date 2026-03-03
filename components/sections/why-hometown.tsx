@@ -1,51 +1,58 @@
 import { SectionShell } from "@/components/layout/section-shell";
+import { Button } from "@/components/ui/button";
 
-const items = [
+const pillars = [
   {
-    title: "Local and easy to work with",
-    body: "Kansas City-based collaboration with direct communication and fast turnarounds."
+    title: "Direct communication",
+    body: "You work directly with the builder so feedback and revisions move fast."
   },
   {
-    title: "Premium design without inflated pricing",
-    body: "Senior-level layout and typography quality built for small-business budgets."
+    title: "Premium visual quality",
+    body: "Clean typography, modern layout systems, and mobile polish built into every page."
   },
   {
-    title: "Built for leads",
-    body: "Clear messaging hierarchy and CTA structure that drives inquiries."
+    title: "Conversion-first structure",
+    body: "Every section is designed to move visitors toward inquiry, call, or form submit."
   },
   {
-    title: "Simple process",
-    body: "Straightforward scope, focused execution, and no agency complexity."
+    title: "Kansas City local context",
+    body: "Messaging and service framing tuned for how local customers evaluate trust."
   }
 ];
 
 export function WhyHometown() {
   return (
     <SectionShell>
-      <div className="mb-12 flex items-end justify-between gap-6">
-        <h2 className="display-lg font-semibold text-white">
-          Why Hometown
-        </h2>
-        <p className="max-w-sm text-base leading-relaxed text-white/78">
-          A Kansas City website studio built to make local businesses look legit
-          and get more inquiries.
-        </p>
-      </div>
-      <div className="surface-secondary divide-y divide-white/12 px-7 py-3 md:px-10">
-        {items.map((item, idx) => (
-          <div key={item.title} className="grid gap-5 py-5 md:grid-cols-12 md:gap-8">
-            <div className="md:col-span-2">
-              <span className="section-eyebrow text-[#9bb6ff]">
-                {String(idx + 1).padStart(2, "0")}
-              </span>
-            </div>
-            <h3 className="md:col-span-4 text-[clamp(1.4rem,2.8vw,2.2rem)] font-medium leading-[1.04] tracking-tight text-white">
-              {item.title}
-            </h3>
-            <p className="md:col-span-6 text-lg leading-relaxed text-white/76">{item.body}</p>
+      <section className="rounded-[2rem] border border-white/14 bg-[linear-gradient(160deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01)_40%,rgba(8,14,26,0.94)_100%)] px-7 py-8 md:px-10 md:py-10">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <p className="kicker">Why Hometown</p>
+            <h2 className="mt-4 text-[clamp(2rem,5vw,4.2rem)] font-semibold leading-[0.95] tracking-tight text-white">
+              Premium execution built for local service businesses.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/84">
+              Clear process, clear communication, and websites designed to convert.
+            </p>
           </div>
-        ))}
-      </div>
+          <Button href="/contact#form">Start Your Project</Button>
+        </div>
+
+        <div className="mt-9 grid gap-4 md:grid-cols-2">
+          {pillars.map((item) => (
+            <article
+              key={item.title}
+              className="rounded-2xl border border-white/16 bg-[#0b1220]/78 px-5 py-5 transition duration-300 hover:border-white/28 hover:bg-[#0d1729]/92"
+            >
+              <h3 className="text-[1.5rem] font-semibold tracking-tight text-white">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-white/84">
+                {item.body}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
     </SectionShell>
   );
 }
