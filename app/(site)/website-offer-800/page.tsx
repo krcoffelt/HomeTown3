@@ -28,10 +28,10 @@ export default function WebsiteOfferLandingPage() {
         <div className="mx-auto max-w-6xl">
           <p className="kicker">Start Here</p>
           <h1 className="mt-4 max-w-5xl text-balance text-[clamp(2.5rem,7vw,5.6rem)] font-semibold leading-[0.95] tracking-tight text-white">
-            Tell us about your business and claim the $800 offer
+            We will build you a custom website for only $800.
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/80">
-            Basic form. No pressure. Takes 2 minutes.
+            Satisfaction guaranteed.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button href="#claim-form" dataAnalytics="cta-offer-800">
