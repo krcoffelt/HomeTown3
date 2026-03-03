@@ -24,9 +24,9 @@ export function ContactForm() {
   }, [state.ok]);
 
   return (
-    <Card className="relative overflow-hidden rounded-[28px] border border-[#e4dece] bg-[linear-gradient(145deg,#faf6ed,#f3ecdf_45%,#efe7d9)] p-0 text-[#151b2d] shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+    <Card className="relative overflow-hidden rounded-[28px] border border-[#e7e7e7] bg-white p-0 text-[#151b2d] shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
       <div aria-hidden="true" className="pointer-events-none absolute right-0 top-0 h-40 w-40 rounded-full bg-[#365fdb]/10 blur-2xl" />
-      <CardHeader className="relative space-y-3 border-b border-[#ddd4c2] pb-7">
+      <CardHeader className="relative space-y-3 border-b border-[#e6e6e6] pb-7">
         <p className="section-eyebrow text-[#365fdb]">Get Started</p>
         <CardTitle className="text-[clamp(1.9rem,3vw,2.4rem)] leading-[1.02] text-[#10172b]">Tell us about your project</CardTitle>
         <CardDescription className="text-base text-[#36405d]">
@@ -49,7 +49,7 @@ export function ContactForm() {
                 required
                 autoComplete="name"
                 placeholder="Your full name"
-                className="h-13 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-13 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onChange={(event) => setValues((prev) => ({ ...prev, name: event.target.value }))}
               />
             </div>
@@ -64,7 +64,7 @@ export function ContactForm() {
                 required
                 autoComplete="organization"
                 placeholder="Business name"
-                className="h-13 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-13 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onChange={(event) => setValues((prev) => ({ ...prev, businessName: event.target.value }))}
               />
             </div>
@@ -82,7 +82,7 @@ export function ContactForm() {
                 required
                 autoComplete="tel"
                 placeholder="(913) 991-6641"
-                className="h-13 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-13 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
               />
             </div>
@@ -98,7 +98,7 @@ export function ContactForm() {
                 required
                 autoComplete="email"
                 placeholder="you@business.com"
-                className="h-13 rounded-xl border border-[#d8cfbc] bg-[#fffdf8] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
+                className="h-13 rounded-xl border border-[#d7dbe4] bg-[#f4f6fa] text-[#151b2d] placeholder:text-[#7a8298] focus-visible:outline-[#365fdb]"
                 onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
               />
             </div>
@@ -109,7 +109,7 @@ export function ContactForm() {
           ) : null}
         </form>
       </CardContent>
-      <CardFooter className="w-full border-t border-[#ddd4c2]">
+      <CardFooter className="w-full border-t border-[#e6e6e6]">
         <Button
           type="submit"
           form="contact-form"
