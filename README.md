@@ -9,7 +9,7 @@
    - Open GTM Preview (Tag Assistant), connect to the site, interact with the page, and confirm container load + fired tags.
    - In GA4 (`G-4FYSV8WK5P`), open Realtime and confirm active page views/events while preview is connected.
    - Optional consent integration: dispatch `window.dispatchEvent(new Event("analytics-consent-granted"))` after consent acceptance to load GTM immediately.
-   - Do not paste the raw GTM `<script>`/`<noscript>` snippets directly in code; this project loads GTM via `@next/third-parties/google`.
+   - Do not paste the raw GTM `<script>`/`<noscript>` snippets directly in code; this project loads GTM through the app GTM loader component.
 
 ## GTM Configuration To Create
 

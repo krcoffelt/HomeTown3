@@ -1,9 +1,9 @@
 "use client";
 
-import { GoogleTagManager } from "@next/third-parties/google";
 import { useEffect, useState } from "react";
 
 const SESSION_KEY = "hometown:gtm-loaded";
+const SCRIPT_ID = "hometown-gtm-script";
 
 interface GtmLoaderProps {
   gtmId: string;
@@ -45,7 +45,27 @@ export function GtmLoader({ gtmId }: GtmLoaderProps) {
     };
   }, [gtmId]);
 
-  if (!enabled || !gtmId) return null;
+  useEffect(() => {
+    if (!enabled || !gtmId) return;
 
-  return <GoogleTagManager gtmId={gtmId} />;
+    const currentScript = document.getElementById(SCRIPT_ID);
+    if (currentScript) return;
+
+    const dataLayerWindow = window as Window & {
+      dataLayer?: Array<Record<string, unknown>>;
+    };
+    dataLayerWindow.dataLayer = dataLayerWindow.dataLayer ?? [];
+    dataLayerWindow.dataLayer.push({
+      "gtm.start": Date.now(),
+      event: "gtm.js"
+    });
+
+    const script = document.createElement("script");
+    script.id = SCRIPT_ID;
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`;
+    document.head.appendChild(script);
+  }, [enabled, gtmId]);
+
+  return null;
 }
