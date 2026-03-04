@@ -13,12 +13,27 @@ const initialValues = {
   email: "",
   phone: ""
 };
+const GOOGLE_ADS_OFFER_CONVERSION_SEND_TO = process.env.NEXT_PUBLIC_GOOGLE_ADS_OFFER_CONVERSION_SEND_TO;
 
 function pushDataLayerEvent(eventName: string) {
   if (typeof window === "undefined") return;
   const dataLayerWindow = window as Window & { dataLayer?: Array<Record<string, string>> };
   dataLayerWindow.dataLayer = dataLayerWindow.dataLayer ?? [];
   dataLayerWindow.dataLayer.push({ event: eventName });
+}
+
+function fireOfferLeadConversion() {
+  if (typeof window === "undefined") return;
+  if (!GOOGLE_ADS_OFFER_CONVERSION_SEND_TO) return;
+
+  const googleWindow = window as Window & {
+    gtag?: (command: string, eventName: string, params: Record<string, string>) => void;
+  };
+  if (!googleWindow.gtag) return;
+
+  googleWindow.gtag("event", "conversion", {
+    send_to: GOOGLE_ADS_OFFER_CONVERSION_SEND_TO
+  });
 }
 
 export function OfferLeadForm() {
@@ -29,7 +44,13 @@ export function OfferLeadForm() {
   useEffect(() => {
     if (!state.ok) return;
     setValues(initialValues);
-  }, [state.ok]);
+  }, [state]);
+
+  useEffect(() => {
+    if (!state.ok) return;
+    pushDataLayerEvent("offer_lead_submit_success");
+    fireOfferLeadConversion();
+  }, [state]);
 
   const markStarted = () => {
     if (hasStarted) return;

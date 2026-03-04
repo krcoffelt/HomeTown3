@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import { site } from "@/data/site";
 import { localBusinessSchema } from "@/lib/seo/schema";
 import { GtmLoader } from "@/components/analytics/gtm-loader";
+
+const GOOGLE_ADS_ID = "AW-17990702531";
 
 const sans = localFont({
   src: [
@@ -53,6 +56,17 @@ export default function RootLayout({
   const localBusiness = localBusinessSchema();
   return (
     <html lang="en">
+      <head>
+        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} strategy="afterInteractive" />
+        <Script id="google-ads-base-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ADS_ID}');
+          `}
+        </Script>
+      </head>
       <body className={`${sans.variable} ${serif.variable}`}>
         <script
           type="application/ld+json"
