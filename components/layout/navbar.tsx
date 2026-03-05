@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const links = [
-  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
   { href: "/pricing", label: "Pricing" },
@@ -27,7 +26,7 @@ export function Navbar() {
               className="h-[3.75rem] w-[9.375rem] md:h-[4.5rem] md:w-[11.25rem]"
             />
           </Link>
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-10 md:flex lg:gap-12">
             {links.map((link) => (
               <Link
                 key={link.href}
