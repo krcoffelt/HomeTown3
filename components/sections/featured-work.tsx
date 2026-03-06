@@ -14,7 +14,7 @@ export function FeaturedWork() {
           See all projects
         </Link>
       </div>
-      <div className="surface-secondary divide-y divide-white/12 px-6 py-2 !text-white md:px-10">
+      <div className="divide-y divide-white/12 bg-transparent px-6 py-2 !text-white md:px-10">
         {projects.map((project, index) => (
           <article key={project.slug} className="grid gap-5 py-8 !text-white md:grid-cols-12 md:items-center">
             <div className={`relative w-full overflow-hidden rounded-xl border border-white/12 ${index === 0 ? "h-64 md:col-span-5 md:h-72" : "h-56 md:col-span-5 md:h-64"}`}>

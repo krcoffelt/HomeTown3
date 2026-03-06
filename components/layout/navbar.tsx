@@ -11,7 +11,7 @@ const links = [
 export function Navbar() {
   return (
     <>
-      <header className="sticky top-0 z-40 border-white/8 bg-[#05070b]/58 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-white/8 bg-[#000103]/96 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-shell items-center justify-between px-5 py-4 md:px-8">
           <Link href="/" aria-label="Hometown home" className="inline-flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -42,12 +42,6 @@ export function Navbar() {
           </Button>
         </div>
       </header>
-      <Link
-        href="/contact#form"
-        className="fixed bottom-5 right-5 z-50 hidden rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-md transition hover:border-white/35 hover:bg-white/15 md:inline-flex"
-      >
-        Let&apos;s Talk
-      </Link>
     </>
   );
 }

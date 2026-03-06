@@ -15,7 +15,7 @@ export function ServicesPreview() {
   const allRows = services;
 
   return (
-    <SectionShell className="bg-base text-ink">
+    <SectionShell className="text-ink">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6 md:mb-14">
           <h2 className="editorial-display max-w-4xl">What We Do</h2>

@@ -1,9 +1,15 @@
 import { SectionShell } from "@/components/layout/section-shell";
 import { Button } from "@/components/ui/button";
 
+const addOns = [
+  { label: "Google Business Profile Setup", price: "$250" },
+  { label: "Logo Design + Mini Brand Kit", price: "$250" },
+  { label: "Social Media Management", price: "$499/month" }
+];
+
 export function PricingPreview() {
   return (
-    <SectionShell className="bg-base text-ink">
+    <SectionShell className="text-ink">
       <div className="mb-10">
         <h2 className="display-lg font-semibold text-white">Pricing</h2>
       </div>
@@ -23,10 +29,13 @@ export function PricingPreview() {
         </div>
         <div className="surface-secondary px-7 py-7 transition duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 hover:shadow-[0_18px_40px_rgba(6,11,22,0.45)] md:col-span-4">
           <p className="kicker">Add-ons</p>
-          <ul className="mt-4 space-y-3 text-white/82">
-            <li>Google Business Profile Setup</li>
-            <li>Logo Design + Mini Brand Kit</li>
-            <li>Social Media Management</li>
+          <ul className="mt-4 space-y-4 text-white/82">
+            {addOns.map((addOn) => (
+              <li key={addOn.label} className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
+                <span className="text-sm leading-snug text-white/82">{addOn.label}</span>
+                <span className="shrink-0 text-sm font-medium text-white">{addOn.price}</span>
+              </li>
+            ))}
           </ul>
           <Button href="/contact#form" className="mt-8">
             Get Started

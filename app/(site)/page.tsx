@@ -6,6 +6,7 @@ import { FeaturedWork } from "@/components/sections/featured-work";
 import { PricingPreview } from "@/components/sections/pricing-preview";
 import { FAQSection } from "@/components/sections/faq-section";
 import { ContactCta } from "@/components/sections/contact-cta";
+import { HomepageParallaxBackground } from "@/components/sections/homepage-parallax-background";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { faqSchema } from "@/lib/seo/schema";
 
@@ -18,20 +19,23 @@ export const metadata = createPageMetadata(
 export default function HomePage() {
   const schema = faqSchema("home");
   return (
-    <>
+    <div className="relative isolate">
       <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <HomeHero />
-      <SocialProofStrip />
-      <WhyHometown />
-      <ServicesPreview />
-      <FeaturedWork />
-      <PricingPreview />
-      <FAQSection page="home" />
-      <ContactCta />
-    </>
+      <HomepageParallaxBackground />
+      <div className="relative z-10">
+        <HomeHero />
+        <SocialProofStrip />
+        <WhyHometown />
+        <ServicesPreview />
+        <FeaturedWork />
+        <PricingPreview />
+        <FAQSection page="home" />
+        <ContactCta />
+      </div>
+    </div>
   );
 }
