@@ -57,8 +57,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} strategy="afterInteractive" />
-        <Script id="google-ads-base-tag" strategy="afterInteractive">
+        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} strategy="beforeInteractive" />
+        <Script id="google-ads-base-tag" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
