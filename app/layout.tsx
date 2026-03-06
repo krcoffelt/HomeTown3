@@ -41,9 +41,14 @@ export const metadata: Metadata = {
   applicationName: site.brand.fullName,
   description: site.description,
   icons: {
-    icon: "/hometownicon.svg",
-    shortcut: "/hometownicon.svg",
-    apple: "/favicon.ico"
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/hometownicon.svg", type: "image/svg+xml" }
+    ],
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png"
   },
   openGraph: {
     siteName: site.brand.fullName
