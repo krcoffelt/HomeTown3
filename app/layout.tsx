@@ -64,12 +64,6 @@ export default function RootLayout({
             strategy="beforeInteractive"
           />
         )}
-        {process.env.NODE_ENV === "development" && (
-          <Script
-            src="//unpkg.com/@react-grab/codex/dist/client.global.js"
-            strategy="lazyOnload"
-          />
-        )}
         <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} strategy="beforeInteractive" />
         <Script id="google-ads-base-tag" strategy="beforeInteractive">
           {`
