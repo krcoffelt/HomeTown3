@@ -1,5 +1,6 @@
 "use server";
 
+import { sendLeadNotification } from "@/lib/email/resend";
 import { leadSchema } from "@/lib/validations/lead";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -45,6 +46,12 @@ async function insertLead(values: {
         ok: false,
         message: `Submission failed: ${error.message}`
       };
+    }
+
+    try {
+      await sendLeadNotification(values);
+    } catch (error) {
+      console.error("Lead notification email failed", error);
     }
 
     return {
