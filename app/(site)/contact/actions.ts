@@ -1,5 +1,6 @@
 "use server";
 
+import { getLeadSource, type LeadAttributionFields } from "@/lib/analytics/lead-attribution";
 import { sendLeadNotification } from "@/lib/email/resend";
 import { leadSchema } from "@/lib/validations/lead";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
@@ -9,6 +10,11 @@ export interface SubmitLeadState {
   message: string;
 }
 
+function cleanOptional(value?: string) {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
+}
+
 async function insertLead(values: {
   name: string;
   businessName: string;
@@ -16,16 +22,34 @@ async function insertLead(values: {
   phone: string;
   serviceNeeded: string;
   projectDetails: string;
+  landingPage?: string;
+  referrerUrl?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmTerm?: string;
+  utmContent?: string;
+  gclid?: string;
 }): Promise<SubmitLeadState> {
   try {
     const supabase = createSupabaseServerClient();
+    const leadSource = getLeadSource(values);
     const { error } = await supabase.from("leads").insert({
       name: values.name,
       business_name: values.businessName,
       email: values.email,
-      phone: values.phone,
+      phone: cleanOptional(values.phone),
       service_needed: values.serviceNeeded,
-      project_details: values.projectDetails
+      project_details: values.projectDetails,
+      landing_page: cleanOptional(values.landingPage),
+      referrer_url: cleanOptional(values.referrerUrl),
+      utm_source: cleanOptional(values.utmSource),
+      utm_medium: cleanOptional(values.utmMedium),
+      utm_campaign: cleanOptional(values.utmCampaign),
+      utm_term: cleanOptional(values.utmTerm),
+      utm_content: cleanOptional(values.utmContent),
+      gclid: cleanOptional(values.gclid),
+      lead_source: leadSource
     });
 
     if (error) {
@@ -49,7 +73,10 @@ async function insertLead(values: {
     }
 
     try {
-      await sendLeadNotification(values);
+      await sendLeadNotification({
+        ...values,
+        leadSource
+      });
     } catch (error) {
       console.error("Lead notification email failed", error);
     }
@@ -83,6 +110,14 @@ export async function submitLead(
     email: String(formData.get("email") ?? ""),
     phone: String(formData.get("phone") ?? ""),
     serviceNeeded: String(formData.get("serviceNeeded") ?? ""),
+    landingPage: String(formData.get("landingPage") ?? ""),
+    referrerUrl: String(formData.get("referrerUrl") ?? ""),
+    utmSource: String(formData.get("utmSource") ?? ""),
+    utmMedium: String(formData.get("utmMedium") ?? ""),
+    utmCampaign: String(formData.get("utmCampaign") ?? ""),
+    utmTerm: String(formData.get("utmTerm") ?? ""),
+    utmContent: String(formData.get("utmContent") ?? ""),
+    gclid: String(formData.get("gclid") ?? ""),
     projectDetails: String(formData.get("projectDetails") ?? "")
   });
 
@@ -94,6 +129,14 @@ export async function submitLead(
       email: "Email",
       phone: "Phone",
       serviceNeeded: "Service Needed",
+      landingPage: "Landing Page",
+      referrerUrl: "Referrer URL",
+      utmSource: "UTM Source",
+      utmMedium: "UTM Medium",
+      utmCampaign: "UTM Campaign",
+      utmTerm: "UTM Term",
+      utmContent: "UTM Content",
+      gclid: "GCLID",
       projectDetails: "Project Details"
     };
     const field = issue?.path?.[0] ? fieldMap[String(issue.path[0])] ?? "Form" : "Form";
@@ -107,6 +150,14 @@ export async function submitLead(
     email: parsed.data.email,
     phone: parsed.data.phone ?? "",
     serviceNeeded: parsed.data.serviceNeeded,
+    landingPage: parsed.data.landingPage,
+    referrerUrl: parsed.data.referrerUrl,
+    utmSource: parsed.data.utmSource,
+    utmMedium: parsed.data.utmMedium,
+    utmCampaign: parsed.data.utmCampaign,
+    utmTerm: parsed.data.utmTerm,
+    utmContent: parsed.data.utmContent,
+    gclid: parsed.data.gclid,
     projectDetails: parsed.data.projectDetails
   });
 }
@@ -120,6 +171,14 @@ export async function submitOfferLead(
     businessName: String(formData.get("businessName") ?? ""),
     email: String(formData.get("email") ?? ""),
     phone: String(formData.get("phone") ?? ""),
+    landingPage: String(formData.get("landingPage") ?? ""),
+    referrerUrl: String(formData.get("referrerUrl") ?? ""),
+    utmSource: String(formData.get("utmSource") ?? ""),
+    utmMedium: String(formData.get("utmMedium") ?? ""),
+    utmCampaign: String(formData.get("utmCampaign") ?? ""),
+    utmTerm: String(formData.get("utmTerm") ?? ""),
+    utmContent: String(formData.get("utmContent") ?? ""),
+    gclid: String(formData.get("gclid") ?? ""),
     serviceNeeded: "Website Design",
     projectDetails: "Website offer landing page inquiry."
   });

@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useState } from "react";
 import { submitOfferLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
+import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -76,6 +77,7 @@ export function OfferLeadForm() {
             pushDataLayerEvent("form_submit");
           }}
         >
+          <LeadAttributionFields />
           <div className="grid gap-5 md:grid-cols-2">
             <div>
               <label htmlFor="offer-name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[#4a577b]">

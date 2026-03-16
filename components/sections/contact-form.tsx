@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useState } from "react";
 import { submitLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
+import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -36,6 +37,7 @@ export function ContactForm() {
         <form id="contact-form" action={action} className="grid gap-5">
           <input type="hidden" name="serviceNeeded" value="Website Design" />
           <input type="hidden" name="projectDetails" value="Homepage/contact form inquiry." />
+          <LeadAttributionFields />
           <div className="grid gap-5 md:grid-cols-2">
             <div>
               <label htmlFor="contact-name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[#4a577b]">

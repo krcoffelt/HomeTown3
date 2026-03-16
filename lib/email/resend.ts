@@ -1,3 +1,4 @@
+import type { LeadAttributionFields } from "@/lib/analytics/lead-attribution";
 import { Resend } from "resend";
 import { getEnv } from "@/lib/env";
 import { site } from "@/data/site";
@@ -12,7 +13,9 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#39;");
 }
 
-function buildLeadEmailText(lead: LeadInput) {
+type LeadNotificationInput = LeadInput & LeadAttributionFields;
+
+function buildLeadEmailText(lead: LeadNotificationInput) {
   return [
     `New lead from ${site.brand.fullName}`,
     "",
@@ -21,19 +24,37 @@ function buildLeadEmailText(lead: LeadInput) {
     `Email: ${lead.email}`,
     `Phone: ${lead.phone || "Not provided"}`,
     `Service: ${lead.serviceNeeded}`,
+    `Lead source: ${lead.leadSource || "Unknown"}`,
+    `Landing page: ${lead.landingPage || "Unknown"}`,
+    `Referrer: ${lead.referrerUrl || "Direct / unavailable"}`,
+    `UTM source: ${lead.utmSource || "N/A"}`,
+    `UTM medium: ${lead.utmMedium || "N/A"}`,
+    `UTM campaign: ${lead.utmCampaign || "N/A"}`,
+    `UTM term: ${lead.utmTerm || "N/A"}`,
+    `UTM content: ${lead.utmContent || "N/A"}`,
+    `GCLID: ${lead.gclid || "N/A"}`,
     "",
     "Project details:",
     lead.projectDetails
   ].join("\n");
 }
 
-function buildLeadEmailHtml(lead: LeadInput) {
+function buildLeadEmailHtml(lead: LeadNotificationInput) {
   const rows = [
     ["Name", escapeHtml(lead.name)],
     ["Business", escapeHtml(lead.businessName)],
     ["Email", escapeHtml(lead.email)],
     ["Phone", escapeHtml(lead.phone || "Not provided")],
-    ["Service", escapeHtml(lead.serviceNeeded)]
+    ["Service", escapeHtml(lead.serviceNeeded)],
+    ["Lead source", escapeHtml(lead.leadSource || "Unknown")],
+    ["Landing page", escapeHtml(lead.landingPage || "Unknown")],
+    ["Referrer", escapeHtml(lead.referrerUrl || "Direct / unavailable")],
+    ["UTM source", escapeHtml(lead.utmSource || "N/A")],
+    ["UTM medium", escapeHtml(lead.utmMedium || "N/A")],
+    ["UTM campaign", escapeHtml(lead.utmCampaign || "N/A")],
+    ["UTM term", escapeHtml(lead.utmTerm || "N/A")],
+    ["UTM content", escapeHtml(lead.utmContent || "N/A")],
+    ["GCLID", escapeHtml(lead.gclid || "N/A")]
   ];
 
   return `
@@ -59,7 +80,7 @@ function buildLeadEmailHtml(lead: LeadInput) {
   `;
 }
 
-export async function sendLeadNotification(lead: LeadInput) {
+export async function sendLeadNotification(lead: LeadNotificationInput) {
   const resend = new Resend(getEnv("RESEND_API_KEY"));
 
   await resend.emails.send({
