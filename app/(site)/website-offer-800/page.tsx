@@ -104,7 +104,7 @@ export default function WebsiteOfferLandingPage() {
                 <article key={testimonial.name} className="rounded-[1.4rem] border border-white/12 bg-white/[0.04] px-6 py-6">
                   <p className="section-eyebrow text-[#9bb6ff]">{testimonial.ratingLabel}</p>
                   <p className="mt-4 text-[1.02rem] leading-relaxed text-white/86">
-                    "{testimonial.quote}"
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <p className="mt-4 text-[1.02rem] leading-relaxed text-white/78">
                     {testimonial.continuation}

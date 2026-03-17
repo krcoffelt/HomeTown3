@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { Suspense, useActionState, useEffect, useState } from "react";
 import { submitOfferLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
 import { Button } from "@/components/ui/button";
@@ -77,7 +77,9 @@ export function OfferLeadForm() {
             pushDataLayerEvent("form_submit");
           }}
         >
-          <LeadAttributionFields />
+          <Suspense fallback={null}>
+            <LeadAttributionFields />
+          </Suspense>
           <div className="grid gap-5 md:grid-cols-2">
             <div>
               <label htmlFor="offer-name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[#4a577b]">
