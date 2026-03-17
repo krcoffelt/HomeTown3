@@ -178,6 +178,31 @@ body {
   }
 }
 
+.offer-review-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.offer-review-track {
+  display: inline-flex;
+  align-items: center;
+  min-width: max-content;
+  animation: offer-review-marquee 26s linear infinite;
+}
+
+.offer-review-pill {
+  white-space: normal;
+}
+
+@keyframes offer-review-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal,
   .hero-reveal-delay {
@@ -193,5 +218,9 @@ body {
   .hero-word-roller-track {
     transition: none !important;
     transform: none !important;
+  }
+
+  .offer-review-track {
+    animation: none !important;
   }
 }
