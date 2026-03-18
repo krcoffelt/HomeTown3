@@ -30,19 +30,13 @@ const testimonials = [
 ];
 
 const featuredProjects = projects.slice(0, 3);
-const reviewRail = [
-  {
-    name: "Cathy Gorman",
-    detail: "Punctual, organized, creative, and easy to work with."
-  },
-  {
-    name: "Chris Kidd",
-    detail: "Fast delivery, clean design, patient revisions, smooth process."
-  },
-  {
-    name: "Live Client Work",
-    detail: "Recent projects available to review before you submit."
-  }
+
+const reviewHighlights = [
+  "Fast delivery",
+  "Clean, modern design",
+  "Patient revisions",
+  "Organized process",
+  "Direct communication"
 ];
 
 export const metadata: Metadata = {
@@ -66,14 +60,14 @@ export default function WebsiteOfferLandingPage() {
       <SectionShell className="relative overflow-hidden pb-10 pt-14 md:pb-12 md:pt-20">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_20%_18%,rgba(70,102,211,0.2),transparent_32%),radial-gradient(circle_at_82%_10%,rgba(255,255,255,0.08),transparent_20%)]" />
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,26rem)] lg:items-end">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,25rem)] lg:items-center">
             <div className="relative z-10">
               <p className="kicker">Website Offer</p>
-              <h1 className="mt-4 max-w-5xl text-balance text-[clamp(2.8rem,7vw,5.9rem)] font-semibold leading-[0.93] tracking-tight text-white">
+              <h1 className="mt-4 max-w-4xl text-balance text-[clamp(2.9rem,6.3vw,5.35rem)] font-semibold leading-[0.95] tracking-tight text-white">
                 Get a custom website built for your business for only $800.
               </h1>
-              <p className="mt-5 max-w-2xl text-[1.08rem] leading-relaxed text-white/82">
-                Premium-looking design, fast turnaround, and a direct builder relationship from the first message to launch.
+              <p className="mt-5 max-w-2xl text-[1.08rem] leading-relaxed text-white/82 md:text-[1.14rem]">
+                Premium-looking design, fast turnaround, and direct communication from the first message to launch.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button href="#claim-form" dataAnalytics="cta-offer-800">
@@ -81,61 +75,69 @@ export default function WebsiteOfferLandingPage() {
                 </Button>
                 <p className="section-eyebrow text-white/72">Takes 2 minutes</p>
               </div>
-              <div className="mt-10 grid gap-3 sm:grid-cols-3">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 backdrop-blur-md">
-                  <p className="section-eyebrow text-white/58">Proof</p>
-                  <p className="mt-2 text-lg font-medium text-white">Live client websites available to review.</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 backdrop-blur-md">
-                  <p className="section-eyebrow text-white/58">Reviews</p>
-                  <p className="mt-2 text-lg font-medium text-white">Real 5-star feedback from completed projects.</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 backdrop-blur-md">
-                  <p className="section-eyebrow text-white/58">Offer</p>
-                  <p className="mt-2 text-lg font-medium text-white">Clear $800 pricing with direct follow-up.</p>
-                </div>
-              </div>
             </div>
 
             <aside className="surface-primary relative overflow-hidden px-7 py-7 md:px-8 md:py-8">
               <div className="absolute inset-0 bg-[linear-gradient(155deg,rgba(255,255,255,0.08),transparent_42%)]" />
               <div className="relative z-10">
                 <p className="section-eyebrow text-[#9bb6ff]">Featured Review</p>
-                <p className="mt-4 text-[1.18rem] leading-relaxed text-white/88">
+                <p className="mt-4 text-[1.22rem] leading-relaxed text-white/90">
                   &ldquo;Kyle built a website for my business and absolutely nailed it. The final result looked clean, modern, and professional.&rdquo;
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-white/66">
                   Fast delivery, patient revisions, and a smooth process from start to finish.
                 </p>
-                <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-white">Chris Kidd</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.12em] text-white/52">5-star review</p>
+
+                <div className="mt-6 grid gap-3 border-t border-white/10 pt-5">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-white">Chris Kidd</p>
+                      <p className="mt-1 text-xs uppercase tracking-[0.12em] text-white/52">5-star review</p>
+                    </div>
+                    <div className="rounded-full border border-white/12 bg-white/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/82">
+                      Built website fast
+                    </div>
                   </div>
-                  <div className="rounded-full border border-white/12 bg-white/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/82">
-                    Built website fast
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-[1.1rem] border border-white/10 bg-[rgba(18,24,38,0.88)] px-4 py-4 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                      <p className="section-eyebrow text-white/54">What visitors need</p>
+                      <p className="mt-2 text-base leading-relaxed text-white">
+                        Real work, real reviews, and a clear next step before they trust the offer.
+                      </p>
+                    </div>
+                    <div className="rounded-[1.1rem] border border-white/10 bg-[rgba(18,24,38,0.88)] px-4 py-4 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                      <p className="section-eyebrow text-white/54">What this page gives</p>
+                      <p className="mt-2 text-base leading-relaxed text-white">
+                        Live examples, verified feedback, and direct follow-up with no vague pricing.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </aside>
           </div>
+        </div>
+      </SectionShell>
 
-          <div className="relative z-10 mt-8 overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.03] py-4 backdrop-blur-md">
-            <div className="offer-review-marquee">
-              <div className="offer-review-track">
-                {[...reviewRail, ...reviewRail].map((item, index) => (
-                  <div
-                    key={`${item.name}-${index}`}
-                    className="offer-review-pill mx-3 inline-flex min-w-[18rem] max-w-[24rem] items-center gap-4 rounded-full border border-white/10 bg-[#0a0d14]/85 px-5 py-4 align-middle"
+      <SectionShell className="pt-0">
+        <div className="mx-auto max-w-6xl">
+          <div className="rounded-[1.6rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.045),rgba(7,10,16,0.92))] px-6 py-5 shadow-[0_20px_60px_rgba(0,0,0,0.22)] md:px-7">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <p className="kicker">Buyer Confidence</p>
+                <h2 className="mt-2 text-[clamp(1.7rem,3vw,2.65rem)] font-semibold leading-[1.02] tracking-tight text-white">
+                  Real proof, before the form.
+                </h2>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {reviewHighlights.map((highlight) => (
+                  <span
+                    key={highlight}
+                    className="rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.13em] text-white/82"
                   >
-                    <div className="rounded-full border border-white/12 bg-white/[0.04] px-3 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#9bb6ff]">
-                      5-star
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-white">{item.name}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-white/70">{item.detail}</p>
-                    </div>
-                  </div>
+                    {highlight}
+                  </span>
                 ))}
               </div>
             </div>
@@ -205,16 +207,16 @@ export default function WebsiteOfferLandingPage() {
       </SectionShell>
 
       <SectionShell className="pt-2">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2">
           <div className="surface-primary px-7 py-7 md:px-10 md:py-9">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="kicker">Client Reviews</p>
-                <h2 className="mt-3 text-[clamp(1.9rem,4vw,3.5rem)] font-semibold leading-[0.98] tracking-tight text-white">
-                  Longer-form proof for people who need one more reason to trust it.
+                <h2 className="mt-3 text-[clamp(1.9rem,4vw,3.25rem)] font-semibold leading-[0.98] tracking-tight text-white">
+                  Reviews that make the offer feel safe to act on.
                 </h2>
               </div>
-              <p className="section-eyebrow text-white/66">For buyers who scroll before they submit</p>
+              <p className="section-eyebrow text-white/66">Two real reviews from completed projects</p>
             </div>
 
             <div className="mt-8 grid gap-4">
@@ -224,46 +226,51 @@ export default function WebsiteOfferLandingPage() {
                   <p className="mt-4 text-[1.02rem] leading-relaxed text-white/86">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
-                  <p className="mt-4 text-[1.02rem] leading-relaxed text-white/78">
-                    {testimonial.continuation}
-                  </p>
+                  <p className="mt-4 text-[1.02rem] leading-relaxed text-white/78">{testimonial.continuation}</p>
                   {testimonial.close ? (
-                    <p className="mt-4 text-[1.02rem] leading-relaxed text-white/78">
-                      {testimonial.close}
-                    </p>
+                    <p className="mt-4 text-[1.02rem] leading-relaxed text-white/78">{testimonial.close}</p>
                   ) : null}
-                  <p className="mt-5 text-sm font-semibold uppercase tracking-[0.12em] text-white">
-                    {testimonial.name}
-                  </p>
+                  <p className="mt-5 text-sm font-semibold uppercase tracking-[0.12em] text-white">{testimonial.name}</p>
                 </article>
               ))}
             </div>
           </div>
 
           <div className="surface-secondary px-7 py-7 md:px-8 md:py-9">
-            <p className="kicker">Why This Converts</p>
+            <p className="kicker">Claim The Offer</p>
             <h2 className="mt-3 text-[clamp(1.8rem,3vw,3rem)] font-semibold leading-[1] tracking-tight text-white">
-              A simple offer with enough proof to feel safe.
+              Clear next step. Short form. Direct follow-up.
             </h2>
-            <div className="mt-7 space-y-4">
+            <p className="mt-4 text-base leading-relaxed text-white/72">
+              This page should answer the trust questions before someone commits. If the quality looks right, the only thing left is sending the form.
+            </p>
+
+            <div className="mt-7 grid gap-4">
               <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-5 py-5">
-                <p className="section-eyebrow text-white/58">No confusion</p>
-                <p className="mt-2 text-lg font-medium text-white">Clear $800 pricing instead of vague custom quotes.</p>
+                <p className="section-eyebrow text-white/58">What they get</p>
+                <p className="mt-2 text-lg font-medium text-white">
+                  A custom multi-page website designed to look premium and convert.
+                </p>
               </div>
               <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-5 py-5">
-                <p className="section-eyebrow text-white/58">Real proof</p>
-                <p className="mt-2 text-lg font-medium text-white">Live project links and detailed reviews before the form.</p>
+                <p className="section-eyebrow text-white/58">What removes risk</p>
+                <p className="mt-2 text-lg font-medium text-white">
+                  Real client work, real reviews, clear pricing, and direct access to the builder.
+                </p>
               </div>
               <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-5 py-5">
-                <p className="section-eyebrow text-white/58">Fast action</p>
-                <p className="mt-2 text-lg font-medium text-white">Direct contact, quick follow-up, and a short form.</p>
+                <p className="section-eyebrow text-white/58">What happens next</p>
+                <p className="mt-2 text-lg font-medium text-white">
+                  You submit the form, get a fast reply, and we map the project from there.
+                </p>
               </div>
             </div>
+
             <div className="mt-7 rounded-[1.35rem] border border-[#5c80f5] bg-[#305cde] px-5 py-5 shadow-[0_14px_35px_rgba(48,92,222,0.28)]">
               <p className="section-eyebrow text-white/82">Limited Offer</p>
               <p className="mt-3 text-3xl font-semibold tracking-tight text-white">$800 custom website</p>
               <p className="mt-3 text-sm leading-relaxed text-white/84">
-                If the work quality looks right and the offer makes sense, the next step is just claiming your spot below.
+                If the work quality looks right and the offer makes sense, claim your spot below and we will follow up directly.
               </p>
               <Button href="#claim-form" className="mt-5 bg-white text-[#18308a] hover:bg-white/90">
                 Claim My $800 Website
@@ -275,21 +282,51 @@ export default function WebsiteOfferLandingPage() {
 
       <SectionShell className="pt-2">
         <div id="claim-form" className="scroll-mt-28" />
-        <div className="mx-auto max-w-6xl">
-          <OfferLeadForm />
-          <div className="mt-5 text-center">
-            <p className="text-sm text-white/70">
-              Prefer to talk first?{" "}
-              <a href={`tel:${site.contactPhone}`} data-analytics="phone_click" className="text-white underline underline-offset-4">
-                {site.contactPhone}
-              </a>{" "}
-              or{" "}
-              <a href={`mailto:${site.contactEmail}`} data-analytics="email_click" className="text-white underline underline-offset-4">
-                email us
-              </a>
-              .
-            </p>
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="surface-secondary px-7 py-7 md:px-8 md:py-9">
+            <p className="kicker">Before You Submit</p>
+            <h2 className="mt-3 text-[clamp(1.8rem,3vw,2.8rem)] font-semibold leading-[1] tracking-tight text-white">
+              Enough clarity to make the next step easy.
+            </h2>
+
+            <div className="mt-7 space-y-4">
+              <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-5 py-5">
+                <p className="section-eyebrow text-white/58">Timeline</p>
+                <p className="mt-2 text-lg font-medium text-white">
+                  Most offer projects launch in about 7 days once content is ready.
+                </p>
+              </div>
+              <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-5 py-5">
+                <p className="section-eyebrow text-white/58">Communication</p>
+                <p className="mt-2 text-lg font-medium text-white">
+                  You work directly with Kyle, not a handoff chain or a sales team.
+                </p>
+              </div>
+              <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-5 py-5">
+                <p className="section-eyebrow text-white/58">Fit</p>
+                <p className="mt-2 text-lg font-medium text-white">
+                  Best for local service businesses that need a sharper online presence and more leads.
+                </p>
+              </div>
+            </div>
           </div>
+
+          <div>
+            <OfferLeadForm />
+          </div>
+        </div>
+        <div className="mx-auto mt-5 max-w-6xl text-center">
+          <p className="text-sm text-white/70">
+            Prefer to talk first?{" "}
+            <a href={`tel:${site.contactPhone}`} data-analytics="phone_click" className="text-white underline underline-offset-4">
+              {site.contactPhone}
+            </a>{" "}
+            or{" "}
+            <a href={`mailto:${site.contactEmail}`} data-analytics="email_click" className="text-white underline underline-offset-4">
+              email us
+            </a>
+            .
+          </p>
         </div>
       </SectionShell>
     </>

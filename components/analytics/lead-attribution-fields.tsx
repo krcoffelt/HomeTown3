@@ -43,9 +43,16 @@ function writeStoredAttribution(values: LeadAttributionFields) {
 export function LeadAttributionFields() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [mounted, setMounted] = useState(false);
   const [values, setValues] = useState<LeadAttributionFields>(emptyValues);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     const stored = readStoredAttribution();
     const queryString = searchParams.toString();
     const currentLandingPage = `${pathname}${queryString ? `?${queryString}` : ""}`;
@@ -84,7 +91,11 @@ export function LeadAttributionFields() {
 
     writeStoredAttribution(nextValues);
     setValues(nextValues);
-  }, [pathname, searchParams]);
+  }, [mounted, pathname, searchParams]);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
