@@ -36,7 +36,7 @@ const offerInclusions = [
   "Clean, premium design",
   "Mobile-first responsive build",
   "Lead form setup",
-  "Direct communication with Kyle"
+  "Direct communication with the team"
 ];
 
 export const metadata: Metadata = {
@@ -215,7 +215,7 @@ export default function WebsiteOfferLandingPage() {
                   className="flex items-start gap-3 rounded-[1.1rem] border border-white/10 bg-white/[0.03] px-4 py-4"
                 >
                   <span className="mt-0.5 text-[#9bb6ff]">•</span>
-                  <p className="text-base leading-relaxed text-white/86">{item}</p>
+                  <p className="text-base leading-relaxed text-white">{item}</p>
                 </div>
               ))}
             </div>
