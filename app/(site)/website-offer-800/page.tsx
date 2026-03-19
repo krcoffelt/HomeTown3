@@ -75,9 +75,6 @@ export default function WebsiteOfferLandingPage() {
                 </Button>
                 <p className="section-eyebrow text-white/72">Takes 2 minutes</p>
               </div>
-              <p className="mt-7 text-sm leading-relaxed text-white/62">
-                Scroll down to review recent client work and real customer feedback before you submit.
-              </p>
             </div>
 
             <aside className="surface-primary relative overflow-hidden px-7 py-7 md:px-8 md:py-8">
@@ -94,14 +91,7 @@ export default function WebsiteOfferLandingPage() {
                 <p className="mt-5 text-sm leading-relaxed text-white/68">
                   Fast delivery, patient revisions, and a smooth process from start to finish.
                 </p>
-                <div className="mt-6 grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-2">
-                  <div className="rounded-full border border-white/12 bg-white/[0.04] px-4 py-3 text-center text-[0.72rem] font-semibold uppercase tracking-[0.13em] text-white/82">
-                    Built website fast
-                  </div>
-                  <div className="rounded-full border border-white/12 bg-white/[0.04] px-4 py-3 text-center text-[0.72rem] font-semibold uppercase tracking-[0.13em] text-white/82">
-                    Clean, modern result
-                  </div>
-                </div>
+                <div className="mt-6 border-t border-white/10 pt-5" />
               </div>
             </aside>
           </div>
