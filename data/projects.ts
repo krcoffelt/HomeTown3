@@ -18,7 +18,7 @@ export const projects: ProjectItem[] = [
     title: "Lupi Docs",
     slug: "lupi-docs",
     clientName: "Lupi Docs",
-    industry: "Healthcare",
+    industry: "Book Publisher",
     summary: "Built a cleaner trust-focused website with appointment conversion emphasis.",
     servicesProvided: ["Website Design", "Brand Refresh"],
     featuredImageUrl:
