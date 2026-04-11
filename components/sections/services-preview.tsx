@@ -6,6 +6,8 @@ const serviceMeta: Record<string, string[]> = {
   "website-design": ["Conversion Layouts", "Mobile Build", "Lead Capture"],
   "google-business-profile-setup": ["Profile Setup", "Category Tuning", "Local Visibility"],
   "social-media-management": ["Monthly Planning", "Post Design", "Content Direction"],
+  "google-ads-management": ["Search Campaigns", "Keyword Targeting", "Lead Intent"],
+  "meta-ads-management": ["Paid Social", "Audience Targeting", "Retargeting"],
   "graphic-design": ["Campaign Graphics", "Social Assets", "Print Collateral"],
   "logo-and-brand-work": ["Logo System", "Color Direction", "Brand Kit"]
 };

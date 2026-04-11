@@ -6,8 +6,8 @@ import { services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata(
-  "Marketing Agency Services | Websites, Branding, Social and Local Visibility",
-  "Marketing agency services from Hometown including website design, Google Business Profile setup, branding, graphic design, and social media support.",
+  "Marketing Agency Services | Websites, Ads, Branding and Local Visibility",
+  "Marketing agency services from Hometown including website design, Google Ads, Meta Ads, Google Business Profile setup, branding, graphic design, and social media support.",
   "/services"
 );
 
@@ -23,10 +23,10 @@ export default function ServicesPage() {
           title={
             <>
               Marketing support built around{" "}
-              <span className="serif italic font-normal">web, brand, and local visibility</span>
+              <span className="serif italic font-normal">web, ads, brand, and local visibility</span>
             </>
           }
-          subtitle="A focused service stack for businesses that need a stronger presence, cleaner messaging, and better creative execution."
+          subtitle="A focused service stack for businesses that need a stronger presence, cleaner messaging, better creative execution, and paid traffic support."
         />
       </SectionShell>
 
@@ -69,7 +69,7 @@ export default function ServicesPage() {
               More than a website shop.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/74">
-              Websites lead the offer, but the agency is built to support the brand and marketing pieces around them.
+              Websites lead the offer, but the agency is built to support the brand, paid traffic, and marketing pieces around them.
             </p>
             <div className="mt-7 grid gap-3">
               {supportingServices.map((service) => (

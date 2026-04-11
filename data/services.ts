@@ -88,6 +88,62 @@ export const services: ServiceItem[] = [
     ]
   },
   {
+    title: "Google Ads Management",
+    slug: "google-ads-management",
+    shortDescription: "Search and local ads built to turn intent into qualified leads.",
+    fullDescription:
+      "Google Ads management for businesses that need cleaner campaign structure, better keyword targeting, and lead-focused search visibility.",
+    heroTitle: "Google Ads management built around qualified local intent.",
+    heroSubtitle:
+      "Campaign setup, targeting, and ongoing optimization focused on getting better leads instead of bloated spend.",
+    price: "Custom quote",
+    sortOrder: 4,
+    deliverables: [
+      "Campaign structure and keyword planning",
+      "Ad copy aligned with your offer and service area",
+      "Landing page and conversion path recommendations",
+      "Ongoing optimization and performance review"
+    ],
+    idealFor: [
+      "Service businesses that want higher-intent leads",
+      "Owners who need paid search without agency sprawl",
+      "Businesses pairing ads with a stronger website offer"
+    ],
+    process: [
+      "We review the offer, service area, and lead goals",
+      "We structure campaigns around search intent and conversion paths",
+      "We optimize based on lead quality, not just click volume"
+    ]
+  },
+  {
+    title: "Meta Ads Management",
+    slug: "meta-ads-management",
+    shortDescription: "Paid social campaigns designed for reach, retargeting, and lead generation.",
+    fullDescription:
+      "Meta Ads management for businesses that need stronger creative, sharper audience targeting, and a cleaner paid social funnel across Facebook and Instagram.",
+    heroTitle: "Meta Ads management for paid social that actually supports the funnel.",
+    heroSubtitle:
+      "Creative direction, audience strategy, and campaign optimization built for brands that need more than boosted posts.",
+    price: "Custom quote",
+    sortOrder: 5,
+    deliverables: [
+      "Campaign setup across Facebook and Instagram",
+      "Audience targeting and retargeting structure",
+      "Creative direction and ad copy support",
+      "Ongoing optimization tied to lead and conversion goals"
+    ],
+    idealFor: [
+      "Brands that need awareness plus retargeting support",
+      "Businesses launching offers, promotions, or lead campaigns",
+      "Teams that want paid social aligned with the website and brand"
+    ],
+    process: [
+      "We define the audience, offer, and conversion goal",
+      "We build the campaign structure and creative direction",
+      "We optimize around response quality and cost efficiency"
+    ]
+  },
+  {
     title: "Graphic Design",
     slug: "graphic-design",
     shortDescription: "Marketing visuals that support your brand and campaigns.",
@@ -97,7 +153,7 @@ export const services: ServiceItem[] = [
     heroSubtitle:
       "Campaign visuals, social assets, and branded materials designed to feel cohesive and polished.",
     price: "Custom quote",
-    sortOrder: 4,
+    sortOrder: 6,
     deliverables: [
       "Campaign graphics and promotional materials",
       "Social visuals and supporting assets",
@@ -125,7 +181,7 @@ export const services: ServiceItem[] = [
     heroSubtitle:
       "A sharper mark, better color direction, and a more cohesive visual system for your business.",
     price: "$250",
-    sortOrder: 5,
+    sortOrder: 7,
     deliverables: [
       "Logo direction and refined brand mark",
       "Color palette and visual direction",
