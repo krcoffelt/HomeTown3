@@ -1,8 +1,7 @@
 export const homepageCopy = {
-  heroTitle: "Affordable websites for Kansas City businesses",
+  heroTitle: "Marketing support for Kansas City businesses",
   heroSubtitle:
-    "Custom, premium-looking websites designed to help local businesses get more leads.",
+    "Websites, branding, local visibility, and supporting creative built to help local businesses look sharper and convert better.",
   trustLabel: "Kansas City-based",
-  socialProofTitle: "Websites built for businesses like yours"
+  socialProofTitle: "Marketing work built for businesses like yours"
 };
-

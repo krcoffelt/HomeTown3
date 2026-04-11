@@ -19,8 +19,16 @@ export interface ServiceItem {
   slug: string;
   shortDescription: string;
   fullDescription: string;
+  heroTitle?: string;
+  heroSubtitle?: string;
   price?: string;
   isFeatured?: boolean;
   sortOrder?: number;
+  deliverables?: string[];
+  idealFor?: string[];
+  process?: string[];
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
-

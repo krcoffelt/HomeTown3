@@ -18,7 +18,7 @@ export function PricingPreview() {
           <p className="section-eyebrow text-white/85">Special this month</p>
           <div className="mt-2 flex items-end gap-4">
             <p className="text-6xl font-semibold tracking-tight">$800</p>
-            <p className="mb-2 text-lg text-white/75 line-through">$1,000</p>
+            <p className="mb-2 text-lg text-white/90 line-through">$1,000</p>
           </div>
           <ul className="mt-6 space-y-2 text-base text-white">
             <li>Custom multi-page website</li>

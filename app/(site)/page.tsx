@@ -11,8 +11,8 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { faqSchema } from "@/lib/seo/schema";
 
 export const metadata = createPageMetadata(
-  "Hometown Marketing Agency | Affordable Website Design for Kansas City Businesses",
-  "Custom, premium-looking websites for Kansas City service businesses that want more leads.",
+  "Hometown Marketing Agency | Websites, Branding, Social and Local Marketing",
+  "Marketing support for Kansas City businesses including websites, branding, social media, and local visibility services.",
   "/"
 );
 

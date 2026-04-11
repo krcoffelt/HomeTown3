@@ -4,15 +4,15 @@ import { Button } from "@/components/ui/button";
 const pillars = [
   {
     title: "Direct communication",
-    body: "You work directly with the builder so feedback and revisions move fast."
+    body: "You work directly with the team handling the execution, so feedback and revisions move fast."
   },
   {
-    title: "Premium visual quality",
-    body: "Clean typography, modern layout systems, and mobile polish built into every page."
+    title: "Website-first agency support",
+    body: "Web, branding, local visibility, and creative support stay aligned instead of being split across disconnected vendors."
   },
   {
     title: "Conversion-first structure",
-    body: "Every section is designed to move visitors toward inquiry, call, or form submit."
+    body: "Every asset is built to support inquiry, trust, and cleaner messaging across the customer journey."
   },
   {
     title: "Kansas City local context",
@@ -28,10 +28,10 @@ export function WhyHometown() {
           <div className="max-w-3xl">
             <p className="section-eyebrow text-[#305cde]">Why Hometown</p>
             <h2 className="mt-4 text-[clamp(2rem,5vw,4.2rem)] font-semibold leading-[0.95] tracking-tight text-[#10172b]">
-              Premium execution built for local service businesses.
+              A lean marketing agency built for local service businesses.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-[#33415f]">
-              Clear process, clear communication, and websites designed to convert.
+              Clear process, clear communication, and creative work that makes your business look more established.
             </p>
           </div>
           <Button href="/contact#form" className="bg-[#305cde] text-white">Start Your Project</Button>

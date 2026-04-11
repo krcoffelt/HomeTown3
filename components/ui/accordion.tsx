@@ -38,7 +38,7 @@ export function Accordion({ items }: AccordionProps) {
               aria-expanded={isActive}
             >
               <span className="flex items-start gap-4">
-                <span className={cn("section-eyebrow mt-1", isActive ? "text-black/50" : "text-muted")}>
+                <span className={cn("section-eyebrow mt-1", isActive ? "text-black/70" : "text-muted")}>
                   {String(idx + 1).padStart(2, "0")}
                 </span>
                 <span

@@ -4,9 +4,9 @@ export const site = {
     fullName: "Hometown Marketing Agency"
   },
   name: "Hometown",
-  title: "Affordable Website Design for Kansas City Businesses",
+  title: "Marketing Support for Kansas City Businesses",
   description:
-    "Custom, premium-looking websites for Kansas City service businesses that want more leads.",
+    "Websites, branding, local visibility, and creative support for Kansas City businesses that want a stronger online presence.",
   url: "https://hometownkc.agency",
   location: "Kansas City, MO",
   address: {

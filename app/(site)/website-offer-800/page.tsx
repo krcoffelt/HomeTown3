@@ -41,15 +41,11 @@ const offerInclusions = [
 
 export const metadata: Metadata = {
   ...createPageMetadata(
-    "Kansas City Website Offer | Now Only $800",
-    "Limited-time $800 custom website offer for Kansas City service businesses.",
+    "Kansas City Website Design Offer | $800 Custom Website",
+    "Custom website design offer for Kansas City businesses. Real client work, real reviews, and a straightforward $800 website package.",
     "/website-offer-800",
     site.brand.shortName
-  ),
-  robots: {
-    index: false,
-    follow: false
-  }
+  )
 };
 
 export default function WebsiteOfferLandingPage() {

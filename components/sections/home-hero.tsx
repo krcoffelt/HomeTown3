@@ -24,10 +24,10 @@ export function HomeHero() {
             <span className="block lg:whitespace-nowrap">
               <AnimatedHeroWord words={rotatingHeroWords} className="text-[#305cde]" />
             </span>
-            <span className="block lg:whitespace-nowrap">websites for</span>
+            <span className="block lg:whitespace-nowrap">marketing support for</span>
             <span className="block lg:whitespace-nowrap">local businesses</span>
           </h1>
-          <p className="mt-7 whitespace-nowrap text-lg leading-relaxed text-white">
+          <p className="mt-7 max-w-4xl text-lg leading-relaxed text-white">
             {homepageCopy.heroSubtitle}
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-4">
@@ -42,13 +42,13 @@ export function HomeHero() {
             <div className="rounded-2xl border border-[#5e81f5] bg-[#305cde] px-5 py-5">
               <p className="section-eyebrow !text-[0.84rem] !font-bold !text-white">What&apos;s Included</p>
               <p className="mt-3 text-lg !text-white">
-                Custom design, mobile optimization, and lead form setup.
+                Websites, branding support, local visibility, and creative execution.
               </p>
             </div>
             <div className="rounded-2xl border border-[#5e81f5] bg-[#305cde] px-5 py-5">
               <p className="section-eyebrow !text-[0.84rem] !font-bold !text-white">What&apos;s Not</p>
               <p className="mt-3 text-lg !text-white">
-                Paid ads management or long-term SEO retainers.
+                Bloated retainers, vague agency process, or handoff-heavy communication.
               </p>
             </div>
             <div className="rounded-2xl border border-[#5e81f5] bg-[#305cde] px-5 py-5">
