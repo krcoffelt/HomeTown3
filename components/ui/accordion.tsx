@@ -13,64 +13,51 @@ interface AccordionProps {
 }
 
 export function Accordion({ items }: AccordionProps) {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="grid gap-3 md:gap-4">
-      {items.map((item, idx) => {
-        const isActive = idx === activeIndex;
+    <div className="grid gap-4">
+      {items.map((item, index) => {
+        const active = index === activeIndex;
+
         return (
           <div
             key={item.question}
             className={cn(
-              "overflow-hidden rounded-[26px] border transition-all duration-300",
-              isActive
-                ? "border-white/25 bg-white text-black shadow-soft"
-                : "border-line bg-surface text-ink hover:border-white/28"
+              "overflow-hidden rounded-2xl border transition-all duration-300",
+              active ? "border-foreground bg-foreground text-primary-foreground" : "border-border bg-card text-foreground"
             )}
           >
             <button
               type="button"
               className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-8 md:py-7"
-              onMouseEnter={() => setActiveIndex(idx)}
-              onFocus={() => setActiveIndex(idx)}
-              onClick={() => setActiveIndex(idx)}
-              aria-expanded={isActive}
+              onMouseEnter={() => setActiveIndex(index)}
+              onFocus={() => setActiveIndex(index)}
+              onClick={() => setActiveIndex(index)}
+              aria-expanded={active}
             >
-              <span className="flex items-start gap-4">
-                <span className={cn("section-eyebrow mt-1", isActive ? "text-black/70" : "text-muted")}>
-                  {String(idx + 1).padStart(2, "0")}
-                </span>
-                <span
-                  className={cn(
-                    "text-xl font-medium leading-tight tracking-tight md:text-[2rem] md:leading-[1.05]",
-                    isActive ? "text-black" : "text-ink"
-                  )}
-                >
-                  {item.question}
-                </span>
+              <span className="text-lg font-bold leading-tight md:text-2xl">
+                {item.question}
               </span>
               <span
                 className={cn(
-                  "inline-flex h-10 w-10 items-center justify-center rounded-full border text-2xl transition-all duration-300",
-                  isActive
-                    ? "border-black/20 bg-black/[0.04] text-black"
-                    : "border-line bg-white/[0.02] text-muted"
+                  "inline-flex h-10 w-10 items-center justify-center rounded-full border text-2xl transition",
+                  active ? "border-primary-foreground/20 bg-primary-foreground/10" : "border-border bg-secondary"
                 )}
               >
-                {isActive ? "-" : "+"}
+                {active ? "−" : "+"}
               </span>
             </button>
-            <p
+            <div
               className={cn(
-                "overflow-hidden px-5 text-lg leading-relaxed transition-all duration-300 md:px-8",
-                isActive
-                  ? "max-h-72 border-t border-black/10 py-5 opacity-100 text-black/75 md:py-6"
-                  : "max-h-0 py-0 opacity-0 text-muted"
+                "grid transition-all duration-300",
+                active ? "grid-rows-[1fr] border-t border-primary-foreground/10" : "grid-rows-[0fr]"
               )}
             >
-              {item.answer}
-            </p>
+              <p className={cn("overflow-hidden px-5 py-0 text-base leading-relaxed md:px-8", active ? "py-5 text-primary-foreground/75 md:py-6" : "")}>
+                {item.answer}
+              </p>
+            </div>
           </div>
         );
       })}

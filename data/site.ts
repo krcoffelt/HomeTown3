@@ -4,9 +4,9 @@ export const site = {
     fullName: "Hometown Marketing Agency"
   },
   name: "Hometown",
-  title: "Marketing Support for Kansas City Businesses",
+  title: "Affordable Websites & Marketing for Kansas City Small Businesses",
   description:
-    "Websites, branding, local visibility, and creative support for Kansas City businesses that want a stronger online presence.",
+    "Kansas City's go-to marketing partner for small businesses. Custom websites starting at $800, social media management, Google Ads, and more. No contracts, no fluff, just results.",
   url: "https://hometownkc.agency",
   location: "Kansas City, MO",
   address: {
@@ -19,5 +19,6 @@ export const site = {
   contactEmail: "krcoffelt@gmail.com",
   contactPhone: "913-991-6641",
   heroPrice: "$800",
-  regularPrice: "$999"
+  regularPrice: "$1,000",
+  turnaround: "7 business days"
 };

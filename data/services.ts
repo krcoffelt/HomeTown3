@@ -2,202 +2,235 @@ import type { ServiceItem } from "@/types";
 
 export const services: ServiceItem[] = [
   {
-    title: "Website Design",
+    title: "Custom Websites",
     slug: "website-design",
-    shortDescription: "Custom websites built to turn local traffic into inquiries.",
-    fullDescription:
-      "Custom websites designed to make your business look credible, clarify your offer, and convert visitors into leads.",
-    heroTitle: "Website design that makes your business look established.",
-    heroSubtitle:
-      "Built for local businesses that need a sharper first impression, cleaner messaging, and a stronger path to inquiry.",
-    price: "$800",
-    isFeatured: true,
-    sortOrder: 1,
+    price: "From $800",
+    shortDescription: "Fast, mobile-first sites built to turn visitors into customers, not just look pretty.",
+    description:
+      "Custom websites for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to leads.",
+    features: [
+      "Custom design with no templates",
+      "Mobile-optimized and blazing fast",
+      "Basic SEO setup included",
+      "Contact form integration",
+      "Google Analytics installed"
+    ],
     deliverables: [
-      "Custom homepage and core internal pages",
-      "Mobile-first responsive design",
-      "Lead form setup and conversion-focused sections",
-      "On-page metadata structure for local SEO",
-      "Fast edits and direct communication during build"
+      "Homepage and core internal pages",
+      "Conversion-focused layout and messaging structure",
+      "Responsive design for every major device size",
+      "Lead capture setup and contact flow integration",
+      "Launch support and two rounds of revisions"
     ],
     idealFor: [
-      "Service businesses that need a stronger online presence",
-      "Owners who want a premium look without agency sprawl",
-      "Businesses replacing an outdated or weak website"
+      "Businesses launching their first real website",
+      "Owners tired of weak template sites",
+      "KC service businesses that need credibility fast"
     ],
     process: [
-      "We define the offer, structure, and visual direction",
-      "We build the site and refine it around your feedback",
-      "We launch with contact capture and a cleaner sales path"
-    ]
-  },
-  {
-    title: "Google Business Profile Setup",
-    slug: "google-business-profile-setup",
-    shortDescription: "Optimize your local profile for stronger discovery.",
-    fullDescription:
-      "Google Business Profile setup and cleanup to give your business a better local foundation on Maps and branded search.",
-    heroTitle: "Google Business Profile setup for stronger local visibility.",
-    heroSubtitle:
-      "A cleaner profile, better category setup, and a stronger starting point for local discovery.",
-    price: "$250",
-    sortOrder: 2,
-    deliverables: [
-      "Core profile setup or cleanup",
-      "Category and service alignment",
-      "Business description and profile details",
-      "Guidance on images, hours, and review flow"
+      "You tell us about the business and the offer",
+      "We build the design and structure around lead generation",
+      "We refine it quickly and launch with a clean handoff"
     ],
-    idealFor: [
-      "Businesses with incomplete or weak GBP profiles",
-      "Owners who want cleaner local search visibility",
-      "Brands pairing a new website with local discovery work"
-    ],
-    process: [
-      "We review the current profile and local positioning",
-      "We tighten categories, services, and business details",
-      "We hand back a cleaner profile with next-step guidance"
-    ]
-  },
-  {
-    title: "Social Media Management",
-    slug: "social-media-management",
-    shortDescription: "Consistent social support that aligns with your website.",
-    fullDescription:
-      "Ongoing social content support focused on consistency, cleaner presentation, and messaging that matches your brand.",
-    heroTitle: "Social media support that looks consistent and intentional.",
-    heroSubtitle:
-      "Content direction, post design, and monthly support for businesses that need a cleaner presence online.",
-    price: "$499/mo",
-    sortOrder: 3,
-    deliverables: [
-      "Monthly planning and content direction",
-      "Designed posts and visual support",
-      "Brand-consistent messaging",
-      "A cleaner connection between social and website"
-    ],
-    idealFor: [
-      "Businesses that need consistent brand presentation",
-      "Owners who want help keeping channels active",
-      "Brands that need social to support the website, not fight it"
-    ],
-    process: [
-      "We align content direction with your offer and audience",
-      "We create post concepts and designed assets",
-      "We maintain consistency month to month"
-    ]
+    metaTags: ["Custom Design", "Lead Focused", "Fast Launch"]
   },
   {
     title: "Google Ads Management",
     slug: "google-ads-management",
-    shortDescription: "Search and local ads built to turn intent into qualified leads.",
-    fullDescription:
-      "Google Ads management for businesses that need cleaner campaign structure, better keyword targeting, and lead-focused search visibility.",
-    heroTitle: "Google Ads management built around qualified local intent.",
-    heroSubtitle:
-      "Campaign setup, targeting, and ongoing optimization focused on getting better leads instead of bloated spend.",
-    price: "Custom quote",
-    sortOrder: 4,
+    price: "From $300/mo",
+    shortDescription: "Show up when KC locals search for what you sell. We manage every click.",
+    description:
+      "Search campaigns built around real buyer intent so your business appears when local customers are ready to call, book, or buy.",
+    features: [
+      "Campaign strategy and account setup",
+      "Keyword targeting and negative keyword cleanup",
+      "Ad copy aligned to your services",
+      "Landing page recommendations",
+      "Ongoing optimization and reporting"
+    ],
     deliverables: [
-      "Campaign structure and keyword planning",
-      "Ad copy aligned with your offer and service area",
-      "Landing page and conversion path recommendations",
-      "Ongoing optimization and performance review"
+      "Campaign architecture tailored to your offer",
+      "Audience and keyword research",
+      "Ad creation and extension setup",
+      "Conversion tracking review",
+      "Monthly optimization cadence"
     ],
     idealFor: [
-      "Service businesses that want higher-intent leads",
-      "Owners who need paid search without agency sprawl",
-      "Businesses pairing ads with a stronger website offer"
+      "Businesses that need qualified inbound leads",
+      "Owners who want visibility without wasting spend",
+      "Teams pairing ads with a stronger website"
     ],
     process: [
-      "We review the offer, service area, and lead goals",
-      "We structure campaigns around search intent and conversion paths",
-      "We optimize based on lead quality, not just click volume"
-    ]
+      "We define the goal, geography, and customer intent",
+      "We build the campaign structure and ad messaging",
+      "We monitor spend, lead quality, and next-step improvements"
+    ],
+    metaTags: ["Search Ads", "Lead Intent", "Conversion Tracking"]
   },
   {
-    title: "Meta Ads Management",
-    slug: "meta-ads-management",
-    shortDescription: "Paid social campaigns designed for reach, retargeting, and lead generation.",
-    fullDescription:
-      "Meta Ads management for businesses that need stronger creative, sharper audience targeting, and a cleaner paid social funnel across Facebook and Instagram.",
-    heroTitle: "Meta Ads management for paid social that actually supports the funnel.",
-    heroSubtitle:
-      "Creative direction, audience strategy, and campaign optimization built for brands that need more than boosted posts.",
-    price: "Custom quote",
-    sortOrder: 5,
+    title: "Social Media Management",
+    slug: "social-media-management",
+    price: "From $400/mo",
+    shortDescription: "Consistent, on-brand posts that actually get engagement, not just filler.",
+    description:
+      "Social media support for businesses that need a cleaner online presence, more consistency, and content that supports the rest of their marketing.",
+    features: [
+      "Monthly content planning",
+      "Designed post graphics and creative support",
+      "Caption writing and scheduling guidance",
+      "Brand consistency across posts",
+      "Performance review and content refinement"
+    ],
     deliverables: [
-      "Campaign setup across Facebook and Instagram",
-      "Audience targeting and retargeting structure",
-      "Creative direction and ad copy support",
-      "Ongoing optimization tied to lead and conversion goals"
+      "Monthly post plan",
+      "Designed content assets",
+      "Captions and messaging direction",
+      "Content calendar support",
+      "Reporting and refinement notes"
     ],
     idealFor: [
-      "Brands that need awareness plus retargeting support",
-      "Businesses launching offers, promotions, or lead campaigns",
-      "Teams that want paid social aligned with the website and brand"
+      "Businesses that need to stay visible online",
+      "Owners who do not want to post blindly",
+      "Brands that want social to support web and ads"
     ],
     process: [
-      "We define the audience, offer, and conversion goal",
-      "We build the campaign structure and creative direction",
-      "We optimize around response quality and cost efficiency"
-    ]
+      "We align the content with your offer and audience",
+      "We design and shape the monthly content cadence",
+      "We adjust based on what resonates and what converts"
+    ],
+    metaTags: ["Monthly Content", "On-Brand", "Audience Building"]
   },
   {
     title: "Graphic Design",
     slug: "graphic-design",
-    shortDescription: "Marketing visuals that support your brand and campaigns.",
-    fullDescription:
-      "Graphic design support for campaigns, promotions, social assets, and brand materials that need to look sharper and more cohesive.",
-    heroTitle: "Graphic design that supports your marketing instead of patching it.",
-    heroSubtitle:
-      "Campaign visuals, social assets, and branded materials designed to feel cohesive and polished.",
-    price: "Custom quote",
-    sortOrder: 6,
+    price: "Custom pricing",
+    shortDescription: "Logos, menus, flyers, and social graphics so your brand looks sharp everywhere.",
+    description:
+      "Design support for businesses that need polished visuals across web, social, print, and promotional materials without hiring a bloated agency.",
+    features: [
+      "Social graphics and promotional assets",
+      "Flyers, menus, and print collateral",
+      "Campaign visuals and ad creative",
+      "Sales material design support",
+      "Brand-consistent layouts"
+    ],
     deliverables: [
-      "Campaign graphics and promotional materials",
-      "Social visuals and supporting assets",
-      "Website graphics and marketing collateral",
-      "Cleaner brand consistency across channels"
+      "Campaign graphics tailored to the offer",
+      "Print-ready collateral files",
+      "Digital assets for web and social use",
+      "Ad creative or launch-support visuals",
+      "Organized handoff files for ongoing use"
     ],
     idealFor: [
-      "Businesses running offers, launches, or promotions",
-      "Brands that need stronger visual consistency",
-      "Teams that have the strategy but need execution support"
+      "Businesses launching offers or seasonal campaigns",
+      "Teams that need creative support quickly",
+      "Brands trying to clean up inconsistent visuals"
     ],
     process: [
-      "We align the visuals with the campaign or brand goal",
-      "We design the asset set around usage and channel needs",
-      "We deliver polished graphics ready to publish or hand off"
-    ]
+      "We define the asset needs and end use first",
+      "We design around clarity, brand fit, and impact",
+      "We deliver polished files ready to publish or print"
+    ],
+    metaTags: ["Campaign Creative", "Print Design", "Brand Support"]
   },
   {
-    title: "Logo and Brand Work",
-    slug: "logo-and-brand-work",
-    shortDescription: "Identity foundations for a stronger local brand.",
-    fullDescription:
-      "Logo and brand direction work for businesses that need a cleaner identity before pushing harder on web or marketing.",
-    heroTitle: "Logo and brand work for businesses that need a cleaner identity.",
-    heroSubtitle:
-      "A sharper mark, better color direction, and a more cohesive visual system for your business.",
-    price: "$250",
-    sortOrder: 7,
+    title: "Search Engine Optimization",
+    slug: "search-engine-optimization",
+    price: "From $300/mo",
+    shortDescription: "Rank higher on Google for the searches your customers are already making.",
+    description:
+      "SEO support built around the basics that matter: site structure, local relevance, technical clarity, and content direction that improves organic visibility.",
+    features: [
+      "On-page SEO improvements",
+      "Local search alignment",
+      "Metadata and page structure optimization",
+      "Content and keyword recommendations",
+      "Technical issue review"
+    ],
     deliverables: [
-      "Logo direction and refined brand mark",
-      "Color palette and visual direction",
-      "Simple brand kit for cleaner consistency",
-      "A better visual base for web and marketing"
+      "Site audit and opportunity map",
+      "Technical and on-page recommendations",
+      "Local search optimization priorities",
+      "Content guidance for target pages",
+      "Monthly progress review"
+    ],
+    idealFor: [
+      "Businesses with a site that already exists but underperforms",
+      "Teams that need better local search visibility",
+      "Owners who want long-term traffic growth"
+    ],
+    process: [
+      "We audit what is helping and what is holding the site back",
+      "We prioritize the fixes and opportunities with the highest leverage",
+      "We improve structure, content direction, and local discoverability"
+    ],
+    metaTags: ["SEO", "Local Visibility", "Technical Cleanup"]
+  },
+  {
+    title: "Analytics & Tracking",
+    slug: "analytics-and-tracking",
+    price: "Included with web builds",
+    shortDescription: "Know exactly where your traffic comes from and what is working.",
+    description:
+      "Tracking and reporting setup that gives small businesses a clearer picture of traffic, leads, and campaign performance without drowning them in dashboards.",
+    features: [
+      "Google Analytics setup",
+      "Conversion tracking review",
+      "Traffic source visibility",
+      "Form and lead event monitoring",
+      "Basic reporting framework"
+    ],
+    deliverables: [
+      "Analytics account configuration",
+      "Key events and conversion tracking",
+      "Traffic source labeling",
+      "Lead attribution foundation",
+      "Reporting-ready implementation"
+    ],
+    idealFor: [
+      "Businesses running websites and ads together",
+      "Owners who want to stop guessing what works",
+      "Teams that need cleaner visibility into results"
+    ],
+    process: [
+      "We decide which actions and sources matter most",
+      "We wire up the tracking and verify the signals",
+      "We hand over a cleaner foundation for smarter decisions"
+    ],
+    metaTags: ["Analytics", "Attribution", "Performance Clarity"]
+  },
+  {
+    title: "Brand Identity",
+    slug: "brand-identity",
+    price: "From $500",
+    shortDescription: "A cleaner identity system for businesses that need to look established fast.",
+    description:
+      "Brand identity work for small businesses that need a stronger logo, clearer visual direction, and a more cohesive foundation before scaling web or ad efforts.",
+    features: [
+      "Logo design or refinement",
+      "Color and visual direction",
+      "Typography and brand usage guidance",
+      "Simple identity system",
+      "Practical assets for web and marketing"
+    ],
+    deliverables: [
+      "Primary logo and supporting marks",
+      "Core color palette",
+      "Type and styling direction",
+      "Brand reference sheet",
+      "Export-ready assets"
     ],
     idealFor: [
       "Businesses with outdated or inconsistent branding",
-      "Owners preparing for a website refresh",
-      "Teams that need a cleaner first impression"
+      "New brands that need a stronger first impression",
+      "Owners preparing for a website refresh"
     ],
     process: [
-      "We review the current visual identity and business positioning",
-      "We build a clearer direction around simplicity and usability",
-      "We hand off the core pieces needed to stay consistent"
-    ]
+      "We review what the brand needs to signal",
+      "We shape the mark and system around usability and clarity",
+      "We deliver the essentials you need to stay consistent"
+    ],
+    metaTags: ["Logo Design", "Visual Identity", "Brand Foundation"]
   }
 ];
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { site } from "@/data/site";
@@ -7,30 +6,6 @@ import { localBusinessSchema } from "@/lib/seo/schema";
 import { GtmLoader } from "@/components/analytics/gtm-loader";
 
 const GOOGLE_ADS_ID = "AW-17990702531";
-
-const sans = localFont({
-  src: [
-    {
-      path: "../public/fonts/Manrope-Variable.ttf",
-      weight: "200 800",
-      style: "normal"
-    }
-  ],
-  variable: "--font-sans",
-  display: "swap"
-});
-
-const serif = localFont({
-  src: [
-    {
-      path: "../public/fonts/CormorantGaramond-Variable.ttf",
-      weight: "300 700",
-      style: "normal"
-    }
-  ],
-  variable: "--font-serif",
-  display: "swap"
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -40,6 +15,13 @@ export const metadata: Metadata = {
   },
   applicationName: site.brand.fullName,
   description: site.description,
+  keywords: [
+    "Kansas City marketing agency",
+    "KC small business website",
+    "affordable web design Kansas City",
+    "social media marketing KC",
+    "Google Ads Kansas City"
+  ],
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -51,7 +33,16 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png"
   },
   openGraph: {
+    title: "Hometown Marketing Agency — Kansas City Small Business Marketing",
+    description: "Custom websites, ads, and social media marketing built for KC small businesses. Starting at $800.",
+    type: "website",
+    url: site.url,
     siteName: site.brand.fullName
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hometown Marketing Agency — KC Small Business Marketing",
+    description: "Affordable websites and marketing for Kansas City businesses. No contracts."
   }
 };
 
@@ -79,7 +70,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${sans.variable} ${serif.variable}`}>
+      <body>
         <script
           type="application/ld+json"
           suppressHydrationWarning

@@ -1,86 +1,105 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Reveal } from "@/components/ui/reveal";
+import { MailIcon, MapPinIcon, PhoneIcon } from "@/components/ui/site-icons";
 import { site } from "@/data/site";
-import { Button } from "@/components/ui/button";
+
+const pageLinks = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/work", label: "Work" },
+  { href: "/contact", label: "Contact" }
+];
 
 export function Footer() {
-  return (
-    <footer className="border-t border-line bg-base px-5 py-12 text-ink md:px-8">
-      <div className="mx-auto w-full max-w-shell">
-        <div className="mb-10 flex flex-col items-start justify-between gap-5 rounded-lg border border-line bg-surface p-6 md:flex-row md:items-center">
+  const year = new Date().getFullYear();
+  const pathname = usePathname();
+
+  if (pathname === "/website-offer-800") {
+    return (
+      <footer className="border-t border-border bg-black text-primary-foreground">
+        <div className="site-container flex flex-col gap-5 py-8 text-sm md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="section-eyebrow text-muted">Final step</p>
-            <p className="mt-2 text-2xl font-medium tracking-tight text-ink md:text-3xl">
-              Ready for a premium website that actually converts?
-            </p>
+            <p className="font-bold">{site.brand.fullName}</p>
+            <p className="mt-1 text-primary-foreground/65">Questions before you submit? Call or email and we usually reply within 24 hours.</p>
           </div>
-          <Button
-            href="/contact#form"
-            className="border-white/20 text-ink hover:border-white/40 hover:bg-white/8"
-            variant="secondary"
-          >
-            Get Started
-          </Button>
+          <div className="flex flex-col gap-1 text-primary-foreground/65 md:items-end">
+            <a href={`tel:${site.contactPhone}`} className="transition hover:text-primary-foreground">{site.contactPhone}</a>
+            <a href={`mailto:${site.contactEmail}`} className="transition hover:text-primary-foreground">{site.contactEmail}</a>
+            <p>{site.location}</p>
+          </div>
         </div>
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="site-container border-t border-white/10 py-5 text-xs text-primary-foreground/36 md:flex md:items-center md:justify-between">
+          <p>© {year} Hometown Marketing Agency. All rights reserved.</p>
+          <p>Made with care in Kansas City.</p>
+        </div>
+      </footer>
+    );
+  }
+
+  return (
+    <footer className="relative overflow-hidden bg-black text-primary-foreground">
+      <div aria-hidden="true" className="pointer-events-none absolute right-[-6rem] top-[-4rem] h-[400px] w-[400px] rounded-full bg-primary/3 blur-[120px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-[-8rem] bottom-[-8rem] h-[340px] w-[340px] rounded-full bg-accent/10 blur-[110px]" />
+      <div className="site-container pt-20 pb-10 md:pt-28">
+        <Reveal>
+          <p className="max-w-5xl font-display text-4xl font-bold leading-[0.95] tracking-tight text-primary-foreground/14 sm:text-5xl md:text-6xl lg:text-7xl">
+            Your next customer is searching right now.
+          </p>
+        </Reveal>
+
+        <div className="mt-20 grid gap-12 border-t border-white/6 pt-14 md:grid-cols-[minmax(0,1.4fr)_0.7fr_0.95fr] md:pt-16">
           <div>
-            <Image
-              src="/images/HometownLogoWhite2026-sm.png"
-              alt="Hometown"
-              width={167}
-              height={36}
-              sizes="(min-width: 768px) 167px, 148px"
-              className="h-8 w-[9.25rem] md:h-9 md:w-[10.4375rem]"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/HometownLogo2026_white.png"
+              alt="Hometown Marketing Agency"
+              width={260}
+              height={70}
+              className="h-9 w-auto md:h-10"
             />
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-              Premium, lead-focused website design for Kansas City service
-              businesses.
-            </p>
-            <p className="mt-2 text-xs uppercase tracking-[0.1em] text-muted">
-              Hometown Marketing Agency, Kansas City
+            <p className="mt-8 max-w-md text-sm leading-8 text-primary-foreground/42">
+              Affordable, personalized marketing for Kansas City small businesses. No contracts, no corporate nonsense, just a neighbor who knows how to build websites and run ads.
             </p>
           </div>
+
           <div>
-            <h3 className="text-sm uppercase tracking-[0.12em] text-muted">
-              Navigation
-            </h3>
-            <ul className="mt-3 space-y-2">
-              <li>
-                <Link href="/services" className="text-white/85 hover:text-white">
-                  Services
-                </Link>
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-primary-foreground/58">Pages</p>
+            <ul className="mt-7 space-y-5 text-base text-primary-foreground/48">
+              {pageLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="transition hover:text-primary-foreground">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-primary-foreground/58">Contact</p>
+            <ul className="mt-7 space-y-5 text-base text-primary-foreground/48">
+              <li className="flex items-start gap-3">
+                <MailIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                <a href={`mailto:${site.contactEmail}`} className="transition hover:text-primary-foreground">{site.contactEmail}</a>
               </li>
-              <li>
-                <Link href="/work" className="text-white/85 hover:text-white">
-                  Work
-                </Link>
+              <li className="flex items-start gap-3">
+                <PhoneIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                <a href={`tel:${site.contactPhone}`} className="transition hover:text-primary-foreground">{site.contactPhone}</a>
               </li>
-              <li>
-                <Link href="/pricing" className="text-white/85 hover:text-white">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-white/85 hover:text-white">
-                  Contact
-                </Link>
+              <li className="flex items-start gap-3">
+                <MapPinIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                <span>{site.location}</span>
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="text-sm uppercase tracking-[0.12em] text-muted">
-              Contact
-            </h3>
-            <ul className="mt-3 space-y-2 text-white/85">
-              <li>{site.location}</li>
-              <li>
-                <a href={`tel:${site.contactPhone}`}>{site.contactPhone}</a>
-              </li>
-              <li>
-                <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
-              </li>
-            </ul>
-          </div>
+        </div>
+
+        <div className="mt-16 flex flex-col gap-3 border-t border-white/14 py-8 text-xs text-primary-foreground/32 md:mt-20 md:flex-row md:items-center md:justify-between">
+          <p>© {year} Hometown Marketing Agency. All rights reserved.</p>
+          <p>Made with care in Kansas City.</p>
         </div>
       </div>
     </footer>

@@ -10,22 +10,22 @@
     <loc>https://hometownkc.agency/services/website-design</loc>
   </url>
   <url>
-    <loc>https://hometownkc.agency/services/google-business-profile-setup</loc>
+    <loc>https://hometownkc.agency/services/google-ads-management</loc>
   </url>
   <url>
     <loc>https://hometownkc.agency/services/social-media-management</loc>
   </url>
   <url>
-    <loc>https://hometownkc.agency/services/google-ads-management</loc>
-  </url>
-  <url>
-    <loc>https://hometownkc.agency/services/meta-ads-management</loc>
-  </url>
-  <url>
     <loc>https://hometownkc.agency/services/graphic-design</loc>
   </url>
   <url>
-    <loc>https://hometownkc.agency/services/logo-and-brand-work</loc>
+    <loc>https://hometownkc.agency/services/search-engine-optimization</loc>
+  </url>
+  <url>
+    <loc>https://hometownkc.agency/services/analytics-and-tracking</loc>
+  </url>
+  <url>
+    <loc>https://hometownkc.agency/services/brand-identity</loc>
   </url>
   <url>
     <loc>https://hometownkc.agency/work</loc>
@@ -35,6 +35,12 @@
   </url>
   <url>
     <loc>https://hometownkc.agency/contact</loc>
+  </url>
+  <url>
+    <loc>https://hometownkc.agency/robots.txt</loc>
+  </url>
+  <url>
+    <loc>https://hometownkc.agency/llms.txt</loc>
   </url>
   <url>
     <loc>https://hometownkc.agency/website-offer-800</loc>

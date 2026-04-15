@@ -166,6 +166,8 @@ export async function submitOfferLead(
   _prevState: SubmitLeadState,
   formData: FormData
 ): Promise<SubmitLeadState> {
+  const websiteOrSocial = String(formData.get("websiteOrSocial") ?? "").trim();
+
   return insertLead({
     name: String(formData.get("name") ?? ""),
     businessName: String(formData.get("businessName") ?? ""),
@@ -180,6 +182,12 @@ export async function submitOfferLead(
     utmContent: String(formData.get("utmContent") ?? ""),
     gclid: String(formData.get("gclid") ?? ""),
     serviceNeeded: "Website Design",
-    projectDetails: "Website offer landing page inquiry."
+    projectDetails: [
+      "$800 website offer inquiry.",
+      "Lead came from the website-offer-800 landing page.",
+      websiteOrSocial ? `Website or social link: ${websiteOrSocial}` : null
+    ]
+      .filter(Boolean)
+      .join("\n\n")
   });
 }

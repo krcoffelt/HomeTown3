@@ -1,252 +1,369 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { OfferPageTracker } from "@/components/analytics/offer-page-tracker";
 import { SectionShell } from "@/components/layout/section-shell";
 import { OfferLeadForm } from "@/components/sections/offer-lead-form";
+import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { CheckCircleIcon, ClockIcon, MessageCircleIcon, PhoneIcon, TargetIcon } from "@/components/ui/site-icons";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
+import { testimonials } from "@/data/copy";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
-const testimonials = [
+const trustItems = [
+  "Flat-rate pricing",
+  "Fast turnaround",
+  "Built for small businesses",
+  "No pressure"
+];
+
+const proofBullets = [
   {
-    name: "Cathy Gorman",
-    role: "Marketing client",
-    quote:
-      "I highly recommend working with Kyle Coffelt with Hometown Marketing. From start to finish, the experience was outstanding. Kyle was incredibly punctual, responsive, and organized throughout the entire process, which made everything run smoothly and stress-free.",
-    continuation:
-      "What truly stood out was his creativity and how he was able to understand what we were looking for. Kyle brought fresh ideas to the table and had a great ability to turn concepts into effective marketing strategies. His attention to detail and willingness to go above and beyond made a huge difference in the final result.",
-    close:
-      "It is rare to find someone who combines reliability and genuine creativity the way he did. I would absolutely recommend Hometown Marketing to anyone looking for high-quality marketing support."
+    title: "Fast turnaround",
+    body: "Most sites in this package launch in about 7 business days once the basics are clear.",
+    icon: ClockIcon
   },
   {
-    name: "Chris Kidd",
-    role: "Website client",
-    quote:
-      "Kyle built a website for my business and absolutely nailed it. Not only did he deliver it incredibly fast, but the final result looked clean, modern, and professional.",
-    continuation:
-      "He was also extremely patient with all the revisions and tweaks I asked for along the way. The whole process was smooth from start to finish, and I could not be happier with how everything turned out."
+    title: "Clear communication",
+    body: "You work directly with the person building the site, so revisions stay simple and fast.",
+    icon: MessageCircleIcon
+  },
+  {
+    title: "Lead-focused design",
+    body: "The structure is built to make your business look credible and make it easy to contact you.",
+    icon: TargetIcon
   }
 ];
 
-const featuredProjects = projects.slice(0, 3);
-
-const offerInclusions = [
+const includedItems = [
   "Custom multi-page website",
-  "Clean, premium design",
-  "Mobile-first responsive build",
-  "Lead form setup",
-  "Direct communication with the team"
+  "Mobile-friendly design",
+  "Lead-focused layout",
+  "Contact form setup",
+  "Basic SEO structure",
+  "Fast launch process",
+  "Simple post-launch handoff"
+];
+
+const fitItems = [
+  "Small businesses with no real website yet",
+  "Businesses with an outdated website",
+  "Local service businesses that need more credibility",
+  "Owners who want something affordable and done fast"
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Tell me about your business",
+    body: "Share the basics about what you do and what you need the website to help with."
+  },
+  {
+    step: "02",
+    title: "I design and build your site",
+    body: "I map the structure, build the pages, and keep the process simple from start to finish."
+  },
+  {
+    step: "03",
+    title: "We launch your new website fast",
+    body: "After revisions and approvals, the site goes live with a cleaner, more credible first impression."
+  }
+];
+
+const offerFaqs = [
+  {
+    question: "What is included in the $800 package?",
+    answer:
+      "The package includes a custom multi-page website, mobile-friendly design, contact form setup, lead-focused page structure, basic SEO setup, and a simple handoff after launch."
+  },
+  {
+    question: "How long does it take?",
+    answer:
+      "Most projects in this package are completed in about 7 business days once the business details, photos, and direction are clear."
+  },
+  {
+    question: "Do I need to provide content?",
+    answer:
+      "You do not need perfect copy ready on day one. I still need the core facts about your business, services, and anything important you want on the site, but I can help shape the wording."
+  },
+  {
+    question: "What if I need more than a basic site?",
+    answer:
+      "If your project needs more pages, extra functionality, or a more complex scope, I will tell you that up front and outline the next-best option clearly."
+  },
+  {
+    question: "Is hosting included?",
+    answer:
+      "Hosting and domain costs are separate, but I can help point you to the right setup and get everything connected as part of launch."
+  },
+  {
+    question: "Can you help after launch?",
+    answer:
+      "Yes. I can help with updates and support after launch if you need it. The offer is focused on getting the site live fast first."
+  }
 ];
 
 export const metadata: Metadata = {
   ...createPageMetadata(
-    "Kansas City Website Design Offer | $800 Custom Website",
-    "Custom website design offer for Kansas City businesses. Real client work, real reviews, and a straightforward $800 website package.",
+    "Professional Small Business Websites for $800",
+    "A focused landing page for small businesses that need a clean, credible website fast. Flat-rate pricing, simple process, and a response within 24 hours.",
     "/website-offer-800",
     site.brand.shortName
   )
 };
 
 export default function WebsiteOfferLandingPage() {
+  const featuredTestimonials = testimonials.slice(0, 2);
+  const featuredProjects = projects.slice(0, 3);
+
   return (
     <>
       <OfferPageTracker />
 
-      <SectionShell className="relative overflow-hidden pb-10 pt-14 md:pb-14 md:pt-20">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_20%_18%,rgba(70,102,211,0.18),transparent_32%),radial-gradient(circle_at_82%_10%,rgba(255,255,255,0.07),transparent_20%)]" />
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,25rem)] lg:items-center">
-            <div className="relative z-10">
-              <p className="kicker">Website Offer</p>
-              <h1 className="mt-4 max-w-4xl text-balance text-[clamp(2.9rem,6.3vw,5.35rem)] font-semibold leading-[0.95] tracking-tight text-white">
-                Get a custom website built for your business for only $800.
-              </h1>
-              <p className="mt-5 max-w-2xl text-[1.08rem] leading-relaxed text-white/82 md:text-[1.14rem]">
-                Premium-looking design, fast turnaround, and direct communication from the first message to launch.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button href="#claim-form" dataAnalytics="cta-offer-800">
-                  Claim My $800 Website
-                </Button>
-                <p className="section-eyebrow text-white/72">Takes 2 minutes</p>
-              </div>
+      <section className="relative overflow-hidden bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-24">
+        <div aria-hidden="true" className="pointer-events-none absolute left-[-6rem] top-[2rem] h-[360px] w-[360px] rounded-full bg-accent/12 blur-[120px]" />
+        <div aria-hidden="true" className="pointer-events-none absolute right-[-4rem] top-[8rem] h-[320px] w-[320px] rounded-full bg-white/6 blur-[110px]" />
+        <div className="site-container relative">
+          <div className="max-w-4xl">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-accent">Flat-Rate Website Package</p>
+            <h1 className="mt-7 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+              Professional Small Business Websites for $800
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-primary-foreground/76 md:text-xl">
+              Built for small businesses that need a clean, credible website fast. Simple process. Flat-rate pricing. Response in under 24 hours.
+            </p>
+
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Button href="#claim-form" className="h-14 px-8" dataAnalytics="cta-offer-800">
+                Get My $800 Website
+              </Button>
+              <Button
+                href="#examples"
+                variant="secondary"
+                className="h-14 border-primary-foreground/20 bg-black/25 px-8 text-primary-foreground hover:border-primary-foreground hover:bg-primary-foreground/8"
+              >
+                View Examples
+              </Button>
             </div>
 
-            <aside className="surface-primary relative overflow-hidden px-7 py-7 md:px-8 md:py-8">
-              <div className="absolute inset-0 bg-[linear-gradient(155deg,rgba(255,255,255,0.08),transparent_42%)]" />
-              <div className="relative z-10">
-                <p className="section-eyebrow text-[#9bb6ff]">Client Review</p>
-                <div className="mt-4 flex items-center gap-2 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-white/76">
-                  <span className="text-[#9bb6ff]">★★★★★</span>
-                  <span>Chris Kidd</span>
-                </div>
-                <p className="mt-4 text-[1.22rem] leading-relaxed text-white/90">
-                  &ldquo;Kyle built a website for my business and absolutely nailed it. The final result looked clean, modern, and professional.&rdquo;
-                </p>
-                <p className="mt-5 text-sm leading-relaxed text-white/68">
-                  Fast delivery, patient revisions, and a smooth process from start to finish.
-                </p>
-                <div className="mt-6 border-t border-white/10 pt-5" />
-              </div>
-            </aside>
+            <p className="mt-8 text-sm leading-relaxed text-primary-foreground/72">
+              Flat-rate pricing • Fast turnaround • Built for small businesses • No pressure
+            </p>
           </div>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-background">
+        <div className="site-container grid gap-4 py-6 md:grid-cols-4 md:py-7">
+          {trustItems.map((item) => (
+            <div key={item} className="rounded-full border border-border bg-card px-5 py-3 text-center text-sm font-bold text-foreground shadow-sm">
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <SectionShell className="bg-background text-foreground">
+        <div className="max-w-3xl">
+          <p className="section-badge">Real Reviews</p>
+          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+            Real business owners trust the process because it stays simple and the work looks sharp.
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_24rem]">
+          {featuredTestimonials.map((testimonial) => (
+            <article key={testimonial.name} className="light-panel p-7">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Google Review</p>
+              <p className="mt-5 text-2xl font-bold leading-tight text-foreground">{testimonial.highlight}</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{testimonial.text}</p>
+              <p className="mt-6 text-sm font-bold text-foreground">{testimonial.name}</p>
+            </article>
+          ))}
+
+          <aside className="dark-panel p-7">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Why Owners Move Forward</p>
+            <div className="mt-6 space-y-5">
+              {proofBullets.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div key={item.title} className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] p-5">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary-foreground/8 text-accent">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <p className="mt-4 text-base font-bold text-primary-foreground">{item.title}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70">{item.body}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-6 grid gap-3 text-sm text-primary-foreground/72">
+              <p>50+ projects delivered</p>
+              <p>About 7 business days to launch</p>
+              <p>5.0 review reputation</p>
+            </div>
+          </aside>
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-2">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="kicker">Recent Work</p>
-              <h2 className="mt-3 text-[clamp(2rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-tight text-white">
-                A few recent website projects.
-              </h2>
-            </div>
-            <p className="max-w-md text-sm leading-relaxed text-white/66">
-              These are real client websites, not concept mockups.
+      <SectionShell className="pt-0 bg-background text-foreground">
+        <div id="examples" className="scroll-mt-32" />
+        <div className="max-w-3xl">
+          <p className="section-badge">Examples</p>
+          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+            A few real websites built for real businesses.
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            The point of this offer is not to give you a template. It is to get your business a site that looks established and makes people trust you faster.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <article key={project.slug} className="light-panel overflow-hidden p-0">
+              <div className="relative h-56 overflow-hidden rounded-t-[1.5rem]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.featuredImageUrl}
+                  alt={`${project.clientName} project preview`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <p className="inline-flex rounded-full bg-accent/10 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-accent">
+                  {project.category}
+                </p>
+                <h3 className="mt-5 text-2xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+                {project.quote ? (
+                  <p className="mt-5 border-l-2 border-accent pl-4 text-sm leading-relaxed text-foreground/72">
+                    &ldquo;{project.quote}&rdquo;
+                  </p>
+                ) : null}
+              </div>
+            </article>
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell className="noise bg-gradient-subtle text-foreground">
+        <div className="max-w-3xl">
+          <p className="section-badge">What&apos;s Included for $800</p>
+          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+            A clear package that gets your business online quickly without feeling cheap.
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {includedItems.map((item) => (
+            <article key={item} className="light-panel h-full p-7">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                <CheckCircleIcon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-6 text-xl font-bold tracking-tight text-foreground">{item}</h3>
+            </article>
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell className="bg-background text-foreground">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start">
+          <div>
+            <p className="section-badge">Who This Is For</p>
+            <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+              Best fit for owners who need something credible, affordable, and fast.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              This page is not selling every service we offer. It is for businesses that need a stronger website and want the process to stay straightforward.
             </p>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <article
-                key={project.slug}
-                className="group overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(7,10,16,0.92))] shadow-[0_20px_60px_rgba(0,0,0,0.24)] transition duration-300 hover:-translate-y-1 hover:border-white/18"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={project.featuredImageUrl}
-                    alt={`${project.clientName} website preview`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 32vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.02]"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_18%,rgba(2,4,8,0.7)_100%)]" />
-                  <div className="absolute left-5 top-5 rounded-full border border-white/14 bg-[#08101d]/70 px-3 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-white/88 backdrop-blur-md">
-                    {project.industry}
-                  </div>
+          <div className="grid gap-4">
+            {fitItems.map((item) => (
+              <div key={item} className="light-panel flex items-start gap-4 p-6">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                  <CheckCircleIcon className="h-4 w-4" />
                 </div>
-                <div className="px-6 py-6">
-                  <h3 className="text-[1.8rem] font-medium tracking-tight text-white">{project.clientName}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/72">{project.summary}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.servicesProvided.map((service) => (
-                      <span
-                        key={service}
-                        className="rounded-full border border-white/12 bg-white/[0.04] px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white/74"
-                      >
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-5 inline-flex text-sm font-medium text-white underline underline-offset-4"
-                  >
-                    View live site
-                  </a>
-                </div>
-              </article>
+                <p className="text-base leading-relaxed text-foreground">{item}</p>
+              </div>
             ))}
           </div>
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-2">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="surface-primary px-7 py-7 md:px-10 md:py-9">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <p className="kicker">Client Reviews</p>
-                <h2 className="mt-3 text-[clamp(1.9rem,4vw,3.25rem)] font-semibold leading-[0.98] tracking-tight text-white">
-                  What clients said after the work was done.
-                </h2>
-              </div>
-            </div>
+      <SectionShell className="noise bg-gradient-subtle text-foreground">
+        <div className="max-w-3xl">
+          <p className="section-badge">Simple Process</p>
+          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+            A low-friction path from form submit to launch.
+          </h2>
+        </div>
 
-            <div className="mt-8 grid gap-4">
-              {testimonials.map((testimonial) => (
-                <article key={testimonial.name} className="rounded-[1.4rem] border border-white/12 bg-white/[0.04] px-6 py-6">
-                  <div className="flex items-center gap-2 text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-white/72">
-                    <span className="text-[#9bb6ff]">★★★★★</span>
-                    <span>{testimonial.role}</span>
-                  </div>
-                  <p className="mt-4 text-[1.02rem] leading-relaxed text-white/86">
-                    &ldquo;{testimonial.quote}&rdquo;
-                  </p>
-                  <p className="mt-4 text-[1.02rem] leading-relaxed text-white/78">{testimonial.continuation}</p>
-                  {testimonial.close ? (
-                    <p className="mt-4 text-[1.02rem] leading-relaxed text-white/78">{testimonial.close}</p>
-                  ) : null}
-                  <p className="mt-5 text-sm font-semibold uppercase tracking-[0.12em] text-white">{testimonial.name}</p>
-                </article>
-              ))}
-            </div>
-          </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {processSteps.map((step) => (
+            <article key={step.step} className="light-panel h-full p-7">
+              <p className="text-6xl font-bold leading-none text-accent/20">{step.step}</p>
+              <h3 className="mt-5 text-2xl font-bold tracking-tight text-foreground">{step.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+            </article>
+          ))}
+        </div>
+      </SectionShell>
 
-          <div className="surface-secondary px-7 py-7 md:px-8 md:py-9">
-            <p className="kicker">Offer Details</p>
-            <h2 className="mt-3 text-[clamp(1.8rem,3vw,3rem)] font-semibold leading-[1] tracking-tight text-white">
-              The $800 website offer.
+      <SectionShell className="bg-background text-foreground">
+        <div className="max-w-3xl">
+          <p className="section-badge">FAQ</p>
+          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+            The common questions people ask before they hit submit.
+          </h2>
+        </div>
+        <div className="mt-12">
+          <Accordion items={offerFaqs} />
+        </div>
+      </SectionShell>
+
+      <SectionShell className="noise bg-black pb-28 text-primary-foreground md:pb-32">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
+          <div>
+            <p className="section-badge">Start Here</p>
+            <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
+              If the offer feels like a fit, send the form and I&apos;ll review it within 24 hours.
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/72">
-              Straightforward pricing, direct communication, and a clean process from inquiry to launch.
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/72">
+              Tell me about your business and I&apos;ll follow up within 24 hours to see if your project is a fit for the $800 package.
             </p>
-
-            <div className="mt-7 rounded-[1.35rem] border border-[#5c80f5] bg-[#305cde] px-5 py-5 shadow-[0_14px_35px_rgba(48,92,222,0.28)]">
-              <p className="section-eyebrow text-white/82">Limited Offer</p>
-              <p className="mt-3 text-3xl font-semibold tracking-tight text-white">$800 custom website</p>
-              <p className="mt-3 text-sm leading-relaxed text-white/84">
-                Best fit for local businesses that need a sharper website and a faster path to getting online.
-              </p>
-            </div>
-
-            <div className="mt-6 space-y-3">
-              {offerInclusions.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3 rounded-[1.1rem] border border-white/10 bg-white/[0.03] px-4 py-4"
-                >
-                  <span className="mt-0.5 text-[#9bb6ff]">•</span>
-                  <p className="text-base leading-relaxed text-white">{item}</p>
+            <div className="mt-8 grid gap-4 text-sm text-primary-foreground/78">
+              {["No pressure", "Clear next steps", "Fast response"].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <CheckCircleIcon className="h-4 w-4 text-accent" />
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
+          </div>
 
-            <div className="mt-6 rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-5 py-5">
-              <p className="section-eyebrow text-white/58">Response time</p>
-              <p className="mt-2 text-lg font-medium text-white">You will hear back in under 24 hours.</p>
-            </div>
-
-            <Button href="#claim-form" className="mt-6 w-full" dataAnalytics="cta-offer-800">
-              Claim My $800 Website
-            </Button>
+          <div id="claim-form" className="scroll-mt-32">
+            <OfferLeadForm />
           </div>
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-2">
-        <div id="claim-form" className="scroll-mt-28" />
-        <div className="mx-auto max-w-6xl">
-          <OfferLeadForm />
-          <div className="mt-5 text-center">
-            <p className="text-sm text-white/70">
-              Prefer to talk first?{" "}
-              <a href={`tel:${site.contactPhone}`} data-analytics="phone_click" className="text-white underline underline-offset-4">
-                {site.contactPhone}
-              </a>{" "}
-              or{" "}
-              <a href={`mailto:${site.contactEmail}`} data-analytics="email_click" className="text-white underline underline-offset-4">
-                email us
-              </a>
-              .
-            </p>
-          </div>
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/92 p-3 backdrop-blur-xl md:hidden">
+        <div className="mx-auto flex max-w-shell items-center gap-3">
+          <a
+            href={`tel:${site.contactPhone}`}
+            className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary-foreground/12 bg-primary-foreground/[0.04] text-primary-foreground"
+            data-analytics="phone_click"
+            aria-label={`Call ${site.contactPhone}`}
+          >
+            <PhoneIcon className="h-5 w-5" />
+          </a>
+          <Button href="#claim-form" className="h-12 flex-1" dataAnalytics="cta-offer-800">
+            Get My $800 Website
+          </Button>
         </div>
-      </SectionShell>
+      </div>
     </>
   );
 }

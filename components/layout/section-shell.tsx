@@ -5,19 +5,20 @@ interface SectionShellProps {
   children: ReactNode;
   className?: string;
   containerClassName?: string;
+  as?: "section" | "div";
 }
 
 export function SectionShell({
   children,
   className,
-  containerClassName
+  containerClassName,
+  as = "section"
 }: SectionShellProps) {
+  const Tag = as;
+
   return (
-    <section className={cn("px-5 py-16 md:px-8 md:py-24", className)}>
-      <div className={cn("mx-auto w-full max-w-shell", containerClassName)}>
-        {children}
-      </div>
-    </section>
+    <Tag className={cn("page-section", className)}>
+      <div className={cn("site-container", containerClassName)}>{children}</div>
+    </Tag>
   );
 }
-

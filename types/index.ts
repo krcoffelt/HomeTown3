@@ -1,34 +1,29 @@
 export type LeadStatus = "new" | "contacted" | "quoted" | "won" | "lost";
 
+export type ProjectCategory = "Restaurant" | "Music" | "Publishing" | "Home Services";
+
 export interface ProjectItem {
-  id?: string;
   title: string;
   slug: string;
   clientName: string;
-  industry: string;
+  category: ProjectCategory;
   summary: string;
+  description: string;
   servicesProvided: string[];
   featuredImageUrl: string;
   liveUrl?: string;
-  isFeatured: boolean;
-  sortOrder: number;
+  quote?: string;
 }
 
 export interface ServiceItem {
   title: string;
   slug: string;
+  price: string;
   shortDescription: string;
-  fullDescription: string;
-  heroTitle?: string;
-  heroSubtitle?: string;
-  price?: string;
-  isFeatured?: boolean;
-  sortOrder?: number;
-  deliverables?: string[];
-  idealFor?: string[];
-  process?: string[];
-  faq?: Array<{
-    question: string;
-    answer: string;
-  }>;
+  description: string;
+  features: string[];
+  deliverables: string[];
+  idealFor: string[];
+  process: string[];
+  metaTags: string[];
 }

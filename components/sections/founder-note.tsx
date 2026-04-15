@@ -1,14 +1,10 @@
-import { Card } from "@/components/ui/card";
+import { homepageCopy } from "@/data/copy";
 
 export function FounderNote() {
   return (
-    <Card>
-      <p className="text-sm uppercase tracking-[0.12em] text-muted">Founder note</p>
-      <p className="mt-3 text-lg leading-relaxed text-text">
-        I started Hometown to give Kansas City businesses a cleaner, stronger web
-        presence without agency-level pricing. You will work directly with me and
-        get clear communication throughout the project.
-      </p>
-    </Card>
+    <div className="bg-gradient-dark rounded-2xl border border-primary-foreground/12 p-6 text-primary-foreground shadow-hero">
+      <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Founder Note</p>
+      <p className="mt-5 text-base leading-relaxed text-primary-foreground/80">{homepageCopy.founderNote}</p>
+    </div>
   );
 }

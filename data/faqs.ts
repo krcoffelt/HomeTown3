@@ -8,61 +8,49 @@ export const faqs: FAQItem[] = [
   {
     question: "How much does a website cost?",
     answer:
-      "Our core Custom Website Package is $800 this month, with a regular price of $999.",
+      "Our custom websites start at $800, a fraction of what big agencies charge. Every site is mobile-optimized, fast, and built to convert visitors into paying customers.",
     page: "home"
   },
   {
-    question: "What is included?",
+    question: "Do I need to sign a long-term contract?",
     answer:
-      "A custom multi-page website with strong layout structure, conversion-focused sections, mobile optimization, and lead form setup.",
+      "Never. We work month-to-month on recurring services and project-by-project on one-time builds. You stay because you want to, not because you have to.",
     page: "home"
   },
   {
-    question: "Do you work with Kansas City businesses only?",
+    question: "How fast can I get my website?",
     answer:
-      "Kansas City is our focus, but we can work with nearby service businesses when the fit is right.",
+      "Most websites are delivered within 7 business days. Complex projects may take longer, but we will always give you a clear timeline upfront.",
     page: "home"
   },
   {
-    question: "Can you redesign an existing site?",
+    question: "I'm not tech-savvy. Is that okay?",
     answer:
-      "Yes. We can redesign your current site into a clearer, more modern and lead-focused experience.",
+      "Absolutely. Most of our clients are not. You tell us about your business, and we handle the rest. No jargon, no confusing dashboards, just results you can see.",
     page: "home"
   },
   {
-    question: "Do you help with SEO?",
+    question: "Do you work with businesses outside KC?",
     answer:
-      "Yes, we include local SEO fundamentals like metadata structure, page hierarchy, and local keyword alignment.",
+      "We do, but our roots are here in Kansas City and that is where we do our best work. If you are anywhere in the metro, we can even meet in person.",
     page: "home"
   },
   {
-    question: "Do you help with hosting and domain?",
+    question: "What if I already have a website but it's not working?",
     answer:
-      "Yes, we can guide you through it and ensure your website is connected properly once your preferred hosting is ready.",
-    page: "home"
-  },
-  {
-    question: "What do you need from me?",
-    answer:
-      "Basic business details, your services, and any photos or examples you already have. We keep the process simple.",
-    page: "home"
-  },
-  {
-    question: "What kinds of businesses do you work with?",
-    answer:
-      "Home services, local professionals, clinics, studios, contractors, and other service-based businesses.",
+      "We will audit it for free and tell you exactly what is holding it back. Sometimes it is a quick fix. Sometimes a fresh start makes more sense. Either way, we will be honest.",
     page: "home"
   },
   {
     question: "How much does a small business website cost in Kansas City?",
     answer:
-      "Our current website package is $800 this month, with a regular price of $999 for the same build scope.",
+      "Our current website package is $800, with a regular price of $1,000 for the same build scope.",
     page: "pricing"
   },
   {
     question: "What is included in a small business website?",
     answer:
-      "A custom homepage, core internal pages, mobile optimization, conversion-focused sections, and contact lead capture setup.",
+      "A custom homepage, core internal pages, mobile optimization, conversion-focused sections, analytics installation, and contact lead capture setup.",
     page: "pricing"
   },
   {
@@ -74,7 +62,7 @@ export const faqs: FAQItem[] = [
   {
     question: "Can someone build my business website for me?",
     answer:
-      "Yes. Hometown handles strategy, design, and build while keeping the process simple for local business owners.",
+      "Yes. Hometown handles strategy, design, build, and launch while keeping the process simple for local business owners.",
     page: "pricing"
   }
 ];

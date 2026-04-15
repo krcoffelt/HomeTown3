@@ -8,7 +8,10 @@ export function localBusinessSchema() {
     name: site.brand.fullName,
     alternateName: site.brand.shortName,
     description: site.description,
-    areaServed: "Kansas City, Missouri",
+    areaServed: {
+      "@type": "City",
+      name: "Kansas City"
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.streetAddress,
@@ -19,7 +22,8 @@ export function localBusinessSchema() {
     },
     telephone: site.contactPhone,
     email: site.contactEmail,
-    url: site.url
+    url: site.url,
+    priceRange: "$$"
   };
 }
 

@@ -1,65 +1,89 @@
-import { Badge } from "@/components/ui/badge";
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { AnimatedHeroWord } from "@/components/ui/animated-hero-word";
-import { SectionShell } from "@/components/layout/section-shell";
+import { CheckCircleIcon, MapPinIcon } from "@/components/ui/site-icons";
 import { homepageCopy } from "@/data/copy";
 
-const rotatingHeroWords = [
-  "Affordable",
-  "Custom",
-  "Premium",
-  "Strategic",
-  "Local"
-];
+const heroItemTransition = {
+  ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+  duration: 0.6
+};
 
 export function HomeHero() {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
   return (
-    <SectionShell className="relative overflow-hidden pb-8 pt-16 md:pb-12 md:pt-20">
-      <div className="relative z-10">
-        <div className="max-w-5xl">
-          <Badge className="mb-6 border-white/20 bg-transparent text-white">
-            {homepageCopy.trustLabel}
-          </Badge>
-          <h1 className="max-w-5xl text-balance text-[clamp(2.8rem,9.6vw,8rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-white">
-            <span className="block lg:whitespace-nowrap">
-              <AnimatedHeroWord words={rotatingHeroWords} className="text-[#305cde]" />
-            </span>
-            <span className="block lg:whitespace-nowrap">marketing support for</span>
-            <span className="block lg:whitespace-nowrap">local businesses</span>
-          </h1>
-          <p className="mt-7 max-w-4xl text-lg leading-relaxed text-white">
+    <section ref={heroRef} className="relative min-h-[92vh] overflow-hidden">
+      <motion.div style={{ y: heroImageY }} className="absolute inset-0 scale-110" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/hero-bg.jpg" alt="" className="h-full w-full object-cover" />
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/75 to-black/60" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-[-4rem] top-[12rem] h-[500px] w-[500px] rounded-full bg-primary/8 blur-[150px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute right-[-2rem] top-[8rem] h-[400px] w-[400px] rounded-full bg-primary-glow/6 blur-[120px]" />
+
+      <div className="site-container relative z-10 flex min-h-[92vh] items-center pt-32 pb-20 md:pt-40 md:pb-28">
+        <div className="max-w-6xl text-primary-foreground">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...heroItemTransition, duration: 0.5 }}
+            className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] backdrop-blur-sm"
+          >
+            <MapPinIcon className="h-4 w-4" />
+            {homepageCopy.heroBadge}
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...heroItemTransition, delay: 0.15, duration: 0.7 }}
+            className="hero-title mt-8 max-w-6xl"
+          >
+            <span className="block">{homepageCopy.heroTitleLineOne}</span>
+            <span className="block pb-[0.08em] gradient-text">{homepageCopy.heroTitleLineTwo}</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...heroItemTransition, delay: 0.35 }}
+            className="mt-8 max-w-3xl text-lg leading-relaxed text-primary-foreground/82 md:text-xl"
+          >
             {homepageCopy.heroSubtitle}
-          </p>
-          <div className="mt-7 flex flex-wrap items-center gap-4">
-            <Button href="/contact#form" className="bg-accent text-white md:px-8 md:py-4 md:text-[1.08rem]">
-              Get Started
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...heroItemTransition, delay: 0.5 }}
+            className="mt-10 flex flex-wrap gap-4"
+          >
+            <Button href="/contact#form" className="h-14 px-8">Get Your Free Quote</Button>
+            <Button href="/work" variant="secondary" className="h-14 px-8 border-primary-foreground/20 bg-transparent text-primary-foreground hover:border-primary-foreground hover:bg-primary-foreground/8">
+              See Our Work
             </Button>
-            <p className="section-eyebrow text-white md:text-[0.9rem]">NOW ONLY $800</p>
-          </div>
-        </div>
-        <div className="hero-reveal hero-reveal-delay mt-12 section-frame">
-          <div className="grid gap-5 md:grid-cols-3 md:gap-8">
-            <div className="rounded-2xl border border-[#5e81f5] bg-[#305cde] px-5 py-5">
-              <p className="section-eyebrow !text-[0.84rem] !font-bold !text-white">What&apos;s Included</p>
-              <p className="mt-3 text-lg !text-white">
-                Websites, branding support, local visibility, and creative execution.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-[#5e81f5] bg-[#305cde] px-5 py-5">
-              <p className="section-eyebrow !text-[0.84rem] !font-bold !text-white">What&apos;s Not</p>
-              <p className="mt-3 text-lg !text-white">
-                Bloated retainers, vague agency process, or handoff-heavy communication.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-[#5e81f5] bg-[#305cde] px-5 py-5">
-              <p className="section-eyebrow !text-[0.84rem] !font-bold !text-white">Turnaround</p>
-              <p className="mt-3 text-lg !text-white">
-                Most projects launch in about 7 days.
-              </p>
-            </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="mt-10 flex flex-wrap gap-6"
+          >
+            {homepageCopy.trustSignals.map((signal) => (
+              <div key={signal} className="flex items-center gap-2 text-sm text-primary-foreground/82">
+                <CheckCircleIcon className="h-4 w-4 text-accent" />
+                <span>{signal}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
-    </SectionShell>
+    </section>
   );
 }

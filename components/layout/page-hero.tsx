@@ -1,22 +1,26 @@
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils/cn";
 import type { ReactNode } from "react";
 
 interface PageHeroProps {
-  eyebrow: string;
+  badge?: string;
   title: ReactNode;
-  subtitle: string;
+  subtitle?: string;
+  light?: boolean;
+  centered?: boolean;
 }
 
-export function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
+export function PageHero({ badge, title, subtitle, light = false, centered = true }: PageHeroProps) {
   return (
-    <div className="mx-auto max-w-4xl text-center">
-      <Badge className="border-white/25 bg-white/10 text-white">{eyebrow}</Badge>
-      <h1 className="mt-6 text-balance text-[clamp(2.4rem,7vw,5.2rem)] font-semibold leading-[0.95] tracking-tight text-white">
+    <div className={cn("max-w-4xl", centered && "mx-auto text-center")}>
+      {badge ? <span className="section-badge">{badge}</span> : null}
+      <h1 className={cn("mt-6 section-title text-balance md:text-5xl lg:text-6xl", light ? "text-primary-foreground" : "text-foreground")}>
         {title}
       </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-white/80">
-        {subtitle}
-      </p>
+      {subtitle ? (
+        <p className={cn("mt-6 text-lg leading-relaxed", light ? "text-primary-foreground/70" : "text-muted-foreground")}>
+          {subtitle}
+        </p>
+      ) : null}
     </div>
   );
 }
