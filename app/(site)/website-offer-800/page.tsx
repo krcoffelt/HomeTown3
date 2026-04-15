@@ -22,13 +22,38 @@ const trustItems = [
 ];
 
 const includedItems = [
-  "Custom multi-page website",
-  "Mobile-friendly design",
-  "Lead-focused layout",
-  "Contact form setup",
-  "Basic SEO structure",
-  "Fast launch process",
-  "Simple post-launch handoff"
+  {
+    title: "A stronger first impression",
+    body: "Your site is built to make the business look established, polished, and worth trusting right away."
+  },
+  {
+    title: "Design that looks premium",
+    body: "Clean, modern visuals give you the kind of online presence people expect from a serious business."
+  },
+  {
+    title: "Looks sharp on every screen",
+    body: "The website is designed to feel clean and professional on mobile, tablet, and desktop."
+  },
+  {
+    title: "Built to turn visits into leads",
+    body: "The layout is structured to guide people toward reaching out instead of bouncing."
+  },
+  {
+    title: "Easy for customers to contact",
+    body: "Clear calls to action and a direct contact flow make it simple for people to take the next step."
+  },
+  {
+    title: "Positioned to get found",
+    body: "The pages are written and structured to give your business a cleaner shot at showing up in search."
+  },
+  {
+    title: "Ready to launch fast",
+    body: "The package is built for speed, so you can stop sitting on an outdated or missing website."
+  },
+  {
+    title: "Everything you need to go live",
+    body: "You get a complete, launch-ready site without the confusion, bloat, or agency runaround."
+  }
 ];
 
 const fitItems = [
@@ -212,11 +237,12 @@ export default function WebsiteOfferLandingPage() {
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {includedItems.map((item) => (
-            <article key={item} className="light-panel h-full p-7">
+            <article key={item.title} className="light-panel h-full p-7">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/10 text-accent">
                 <CheckCircleIcon className="h-5 w-5" />
               </div>
-              <h3 className="mt-6 text-xl font-bold tracking-tight text-foreground">{item}</h3>
+              <h3 className="mt-6 text-xl font-bold tracking-tight text-foreground">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
             </article>
           ))}
         </div>
