@@ -75,8 +75,8 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className={cn("site-container transition-all duration-300", scrolled ? "pt-3 pb-3" : "pt-6 pb-5")}>
-        <div className="relative flex min-h-16 items-center justify-between">
+      <div className={cn("site-container transition-all duration-300", scrolled ? "pt-4 pb-4" : "pt-7 pb-6")}>
+        <div className="relative flex min-h-[4.5rem] items-center justify-between">
           <motion.div
             animate={{ opacity: scrolled ? 0 : 1, x: scrolled ? -12 : 0, pointerEvents: scrolled ? "none" : "auto" }}
             transition={{ duration: 0.16, ease: "easeOut" }}
@@ -97,7 +97,7 @@ export function Navbar() {
           <nav
             aria-label="Main navigation"
             className={cn(
-              "mx-auto hidden items-center gap-1.5 rounded-full border px-1.5 py-1.5 backdrop-blur-xl md:absolute md:left-1/2 md:flex md:-translate-x-1/2",
+              "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 backdrop-blur-xl md:absolute md:left-1/2 md:flex md:-translate-x-1/2",
               scrolled
                 ? "border-primary-foreground/10 bg-foreground/90 shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
                 : "border-primary-foreground/[0.08] bg-foreground/30"
@@ -111,7 +111,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative rounded-full px-5 py-2 text-sm font-medium transition",
+                    "relative rounded-full px-6 py-3 text-base font-medium transition",
                     active ? "text-primary-foreground" : "text-primary-foreground/60 hover:text-primary-foreground/80"
                   )}
                 >
@@ -133,7 +133,7 @@ export function Navbar() {
             transition={{ duration: 0.16, ease: "easeOut" }}
             className="hidden md:block"
           >
-            <Button href="/contact#form" className="h-10 px-6">
+            <Button href="/contact#form" className="h-12 px-7 text-base">
               Get a Free Quote
             </Button>
           </motion.div>
