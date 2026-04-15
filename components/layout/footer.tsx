@@ -81,7 +81,7 @@ export function Footer() {
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/HometownLogo2026_white.png"
+              src="/images/HometownLogoWhite2026.png"
               alt="Hometown Marketing Agency"
               width={260}
               height={70}

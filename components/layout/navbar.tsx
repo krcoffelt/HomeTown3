@@ -41,7 +41,7 @@ export function Navbar() {
           <Link href="/" aria-label="Hometown home" className="shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/HometownLogo2026_white.png"
+              src="/images/HometownLogoWhite2026.png"
               alt="Hometown Marketing Agency"
               width={220}
               height={60}
@@ -85,7 +85,7 @@ export function Navbar() {
             <Link href="/" aria-label="Hometown home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/HometownLogo2026_white.png"
+                src="/images/HometownLogoWhite2026.png"
                 alt="Hometown Marketing Agency"
                 width={260}
                 height={70}
@@ -142,7 +142,7 @@ export function Navbar() {
             <Link href="/" aria-label="Hometown home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/HometownLogo2026_white.png"
+                src="/images/HometownLogoWhite2026.png"
                 alt="Hometown Marketing Agency"
                 width={210}
                 height={56}
