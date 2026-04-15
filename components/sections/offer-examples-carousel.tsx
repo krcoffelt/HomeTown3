@@ -11,7 +11,10 @@ interface OfferExamplesCarouselProps {
 function scrollByAmount(container: HTMLDivElement | null, direction: "prev" | "next") {
   if (!container) return;
 
-  const amount = Math.round(container.clientWidth * 0.88);
+  const firstCard = container.firstElementChild as HTMLElement | null;
+  const gap = 20;
+  const amount = firstCard ? firstCard.offsetWidth + gap : Math.round(container.clientWidth * 0.42);
+
   container.scrollBy({
     left: direction === "next" ? amount : -amount,
     behavior: "smooth"
@@ -30,7 +33,7 @@ export function OfferExamplesCarousel({ projects }: OfferExamplesCarouselProps) 
         <div className="hidden items-center gap-3 md:flex">
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-card"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent bg-accent text-accent-foreground transition hover:-translate-y-0.5 hover:bg-accent/90 hover:shadow-card"
             onClick={() => scrollByAmount(containerRef.current, "prev")}
             aria-label="Show previous websites"
           >
@@ -38,7 +41,7 @@ export function OfferExamplesCarousel({ projects }: OfferExamplesCarouselProps) 
           </button>
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-card"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent bg-accent text-accent-foreground transition hover:-translate-y-0.5 hover:bg-accent/90 hover:shadow-card"
             onClick={() => scrollByAmount(containerRef.current, "next")}
             aria-label="Show more websites"
           >
@@ -54,7 +57,7 @@ export function OfferExamplesCarousel({ projects }: OfferExamplesCarouselProps) 
         {projects.map((project) => (
           <article
             key={project.slug}
-            className="light-panel min-w-[88%] snap-start overflow-hidden p-0 sm:min-w-[72%] lg:min-w-[58%]"
+            className="light-panel min-w-[84%] snap-start overflow-hidden p-0 sm:min-w-[58%] lg:min-w-[38%]"
           >
             <div className="relative h-[19rem] overflow-hidden border-b border-border bg-secondary sm:h-[24rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}

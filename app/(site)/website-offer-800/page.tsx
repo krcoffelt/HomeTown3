@@ -7,7 +7,7 @@ import { OfferLeadForm } from "@/components/sections/offer-lead-form";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { TestimonialCard } from "@/components/ui/testimonial-card";
-import { CheckCircleIcon, ClockIcon, MessageCircleIcon, PhoneIcon, TargetIcon } from "@/components/ui/site-icons";
+import { CheckCircleIcon, PhoneIcon } from "@/components/ui/site-icons";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { testimonials } from "@/data/copy";
@@ -19,24 +19,6 @@ const trustItems = [
   "Fast turnaround",
   "Built for small businesses",
   "No pressure"
-];
-
-const proofBullets = [
-  {
-    title: "Fast turnaround",
-    body: "Most sites in this package launch in about 7 business days once the basics are clear.",
-    icon: ClockIcon
-  },
-  {
-    title: "Clear communication",
-    body: "You work directly with the person building the site, so revisions stay simple and fast.",
-    icon: MessageCircleIcon
-  },
-  {
-    title: "Lead-focused design",
-    body: "The structure is built to make your business look credible and make it easy to contact you.",
-    icon: TargetIcon
-  }
 ];
 
 const includedItems = [
@@ -191,7 +173,7 @@ export default function WebsiteOfferLandingPage() {
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:col-span-3">
-            {supportingTestimonials.slice(0, 2).map((testimonial) => (
+            {supportingTestimonials.slice(0, 4).map((testimonial) => (
               <TestimonialCard
                 key={testimonial.name}
                 name={testimonial.name}
@@ -199,42 +181,6 @@ export default function WebsiteOfferLandingPage() {
                 highlight={testimonial.highlight}
               />
             ))}
-
-            <aside className="dark-panel p-7 sm:col-span-2">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">Google Review Snapshot</p>
-              <div className="mt-5 flex items-center gap-3">
-                <div className="flex items-center gap-1 text-yellow-500">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <span key={index} className="text-lg leading-none">★</span>
-                  ))}
-                </div>
-                <p className="text-sm font-bold text-primary-foreground">5.0-style client feedback</p>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-primary-foreground/70">
-                The point of this page is not hype. It is to show enough real proof that submitting the form feels like a reasonable next step.
-              </p>
-
-              <div className="mt-6 space-y-5">
-                {proofBullets.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <div key={item.title} className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] p-5">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary-foreground/8 text-primary-foreground">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <p className="mt-4 text-base font-bold text-primary-foreground">{item.title}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70">{item.body}</p>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="mt-6 grid gap-3 text-sm text-primary-foreground/72">
-                <p>50+ projects delivered</p>
-                <p>About 7 business days to launch</p>
-                <p>5.0 review reputation</p>
-              </div>
-            </aside>
           </div>
         </div>
       </SectionShell>
