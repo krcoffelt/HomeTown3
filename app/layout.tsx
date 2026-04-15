@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import { StructuredData } from "@/components/seo/structured-data";
 import { site } from "@/data/site";
-import { localBusinessSchema } from "@/lib/seo/schema";
+import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import { GtmLoader } from "@/components/analytics/gtm-loader";
 
 const GOOGLE_ADS_ID = "AW-17990702531";
@@ -37,19 +38,27 @@ export const metadata: Metadata = {
     description: "Custom websites, ads, and social media marketing built for KC small businesses. Starting at $800.",
     type: "website",
     url: site.url,
-    siteName: site.brand.fullName
+    siteName: site.brand.fullName,
+    images: [
+      {
+        url: site.brand.socialImage,
+        alt: site.brand.fullName
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Hometown Marketing Agency — KC Small Business Marketing",
-    description: "Affordable websites and marketing for Kansas City businesses. No contracts."
+    description: "Affordable websites and marketing for Kansas City businesses. No contracts.",
+    images: [site.brand.socialImage]
   }
 };
 
 export default function RootLayout({
   children
 }: Readonly<{ children: React.ReactNode }>) {
-  const localBusiness = localBusinessSchema();
+  const globalSchema = [organizationSchema(), websiteSchema(), localBusinessSchema()];
+
   return (
     <html lang="en">
       <head>
@@ -71,11 +80,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
-        <script
-          type="application/ld+json"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
-        />
+        <StructuredData data={globalSchema} />
         <GtmLoader gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
         {children}
       </body>

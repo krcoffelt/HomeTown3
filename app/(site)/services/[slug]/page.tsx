@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
+import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
 import { Button } from "@/components/ui/button";
 import { CheckCircleIcon } from "@/components/ui/site-icons";
 import { getServiceBySlug, services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { breadcrumbSchema, serviceSchema } from "@/lib/seo/schema";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -39,10 +42,31 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     notFound();
   }
 
+  const schema = [
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Services", path: "/services" },
+      { name: service.title, path: `/services/${service.slug}` }
+    ]),
+    serviceSchema(service)
+  ];
+
   return (
     <PageTransition>
+      <StructuredData data={schema} />
       <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
         <div className="site-container">
+          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-primary-foreground/62">
+            <Link href="/" className="transition hover:text-primary-foreground">
+              Home
+            </Link>
+            <span>/</span>
+            <Link href="/services" className="transition hover:text-primary-foreground">
+              Services
+            </Link>
+            <span>/</span>
+            <span className="text-primary-foreground">{service.title}</span>
+          </nav>
           <PageHero
             badge="Service"
             title={service.title}
@@ -130,7 +154,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               If this service looks like the right fit, send a message and we&apos;ll map out the best next move for your business.
             </p>
           </div>
-          <Button href="/contact#form">Start the Conversation</Button>
+          <div className="flex flex-wrap gap-3">
+            <Button href="/contact#form">Start the Conversation</Button>
+            {service.slug === "website-design" ? (
+              <Button href="/website-offer-800#claim-form" variant="secondary">
+                See the $800 Website Offer
+              </Button>
+            ) : null}
+          </div>
         </div>
       </SectionShell>
     </PageTransition>

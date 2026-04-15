@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CloseIcon, MenuIcon } from "@/components/ui/site-icons";
 import { site } from "@/data/site";
+import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils/cn";
 
 const links = [
@@ -51,7 +52,9 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href={`tel:${site.contactPhone}`}
+              data-analytics="phone_click"
               className="hidden text-sm font-medium text-primary-foreground/75 transition hover:text-primary-foreground md:inline-flex"
+              onClick={() => pushDataLayerEvent(analyticsEvents.phoneClick)}
             >
               {site.contactPhone}
             </a>

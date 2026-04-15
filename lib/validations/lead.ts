@@ -4,7 +4,7 @@ export const leadSchema = z.object({
   name: z.string().min(2).max(80),
   businessName: z.string().min(2).max(120),
   email: z.string().email(),
-  phone: z.string().max(30).optional(),
+  phone: z.string().min(7, "Please add a phone number.").max(30),
   serviceNeeded: z.string().min(1).max(120),
   landingPage: z.string().max(2048).optional(),
   referrerUrl: z.string().max(2048).optional(),

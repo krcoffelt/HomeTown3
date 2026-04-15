@@ -1,10 +1,12 @@
 "use client";
 
 import { Suspense, useActionState, useEffect, useState } from "react";
+import Link from "next/link";
 import { submitOfferLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
 const initialState: SubmitLeadState = { ok: false, message: "" };
 const initialValues = {
@@ -16,13 +18,6 @@ const initialValues = {
 };
 
 const GOOGLE_ADS_OFFER_CONVERSION_SEND_TO = process.env.NEXT_PUBLIC_GOOGLE_ADS_OFFER_CONVERSION_SEND_TO;
-
-function pushDataLayerEvent(eventName: string) {
-  if (typeof window === "undefined") return;
-  const dataLayerWindow = window as Window & { dataLayer?: Array<Record<string, string>> };
-  dataLayerWindow.dataLayer = dataLayerWindow.dataLayer ?? [];
-  dataLayerWindow.dataLayer.push({ event: eventName });
-}
 
 function fireOfferLeadConversion() {
   if (typeof window === "undefined") return;
@@ -46,14 +41,14 @@ export function OfferLeadForm() {
 
   useEffect(() => {
     if (!state.ok) return;
-    pushDataLayerEvent("offer_lead_submit_success");
+    pushDataLayerEvent(analyticsEvents.offerLeadSubmitSuccess);
     fireOfferLeadConversion();
   }, [state.ok]);
 
   const markStarted = () => {
     if (hasStarted) return;
     setHasStarted(true);
-    pushDataLayerEvent("form_start");
+    pushDataLayerEvent(analyticsEvents.formStart);
   };
 
   return (
@@ -70,11 +65,15 @@ export function OfferLeadForm() {
         id="offer-form"
         action={action}
         className="grid gap-5"
-        onSubmit={() => pushDataLayerEvent("form_submit")}
+        onSubmit={() => pushDataLayerEvent(analyticsEvents.formSubmit)}
       >
         <Suspense fallback={null}>
           <LeadAttributionFields />
         </Suspense>
+        <div className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0" aria-hidden="true">
+          <label htmlFor="offer-companyWebsite">Leave this field blank</label>
+          <input id="offer-companyWebsite" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
         <div className="grid gap-5 md:grid-cols-2">
           <div className="space-y-2">
             <label htmlFor="offer-name" className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Name</label>
@@ -152,6 +151,16 @@ export function OfferLeadForm() {
         </Button>
         <p className="text-sm text-muted-foreground">
           No pressure. Clear next steps. Fast response.
+        </p>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          By submitting, you agree to our{" "}
+          <Link href="/privacy-policy" className="underline decoration-current/30 underline-offset-4 transition hover:text-foreground">
+            Privacy Policy
+          </Link>{" "}
+          and{" "}
+          <Link href="/terms-of-service" className="underline decoration-current/30 underline-offset-4 transition hover:text-foreground">
+            Terms of Service
+          </Link>.
         </p>
       </form>
     </div>

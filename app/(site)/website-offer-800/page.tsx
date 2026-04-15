@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { OfferPageTracker } from "@/components/analytics/offer-page-tracker";
 import { SectionShell } from "@/components/layout/section-shell";
+import { StructuredData } from "@/components/seo/structured-data";
 import { OfferLeadForm } from "@/components/sections/offer-lead-form";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { testimonials } from "@/data/copy";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { websiteOfferSchema } from "@/lib/seo/schema";
 
 const trustItems = [
   "Flat-rate pricing",
@@ -118,6 +120,7 @@ export default function WebsiteOfferLandingPage() {
 
   return (
     <>
+      <StructuredData data={websiteOfferSchema()} />
       <OfferPageTracker />
 
       <section className="relative overflow-hidden bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-24">

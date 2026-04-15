@@ -1,4 +1,5 @@
 import { ContactCta } from "@/components/sections/contact-cta";
+import { StructuredData } from "@/components/seo/structured-data";
 import { FeaturedWork } from "@/components/sections/featured-work";
 import { FAQSection } from "@/components/sections/faq-section";
 import { HomeHero } from "@/components/sections/home-hero";
@@ -23,11 +24,7 @@ export default function HomePage() {
 
   return (
     <PageTransition>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <StructuredData data={schema} />
       <HomeHero />
       <SocialProofStrip />
       <WhyHometown />

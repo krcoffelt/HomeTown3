@@ -1,7 +1,9 @@
 export const site = {
   brand: {
     shortName: "Hometown",
-    fullName: "Hometown Marketing Agency"
+    fullName: "Hometown Marketing Agency",
+    visibleLogo: "/images/HometownLogo2026_white.png",
+    socialImage: "/images/HometownLogo2026_white.png"
   },
   name: "Hometown",
   title: "Affordable Websites & Marketing for Kansas City Small Businesses",

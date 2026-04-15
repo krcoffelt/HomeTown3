@@ -1,6 +1,7 @@
 import { FAQSection } from "@/components/sections/faq-section";
 import { SectionShell } from "@/components/layout/section-shell";
 import { PageHero } from "@/components/layout/page-hero";
+import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
 import { Button } from "@/components/ui/button";
 import { CheckCircleIcon } from "@/components/ui/site-icons";
@@ -22,11 +23,7 @@ export default function PricingPage() {
 
   return (
     <PageTransition>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <StructuredData data={schema} />
       <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
         <div className="site-container">
           <PageHero
@@ -77,6 +74,9 @@ export default function PricingPage() {
                 </div>
               ))}
             </div>
+            <Button href="/website-offer-800#claim-form" className="mt-7 w-full">
+              See the $800 Offer
+            </Button>
           </aside>
         </div>
       </SectionShell>

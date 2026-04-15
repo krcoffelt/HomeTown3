@@ -10,6 +10,10 @@ export interface SubmitLeadState {
   message: string;
 }
 
+function spamGuard(formData: FormData) {
+  return String(formData.get("companyWebsite") ?? "").trim();
+}
+
 function cleanOptional(value?: string) {
   const trimmed = value?.trim();
   return trimmed ? trimmed : undefined;
@@ -104,6 +108,13 @@ export async function submitLead(
   _prevState: SubmitLeadState,
   formData: FormData
 ): Promise<SubmitLeadState> {
+  if (spamGuard(formData)) {
+    return {
+      ok: true,
+      message: "Thanks. Your request was sent successfully."
+    };
+  }
+
   const parsed = leadSchema.safeParse({
     name: String(formData.get("name") ?? ""),
     businessName: String(formData.get("businessName") ?? ""),
@@ -166,13 +177,31 @@ export async function submitOfferLead(
   _prevState: SubmitLeadState,
   formData: FormData
 ): Promise<SubmitLeadState> {
+  if (spamGuard(formData)) {
+    return {
+      ok: true,
+      message: "Thanks. Your request was sent successfully."
+    };
+  }
+
+  const name = String(formData.get("name") ?? "").trim();
+  const businessName = String(formData.get("businessName") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim();
+  const phone = String(formData.get("phone") ?? "").trim();
   const websiteOrSocial = String(formData.get("websiteOrSocial") ?? "").trim();
 
+  if (!name || !businessName || !email || !phone) {
+    return {
+      ok: false,
+      message: "Please complete the required fields before submitting."
+    };
+  }
+
   return insertLead({
-    name: String(formData.get("name") ?? ""),
-    businessName: String(formData.get("businessName") ?? ""),
-    email: String(formData.get("email") ?? ""),
-    phone: String(formData.get("phone") ?? ""),
+    name,
+    businessName,
+    email,
+    phone,
     landingPage: String(formData.get("landingPage") ?? ""),
     referrerUrl: String(formData.get("referrerUrl") ?? ""),
     utmSource: String(formData.get("utmSource") ?? ""),

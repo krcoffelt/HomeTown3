@@ -15,18 +15,29 @@ export function createPageMetadata(
       absolute: titled
     },
     description,
+    robots: {
+      index: true,
+      follow: true
+    },
     alternates: { canonical: url },
     openGraph: {
       title: titled,
       description,
       type: "website",
       url,
-      siteName: brand
+      siteName: brand,
+      images: [
+        {
+          url: site.brand.socialImage,
+          alt: site.brand.fullName
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
       title: titled,
-      description
+      description,
+      images: [site.brand.socialImage]
     }
   };
 }

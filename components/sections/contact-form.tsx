@@ -1,11 +1,13 @@
 "use client";
 
 import { Suspense, useActionState, useEffect, useState } from "react";
+import Link from "next/link";
 import { submitLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SendIcon } from "@/components/ui/site-icons";
+import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils/cn";
 
@@ -25,17 +27,33 @@ interface ContactFormProps {
 export function ContactForm({ dark = false }: ContactFormProps) {
   const [state, action, pending] = useActionState(submitLead, initialState);
   const [values, setValues] = useState(initialValues);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     if (!state.ok) return;
     setValues(initialValues);
   }, [state.ok]);
 
+  useEffect(() => {
+    if (!state.ok) return;
+    pushDataLayerEvent(analyticsEvents.contactLeadSubmitSuccess);
+  }, [state.ok]);
+
+  const markStarted = () => {
+    if (hasStarted) return;
+    setHasStarted(true);
+    pushDataLayerEvent(analyticsEvents.formStart);
+  };
+
   const labelClass = cn("mb-2 block text-xs font-bold uppercase tracking-[0.2em]", dark ? "text-primary-foreground/70" : "text-muted-foreground");
   const fieldClass = cn(
     dark
       ? "border-primary-foreground/12 bg-primary-foreground/[0.04] text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-primary-foreground"
       : "border-border bg-background text-foreground placeholder:text-muted-foreground"
+  );
+  const policyLinkClass = cn(
+    "underline decoration-current/30 underline-offset-4 transition",
+    dark ? "hover:text-primary-foreground" : "hover:text-foreground"
   );
 
   return (
@@ -50,11 +68,20 @@ export function ContactForm({ dark = false }: ContactFormProps) {
         </p>
       </div>
 
-      <form id="contact-form" action={action} className="grid gap-5">
+      <form
+        id="contact-form"
+        action={action}
+        className="grid gap-5"
+        onSubmit={() => pushDataLayerEvent(analyticsEvents.formSubmit)}
+      >
         <input type="hidden" name="serviceNeeded" value="General Inquiry" />
         <Suspense fallback={null}>
           <LeadAttributionFields />
         </Suspense>
+        <div className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0" aria-hidden="true">
+          <label htmlFor="contact-companyWebsite">Leave this field blank</label>
+          <input id="contact-companyWebsite" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
         <div className="grid gap-5 md:grid-cols-2">
           <div>
             <label htmlFor="contact-name" className={labelClass}>Your Name</label>
@@ -66,6 +93,7 @@ export function ContactForm({ dark = false }: ContactFormProps) {
               value={values.name}
               className={fieldClass}
               placeholder="Your full name"
+              onFocus={markStarted}
               onChange={(event) => setValues((prev) => ({ ...prev, name: event.target.value }))}
             />
           </div>
@@ -79,6 +107,7 @@ export function ContactForm({ dark = false }: ContactFormProps) {
               value={values.businessName}
               className={fieldClass}
               placeholder="Your business name"
+              onFocus={markStarted}
               onChange={(event) => setValues((prev) => ({ ...prev, businessName: event.target.value }))}
             />
           </div>
@@ -95,6 +124,7 @@ export function ContactForm({ dark = false }: ContactFormProps) {
               value={values.email}
               className={fieldClass}
               placeholder="you@business.com"
+              onFocus={markStarted}
               onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
             />
           </div>
@@ -109,6 +139,7 @@ export function ContactForm({ dark = false }: ContactFormProps) {
               value={values.phone}
               className={fieldClass}
               placeholder="(913) 991-6641"
+              onFocus={markStarted}
               onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
             />
           </div>
@@ -123,6 +154,7 @@ export function ContactForm({ dark = false }: ContactFormProps) {
             value={values.projectDetails}
             className={fieldClass}
             placeholder="What do you do, what do you need, and what would make this a win?"
+            onFocus={markStarted}
             onChange={(event) => setValues((prev) => ({ ...prev, projectDetails: event.target.value }))}
           />
         </div>
@@ -135,6 +167,16 @@ export function ContactForm({ dark = false }: ContactFormProps) {
           {pending ? "Sending..." : "Send Message"}
           <SendIcon className="h-4 w-4" />
         </Button>
+        <p className={cn("text-sm leading-relaxed", dark ? "text-accent-foreground/80" : "text-muted-foreground")}>
+          By submitting, you agree to our{" "}
+          <Link href="/privacy-policy" className={policyLinkClass}>
+            Privacy Policy
+          </Link>{" "}
+          and{" "}
+          <Link href="/terms-of-service" className={policyLinkClass}>
+            Terms of Service
+          </Link>.
+        </p>
       </form>
     </div>
   );
