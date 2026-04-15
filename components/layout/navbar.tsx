@@ -37,7 +37,7 @@ export function Navbar() {
   if (isOfferPage) {
     return (
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/85 backdrop-blur-xl">
-        <div className="site-container flex min-h-[78px] items-center justify-between gap-4 py-4">
+        <div className="site-container flex min-h-[74px] items-center justify-between gap-3 py-3 sm:min-h-[78px] sm:gap-4 sm:py-4">
           <Link href="/" aria-label="Hometown home" className="shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -45,11 +45,11 @@ export function Navbar() {
               alt="Hometown Marketing Agency"
               width={220}
               height={60}
-              className="h-9 w-auto md:h-10"
+              className="h-7 w-auto sm:h-9 md:h-10"
             />
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={`tel:${site.contactPhone}`}
               data-analytics="phone_click"
@@ -64,8 +64,9 @@ export function Navbar() {
             >
               View Examples
             </Link>
-            <Button href="#claim-form" className="h-11 px-5 md:px-6" dataAnalytics="cta-offer-800">
-              Get My $800 Website
+            <Button href="#claim-form" className="h-10 px-4 text-xs sm:h-11 sm:px-5 sm:text-sm md:px-6" dataAnalytics="cta-offer-800">
+              <span className="sm:hidden">Get Started</span>
+              <span className="hidden sm:inline">Get My $800 Website</span>
             </Button>
           </div>
         </div>
