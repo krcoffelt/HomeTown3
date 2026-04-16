@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import Link from "next/link";
 import { submitLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
@@ -75,9 +75,7 @@ export function ContactForm({ dark = false }: ContactFormProps) {
         onSubmit={() => pushDataLayerEvent(analyticsEvents.formSubmit)}
       >
         <input type="hidden" name="serviceNeeded" value="General Inquiry" />
-        <Suspense fallback={null}>
-          <LeadAttributionFields />
-        </Suspense>
+        <LeadAttributionFields />
         <div className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0" aria-hidden="true">
           <label htmlFor="contact-companyWebsite">Leave this field blank</label>
           <input id="contact-companyWebsite" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" />

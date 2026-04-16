@@ -35,7 +35,7 @@ export function Navbar() {
 
   if (isOfferPage) {
     return (
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/85 backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/95 md:bg-black/85 md:backdrop-blur-xl">
         <div className="site-container flex min-h-[74px] items-center justify-between gap-3 py-3 sm:min-h-[78px] sm:gap-4 sm:py-4">
           <Link href="/" aria-label="Hometown home" className="shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -102,7 +102,7 @@ export function Navbar() {
           <nav
             aria-label="Main navigation"
             className={cn(
-              "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 backdrop-blur-xl md:absolute md:left-1/2 md:flex md:-translate-x-1/2",
+              "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 md:absolute md:left-1/2 md:flex md:-translate-x-1/2 md:backdrop-blur-xl",
               scrolled
                 ? "border-primary-foreground/10 bg-foreground/90 shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
                 : "border-primary-foreground/[0.08] bg-foreground/30"
@@ -167,7 +167,7 @@ export function Navbar() {
         {isOpen ? (
           <div
             id="mobile-nav"
-            className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground/98 p-4 text-primary-foreground backdrop-blur-xl md:hidden"
+            className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground p-4 text-primary-foreground md:hidden"
           >
               <nav className="flex flex-col gap-2">
                 {links.map((link) => {

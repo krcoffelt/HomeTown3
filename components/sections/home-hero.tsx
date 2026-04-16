@@ -5,12 +5,12 @@ import { homepageCopy } from "@/data/copy";
 export function HomeHero() {
   return (
     <section className="home-hero-bg relative min-h-[92vh] overflow-hidden bg-black bg-cover bg-center bg-no-repeat">
-      <div aria-hidden="true" className="pointer-events-none absolute left-[-4rem] top-[12rem] h-[500px] w-[500px] rounded-full bg-primary/8 blur-[150px]" />
-      <div aria-hidden="true" className="pointer-events-none absolute right-[-2rem] top-[8rem] h-[400px] w-[400px] rounded-full bg-primary-glow/6 blur-[120px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-[-4rem] top-[12rem] hidden h-[500px] w-[500px] rounded-full bg-primary/8 blur-[150px] md:block" />
+      <div aria-hidden="true" className="pointer-events-none absolute right-[-2rem] top-[8rem] hidden h-[400px] w-[400px] rounded-full bg-primary-glow/6 blur-[120px] md:block" />
 
       <div className="site-container relative z-10 flex min-h-[92vh] items-center pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="max-w-6xl text-primary-foreground">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/12 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em]">
             <MapPinIcon className="h-4 w-4" />
             {homepageCopy.heroBadge}
           </div>

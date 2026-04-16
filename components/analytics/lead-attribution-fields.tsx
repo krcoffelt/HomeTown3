@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
 import { leadAttributionFieldNames, type LeadAttributionFields } from "@/lib/analytics/lead-attribution";
 
 const STORAGE_KEY = "hometown_lead_attribution_v1";
@@ -41,61 +40,51 @@ function writeStoredAttribution(values: LeadAttributionFields) {
 }
 
 export function LeadAttributionFields() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [mounted, setMounted] = useState(false);
   const [values, setValues] = useState<LeadAttributionFields>(emptyValues);
 
   useEffect(() => {
-    setMounted(true);
+    try {
+      const stored = readStoredAttribution();
+      const { pathname, search, searchParams } = new URL(window.location.href);
+      const currentValues: LeadAttributionFields = {
+        landingPage: `${pathname}${search}`,
+        referrerUrl: cleanValue(document.referrer),
+        utmSource: cleanValue(searchParams.get("utm_source")),
+        utmMedium: cleanValue(searchParams.get("utm_medium")),
+        utmCampaign: cleanValue(searchParams.get("utm_campaign")),
+        utmTerm: cleanValue(searchParams.get("utm_term")),
+        utmContent: cleanValue(searchParams.get("utm_content")),
+        gclid: cleanValue(searchParams.get("gclid"))
+      };
+
+      const hasTrackingParams = Boolean(
+        currentValues.utmSource ||
+          currentValues.utmMedium ||
+          currentValues.utmCampaign ||
+          currentValues.utmTerm ||
+          currentValues.utmContent ||
+          currentValues.gclid
+      );
+
+      const nextValues = hasTrackingParams
+        ? currentValues
+        : {
+            landingPage: stored?.landingPage || currentValues.landingPage,
+            referrerUrl: stored?.referrerUrl || currentValues.referrerUrl,
+            utmSource: stored?.utmSource || currentValues.utmSource,
+            utmMedium: stored?.utmMedium || currentValues.utmMedium,
+            utmCampaign: stored?.utmCampaign || currentValues.utmCampaign,
+            utmTerm: stored?.utmTerm || currentValues.utmTerm,
+            utmContent: stored?.utmContent || currentValues.utmContent,
+            gclid: stored?.gclid || currentValues.gclid
+          };
+
+      writeStoredAttribution(nextValues);
+      setValues(nextValues);
+    } catch {
+      setValues(emptyValues);
+    }
   }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-
-    const stored = readStoredAttribution();
-    const queryString = searchParams.toString();
-    const currentLandingPage = `${pathname}${queryString ? `?${queryString}` : ""}`;
-    const currentValues: LeadAttributionFields = {
-      landingPage: currentLandingPage,
-      referrerUrl: cleanValue(document.referrer),
-      utmSource: cleanValue(searchParams.get("utm_source")),
-      utmMedium: cleanValue(searchParams.get("utm_medium")),
-      utmCampaign: cleanValue(searchParams.get("utm_campaign")),
-      utmTerm: cleanValue(searchParams.get("utm_term")),
-      utmContent: cleanValue(searchParams.get("utm_content")),
-      gclid: cleanValue(searchParams.get("gclid"))
-    };
-
-    const hasTrackingParams = Boolean(
-      currentValues.utmSource ||
-        currentValues.utmMedium ||
-        currentValues.utmCampaign ||
-        currentValues.utmTerm ||
-        currentValues.utmContent ||
-        currentValues.gclid
-    );
-
-    const nextValues = hasTrackingParams
-      ? currentValues
-      : {
-          landingPage: stored?.landingPage || currentValues.landingPage,
-          referrerUrl: stored?.referrerUrl || currentValues.referrerUrl,
-          utmSource: stored?.utmSource || currentValues.utmSource,
-          utmMedium: stored?.utmMedium || currentValues.utmMedium,
-          utmCampaign: stored?.utmCampaign || currentValues.utmCampaign,
-          utmTerm: stored?.utmTerm || currentValues.utmTerm,
-          utmContent: stored?.utmContent || currentValues.utmContent,
-          gclid: stored?.gclid || currentValues.gclid
-        };
-
-    writeStoredAttribution(nextValues);
-    setValues(nextValues);
-  }, [mounted, pathname, searchParams]);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <>

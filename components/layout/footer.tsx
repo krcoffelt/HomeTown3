@@ -68,8 +68,8 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-black text-primary-foreground">
-      <div aria-hidden="true" className="pointer-events-none absolute right-[-6rem] top-[-4rem] h-[400px] w-[400px] rounded-full bg-primary/3 blur-[120px]" />
-      <div aria-hidden="true" className="pointer-events-none absolute left-[-8rem] bottom-[-8rem] h-[340px] w-[340px] rounded-full bg-accent/10 blur-[110px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute right-[-6rem] top-[-4rem] hidden h-[400px] w-[400px] rounded-full bg-primary/3 blur-[120px] md:block" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-[-8rem] bottom-[-8rem] hidden h-[340px] w-[340px] rounded-full bg-accent/10 blur-[110px] md:block" />
       <div className="site-container pt-20 pb-10 md:pt-28">
         <Reveal>
           <p className="max-w-5xl font-display text-4xl font-bold leading-[0.95] tracking-tight text-primary-foreground/14 sm:text-5xl md:text-6xl lg:text-7xl">

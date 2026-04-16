@@ -221,6 +221,17 @@ img {
   }
 }
 
+@media (max-width: 767px) {
+  .noise::after {
+    display: none;
+  }
+
+  .glass,
+  .glass-dark {
+    backdrop-filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

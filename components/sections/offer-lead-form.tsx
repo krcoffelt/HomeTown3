@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import Link from "next/link";
 import { submitOfferLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
@@ -67,9 +67,7 @@ export function OfferLeadForm() {
         className="grid gap-5"
         onSubmit={() => pushDataLayerEvent(analyticsEvents.formSubmit)}
       >
-        <Suspense fallback={null}>
-          <LeadAttributionFields />
-        </Suspense>
+        <LeadAttributionFields />
         <div className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0" aria-hidden="true">
           <label htmlFor="offer-companyWebsite">Leave this field blank</label>
           <input id="offer-companyWebsite" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" />
