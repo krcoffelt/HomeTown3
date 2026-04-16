@@ -26,6 +26,10 @@ function contactPointSchema() {
   };
 }
 
+function maybe<T>(value: T | null | undefined | false) {
+  return value ? value : undefined;
+}
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -39,7 +43,8 @@ export function organizationSchema() {
     telephone: site.contactPhone,
     logo: absoluteUrl(site.brand.visibleLogo),
     image: absoluteUrl(site.brand.socialImage),
-    contactPoint: [contactPointSchema()]
+    contactPoint: [contactPointSchema()],
+    sameAs: maybe(site.sameAs.length ? site.sameAs : undefined)
   };
 }
 
@@ -66,16 +71,6 @@ export function localBusinessSchema() {
     name: site.brand.fullName,
     alternateName: site.brand.shortName,
     description: site.description,
-    areaServed: [
-      {
-        "@type": "City",
-        name: "Kansas City"
-      },
-      {
-        "@type": "City",
-        name: "Overland Park"
-      }
-    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.streetAddress,
@@ -91,6 +86,17 @@ export function localBusinessSchema() {
     image: absoluteUrl(site.brand.socialImage),
     logo: absoluteUrl(site.brand.visibleLogo),
     contactPoint: [contactPointSchema()],
+    areaServed: site.serviceAreas.map((area) => ({
+      "@type": "AdministrativeArea",
+      name: area
+    })),
+    geo: maybe(
+      site.geo && {
+        "@type": "GeoCoordinates",
+        latitude: site.geo.latitude,
+        longitude: site.geo.longitude
+      }
+    ),
     parentOrganization: {
       "@id": organizationId
     }
@@ -99,6 +105,10 @@ export function localBusinessSchema() {
 
 export function faqSchema(page: "home" | "pricing") {
   const items = faqs.filter((item) => item.page === page);
+  return faqItemsSchema(items);
+}
+
+export function faqItemsSchema(items: Array<{ question: string; answer: string }>) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -110,6 +120,31 @@ export function faqSchema(page: "home" | "pricing") {
         text: item.answer
       }
     }))
+  };
+}
+
+export function webPageSchema({
+  name,
+  description,
+  path
+}: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(path)}#webpage`,
+    url: absoluteUrl(path),
+    name,
+    description,
+    isPartOf: {
+      "@id": websiteId
+    },
+    about: {
+      "@id": organizationId
+    }
   };
 }
 
@@ -134,13 +169,13 @@ export function serviceSchema(service: ServiceItem) {
     "@type": "Service",
     "@id": `${serviceUrl}#service`,
     name: service.title,
-    description: service.description,
+    description: service.seoDescription ?? service.description,
     serviceType: service.title,
     url: serviceUrl,
-    areaServed: {
+    areaServed: site.serviceAreas.map((area) => ({
       "@type": "AdministrativeArea",
-      name: "Kansas City metro"
-    },
+      name: area
+    })),
     provider: {
       "@id": localBusinessId
     },
@@ -166,10 +201,10 @@ export function websiteOfferSchema() {
     description:
       "A flat-rate website package for small businesses that need a clean, credible, lead-focused website fast.",
     url: offerUrl,
-    areaServed: {
+    areaServed: site.serviceAreas.map((area) => ({
       "@type": "AdministrativeArea",
-      name: "Kansas City metro"
-    },
+      name: area
+    })),
     provider: {
       "@id": localBusinessId
     },

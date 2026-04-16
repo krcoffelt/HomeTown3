@@ -1,8 +1,10 @@
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
+import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/data/site";
+import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 const sections = [
   {
@@ -39,8 +41,21 @@ export const metadata = createPageMetadata(
 );
 
 export default function TermsOfServicePage() {
+  const schema = [
+    webPageSchema({
+      name: "Terms of Service",
+      description: "The basic terms governing use of the Hometown website and inquiry forms.",
+      path: "/terms-of-service"
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Terms of Service", path: "/terms-of-service" }
+    ])
+  ];
+
   return (
     <PageTransition>
+      <StructuredData data={schema} />
       <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
         <div className="site-container">
           <PageHero

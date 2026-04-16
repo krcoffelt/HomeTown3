@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { CheckCircleIcon } from "@/components/ui/site-icons";
 import { getServiceBySlug, services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, serviceSchema } from "@/lib/seo/schema";
+import { getServiceShareImage } from "@/lib/seo/routes";
+import { breadcrumbSchema, serviceSchema, webPageSchema } from "@/lib/seo/schema";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -29,8 +30,10 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
   return createPageMetadata(
     `${service.title} | Kansas City Marketing Agency`,
-    service.description,
-    `/services/${service.slug}`
+    service.seoDescription ?? service.description,
+    `/services/${service.slug}`,
+    undefined,
+    { image: getServiceShareImage(service.slug) }
   );
 }
 
@@ -48,6 +51,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       { name: "Services", path: "/services" },
       { name: service.title, path: `/services/${service.slug}` }
     ]),
+    webPageSchema({
+      name: service.title,
+      description: service.seoDescription ?? service.description,
+      path: `/services/${service.slug}`
+    }),
     serviceSchema(service)
   ];
 

@@ -11,7 +11,7 @@ import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { WhyHometown } from "@/components/sections/why-hometown";
 import { PageTransition } from "@/components/ui/page-transition";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { faqSchema } from "@/lib/seo/schema";
+import { faqSchema, webPageSchema } from "@/lib/seo/schema";
 
 export const metadata = createPageMetadata(
   "Hometown Marketing Agency — Affordable Websites & Marketing for Kansas City Small Businesses",
@@ -20,7 +20,14 @@ export const metadata = createPageMetadata(
 );
 
 export default function HomePage() {
-  const schema = faqSchema("home");
+  const schema = [
+    webPageSchema({
+      name: "Hometown Marketing Agency",
+      description: "Affordable websites and marketing for Kansas City small businesses.",
+      path: "/"
+    }),
+    faqSchema("home")
+  ];
 
   return (
     <PageTransition>

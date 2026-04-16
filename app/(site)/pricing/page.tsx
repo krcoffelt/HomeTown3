@@ -8,7 +8,7 @@ import { CheckCircleIcon } from "@/components/ui/site-icons";
 import { homepageCopy } from "@/data/copy";
 import { services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { faqSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 
 export const metadata = createPageMetadata(
   "Transparent pricing. No surprise invoices.",
@@ -17,7 +17,18 @@ export const metadata = createPageMetadata(
 );
 
 export default function PricingPage() {
-  const schema = faqSchema("pricing");
+  const schema = [
+    webPageSchema({
+      name: "Pricing",
+      description: "Website package pricing and supporting marketing services for Kansas City small businesses.",
+      path: "/pricing"
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Pricing", path: "/pricing" }
+    ]),
+    faqSchema("pricing")
+  ];
   const websiteService = services.find((service) => service.slug === "website-design");
   const additionalServices = services.filter((service) => service.slug !== "website-design");
 

@@ -34,9 +34,14 @@ export function PricingPreview() {
               </li>
             ))}
           </ul>
-          <Button href="/contact#form" className="mt-8 h-12 w-full rounded-xl bg-[linear-gradient(135deg,hsl(var(--primary))_0%,hsl(var(--primary-glow))_100%)]">
-            Get Started
-          </Button>
+          <div className="mt-8 flex flex-col gap-3">
+            <Button href="/contact#form" className="h-12 w-full rounded-xl bg-[linear-gradient(135deg,hsl(var(--primary))_0%,hsl(var(--primary-glow))_100%)]">
+              Get Started
+            </Button>
+            <Button href="/website-offer-800#claim-form" variant="secondary" className="h-12 w-full rounded-xl">
+              See the $800 Offer
+            </Button>
+          </div>
         </div>
 
         <div className="light-panel p-7">

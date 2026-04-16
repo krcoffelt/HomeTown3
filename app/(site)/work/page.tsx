@@ -4,7 +4,9 @@ import { WorkGrid } from "@/components/sections/work-grid";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { PageTransition } from "@/components/ui/page-transition";
 import { ArrowRightIcon } from "@/components/ui/site-icons";
+import { StructuredData } from "@/components/seo/structured-data";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 import Link from "next/link";
 
 export const metadata = createPageMetadata(
@@ -14,8 +16,21 @@ export const metadata = createPageMetadata(
 );
 
 export default function WorkPage() {
+  const schema = [
+    webPageSchema({
+      name: "Our Work",
+      description: "Recent website work for Kansas City businesses across several industries.",
+      path: "/work"
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/work" }
+    ])
+  ];
+
   return (
     <PageTransition>
+      <StructuredData data={schema} />
       <section className="noise bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
         <div className="site-container">
           <PageHero
@@ -30,15 +45,26 @@ export default function WorkPage() {
       <SectionShell>
         <WorkGrid />
         <div className="mt-14 flex justify-center">
-          <MagneticButton>
-            <Link
-              href="/contact#form"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
-            >
-              Start Your Project
-              <ArrowRightIcon className="h-4 w-4" />
-            </Link>
-          </MagneticButton>
+          <div className="flex flex-wrap justify-center gap-3">
+            <MagneticButton>
+              <Link
+                href="/contact#form"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+              >
+                Start Your Project
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link
+                href="/website-offer-800#claim-form"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+              >
+                See the $800 Offer
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </MagneticButton>
+          </div>
         </div>
       </SectionShell>
     </PageTransition>

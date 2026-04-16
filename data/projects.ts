@@ -10,8 +10,10 @@ export const projects: ProjectItem[] = [
     description: "A hospitality-focused build with stronger navigation, bolder visuals, and clearer reservation paths.",
     servicesProvided: ["Website Design", "Creative Direction"],
     featuredImageUrl: "/images/work/PlateKCScreenshot.png",
+    imageAlt: "Homepage design preview for Plate KC restaurant website",
     liveUrl: "https://platekc.com",
-    quote: "A modern restaurant site that feels premium without losing warmth."
+    quote: "A modern restaurant site that feels premium without losing warmth.",
+    updatedAt: "2026-04-16"
   },
   {
     title: "Lupi Docs & Designs",
@@ -22,8 +24,10 @@ export const projects: ProjectItem[] = [
     description: "A credibility-first publishing site with stronger service explanations and cleaner conversion flow.",
     servicesProvided: ["Website Design", "Brand Identity"],
     featuredImageUrl: "/images/work/LupiDocsScreenshot.png",
+    imageAlt: "Homepage preview for Lupi Docs & Designs publishing website",
     liveUrl: "https://lupidocs.com",
-    quote: "Built to feel polished, trustworthy, and easy to navigate."
+    quote: "Built to feel polished, trustworthy, and easy to navigate.",
+    updatedAt: "2026-04-16"
   },
   {
     title: "José Isaí Valdez",
@@ -34,8 +38,10 @@ export const projects: ProjectItem[] = [
     description: "A personal brand build that balances performance footage, personality, and conversion moments.",
     servicesProvided: ["Website Design"],
     featuredImageUrl: "/images/work/JoseIsaiValdezScreenshot.png",
+    imageAlt: "Portfolio homepage preview for Jose Isai Valdez music website",
     liveUrl: "https://joseisaivaldez.com",
-    quote: "A portfolio that feels like the artist, not a template."
+    quote: "A portfolio that feels like the artist, not a template.",
+    updatedAt: "2026-04-16"
   },
   {
     title: "Voxwhite",
@@ -46,7 +52,9 @@ export const projects: ProjectItem[] = [
     description: "A cinematic music site with strong contrast, immersive imagery, and direct listening CTAs.",
     servicesProvided: ["Website Design", "Creative Direction"],
     featuredImageUrl: "/images/work/VoxwhiteScreenshot.png",
-    liveUrl: "https://voxwhite.com"
+    imageAlt: "Homepage preview for Voxwhite artist website",
+    liveUrl: "https://voxwhite.com",
+    updatedAt: "2026-04-16"
   },
   {
     title: "Wrapped Up Moving",
@@ -57,8 +65,10 @@ export const projects: ProjectItem[] = [
     description: "A service-business build with strong local credibility, bold hero messaging, and a direct quote-request flow.",
     servicesProvided: ["Website Design", "Lead Generation"],
     featuredImageUrl: "/images/WrappedUpMoving_screenshot.png",
+    imageAlt: "Homepage preview for Wrapped Up Moving website",
     liveUrl: "https://wrappedupmoving.com",
-    quote: "Built to feel trustworthy, local, and ready to turn visitors into quote requests."
+    quote: "Built to feel trustworthy, local, and ready to turn visitors into quote requests.",
+    updatedAt: "2026-04-16"
   },
   {
     title: "ZJ Carpentry & More",
@@ -69,7 +79,9 @@ export const projects: ProjectItem[] = [
     description: "A home-services build that highlights project photography, clear service lines, and a direct quote path for local homeowners.",
     servicesProvided: ["Website Design", "Creative Direction"],
     featuredImageUrl: "/images/ZJCarpentry_Screenshot.png",
+    imageAlt: "Homepage preview for ZJ Carpentry and More contractor website",
     liveUrl: "https://zjcarpentry.com",
-    quote: "Built to feel polished, trustworthy, and ready to turn homeowner interest into quote requests."
+    quote: "Built to feel polished, trustworthy, and ready to turn homeowner interest into quote requests.",
+    updatedAt: "2026-04-16"
   }
 ];

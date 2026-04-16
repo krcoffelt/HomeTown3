@@ -11,8 +11,10 @@ export interface ProjectItem {
   description: string;
   servicesProvided: string[];
   featuredImageUrl: string;
+  imageAlt: string;
   liveUrl?: string;
   quote?: string;
+  updatedAt?: string;
 }
 
 export interface ServiceItem {
@@ -21,9 +23,11 @@ export interface ServiceItem {
   price: string;
   shortDescription: string;
   description: string;
+  seoDescription?: string;
   features: string[];
   deliverables: string[];
   idealFor: string[];
   process: string[];
   metaTags: string[];
+  updatedAt?: string;
 }

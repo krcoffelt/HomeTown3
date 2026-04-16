@@ -7,6 +7,8 @@ import { ArrowRightIcon, CheckCircleIcon, GlobeIcon, TargetIcon, TrendingUpIcon,
 import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { StructuredData } from "@/components/seo/structured-data";
+import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 const iconMap: Record<string, typeof GlobeIcon> = {
   "website-design": GlobeIcon,
@@ -25,8 +27,21 @@ export const metadata = createPageMetadata(
 );
 
 export default function ServicesPage() {
+  const schema = [
+    webPageSchema({
+      name: "Services",
+      description: "Websites, ads, social media, and design for Kansas City small businesses.",
+      path: "/services"
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Services", path: "/services" }
+    ])
+  ];
+
   return (
     <PageTransition>
+      <StructuredData data={schema} />
       <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
         <div aria-hidden="true" className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
         <div className="site-container relative">
@@ -81,9 +96,14 @@ export default function ServicesPage() {
       <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-4xl font-bold tracking-tight md:text-5xl">Not sure what you need? That&apos;s totally fine.</p>
-          <Button href="/contact#form" className="mt-8 h-14 px-8">
-            Let&apos;s Talk
-          </Button>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button href="/contact#form" className="h-14 px-8">
+              Let&apos;s Talk
+            </Button>
+            <Button href="/about" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
+              Meet Hometown
+            </Button>
+          </div>
         </div>
       </SectionShell>
     </PageTransition>

@@ -37,3 +37,54 @@ The app also accepts the older aliases `FROM_EMAIL` and `LEAD_NOTIFICATION_EMAIL
   - `form_start`
   - `form_submit`
   - `generate_lead` (form submit)
+
+## Post-Deploy SEO + Trust QA
+
+Run this checklist after any major SEO, metadata, tracking, or form changes:
+
+### Crawl + metadata
+
+- Verify `/robots.txt` returns the current sitemap list:
+  - `/sitemap.xml`
+  - `/sitemap-pages.xml`
+  - `/sitemap-services.xml`
+  - `/sitemap-images.xml`
+- Verify the sitemap index loads and each child sitemap returns valid XML.
+- Spot-check canonical tags, page titles, meta descriptions, and OG/Twitter images on:
+  - `/`
+  - `/services`
+  - one `/services/[slug]`
+  - `/work`
+  - `/pricing`
+  - `/contact`
+  - `/about`
+  - `/website-offer-800`
+
+### Structured data
+
+- Validate schema on homepage, a service page, `/about`, and `/website-offer-800`.
+- Confirm breadcrumb schema matches the visible page hierarchy.
+- Confirm FAQ schema still matches the visible FAQ copy where used.
+
+### Lead capture + tracking
+
+- Submit a test lead through `/contact` and confirm:
+  - Supabase insert succeeds
+  - email notification is sent
+  - GTM / GA4 events fire for `form_start`, `form_submit`, and success
+- Submit a test lead through `/website-offer-800` and confirm the same.
+- Trigger an invalid form submit and confirm `form_error` is available in GTM preview.
+- Click a live work example and confirm `outbound_website_click` is available in GTM preview.
+
+### Supabase schema parity
+
+- Confirm the `leads` table includes the attribution columns from `supabase/migrations/0003_lead_attribution.sql`.
+- If production is behind, the app will fall back to core lead fields only, but schema parity should still be restored.
+
+### Redirects + trust routes
+
+- Verify these redirects still resolve correctly:
+  - `/services/logo-and-brand-work` -> `/services/brand-identity`
+  - `/services/google-business-profile-setup` -> `/services/search-engine-optimization`
+  - `/services/meta-ads-management` -> `/services/social-media-management`
+- Verify `/about`, `/privacy-policy`, `/terms-of-service`, and `/cookie-policy` are linked from the main site and return the expected metadata and schema.

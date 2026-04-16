@@ -39,6 +39,11 @@ export function ContactForm({ dark = false }: ContactFormProps) {
     pushDataLayerEvent(analyticsEvents.contactLeadSubmitSuccess);
   }, [state.ok]);
 
+  useEffect(() => {
+    if (!state.message || state.ok) return;
+    pushDataLayerEvent(analyticsEvents.formError);
+  }, [state.message, state.ok]);
+
   const markStarted = () => {
     if (hasStarted) return;
     setHasStarted(true);

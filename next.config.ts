@@ -7,6 +7,19 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.pexels.com" }
     ]
   },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" }
+        ]
+      }
+    ];
+  },
   async redirects() {
     return [
       {

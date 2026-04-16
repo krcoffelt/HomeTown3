@@ -1,20 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRightIcon } from "@/components/ui/site-icons";
+import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
 interface ProjectCardProps {
   title: string;
   description: string;
   category: string;
   imageUrl: string;
+  imageAlt: string;
   link?: string;
 }
 
-export function ProjectCard({ title, description, category, imageUrl, link }: ProjectCardProps) {
+export function ProjectCard({ title, description, category, imageUrl, imageAlt, link }: ProjectCardProps) {
   const content = (
     <article className="group relative h-[400px] overflow-hidden rounded-2xl bg-foreground text-primary-foreground md:h-[480px]">
       <Image
         src={imageUrl}
-        alt={`${title} project preview`}
+        alt={imageAlt}
         fill
         loading="lazy"
         sizes="(max-width: 768px) 100vw, 50vw"
@@ -42,7 +46,12 @@ export function ProjectCard({ title, description, category, imageUrl, link }: Pr
   if (!link) return content;
 
   return (
-    <a href={link} target="_blank" rel="noreferrer">
+    <a
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+      onClick={() => pushDataLayerEvent(analyticsEvents.outboundWebsiteClick)}
+    >
       {content}
     </a>
   );

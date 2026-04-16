@@ -1,7 +1,9 @@
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
+import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 const sections = [
   {
@@ -33,8 +35,21 @@ export const metadata = createPageMetadata(
 );
 
 export default function CookiePolicyPage() {
+  const schema = [
+    webPageSchema({
+      name: "Cookie Policy",
+      description: "How Hometown uses cookies, local storage, and tracking technologies on this website.",
+      path: "/cookie-policy"
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Cookie Policy", path: "/cookie-policy" }
+    ])
+  ];
+
   return (
     <PageTransition>
+      <StructuredData data={schema} />
       <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
         <div className="site-container">
           <PageHero

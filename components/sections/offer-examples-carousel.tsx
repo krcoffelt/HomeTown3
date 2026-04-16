@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { ArrowRightIcon } from "@/components/ui/site-icons";
+import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 import type { ProjectItem } from "@/types";
 
 interface OfferExamplesCarouselProps {
@@ -77,7 +78,7 @@ export function OfferExamplesCarousel({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={project.featuredImageUrl}
-                alt={`${project.clientName} website preview`}
+                alt={project.imageAlt}
                 className="h-full w-full object-cover object-top"
               />
             </div>
@@ -98,6 +99,7 @@ export function OfferExamplesCarousel({
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => pushDataLayerEvent(analyticsEvents.outboundWebsiteClick)}
                   className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-black text-sm font-bold text-white transition hover:bg-black/88 ${
                     compact ? "h-11 px-5 self-start" : "h-12 px-6"
                   }`}

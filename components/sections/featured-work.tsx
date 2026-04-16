@@ -23,6 +23,7 @@ export function FeaturedWork() {
               description={project.description}
               category={project.category}
               imageUrl={project.featuredImageUrl}
+              imageAlt={project.imageAlt}
               link={project.liveUrl}
             />
           </Reveal>

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils/cn";
 import type { MouseEventHandler, ReactNode } from "react";
 
@@ -42,6 +45,11 @@ export function Button({
     className
   );
 
+  const handleClick = () => {
+    if (!dataAnalytics) return;
+    pushDataLayerEvent(analyticsEvents.ctaClick);
+  };
+
   const childrenWithShine =
     variant === "primary" ? (
       <>
@@ -54,7 +62,7 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes} data-analytics={dataAnalytics}>
+      <Link href={href} className={classes} data-analytics={dataAnalytics} onClick={handleClick}>
         {childrenWithShine}
       </Link>
     );
@@ -66,7 +74,10 @@ export function Button({
       className={classes}
       data-analytics={dataAnalytics}
       form={form}
-      onClick={onClick}
+      onClick={(event) => {
+        handleClick();
+        onClick?.(event);
+      }}
       disabled={disabled}
     >
       {childrenWithShine}

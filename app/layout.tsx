@@ -5,6 +5,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { site } from "@/data/site";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import { GtmLoader } from "@/components/analytics/gtm-loader";
+import { getCoreShareImage } from "@/lib/seo/routes";
 
 const GOOGLE_ADS_ID = "AW-17990702531";
 
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     siteName: site.brand.fullName,
     images: [
       {
-        url: site.brand.socialImage,
+        url: getCoreShareImage("/"),
         alt: site.brand.fullName
       }
     ]
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hometown Marketing Agency — KC Small Business Marketing",
     description: "Affordable websites and marketing for Kansas City businesses. No contracts.",
-    images: [site.brand.socialImage]
+    images: [getCoreShareImage("/")]
   }
 };
 

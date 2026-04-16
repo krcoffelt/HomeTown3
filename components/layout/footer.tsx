@@ -9,6 +9,7 @@ import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
 const pageLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
   { href: "/contact", label: "Contact" }

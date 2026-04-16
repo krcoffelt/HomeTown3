@@ -3,7 +3,7 @@ export const site = {
     shortName: "Hometown",
     fullName: "Hometown Marketing Agency",
     visibleLogo: "/images/HometownLogoWhite2026.png",
-    socialImage: "/images/HometownLogoWhite2026.png"
+    socialImage: "/og/home"
   },
   name: "Hometown",
   title: "Affordable Websites & Marketing for Kansas City Small Businesses",
@@ -18,9 +18,29 @@ export const site = {
     postalCode: "66213",
     addressCountry: "US"
   },
+  serviceAreas: ["Kansas City, MO", "Overland Park, KS", "Leawood, KS", "Olathe, KS"],
+  geo: null as null | { latitude: number; longitude: number },
+  sameAs: [] as string[],
+  contactDisplay: {
+    emailLabel: "Email",
+    phoneLabel: "Phone/Text",
+    responseTime: "Usually within a few hours"
+  },
   contactEmail: "krcoffelt@gmail.com",
   contactPhone: "913-991-6641",
   heroPrice: "$800",
   regularPrice: "$1,000",
-  turnaround: "7 business days"
+  turnaround: "7 business days",
+  routeShareImages: {
+    "/": "/og/home",
+    "/services": "/og/services",
+    "/work": "/og/work",
+    "/pricing": "/og/pricing",
+    "/contact": "/og/contact",
+    "/about": "/og/about",
+    "/website-offer-800": "/og/offer",
+    "/privacy-policy": "/og/privacy",
+    "/terms-of-service": "/og/terms",
+    "/cookie-policy": "/og/cookies"
+  }
 };

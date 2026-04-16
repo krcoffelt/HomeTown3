@@ -1,5 +1,6 @@
 import { SectionShell } from "@/components/layout/section-shell";
 import { ContactForm } from "@/components/sections/contact-form";
+import { Button } from "@/components/ui/button";
 
 export function ContactCta() {
   return (
@@ -12,6 +13,11 @@ export function ContactCta() {
         <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-primary-foreground/70">
           Tell us about your business. We&apos;ll put together a free, no-pressure game plan to get you more customers.
         </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Button href="/about" variant="secondary" className="border-primary-foreground/16 text-primary-foreground hover:text-primary-foreground">
+            Meet Hometown
+          </Button>
+        </div>
         <div id="form" className="mt-12 text-left">
           <ContactForm dark />
         </div>

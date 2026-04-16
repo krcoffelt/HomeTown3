@@ -12,7 +12,7 @@ import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { testimonials } from "@/data/copy";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { websiteOfferSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, faqItemsSchema, webPageSchema, websiteOfferSchema } from "@/lib/seo/schema";
 
 const includedItems = [
   {
@@ -119,10 +119,23 @@ export default function WebsiteOfferLandingPage() {
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project): project is (typeof projects)[number] => Boolean(project));
   const offerSectionClass = "py-16 md:py-20";
+  const schema = [
+    webPageSchema({
+      name: "Professional Small Business Websites for $800",
+      description: "A focused landing page for service businesses that need a clean, credible website fast.",
+      path: "/website-offer-800"
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "$800 Website Offer", path: "/website-offer-800" }
+    ]),
+    faqItemsSchema(offerFaqs),
+    websiteOfferSchema()
+  ];
 
   return (
     <>
-      <StructuredData data={websiteOfferSchema()} />
+      <StructuredData data={schema} />
       <OfferPageTracker />
 
       <section className="relative overflow-hidden bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-24">
