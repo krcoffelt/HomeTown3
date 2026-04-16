@@ -19,6 +19,26 @@ function cleanOptional(value?: string) {
   return trimmed ? trimmed : undefined;
 }
 
+const attributionColumns = [
+  "landing_page",
+  "referrer_url",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+  "gclid",
+  "lead_source"
+] as const;
+
+function isMissingAttributionColumnError(error: { code?: string; message?: string } | null) {
+  if (!error) return false;
+  if (error.code === "PGRST204") return true;
+
+  const message = error.message?.toLowerCase() ?? "";
+  return attributionColumns.some((column) => message.includes(column));
+}
+
 async function insertLead(values: {
   name: string;
   businessName: string;
@@ -38,13 +58,15 @@ async function insertLead(values: {
   try {
     const supabase = createSupabaseServerClient();
     const leadSource = getLeadSource(values);
-    const { error } = await supabase.from("leads").insert({
+    const baseInsert = {
       name: values.name,
       business_name: values.businessName,
       email: values.email,
       phone: cleanOptional(values.phone),
       service_needed: values.serviceNeeded,
-      project_details: values.projectDetails,
+      project_details: values.projectDetails
+    };
+    const attributionInsert = {
       landing_page: cleanOptional(values.landingPage),
       referrer_url: cleanOptional(values.referrerUrl),
       utm_source: cleanOptional(values.utmSource),
@@ -54,7 +76,17 @@ async function insertLead(values: {
       utm_content: cleanOptional(values.utmContent),
       gclid: cleanOptional(values.gclid),
       lead_source: leadSource
+    };
+
+    let { error } = await supabase.from("leads").insert({
+      ...baseInsert,
+      ...attributionInsert
     });
+
+    if (isMissingAttributionColumnError(error)) {
+      const fallbackResult = await supabase.from("leads").insert(baseInsert);
+      error = fallbackResult.error;
+    }
 
     if (error) {
       if (error.code === "42P01") {
