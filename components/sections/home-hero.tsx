@@ -4,13 +4,7 @@ import { homepageCopy } from "@/data/copy";
 
 export function HomeHero() {
   return (
-    <section
-      className="relative min-h-[92vh] overflow-hidden bg-black bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage:
-          "linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.6) 100%), url('/images/hero-bg.jpg')"
-      }}
-    >
+    <section className="home-hero-bg relative min-h-[92vh] overflow-hidden bg-black bg-cover bg-center bg-no-repeat">
       <div aria-hidden="true" className="pointer-events-none absolute left-[-4rem] top-[12rem] h-[500px] w-[500px] rounded-full bg-primary/8 blur-[150px]" />
       <div aria-hidden="true" className="pointer-events-none absolute right-[-2rem] top-[8rem] h-[400px] w-[400px] rounded-full bg-primary-glow/6 blur-[120px]" />
 

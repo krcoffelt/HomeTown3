@@ -69,19 +69,10 @@ export default function RootLayout({
             strategy="beforeInteractive"
           />
         )}
-        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} strategy="beforeInteractive" />
-        <Script id="google-ads-base-tag" strategy="beforeInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GOOGLE_ADS_ID}');
-          `}
-        </Script>
       </head>
       <body>
         <StructuredData data={globalSchema} />
-        <GtmLoader gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+        <GtmLoader gtmId={process.env.NEXT_PUBLIC_GTM_ID} googleAdsId={GOOGLE_ADS_ID} />
         {children}
       </body>
     </html>

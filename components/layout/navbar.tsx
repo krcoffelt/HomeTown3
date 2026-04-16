@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CloseIcon, MenuIcon } from "@/components/ui/site-icons";
@@ -41,7 +40,9 @@ export function Navbar() {
           <Link href="/" aria-label="Hometown home" className="shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/HometownLogoWhite2026.png"
+              src="/images/HometownLogoWhite2026-sm.png"
+              srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
+              sizes="(max-width: 640px) 140px, 220px"
               alt="Hometown Marketing Agency"
               width={220}
               height={60}
@@ -78,22 +79,25 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div className={cn("site-container transition-all duration-300", scrolled ? "pt-4 pb-4" : "pt-7 pb-6")}>
         <div className="relative flex min-h-[4.5rem] items-center justify-between">
-          <motion.div
-            animate={{ opacity: scrolled ? 0 : 1, x: scrolled ? -12 : 0, pointerEvents: scrolled ? "none" : "auto" }}
-            transition={{ duration: 0.16, ease: "easeOut" }}
-            className="hidden md:block"
+          <div
+            className={cn(
+              "hidden transition-all duration-150 md:block",
+              scrolled ? "pointer-events-none -translate-x-3 opacity-0" : "translate-x-0 opacity-100"
+            )}
           >
             <Link href="/" aria-label="Hometown home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/HometownLogoWhite2026.png"
+                src="/images/HometownLogoWhite2026-sm.png"
+                srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
+                sizes="220px"
                 alt="Hometown Marketing Agency"
                 width={260}
                 height={70}
                 className="h-10 w-auto md:h-14"
               />
             </Link>
-          </motion.div>
+          </div>
 
           <nav
             aria-label="Main navigation"
@@ -116,34 +120,31 @@ export function Navbar() {
                     active ? "text-primary-foreground" : "text-primary-foreground/60 hover:text-primary-foreground/80"
                   )}
                 >
-                  {active ? (
-                    <motion.div
-                      layoutId="nav-pill"
-                      className="absolute inset-0 rounded-full bg-accent shadow-[0_2px_12px_hsl(var(--accent)/0.4)]"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  ) : null}
+                  {active ? <span className="absolute inset-0 rounded-full bg-accent shadow-[0_2px_12px_hsl(var(--accent)/0.4)]" /> : null}
                   <span className="relative z-10">{link.label}</span>
                 </Link>
               );
             })}
           </nav>
 
-          <motion.div
-            animate={{ opacity: scrolled ? 0 : 1, x: scrolled ? 12 : 0, pointerEvents: scrolled ? "none" : "auto" }}
-            transition={{ duration: 0.16, ease: "easeOut" }}
-            className="hidden md:block"
+          <div
+            className={cn(
+              "hidden transition-all duration-150 md:block",
+              scrolled ? "pointer-events-none translate-x-3 opacity-0" : "translate-x-0 opacity-100"
+            )}
           >
             <Button href="/contact#form" className="h-12 px-7 text-base">
               Get a Free Quote
             </Button>
-          </motion.div>
+          </div>
 
           <div className="flex w-full items-center justify-between md:hidden">
             <Link href="/" aria-label="Hometown home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/HometownLogoWhite2026.png"
+                src="/images/HometownLogoWhite2026-sm.png"
+                srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
+                sizes="140px"
                 alt="Hometown Marketing Agency"
                 width={210}
                 height={56}
@@ -163,16 +164,11 @@ export function Navbar() {
           </div>
         </div>
 
-        <AnimatePresence>
-          {isOpen ? (
-            <motion.div
-              id="mobile-nav"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground/98 p-4 text-primary-foreground backdrop-blur-xl md:hidden"
-            >
+        {isOpen ? (
+          <div
+            id="mobile-nav"
+            className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground/98 p-4 text-primary-foreground backdrop-blur-xl md:hidden"
+          >
               <nav className="flex flex-col gap-2">
                 {links.map((link) => {
                   const active = pathname === link.href;
@@ -193,9 +189,8 @@ export function Navbar() {
               <Button href="/contact#form" className="mt-4 w-full">
                 Get a Free Quote
               </Button>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+          </div>
+        ) : null}
       </div>
     </header>
   );
