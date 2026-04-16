@@ -115,7 +115,9 @@ export const metadata: Metadata = {
 
 export default function WebsiteOfferLandingPage() {
   const [featuredTestimonial, ...supportingTestimonials] = testimonials;
-  const featuredProjects = projects.slice(0, 3);
+  const featuredProjects = ["wrapped-up-moving", "zj-carpentry-and-more", "plate-kc", "lupi-docs"]
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is (typeof projects)[number] => Boolean(project));
   const offerSectionClass = "py-16 md:py-20";
 
   return (
@@ -127,24 +129,43 @@ export default function WebsiteOfferLandingPage() {
         <div aria-hidden="true" className="pointer-events-none absolute left-[-6rem] top-[2rem] h-[360px] w-[360px] rounded-full bg-accent/12 blur-[120px]" />
         <div aria-hidden="true" className="pointer-events-none absolute right-[-4rem] top-[8rem] h-[320px] w-[320px] rounded-full bg-white/6 blur-[110px]" />
         <div className="site-container relative">
-          <div className="max-w-4xl">
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-accent">Flat-Rate Website Package</p>
-            <h1 className="mt-7 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-              Professional Small Business Websites for $800
-            </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-primary-foreground/76 md:text-xl">
-              Built for service businesses that need a clean, credible website fast. Flat-rate pricing. Clear process. Response in under 24 hours.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-accent">Flat-Rate Website Package</p>
+              <h1 className="mt-7 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+                Professional Small Business Websites for $800
+              </h1>
+              <p className="mt-6 max-w-3xl text-lg leading-relaxed text-primary-foreground/76 md:text-xl">
+                Built for service businesses that need a clean, credible website fast. Flat-rate pricing. Clear process. Response in under 24 hours.
+              </p>
 
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Button href="#claim-form" className="h-14 px-8" dataAnalytics="cta-offer-800">
-                Get My $800 Website
-              </Button>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <Button href="#claim-form" className="h-14 px-8" dataAnalytics="cta-offer-800">
+                  Get My $800 Website
+                </Button>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3 text-sm text-primary-foreground/72">
+                {["Flat-rate pricing", "Built for service businesses", "Around 7 business days", "Reply within 24 hours"].map((item) => (
+                  <span key={item} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2">
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <p className="mt-8 text-sm leading-relaxed text-primary-foreground/72">
-              Flat-rate pricing • Launch in about 7 days • Built for service businesses • Clear follow-up in under 24 hours
-            </p>
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_20px_80px_hsl(var(--foreground)/0.18)] sm:p-5">
+              <div className="mb-5 flex items-end justify-between gap-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Recent Website Work</p>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-primary-foreground/68">
+                    Scroll through a few recent builds and open any live site in a new tab.
+                  </p>
+                </div>
+              </div>
+
+              <OfferExamplesCarousel projects={featuredProjects} compact introText={null} />
+            </div>
           </div>
         </div>
       </section>
@@ -240,22 +261,6 @@ export default function WebsiteOfferLandingPage() {
               />
             ))}
           </div>
-        </div>
-      </SectionShell>
-
-      <SectionShell className="pt-0 pb-20 md:pb-24 bg-background text-foreground">
-        <div className="max-w-3xl">
-          <p className="section-badge">Selected Proof</p>
-          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            A few recent websites that show what this offer can look like in the real world.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            The point is not to send you browsing. It is to show enough real work that submitting the form feels like a reasonable next step.
-          </p>
-        </div>
-
-        <div className="mt-10">
-          <OfferExamplesCarousel projects={featuredProjects} />
         </div>
       </SectionShell>
 
