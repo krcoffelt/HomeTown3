@@ -16,28 +16,28 @@ import { websiteOfferSchema } from "@/lib/seo/schema";
 
 const includedItems = [
   {
-    title: "Custom site up to 5 pages",
-    body: "Enough room for the homepage, service, about, contact, and core supporting pages most businesses actually need."
+    title: "Custom Website Design",
+    body: "A clean, modern website tailored to your business so you make a stronger first impression and look more established online."
   },
   {
-    title: "Designed around your business",
-    body: "It looks polished, credible, and specific to your business instead of feeling like a generic template."
+    title: "Mobile-First Experience",
+    body: "Your site is built to look polished and professional on phones, tablets, and desktops, so trust does not drop on smaller screens."
   },
   {
-    title: "Clean on every screen",
-    body: "The site is built to look sharp and work properly on phones, tablets, and desktop screens."
+    title: "Lead-Focused Structure",
+    body: "Clear sections, strong page flow, and smart calls to action help the website do more than just sit there and look good."
   },
   {
-    title: "Clear path to contact you",
-    body: "Calls to action and page flow are built to make it easy for people to reach out when they are ready."
+    title: "Contact & Inquiry Setup",
+    body: "Forms and contact paths are built in cleanly so potential customers can reach out without friction."
   },
   {
-    title: "Copy help where needed",
-    body: "You bring the basics and I shape the wording so the site sounds cleaner, clearer, and more trustworthy."
+    title: "SEO-Ready Foundation",
+    body: "The site is structured with strong on-page fundamentals so your business has a better starting point for visibility and future growth."
   },
   {
-    title: "Launch support included",
-    body: "I help get the essentials connected and live so the project does not stall right at the finish line."
+    title: "Fast Turnaround",
+    body: "The process is streamlined to get your site live quickly without dragging the project into weeks of unnecessary back-and-forth."
   }
 ];
 
@@ -51,18 +51,18 @@ const fitItems = [
 const processSteps = [
   {
     step: "01",
-    title: "Tell me about your business",
-    body: "Share the basics about what you do and what you need the website to help with."
+    title: "Send the basics",
+    body: "Tell me what your business does, what pages you need, and anything important the site should communicate."
   },
   {
     step: "02",
-    title: "I design and build your site",
-    body: "I map the structure, build the pages, and keep the process simple from start to finish."
+    title: "We design and build it",
+    body: "We shape the structure, design the pages, and build the site around your business instead of forcing a generic template."
   },
   {
     step: "03",
-    title: "We launch your new website fast",
-    body: "After revisions and approvals, the site goes live with a cleaner, more credible first impression."
+    title: "We review and launch",
+    body: "After revisions and approval, I get the site live and make sure the essentials are connected so it is ready to work."
   }
 ];
 
@@ -75,7 +75,7 @@ const offerFaqs = [
   {
     question: "What is included in the $800 package?",
     answer:
-      "It includes a custom website with up to 5 core pages, mobile-friendly design, contact form setup, lead-focused layout, two rounds of revisions, and launch support."
+      "It includes a custom website, mobile-friendly design, contact form setup, lead-focused layout, two rounds of revisions, and launch support."
   },
   {
     question: "How long does it take?",
@@ -151,15 +151,15 @@ export default function WebsiteOfferLandingPage() {
 
       <SectionShell className={`${offerSectionClass} noise bg-gradient-subtle text-foreground`}>
         <div className="max-w-3xl">
-          <p className="section-badge">What You Get</p>
+          <p className="section-badge">What You Get for $800</p>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            Everything most small businesses need to get online without dragging the project out.
+            Everything you need for a clean, credible, lead-focused website.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            This is a focused website package for service businesses that want something clean, credible, and ready to launch fast.
+            This is a streamlined, professionally designed website package built to help small businesses look established online without paying for bloated agency pricing.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            Up to 5 core pages, 2 revision rounds, and a typical turnaround of about 7 business days once the essentials are clear.
+            Package includes custom website design, 2 revision rounds, contact form setup, foundational on-page SEO structure, and launch support.
           </p>
         </div>
 
@@ -179,7 +179,7 @@ export default function WebsiteOfferLandingPage() {
 
         <div className="mt-8 rounded-[1.5rem] border border-foreground/10 bg-foreground/[0.03] px-6 py-5">
           <p className="text-sm leading-relaxed text-muted-foreground">
-            <span className="font-semibold text-foreground">Simple scope.</span> Hosting and domain are separate, and if your project needs more pages or more complex functionality, I will tell you up front before anything moves forward.
+            <span className="font-semibold text-foreground">Clear scope.</span> Hosting and domain are separate, and if your project needs more pages or more advanced functionality, I will tell you before we start and point you toward the right next step.
           </p>
         </div>
       </SectionShell>
@@ -261,10 +261,13 @@ export default function WebsiteOfferLandingPage() {
 
       <SectionShell className={`${offerSectionClass} noise bg-gradient-subtle text-foreground`}>
         <div className="max-w-3xl">
-          <p className="section-badge">Simple Process</p>
+          <p className="section-badge">How It Works</p>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            A low-friction path from form submit to launch.
+            Three clear steps to get your site live.
           </h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            No bloated discovery phase and no endless back-and-forth. Just a clean process that gets a professional site built and launched.
+          </p>
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-3">
