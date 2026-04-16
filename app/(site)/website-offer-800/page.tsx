@@ -14,75 +14,30 @@ import { testimonials } from "@/data/copy";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { websiteOfferSchema } from "@/lib/seo/schema";
 
-const trustItems = [
-  "Flat $800 package",
-  "About 7 business days",
-  "Built for service businesses",
-  "2 revision rounds",
-  "Response in under 24 hours"
-];
-
-const packageDetails = [
-  {
-    label: "Page Count",
-    value: "Up to 5 core pages",
-    body: "Enough room for a homepage plus the main service, about, contact, and supporting pages most small businesses actually need."
-  },
-  {
-    label: "Revisions",
-    value: "2 rounds included",
-    body: "You get real feedback loops without the project dragging into endless edits."
-  },
-  {
-    label: "Copy Support",
-    value: "You bring the basics",
-    body: "You do not need polished website copy. I shape the wording around your business once the essentials are clear."
-  },
-  {
-    label: "Hosting",
-    value: "Separate from the $800",
-    body: "Domain and hosting are billed separately, but I help point you to the right setup and get everything connected."
-  }
-];
-
-const notIncludedItems = [
-  "Hosting and domain costs",
-  "Large custom functionality or advanced integrations",
-  "Unlimited revisions or ongoing monthly work"
-];
-
 const includedItems = [
   {
-    title: "Up to five core pages",
-    body: "The package covers the core pages most small businesses need to look complete and credible online."
+    title: "Custom site up to 5 pages",
+    body: "Enough room for the homepage, service, about, contact, and core supporting pages most businesses actually need."
   },
   {
-    title: "Custom design, not a template",
-    body: "The site is designed around your business so it feels polished, intentional, and worth trusting."
+    title: "Designed around your business",
+    body: "It looks polished, credible, and specific to your business instead of feeling like a generic template."
   },
   {
-    title: "Built for mobile first",
-    body: "It is designed to look clean and work properly on phones, tablets, and desktop screens."
+    title: "Clean on every screen",
+    body: "The site is built to look sharp and work properly on phones, tablets, and desktop screens."
   },
   {
-    title: "Lead-focused structure",
-    body: "The layout is built to guide people toward calling, filling out the form, or taking the next step."
+    title: "Clear path to contact you",
+    body: "Calls to action and page flow are built to make it easy for people to reach out when they are ready."
   },
   {
-    title: "Clear contact flow",
-    body: "Calls to action and form placement are set up so customers know exactly how to reach you."
+    title: "Copy help where needed",
+    body: "You bring the basics and I shape the wording so the site sounds cleaner, clearer, and more trustworthy."
   },
   {
-    title: "Search-ready page setup",
-    body: "The site is structured cleanly so your business has a better shot at showing up and making sense in search."
-  },
-  {
-    title: "Fast turnaround window",
-    body: "Most projects in this package launch in about 7 business days once the essentials are in place."
-  },
-  {
-    title: "Launch help included",
-    body: "You get a clean handoff and help connecting the basics so the site can actually go live without confusion."
+    title: "Launch support included",
+    body: "I help get the essentials connected and live so the project does not stall right at the finish line."
   }
 ];
 
@@ -161,7 +116,7 @@ export const metadata: Metadata = {
 export default function WebsiteOfferLandingPage() {
   const [featuredTestimonial, ...supportingTestimonials] = testimonials;
   const featuredProjects = projects.slice(0, 3);
-  const offerSectionClass = "py-20 md:py-24";
+  const offerSectionClass = "py-16 md:py-20";
 
   return (
     <>
@@ -194,58 +149,38 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-background">
-        <div className="site-container grid gap-4 py-6 md:grid-cols-4 md:py-7">
-          {trustItems.map((item) => (
-            <div key={item} className="rounded-full border border-border bg-card px-5 py-3 text-center text-sm font-bold text-foreground shadow-sm">
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
-
       <SectionShell className={`${offerSectionClass} noise bg-gradient-subtle text-foreground`}>
         <div className="max-w-3xl">
-          <p className="section-badge">What&apos;s Included for $800</p>
+          <p className="section-badge">What You Get</p>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            A clear package with real boundaries, real deliverables, and no mystery pricing.
+            Everything most small businesses need to get online without dragging the project out.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            This works best when you need a clean, credible website quickly and do not need a huge custom build right out of the gate.
+            This is a focused website package for service businesses that want something clean, credible, and ready to launch fast.
+          </p>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            Up to 5 core pages, 2 revision rounds, and a typical turnaround of about 7 business days once the essentials are clear.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {packageDetails.map((item) => (
-            <article key={item.label} className="light-panel h-full p-7">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{item.label}</p>
-              <h3 className="mt-4 text-2xl font-bold tracking-tight text-foreground">{item.value}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-6 rounded-[1.5rem] border border-foreground/10 bg-foreground px-6 py-5 text-primary-foreground">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">What&apos;s Not Included</p>
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            {notIncludedItems.map((item) => (
-              <p key={item} className="text-sm leading-relaxed text-primary-foreground/78">
-                {item}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {includedItems.map((item) => (
-            <article key={item.title} className="light-panel h-full p-7">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/10 text-accent">
-                <CheckCircleIcon className="h-5 w-5" />
+            <article key={item.title} className="light-panel flex h-full items-start gap-4 p-6">
+              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                <CheckCircleIcon className="h-4 w-4" />
               </div>
-              <h3 className="mt-6 text-xl font-bold tracking-tight text-foreground">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+              <div>
+                <h3 className="text-lg font-bold tracking-tight text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+              </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-8 rounded-[1.5rem] border border-foreground/10 bg-foreground/[0.03] px-6 py-5">
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            <span className="font-semibold text-foreground">Simple scope.</span> Hosting and domain are separate, and if your project needs more pages or more complex functionality, I will tell you up front before anything moves forward.
+          </p>
         </div>
       </SectionShell>
 
