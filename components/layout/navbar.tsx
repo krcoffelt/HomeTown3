@@ -59,12 +59,6 @@ export function Navbar() {
             >
               {site.contactPhone}
             </a>
-            <Link
-              href="#examples"
-              className="hidden text-sm font-medium text-primary-foreground/75 transition hover:text-primary-foreground md:inline-flex"
-            >
-              View Examples
-            </Link>
             <Button href="#claim-form" className="h-10 px-4 text-xs sm:h-11 sm:px-5 sm:text-sm md:px-6" dataAnalytics="cta-offer-800">
               <span className="sm:hidden">Get Started</span>
               <span className="hidden sm:inline">Get My $800 Website</span>

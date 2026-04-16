@@ -23,6 +23,7 @@ const legalLinks = [
 export function Footer() {
   const year = new Date().getFullYear();
   const pathname = usePathname();
+  const showOfferEmail = !site.contactEmail.toLowerCase().endsWith("@gmail.com");
 
   if (pathname === "/website-offer-800") {
     return (
@@ -30,7 +31,11 @@ export function Footer() {
         <div className="site-container flex flex-col gap-5 py-8 text-sm md:flex-row md:items-center md:justify-between">
           <div>
             <p className="font-bold">{site.brand.fullName}</p>
-            <p className="mt-1 text-primary-foreground/65">Questions before you submit? Call or email and we usually reply within 24 hours.</p>
+            <p className="mt-1 text-primary-foreground/65">
+              {showOfferEmail
+                ? "Questions before you submit? Call or email and we usually reply within 24 hours."
+                : "Questions before you submit? Call us and we usually reply within 24 hours."}
+            </p>
           </div>
           <div className="flex flex-col gap-1 text-primary-foreground/65 md:items-end">
             <a
@@ -41,14 +46,16 @@ export function Footer() {
             >
               {site.contactPhone}
             </a>
-            <a
-              href={`mailto:${site.contactEmail}`}
-              data-analytics="email_click"
-              className="transition hover:text-primary-foreground"
-              onClick={() => pushDataLayerEvent(analyticsEvents.emailClick)}
-            >
-              {site.contactEmail}
-            </a>
+            {showOfferEmail ? (
+              <a
+                href={`mailto:${site.contactEmail}`}
+                data-analytics="email_click"
+                className="transition hover:text-primary-foreground"
+                onClick={() => pushDataLayerEvent(analyticsEvents.emailClick)}
+              >
+                {site.contactEmail}
+              </a>
+            ) : null}
             <p>{site.location}</p>
           </div>
         </div>

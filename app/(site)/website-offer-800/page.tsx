@@ -15,44 +15,67 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { websiteOfferSchema } from "@/lib/seo/schema";
 
 const trustItems = [
-  "Flat-rate pricing",
-  "Fast turnaround",
-  "Built for small businesses",
+  "Flat $800 package",
+  "About 7 business days",
+  "2 revision rounds",
   "No pressure"
+];
+
+const packageDetails = [
+  {
+    label: "Page Count",
+    value: "Up to 5 core pages",
+    body: "Enough room for a homepage plus the main service, about, contact, and supporting pages most small businesses actually need."
+  },
+  {
+    label: "Revisions",
+    value: "2 rounds included",
+    body: "You get real feedback loops without the project dragging into endless edits."
+  },
+  {
+    label: "Copy Support",
+    value: "You bring the basics",
+    body: "You do not need polished website copy. I shape the wording around your business once the essentials are clear."
+  },
+  {
+    label: "Hosting",
+    value: "Separate from the $800",
+    body: "Domain and hosting are billed separately, but I help point you to the right setup and get everything connected."
+  }
 ];
 
 const includedItems = [
   {
-    title: "A stronger first impression",
-    body: "Your site is built to make the business look established, polished, and worth trusting right away."
+    title: "Up to five core pages",
+    body: "The package covers the core pages most small businesses need to look complete and credible online."
   },
   {
-    title: "Design that looks premium",
-    body: "Clean, modern visuals give you the kind of online presence people expect from a serious business."
+    title: "Custom design, not a template",
+    body: "The site is designed around your business so it feels polished, intentional, and worth trusting."
   },
   {
-    title: "Looks sharp on every screen",
-    body: "The website is designed to feel clean and professional on mobile, tablet, and desktop."
+    title: "Built for mobile first",
+    body: "It is designed to look clean and work properly on phones, tablets, and desktop screens."
   },
   {
-    title: "Built to turn visits into leads",
-    body: "The layout is structured to guide people toward reaching out instead of bouncing."
+    title: "Lead-focused structure",
+    body: "The layout is built to guide people toward calling, filling out the form, or taking the next step."
   },
   {
-    title: "Easy for customers to contact",
-    body: "Clear calls to action and a direct contact flow make it simple for people to take the next step."
+    title: "Clear contact flow",
+    body: "Calls to action and form placement are set up so customers know exactly how to reach you."
   },
   {
-    title: "Positioned to get found",
-    body: "The pages are written and structured to give your business a cleaner shot at showing up in search."
+    title: "Search-ready page setup",
+    body: "The site is structured cleanly so your business has a better shot at showing up and making sense in search."
   },
   {
-    title: "Ready to launch fast",
-    body: "The package is built for speed, so you can stop sitting on an outdated or missing website."
+    title: "Fast turnaround window",
+    body: "Most projects in this package launch in about 7 business days once the essentials are in place."
   },
   {
-    title: "Everything you need to go live",
-    body: "You get a complete, launch-ready site without the confusion, bloat, or agency runaround."
+    title: "Launch help included",
+    body: "You get a clean handoff and help connecting the basics so the site can actually go live without confusion."
   }
 ];
 
@@ -83,9 +106,14 @@ const processSteps = [
 
 const offerFaqs = [
   {
+    question: "Why is the website package only $800?",
+    answer:
+      "Because it is a focused offer with a clear scope. It is meant for small businesses that need a strong website without paying agency-level pricing for a larger custom project."
+  },
+  {
     question: "What is included in the $800 package?",
     answer:
-      "The package includes a custom multi-page website, mobile-friendly design, contact form setup, lead-focused page structure, basic SEO setup, and a simple handoff after launch."
+      "It includes a custom website with up to 5 core pages, mobile-friendly design, contact form setup, lead-focused layout, two rounds of revisions, and launch support."
   },
   {
     question: "How long does it take?",
@@ -93,14 +121,9 @@ const offerFaqs = [
       "Most projects in this package are completed in about 7 business days once the business details, photos, and direction are clear."
   },
   {
-    question: "Do I need to provide content?",
+    question: "Do I need to provide all the copy?",
     answer:
-      "You do not need perfect copy ready on day one. I still need the core facts about your business, services, and anything important you want on the site, but I can help shape the wording."
-  },
-  {
-    question: "What if I need more than a basic site?",
-    answer:
-      "If your project needs more pages, extra functionality, or a more complex scope, I will tell you that up front and outline the next-best option clearly."
+      "No. You need to provide the key facts about your business, services, and anything important you want included, but I help shape the copy into something website-ready."
   },
   {
     question: "Is hosting included?",
@@ -108,10 +131,15 @@ const offerFaqs = [
       "Hosting and domain costs are separate, but I can help point you to the right setup and get everything connected as part of launch."
   },
   {
-    question: "Can you help after launch?",
+    question: "What if I need more than the base package?",
     answer:
-      "Yes. I can help with updates and support after launch if you need it. The offer is focused on getting the site live fast first."
-  }
+      "If you need more pages, more complex functionality, or a broader scope, I will tell you that up front and give you a clearer next-best option instead of forcing the wrong package."
+  },
+  {
+    question: "Is this only for Kansas City businesses?",
+    answer:
+      "No. Kansas City is the main market, but the offer can work for businesses outside KC too if the scope is still a fit."
+    }
 ];
 
 export const metadata: Metadata = {
@@ -176,63 +204,25 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </section>
 
-      <SectionShell className={`${offerSectionClass} bg-background text-foreground`}>
-        <div className="max-w-3xl">
-          <p className="section-badge">Real Reviews</p>
-          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            Real business owners trust the process because it stays simple and the work looks sharp.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            5.0-style social proof matters on a landing page like this. These are the same real Google reviews that back the rest of the Hometown site.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-5 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <TestimonialCard
-              name={featuredTestimonial.name}
-              text={featuredTestimonial.text}
-              highlight={featuredTestimonial.highlight}
-              featured
-            />
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:col-span-3">
-            {supportingTestimonials.slice(0, 4).map((testimonial) => (
-              <TestimonialCard
-                key={testimonial.name}
-                name={testimonial.name}
-                text={testimonial.text}
-                highlight={testimonial.highlight}
-              />
-            ))}
-          </div>
-        </div>
-      </SectionShell>
-
-      <SectionShell className="pt-0 pb-20 md:pb-24 bg-background text-foreground">
-        <div id="examples" className="scroll-mt-32" />
-        <div className="max-w-3xl">
-          <p className="section-badge">Examples</p>
-          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            A few real websites built for real businesses.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            The point of this offer is not to give you a template. It is to get your business a site that looks established and makes people trust you faster.
-          </p>
-        </div>
-
-        <div className="mt-10">
-          <OfferExamplesCarousel projects={featuredProjects} />
-        </div>
-      </SectionShell>
-
       <SectionShell className={`${offerSectionClass} noise bg-gradient-subtle text-foreground`}>
         <div className="max-w-3xl">
           <p className="section-badge">What&apos;s Included for $800</p>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            A clear package that gets your business online quickly without feeling cheap.
+            A clear package with real boundaries, real deliverables, and no mystery pricing.
           </h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            This works best when you need a clean, credible website quickly and do not need a huge custom build right out of the gate.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {packageDetails.map((item) => (
+            <article key={item.label} className="light-panel h-full p-7">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{item.label}</p>
+              <h3 className="mt-4 text-2xl font-bold tracking-tight text-foreground">{item.value}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+            </article>
+          ))}
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -270,6 +260,57 @@ export default function WebsiteOfferLandingPage() {
               </div>
             ))}
           </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell className={`${offerSectionClass} bg-background text-foreground`}>
+        <div className="max-w-3xl">
+          <p className="section-badge">Real Reviews</p>
+          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+            Real business owners trust the process because it stays simple and the work looks sharp.
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            These are the same real Google reviews that support the rest of the Hometown site. The page should feel trustworthy before it asks for the form.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 lg:grid-cols-5">
+          <div className="lg:col-span-2">
+            <TestimonialCard
+              name={featuredTestimonial.name}
+              text={featuredTestimonial.text}
+              highlight={featuredTestimonial.highlight}
+              featured
+            />
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:col-span-3">
+            {supportingTestimonials.slice(0, 4).map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.name}
+                name={testimonial.name}
+                text={testimonial.text}
+                highlight={testimonial.highlight}
+              />
+            ))}
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell className="pt-0 pb-20 md:pb-24 bg-background text-foreground">
+        <div id="examples" className="scroll-mt-32" />
+        <div className="max-w-3xl">
+          <p className="section-badge">Examples</p>
+          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+            A few real websites built for real businesses.
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            The goal is not to drop you into a generic template. It is to give your business a website that feels established and makes people trust you faster.
+          </p>
+        </div>
+
+        <div className="mt-10">
+          <OfferExamplesCarousel projects={featuredProjects} />
         </div>
       </SectionShell>
 
