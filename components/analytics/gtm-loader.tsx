@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const SESSION_KEY = "hometown:gtm-loaded";
 const SCRIPT_ID = "hometown-gtm-script";
-const GOOGLE_ADS_SESSION_KEY = "hometown:google-ads-loaded";
 const GOOGLE_ADS_SCRIPT_ID = "hometown-google-ads-script";
 
 interface GtmLoaderProps {
@@ -32,21 +30,11 @@ export function GtmLoader({ gtmId, googleAdsId }: GtmLoaderProps) {
 
     const enableGtm = () => {
       if (!gtmId) return;
-      if (window.sessionStorage.getItem(SESSION_KEY) === "1") {
-        setGtmEnabled(true);
-        return;
-      }
-      window.sessionStorage.setItem(SESSION_KEY, "1");
       setGtmEnabled(true);
     };
 
     const enableGoogleAds = () => {
       if (!googleAdsId) return;
-      if (window.sessionStorage.getItem(GOOGLE_ADS_SESSION_KEY) === "1") {
-        setGoogleAdsEnabled(true);
-        return;
-      }
-      window.sessionStorage.setItem(GOOGLE_ADS_SESSION_KEY, "1");
       setGoogleAdsEnabled(true);
     };
 
