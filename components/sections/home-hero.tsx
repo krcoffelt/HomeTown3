@@ -29,7 +29,7 @@ export function HomeHero() {
       <div className="site-container relative z-10 flex min-h-[92vh] items-center pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="max-w-6xl text-primary-foreground">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...heroItemTransition, duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] backdrop-blur-sm"
@@ -39,7 +39,7 @@ export function HomeHero() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...heroItemTransition, delay: 0.15, duration: 0.7 }}
             className="hero-title mt-8 max-w-6xl"
@@ -49,7 +49,7 @@ export function HomeHero() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...heroItemTransition, delay: 0.35 }}
             className="mt-8 max-w-3xl text-lg leading-relaxed text-primary-foreground/82 md:text-xl"
@@ -58,7 +58,7 @@ export function HomeHero() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...heroItemTransition, delay: 0.5 }}
             className="mt-10 flex flex-wrap gap-4"
@@ -70,7 +70,7 @@ export function HomeHero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mt-10 flex flex-wrap gap-6"
