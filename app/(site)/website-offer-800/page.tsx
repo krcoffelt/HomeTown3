@@ -118,7 +118,7 @@ export default function WebsiteOfferLandingPage() {
   const featuredProjects = ["wrapped-up-moving", "zj-carpentry-and-more", "plate-kc", "lupi-docs"]
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project): project is (typeof projects)[number] => Boolean(project));
-  const offerSectionClass = "py-16 md:py-20";
+  const offerSectionClass = "py-12 md:py-20";
   const schema = [
     webPageSchema({
       name: "Professional Small Business Websites for $800",
@@ -138,40 +138,43 @@ export default function WebsiteOfferLandingPage() {
       <StructuredData data={schema} />
       <OfferPageTracker />
 
-      <section className="relative overflow-hidden bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-24">
+      <section className="relative overflow-hidden bg-black pt-28 pb-14 text-primary-foreground md:pt-40 md:pb-24">
         <div aria-hidden="true" className="pointer-events-none absolute left-[-6rem] top-[2rem] h-[360px] w-[360px] rounded-full bg-accent/12 blur-[120px]" />
         <div aria-hidden="true" className="pointer-events-none absolute right-[-4rem] top-[8rem] h-[320px] w-[320px] rounded-full bg-white/6 blur-[110px]" />
         <div className="site-container relative">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
+          <div className="grid gap-7 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-10">
             <div className="max-w-3xl">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-accent">Flat-Rate Website Package</p>
-              <h1 className="mt-7 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+              <h1 className="mt-5 text-balance text-[2.7rem] font-bold leading-[0.98] tracking-tight sm:mt-7 sm:text-5xl md:text-6xl">
                 Professional Small Business Websites for $800
               </h1>
-              <p className="mt-6 max-w-3xl text-lg leading-relaxed text-primary-foreground/76 md:text-xl">
+              <p className="mt-5 max-w-3xl text-base leading-relaxed text-primary-foreground/76 sm:text-lg md:text-xl">
                 Built for service businesses that need a clean, credible website fast. Flat-rate pricing. Clear process. Response in under 24 hours.
               </p>
 
-              <div className="mt-9 flex flex-wrap gap-4">
-                <Button href="#claim-form" className="h-14 px-8" dataAnalytics="cta-offer-800">
+              <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
+                <Button href="#claim-form" className="h-12 w-full px-6 sm:h-14 sm:w-auto sm:px-8" dataAnalytics="cta-offer-800">
                   Get My $800 Website
                 </Button>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3 text-sm text-primary-foreground/72">
+              <div className="mt-6 grid grid-cols-2 gap-2 text-xs text-primary-foreground/72 sm:mt-8 sm:flex sm:flex-wrap sm:gap-3 sm:text-sm">
                 {["Flat-rate pricing", "Built for service businesses", "Around 7 business days", "Reply within 24 hours"].map((item) => (
-                  <span key={item} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2">
+                  <span
+                    key={item}
+                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2 text-center sm:rounded-full sm:px-4"
+                  >
                     {item}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_20px_80px_hsl(var(--foreground)/0.18)] sm:p-5">
-              <div className="mb-5 flex items-end justify-between gap-4">
+            <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-3 shadow-[0_20px_80px_hsl(var(--foreground)/0.18)] sm:rounded-[2rem] sm:p-5">
+              <div className="mb-4 flex items-end justify-between gap-4 sm:mb-5">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Recent Website Work</p>
-                  <p className="mt-2 max-w-md text-sm leading-relaxed text-primary-foreground/68">
+                  <p className="mt-2 max-w-md text-xs leading-relaxed text-primary-foreground/68 sm:text-sm">
                     Scroll through a few recent builds and open any live site in a new tab.
                   </p>
                 </div>
@@ -312,7 +315,7 @@ export default function WebsiteOfferLandingPage() {
       </SectionShell>
 
       <SectionShell className="noise bg-black py-20 pb-28 text-primary-foreground md:py-24 md:pb-32">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start lg:gap-10">
           <div>
             <p className="section-badge">Start Here</p>
             <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
@@ -341,11 +344,11 @@ export default function WebsiteOfferLandingPage() {
         <div className="mx-auto flex max-w-shell items-center gap-3">
           <a
             href={`tel:${site.contactPhone}`}
-            className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary-foreground/12 bg-primary-foreground/[0.04] text-primary-foreground"
+            className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.22)]"
             data-analytics="phone_click"
             aria-label={`Call ${site.contactPhone}`}
           >
-            <PhoneIcon className="h-5 w-5" />
+            <PhoneIcon className="h-[1.15rem] w-[1.15rem]" />
           </a>
           <Button href="#claim-form" className="h-12 flex-1" dataAnalytics="cta-offer-800">
             Get My $800 Website

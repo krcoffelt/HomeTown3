@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { ArrowRightIcon } from "@/components/ui/site-icons";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
@@ -11,12 +12,11 @@ interface OfferExamplesCarouselProps {
   introText?: string | null;
 }
 
-function scrollByAmount(container: HTMLDivElement | null, direction: "prev" | "next") {
+function scrollByAmount(container: HTMLDivElement | null, direction: "prev" | "next", compact: boolean) {
   if (!container) return;
 
-  const firstCard = container.firstElementChild as HTMLElement | null;
-  const gap = 20;
-  const amount = firstCard ? firstCard.offsetWidth + gap : Math.round(container.clientWidth * 0.42);
+  const viewportFraction = compact ? 0.9 : 0.46;
+  const amount = Math.round(container.clientWidth * viewportFraction);
 
   container.scrollBy({
     left: direction === "next" ? amount : -amount,
@@ -43,7 +43,7 @@ export function OfferExamplesCarousel({
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent bg-accent text-accent-foreground transition hover:-translate-y-0.5 hover:bg-accent/90 hover:shadow-card"
-            onClick={() => scrollByAmount(containerRef.current, "prev")}
+            onClick={() => scrollByAmount(containerRef.current, "prev", compact)}
             aria-label="Show previous websites"
           >
             <span className="text-lg leading-none">←</span>
@@ -51,7 +51,7 @@ export function OfferExamplesCarousel({
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent bg-accent text-accent-foreground transition hover:-translate-y-0.5 hover:bg-accent/90 hover:shadow-card"
-            onClick={() => scrollByAmount(containerRef.current, "next")}
+            onClick={() => scrollByAmount(containerRef.current, "next", compact)}
             aria-label="Show more websites"
           >
             <span className="text-lg leading-none">→</span>
@@ -63,7 +63,7 @@ export function OfferExamplesCarousel({
         ref={containerRef}
         className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article
             key={project.slug}
             className={`light-panel snap-start overflow-hidden p-0 ${
@@ -75,11 +75,20 @@ export function OfferExamplesCarousel({
                 compact ? "h-[16rem] sm:h-[19rem]" : "h-[19rem] sm:h-[24rem]"
               }`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={project.featuredImageUrl}
                 alt={project.imageAlt}
-                className="h-full w-full object-cover object-top"
+                fill
+                priority={index === 0}
+                fetchPriority={index === 0 ? "high" : undefined}
+                loading={index === 0 ? "eager" : "lazy"}
+                quality={72}
+                sizes={
+                  compact
+                    ? "(max-width: 640px) 88vw, (max-width: 1024px) 74vw, 84vw"
+                    : "(max-width: 640px) 84vw, (max-width: 1024px) 58vw, 38vw"
+                }
+                className="object-cover object-top"
               />
             </div>
 
