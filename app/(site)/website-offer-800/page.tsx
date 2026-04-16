@@ -17,8 +17,9 @@ import { websiteOfferSchema } from "@/lib/seo/schema";
 const trustItems = [
   "Flat $800 package",
   "About 7 business days",
+  "Built for service businesses",
   "2 revision rounds",
-  "No pressure"
+  "Response in under 24 hours"
 ];
 
 const packageDetails = [
@@ -42,6 +43,12 @@ const packageDetails = [
     value: "Separate from the $800",
     body: "Domain and hosting are billed separately, but I help point you to the right setup and get everything connected."
   }
+];
+
+const notIncludedItems = [
+  "Hosting and domain costs",
+  "Large custom functionality or advanced integrations",
+  "Unlimited revisions or ongoing monthly work"
 ];
 
 const includedItems = [
@@ -80,10 +87,10 @@ const includedItems = [
 ];
 
 const fitItems = [
-  "Small businesses with no real website yet",
-  "Businesses with an outdated website",
-  "Local service businesses that need more credibility",
-  "Owners who want something affordable and done fast"
+  "Service businesses with no real website yet",
+  "Businesses stuck with an outdated site that no longer feels credible",
+  "Owners who want something professional without agency bloat",
+  "Businesses that need a stronger first impression fast"
 ];
 
 const processSteps = [
@@ -171,24 +178,17 @@ export default function WebsiteOfferLandingPage() {
               Professional Small Business Websites for $800
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-primary-foreground/76 md:text-xl">
-              Built for small businesses that need a clean, credible website fast. Simple process. Flat-rate pricing. Response in under 24 hours.
+              Built for service businesses that need a clean, credible website fast. Flat-rate pricing. Clear process. Response in under 24 hours.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
               <Button href="#claim-form" className="h-14 px-8" dataAnalytics="cta-offer-800">
                 Get My $800 Website
               </Button>
-              <Button
-                href="#examples"
-                variant="secondary"
-                className="h-14 border-primary-foreground/20 bg-black/25 px-8 text-primary-foreground hover:border-primary-foreground hover:bg-primary-foreground/8"
-              >
-                View Examples
-              </Button>
             </div>
 
             <p className="mt-8 text-sm leading-relaxed text-primary-foreground/72">
-              Flat-rate pricing • Fast turnaround • Built for small businesses • No pressure
+              Flat-rate pricing • Launch in about 7 days • Built for service businesses • Clear follow-up in under 24 hours
             </p>
           </div>
         </div>
@@ -225,6 +225,17 @@ export default function WebsiteOfferLandingPage() {
           ))}
         </div>
 
+        <div className="mt-6 rounded-[1.5rem] border border-foreground/10 bg-foreground px-6 py-5 text-primary-foreground">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">What&apos;s Not Included</p>
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {notIncludedItems.map((item) => (
+              <p key={item} className="text-sm leading-relaxed text-primary-foreground/78">
+                {item}
+              </p>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {includedItems.map((item) => (
             <article key={item.title} className="light-panel h-full p-7">
@@ -246,7 +257,7 @@ export default function WebsiteOfferLandingPage() {
               Best fit for owners who need something credible, affordable, and fast.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              This page is not selling every service we offer. It is for businesses that need a stronger website and want the process to stay straightforward.
+              This page is for businesses that need a sharper website and want the process to stay simple. It is not trying to sell you every service the agency offers.
             </p>
           </div>
 
@@ -298,14 +309,13 @@ export default function WebsiteOfferLandingPage() {
       </SectionShell>
 
       <SectionShell className="pt-0 pb-20 md:pb-24 bg-background text-foreground">
-        <div id="examples" className="scroll-mt-32" />
         <div className="max-w-3xl">
-          <p className="section-badge">Examples</p>
+          <p className="section-badge">Selected Proof</p>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            A few real websites built for real businesses.
+            A few recent websites that show what this offer can look like in the real world.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            The goal is not to drop you into a generic template. It is to give your business a website that feels established and makes people trust you faster.
+            The point is not to send you browsing. It is to show enough real work that submitting the form feels like a reasonable next step.
           </p>
         </div>
 
@@ -353,7 +363,7 @@ export default function WebsiteOfferLandingPage() {
               If the offer feels like a fit, send the form and I&apos;ll review it within 24 hours.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/72">
-              Tell me about your business and I&apos;ll follow up within 24 hours to see if your project is a fit for the $800 package.
+              Tell me about your business and I&apos;ll follow up within 24 hours to confirm whether the project is a fit for the $800 package and what the next step should be.
             </p>
             <div className="mt-8 grid gap-4 text-sm text-primary-foreground/78">
               {["No pressure", "Clear next steps", "Fast response"].map((item) => (

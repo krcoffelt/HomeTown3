@@ -59,15 +59,8 @@ export function Footer() {
             <p>{site.location}</p>
           </div>
         </div>
-        <div className="site-container border-t border-white/10 py-5 text-xs text-primary-foreground/36 md:flex md:items-center md:justify-between">
+        <div className="site-container border-t border-white/10 py-5 text-xs text-primary-foreground/36">
           <p>© {year} Hometown Marketing Agency. All rights reserved.</p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
-            {legalLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="transition hover:text-primary-foreground/60">
-                {link.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </footer>
     );
