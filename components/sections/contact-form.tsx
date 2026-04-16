@@ -77,8 +77,8 @@ export function ContactForm({ dark = false }: ContactFormProps) {
         <input type="hidden" name="serviceNeeded" value="General Inquiry" />
         <LeadAttributionFields />
         <div className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0" aria-hidden="true">
-          <label htmlFor="contact-companyWebsite">Leave this field blank</label>
-          <input id="contact-companyWebsite" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" />
+          <label htmlFor="contact-hpt">Leave this field blank</label>
+          <input id="contact-hpt" name="_hpt" type="text" tabIndex={-1} autoComplete="off" />
         </div>
         <div className="grid gap-5 md:grid-cols-2">
           <div>

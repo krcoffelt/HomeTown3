@@ -11,7 +11,7 @@ export interface SubmitLeadState {
 }
 
 function spamGuard(formData: FormData) {
-  return String(formData.get("companyWebsite") ?? "").trim();
+  return String(formData.get("_hpt") ?? "").trim();
 }
 
 function cleanOptional(value?: string) {
@@ -188,7 +188,7 @@ export async function submitOfferLead(
   const businessName = String(formData.get("businessName") ?? "").trim();
   const email = String(formData.get("email") ?? "").trim();
   const phone = String(formData.get("phone") ?? "").trim();
-  const websiteOrSocial = String(formData.get("websiteOrSocial") ?? "").trim();
+  const projectDetails = String(formData.get("projectDetails") ?? "").trim();
 
   if (!name || !businessName || !email || !phone) {
     return {
@@ -214,7 +214,7 @@ export async function submitOfferLead(
     projectDetails: [
       "$800 website offer inquiry.",
       "Lead came from the website-offer-800 landing page.",
-      websiteOrSocial ? `Website or social link: ${websiteOrSocial}` : null
+      projectDetails ? `Project details: ${projectDetails}` : null
     ]
       .filter(Boolean)
       .join("\n\n")

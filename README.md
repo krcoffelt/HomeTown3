@@ -1,5 +1,18 @@
 # HometownKC Website
 
+## Lead Form Environment Variables
+
+Set these in Netlify for lead capture and notifications:
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `RESEND_API_KEY`
+- `LEAD_FROM_EMAIL`
+- `LEAD_NOTIFY_EMAIL`
+
+The app also accepts the older aliases `FROM_EMAIL` and `LEAD_NOTIFICATION_EMAIL`, but the names above are the canonical ones.
+
 ## Google Tag Manager (GTM) Setup
 
 1. In Netlify, set environment variable `NEXT_PUBLIC_GTM_ID` to `GTM-5DWRG7GW` for the deployed site.

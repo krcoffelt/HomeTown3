@@ -6,6 +6,7 @@ import { submitOfferLead, type SubmitLeadState } from "@/app/(site)/contact/acti
 import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
 const initialState: SubmitLeadState = { ok: false, message: "" };
@@ -14,7 +15,7 @@ const initialValues = {
   businessName: "",
   email: "",
   phone: "",
-  websiteOrSocial: ""
+  projectDetails: ""
 };
 
 const GOOGLE_ADS_OFFER_CONVERSION_SEND_TO = process.env.NEXT_PUBLIC_GOOGLE_ADS_OFFER_CONVERSION_SEND_TO;
@@ -69,8 +70,8 @@ export function OfferLeadForm() {
       >
         <LeadAttributionFields />
         <div className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0" aria-hidden="true">
-          <label htmlFor="offer-companyWebsite">Leave this field blank</label>
-          <input id="offer-companyWebsite" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" />
+          <label htmlFor="offer-hpt">Leave this field blank</label>
+          <input id="offer-hpt" name="_hpt" type="text" tabIndex={-1} autoComplete="off" />
         </div>
         <div className="grid gap-5 md:grid-cols-2">
           <div className="space-y-2">
@@ -131,14 +132,15 @@ export function OfferLeadForm() {
           </div>
         </div>
         <div className="space-y-2">
-          <label htmlFor="offer-website" className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Website or Social Link</label>
-          <Input
-            id="offer-website"
-            name="websiteOrSocial"
-            value={values.websiteOrSocial}
-            placeholder="Current website, Facebook page, or Instagram link"
+          <label htmlFor="offer-projectDetails" className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Project Details</label>
+          <Textarea
+            id="offer-projectDetails"
+            name="projectDetails"
+            rows={4}
+            value={values.projectDetails}
+            placeholder="Anything helpful about your business, your timeline, or what you want the website to do."
             onFocus={markStarted}
-            onChange={(event) => setValues((prev) => ({ ...prev, websiteOrSocial: event.target.value }))}
+            onChange={(event) => setValues((prev) => ({ ...prev, projectDetails: event.target.value }))}
           />
         </div>
         {state.message ? (
