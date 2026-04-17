@@ -36,13 +36,13 @@ export function Navbar() {
 
   if (isOfferPage) {
     return (
-      <header className="fixed inset-x-0 top-0 z-50">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-black/6 bg-white/88 backdrop-blur-xl">
         <div className="site-container flex min-h-[64px] items-center justify-between gap-3 py-3 sm:min-h-[68px] sm:gap-4">
           <Link href="/" aria-label="Hometown home" className="shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/HometownLogoWhite2026-sm.png"
-              srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
+              src="/images/HometownLogo_black2026.png"
+              srcSet="/images/HometownLogo_black2026.png 2000w"
               sizes="(max-width: 640px) 120px, 180px"
               alt="Hometown Marketing Agency"
               width={180}
@@ -61,6 +61,9 @@ export function Navbar() {
             >
               <PhoneIcon className="h-4 w-4" />
             </a>
+            <Button href="#claim-form" className="hidden h-10 px-5 text-sm sm:inline-flex" dataAnalytics="cta-offer-800">
+              Start My Website
+            </Button>
           </div>
         </div>
       </header>

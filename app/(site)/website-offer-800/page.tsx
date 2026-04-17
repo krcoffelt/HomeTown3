@@ -5,15 +5,14 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { OfferExamplesCarousel } from "@/components/sections/offer-examples-carousel";
 import { OfferLeadForm } from "@/components/sections/offer-lead-form";
 import { Button } from "@/components/ui/button";
+import { CheckCircleIcon, QuoteIcon } from "@/components/ui/site-icons";
 import { testimonials } from "@/data/copy";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, faqItemsSchema, webPageSchema, websiteOfferSchema } from "@/lib/seo/schema";
 
-const featuredProjects = ["wrapped-up-moving", "zj-carpentry-and-more", "plate-kc"]
-  .map((slug) => projects.find((project) => project.slug === slug))
-  .filter((project): project is (typeof projects)[number] => Boolean(project));
+const featuredProjects = projects.filter((project) => Boolean(project.liveUrl));
 
 const heroReview = testimonials[0] ?? {
   name: "Recent client",
@@ -22,27 +21,22 @@ const heroReview = testimonials[0] ?? {
 
 const includedItems = [
   {
-    number: "01",
     title: "Custom website design",
     body: "A polished site designed around your business instead of a generic template."
   },
   {
-    number: "02",
     title: "Mobile-first build",
     body: "Built to look sharp and trustworthy on the phone screens most people use first."
   },
   {
-    number: "03",
     title: "Lead-focused structure",
     body: "Clear messaging, calls to action, and contact flow so people know how to reach you."
   },
   {
-    number: "04",
     title: "SEO-ready setup",
     body: "Structured cleanly so your business has a stronger foundation online."
   },
   {
-    number: "05",
     title: "Launch support",
     body: "We help connect the essentials so the site can actually go live without confusion."
   }
@@ -50,17 +44,14 @@ const includedItems = [
 
 const processSteps = [
   {
-    number: "1",
     title: "Send the basics",
     body: "Tell us what your business does, what you offer, and what the site needs to do."
   },
   {
-    number: "2",
     title: "We design and build it",
     body: "We turn that into a clean, custom website built to make your business look more established."
   },
   {
-    number: "3",
     title: "Review and launch",
     body: "We tighten the details, connect the essentials, and get it live."
   }
@@ -110,53 +101,74 @@ export default function WebsiteOfferLandingPage() {
       <StructuredData data={schema} />
       <OfferPageTracker />
 
-      <section className="relative isolate min-h-[100svh] overflow-hidden bg-black text-white">
-        <Image
-          src="/images/kyle.remini-enhanced.jpg"
-          alt="Kyle Coffelt of Hometown Marketing Agency"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[center_16%]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,8,18,0.28)_0%,rgba(3,8,18,0.34)_24%,rgba(3,8,18,0.74)_62%,rgba(3,8,18,0.94)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(33,81,218,0.28),transparent_28%)]" />
+      <section className="relative overflow-hidden bg-white pt-24 pb-12 md:pt-32 md:pb-18">
+        <div aria-hidden="true" className="pointer-events-none absolute right-[-6rem] top-[-5rem] h-[18rem] w-[18rem] rounded-full bg-accent/8 blur-[120px]" />
+        <div aria-hidden="true" className="pointer-events-none absolute left-[-6rem] bottom-[-7rem] h-[16rem] w-[16rem] rounded-full bg-foreground/5 blur-[120px]" />
 
-        <div className="site-container relative flex min-h-[100svh] items-end px-5 pb-10 pt-28 sm:px-8 sm:pb-14">
-          <div className="max-w-xl">
-            <p className="text-[3.15rem] font-bold leading-none tracking-[-0.06em] text-white sm:text-[4.8rem] md:text-[6rem]">
-              Hometown
-            </p>
-            <h1 className="mt-3 max-w-lg text-[2.15rem] font-bold leading-[0.95] tracking-tight sm:text-[3rem] md:text-[3.7rem]">
-              Websites that make your business look credible.
-            </h1>
-            <p className="mt-4 max-w-md text-base leading-relaxed text-white/72 sm:text-lg">
-              Clean, modern websites for service businesses that need to look more established online fast.
-            </p>
-
-            <div className="mt-7">
-              <Button href="#claim-form" className="w-full sm:w-auto sm:px-8" dataAnalytics="cta-offer-800">
-                Claim My $800 Website
-              </Button>
-              <p className="mt-3 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-white/52">
-                Flat-rate $800 • Around 7 business days • Reply within 24 hours
+        <div className="site-container relative px-5 sm:px-8">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
+            <div className="min-w-0">
+              <p className="text-[0.72rem] font-bold uppercase tracking-[0.24em] text-accent">Hometown Website Offer</p>
+              <h1 className="mt-5 max-w-xl text-[2.35rem] font-bold leading-[0.94] tracking-tight text-foreground sm:text-[3.2rem] md:text-[4.1rem]">
+                Custom small business websites from $800.
+              </h1>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground/72 sm:text-lg">
+                Built for local service businesses that need to look more credible online without a bloated agency project.
               </p>
+
+              <div className="mt-7">
+                <Button href="#claim-form" className="w-full sm:w-auto sm:px-8" dataAnalytics="cta-offer-800">
+                  Claim My $800 Website
+                </Button>
+                <p className="mt-3 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-foreground/46">
+                  Flat-rate $800 • Around 7 business days • Reply within 24 hours
+                </p>
+              </div>
+
+              <article className="mt-7 max-w-lg rounded-[1.5rem] border border-black/8 bg-[#f7f9fc] p-5 shadow-[0_18px_50px_rgba(17,24,39,0.06)]">
+                <div className="flex items-start gap-4">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                    <QuoteIcon className="h-4 w-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1 text-sm text-[#efb11d]">
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                    </div>
+                    <p className="mt-3 text-sm font-semibold leading-snug text-foreground">
+                      {heroReview.highlight}
+                    </p>
+                    <p className="mt-2 text-[0.68rem] uppercase tracking-[0.18em] text-foreground/42">
+                      {heroReview.name} • Real client review
+                    </p>
+                  </div>
+                </div>
+              </article>
             </div>
 
-            <div className="mt-7 max-w-sm border-t border-white/14 pt-5">
-              <div className="flex items-center gap-1 text-sm text-[#efb11d]">
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
+            <div className="min-w-0">
+              <div className="overflow-hidden rounded-[2rem] border border-black/8 bg-[#0d1016] shadow-[0_30px_90px_rgba(15,23,42,0.18)]">
+                <div className="relative aspect-[0.94/1.06] sm:aspect-[1.08/1] lg:aspect-[0.96/1.04]">
+                  <Image
+                    src="/images/kyle.remini-enhanced.jpg"
+                    alt="Kyle Coffelt of Hometown Marketing Agency"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 48vw"
+                    className="object-cover object-[center_16%]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/48 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6">
+                    <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/52">Hometown Marketing Agency</p>
+                    <p className="mt-3 max-w-sm text-xl font-bold leading-tight tracking-tight sm:text-[1.8rem]">
+                      Clean websites that make local businesses look established.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p className="mt-3 text-sm font-semibold leading-snug text-white/92">
-                {heroReview.highlight}
-              </p>
-              <p className="mt-2 text-[0.68rem] uppercase tracking-[0.18em] text-white/44">
-                {heroReview.name} • Real client review
-              </p>
             </div>
           </div>
         </div>
@@ -170,7 +182,7 @@ export default function WebsiteOfferLandingPage() {
               Real sites we&apos;ve built for local businesses.
             </h2>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-foreground/64">
-              Swipe through a few recent projects and open any of them live.
+              Swipe through every live website we have on this page and open any of them live.
             </p>
           </div>
 
@@ -191,9 +203,11 @@ export default function WebsiteOfferLandingPage() {
 
               <div className="mt-8 divide-y divide-black/10 border-y border-black/10">
                 {includedItems.map((item) => (
-                  <article key={item.title} className="grid gap-2 py-5 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-4">
-                    <p className="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-accent">{item.number}</p>
-                    <div>
+                  <article key={item.title} className="flex items-start gap-4 py-5">
+                    <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                      <CheckCircleIcon className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
                       <h3 className="text-lg font-bold tracking-tight text-foreground">{item.title}</h3>
                       <p className="mt-2 max-w-xl text-sm leading-relaxed text-foreground/64">{item.body}</p>
                     </div>
@@ -212,12 +226,9 @@ export default function WebsiteOfferLandingPage() {
                 Simple. Clear. Fast.
               </h2>
 
-              <div className="mt-8 space-y-7 border-l border-black/10 pl-6">
+              <div className="mt-8 space-y-7">
                 {processSteps.map((step) => (
-                  <article key={step.number} className="relative">
-                    <div className="absolute left-[-2.1rem] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
-                      {step.number}
-                    </div>
+                  <article key={step.title} className="border-t border-black/10 pt-5 first:border-t-0 first:pt-0">
                     <h3 className="text-lg font-bold tracking-tight text-foreground">{step.title}</h3>
                     <p className="mt-2 max-w-md text-sm leading-relaxed text-foreground/64">{step.body}</p>
                   </article>
@@ -241,14 +252,11 @@ export default function WebsiteOfferLandingPage() {
               </p>
 
               <div className="mt-8 divide-y divide-white/10 border-y border-white/10">
-                {offerFaqs.map((item, index) => (
-                  <details key={item.question} className="group py-4" open={index === 0}>
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
-                      <span className="text-sm font-semibold tracking-tight text-white">{item.question}</span>
-                      <span className="text-white/48 transition group-open:rotate-45">+</span>
-                    </summary>
-                    <p className="mt-3 max-w-md text-sm leading-relaxed text-white/62">{item.answer}</p>
-                  </details>
+                {offerFaqs.map((item) => (
+                  <div key={item.question} className="py-4">
+                    <p className="text-sm font-semibold tracking-tight text-white">{item.question}</p>
+                    <p className="mt-2 max-w-md text-sm leading-relaxed text-white/62">{item.answer}</p>
+                  </div>
                 ))}
               </div>
             </div>

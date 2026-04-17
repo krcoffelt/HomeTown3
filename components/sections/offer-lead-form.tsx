@@ -74,12 +74,12 @@ export function OfferLeadForm() {
 
   return (
     <div className="rounded-[2rem] border border-black/8 bg-white/94 p-5 shadow-[0_22px_60px_rgba(15,23,42,0.08)] sm:p-7">
-      <div className="mb-5">
+      <div className="mb-4">
         <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-accent">Start here</p>
         <h3 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-[2rem]">
           {showFullForm ? "A few quick details." : "Start with your email."}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           {showFullForm
             ? "This helps us send the clearest next step."
             : "We&apos;ll reply within 24 hours if it looks like a fit."}
@@ -206,7 +206,7 @@ export function OfferLeadForm() {
           </Button>
         )}
 
-        <p className="text-sm text-muted-foreground">No pressure. Fast response.</p>
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">No pressure. Fast response.</p>
         <p className="text-xs leading-relaxed text-muted-foreground">
           By submitting, you agree to our{" "}
           <Link href="/privacy-policy" className="underline decoration-current/30 underline-offset-4 transition hover:text-foreground">
