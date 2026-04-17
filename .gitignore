@@ -8,3 +8,6 @@ dist
 out
 .DS_Store
 *.tsbuildinfo
+
+# Local screenshots and generated artifacts
+output/
