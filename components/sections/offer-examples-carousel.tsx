@@ -32,7 +32,7 @@ export function OfferExamplesCarousel({
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative">
+    <div className="relative w-full min-w-0">
       <div className="mb-6 flex items-center justify-between gap-4">
         {introText ? (
           <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">{introText}</p>
@@ -61,13 +61,13 @@ export function OfferExamplesCarousel({
 
       <div
         ref={containerRef}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {projects.map((project, index) => (
           <article
             key={project.slug}
-            className={`light-panel snap-start overflow-hidden p-0 ${
-              compact ? "min-w-[88%] sm:min-w-[74%] lg:min-w-[84%]" : "min-w-[84%] sm:min-w-[58%] lg:min-w-[38%]"
+            className={`light-panel snap-start flex-none overflow-hidden p-0 ${
+              compact ? "w-[88%] sm:w-[74%] lg:w-[84%]" : "w-[84%] sm:w-[58%] lg:w-[38%]"
             }`}
           >
             <div
@@ -92,8 +92,8 @@ export function OfferExamplesCarousel({
               />
             </div>
 
-            <div className={`flex flex-col gap-5 ${compact ? "p-5 md:p-6" : "p-6 md:flex-row md:items-end md:justify-between md:p-7"}`}>
-              <div>
+            <div className={`flex min-w-0 flex-col gap-5 ${compact ? "p-5 md:p-6" : "p-6 md:flex-row md:items-end md:justify-between md:p-7"}`}>
+              <div className="min-w-0">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Featured Website</p>
                 <h3 className={`mt-3 font-bold tracking-tight text-foreground ${compact ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"}`}>
                   {project.clientName}

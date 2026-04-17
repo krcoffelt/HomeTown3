@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { OfferPageTracker } from "@/components/analytics/offer-page-tracker";
 import { SectionShell } from "@/components/layout/section-shell";
@@ -6,8 +7,7 @@ import { OfferExamplesCarousel } from "@/components/sections/offer-examples-caro
 import { OfferLeadForm } from "@/components/sections/offer-lead-form";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { TestimonialCard } from "@/components/ui/testimonial-card";
-import { CheckCircleIcon, PhoneIcon } from "@/components/ui/site-icons";
+import { CheckCircleIcon, PhoneIcon, ArrowRightIcon } from "@/components/ui/site-icons";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { testimonials } from "@/data/copy";
@@ -46,6 +46,40 @@ const fitItems = [
   "Businesses stuck with an outdated site that no longer feels credible",
   "Owners who want something professional without agency bloat",
   "Businesses that need a stronger first impression fast"
+];
+
+const proofItems = [
+  {
+    label: "Real Google reviews",
+    body: "Client feedback from actual website projects, not generic trust copy."
+  },
+  {
+    label: "Live client websites",
+    body: "You can preview recent builds and see the quality for yourself."
+  },
+  {
+    label: "Flat-rate clarity",
+    body: "One focused offer for businesses that need a professional site fast."
+  },
+  {
+    label: "Fast follow-up",
+    body: "Most inquiries get a direct response within 24 hours."
+  }
+];
+
+const whyOfferItems = [
+  {
+    title: "You get looked up first",
+    body: "Most referrals, searches, and recommendations end with someone checking your website before they decide whether to trust you."
+  },
+  {
+    title: "Outdated sites cost confidence",
+    body: "If the site feels old, thin, or unfinished, people hesitate even when the business itself is great."
+  },
+  {
+    title: "This fixes that quickly",
+    body: "The $800 offer is built to give small businesses a cleaner first impression without dragging them into a bloated agency project."
+  }
 ];
 
 const processSteps = [
@@ -114,11 +148,13 @@ export const metadata: Metadata = {
 };
 
 export default function WebsiteOfferLandingPage() {
-  const [featuredTestimonial, ...supportingTestimonials] = testimonials;
+  const heroReviews = testimonials.slice(0, 2);
   const featuredProjects = ["wrapped-up-moving", "zj-carpentry-and-more", "plate-kc", "lupi-docs"]
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project): project is (typeof projects)[number] => Boolean(project));
-  const offerSectionClass = "py-12 md:py-20";
+  const featuredWorkProjects = featuredProjects.slice(0, 3);
+  const offerSectionClass = "py-10 md:py-20";
+  const offerContainerClass = "px-5 sm:px-8";
   const schema = [
     webPageSchema({
       name: "Professional Small Business Websites for $800",
@@ -134,22 +170,22 @@ export default function WebsiteOfferLandingPage() {
   ];
 
   return (
-    <>
+    <div className="overflow-x-clip">
       <StructuredData data={schema} />
       <OfferPageTracker />
 
-      <section className="relative overflow-hidden bg-black pt-28 pb-14 text-primary-foreground md:pt-40 md:pb-24">
+      <section className="relative overflow-hidden bg-black pt-24 pb-12 text-primary-foreground md:pt-40 md:pb-24">
         <div aria-hidden="true" className="pointer-events-none absolute left-[-6rem] top-[2rem] h-[360px] w-[360px] rounded-full bg-accent/12 blur-[120px]" />
         <div aria-hidden="true" className="pointer-events-none absolute right-[-4rem] top-[8rem] h-[320px] w-[320px] rounded-full bg-white/6 blur-[110px]" />
-        <div className="site-container relative">
-          <div className="grid gap-7 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-10">
-            <div className="max-w-3xl">
+        <div className="site-container relative px-5 sm:px-8">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-10">
+            <div className="min-w-0 max-w-3xl">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-accent">Flat-Rate Website Package</p>
-              <h1 className="mt-5 text-balance text-[2.7rem] font-bold leading-[0.98] tracking-tight sm:mt-7 sm:text-5xl md:text-6xl">
-                Professional Small Business Websites for $800
+              <h1 className="mt-4 text-[2.2rem] font-bold leading-[0.96] tracking-tight sm:mt-7 sm:text-balance sm:text-5xl md:text-6xl">
+                A website that makes your business look credible and gets people to reach out.
               </h1>
-              <p className="mt-5 max-w-3xl text-base leading-relaxed text-primary-foreground/76 sm:text-lg md:text-xl">
-                Built for service businesses that need a clean, credible website fast. Flat-rate pricing. Clear process. Response in under 24 hours.
+              <p className="mt-4 max-w-3xl text-[0.95rem] leading-relaxed text-primary-foreground/76 sm:mt-5 sm:text-lg md:text-xl">
+                Hometown Marketing Agency builds clean, modern websites for small businesses that need to look more professional online without paying bloated agency prices. Flat-rate pricing, fast turnaround, and a simple process.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
@@ -158,8 +194,8 @@ export default function WebsiteOfferLandingPage() {
                 </Button>
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-2 text-xs text-primary-foreground/72 sm:mt-8 sm:flex sm:flex-wrap sm:gap-3 sm:text-sm">
-                {["Flat-rate pricing", "Built for service businesses", "Around 7 business days", "Reply within 24 hours"].map((item) => (
+              <div className="mt-5 grid grid-cols-1 gap-2 text-[0.7rem] text-primary-foreground/72 min-[390px]:grid-cols-2 sm:mt-8 sm:flex sm:flex-wrap sm:gap-3 sm:text-sm">
+                {["Flat-rate pricing", "Around 7 business days", "Reply within 24 hours", "No pressure if it is not a fit"].map((item) => (
                   <span
                     key={item}
                     className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2 text-center sm:rounded-full sm:px-4"
@@ -168,14 +204,30 @@ export default function WebsiteOfferLandingPage() {
                   </span>
                 ))}
               </div>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {heroReviews.map((testimonial) => (
+                  <article key={testimonial.name} className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-4">
+                    <div className="flex items-center gap-1 text-sm text-yellow-400">
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                    </div>
+                    <p className="mt-3 text-sm font-semibold leading-snug text-primary-foreground">{testimonial.highlight}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-primary-foreground/68">{testimonial.name}</p>
+                  </article>
+                ))}
+              </div>
             </div>
 
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-3 shadow-[0_20px_80px_hsl(var(--foreground)/0.18)] sm:rounded-[2rem] sm:p-5">
+            <div className="min-w-0 rounded-[1.4rem] border border-white/10 bg-white/[0.04] p-2.5 shadow-[0_20px_80px_hsl(var(--foreground)/0.18)] sm:rounded-[2rem] sm:p-5">
               <div className="mb-4 flex items-end justify-between gap-4 sm:mb-5">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Recent Website Work</p>
                   <p className="mt-2 max-w-md text-xs leading-relaxed text-primary-foreground/68 sm:text-sm">
-                    Scroll through a few recent builds and open any live site in a new tab.
+                    Real client websites designed to help small businesses look more established and easier to trust.
                   </p>
                 </div>
               </div>
@@ -186,10 +238,97 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </section>
 
-      <SectionShell className={`${offerSectionClass} noise bg-gradient-subtle text-foreground`}>
+      <SectionShell className="border-y border-border/70 bg-background py-6 text-foreground md:py-8" containerClassName={offerContainerClass}>
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {proofItems.map((item) => (
+            <div key={item.label} className="rounded-[1.4rem] border border-border bg-card px-5 py-4 shadow-card">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{item.label}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell className={`${offerSectionClass} noise bg-gradient-subtle text-foreground`} containerClassName={offerContainerClass}>
+        <div className="max-w-3xl">
+          <p className="section-badge">Featured Recent Work</p>
+          <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-balance md:text-5xl">
+            Real websites that make small businesses look sharper, cleaner, and more legitimate online.
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            These are not mockups or filler examples. They are recent client websites built to create trust fast and make it easier for people to reach out.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {featuredWorkProjects.map((project) => (
+            <article key={project.slug} className="light-panel overflow-hidden p-0">
+              <div className="relative h-[13.5rem] overflow-hidden border-b border-border bg-secondary sm:h-[16rem]">
+                <Image src={project.featuredImageUrl} alt={project.imageAlt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover object-top" />
+              </div>
+              <div className="p-6">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
+                <h3 className="mt-3 text-2xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+                {project.quote ? <p className="mt-4 text-sm leading-relaxed text-foreground/80">&ldquo;{project.quote}&rdquo;</p> : null}
+                {project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-foreground transition hover:text-accent"
+                  >
+                    Preview Website
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </a>
+                ) : null}
+              </div>
+            </article>
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell className={`${offerSectionClass} bg-background text-foreground`} containerClassName={offerContainerClass}>
+        <div className="max-w-3xl">
+          <p className="section-badge">Why This Works</p>
+          <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-balance md:text-5xl">
+            Small business owners are usually not missing talent. They are missing a website that makes people trust them fast.
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            Referrals still check you out online. Searchers compare you to competitors in seconds. If the website feels weak, outdated, or unfinished, it can quietly cost you trust before you ever get the chance to talk to them.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+          <div className="dark-panel p-7 md:p-9">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground/60">Built for service businesses</p>
+            <div className="mt-6 grid gap-4">
+              {whyOfferItems.map((item) => (
+                <div key={item.title} className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-5">
+                  <h3 className="text-lg font-bold tracking-tight text-primary-foreground">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-primary-foreground/72">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            {fitItems.map((item) => (
+              <div key={item} className="light-panel flex items-start gap-4 p-6">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                  <CheckCircleIcon className="h-4 w-4" />
+                </div>
+                <p className="text-base leading-relaxed text-foreground">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell className={`${offerSectionClass} noise bg-gradient-subtle text-foreground`} containerClassName={offerContainerClass}>
         <div className="max-w-3xl">
           <p className="section-badge">What You Get for $800</p>
-          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+          <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-balance md:text-5xl">
             Everything you need for a clean, credible, lead-focused website.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
@@ -221,69 +360,10 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className={`${offerSectionClass} bg-background text-foreground`}>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start">
-          <div>
-            <p className="section-badge">Who This Is For</p>
-            <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-              Best fit for owners who need something credible, affordable, and fast.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              This page is for businesses that need a sharper website and want the process to stay simple. It is not trying to sell you every service the agency offers.
-            </p>
-          </div>
-
-          <div className="grid gap-4">
-            {fitItems.map((item) => (
-              <div key={item} className="light-panel flex items-start gap-4 p-6">
-                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
-                  <CheckCircleIcon className="h-4 w-4" />
-                </div>
-                <p className="text-base leading-relaxed text-foreground">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </SectionShell>
-
-      <SectionShell className={`${offerSectionClass} bg-background text-foreground`}>
-        <div className="max-w-3xl">
-          <p className="section-badge">Real Reviews</p>
-          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            Real business owners trust the process because it stays simple and the work looks sharp.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            These are the same real Google reviews that support the rest of the Hometown site. The page should feel trustworthy before it asks for the form.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-5 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <TestimonialCard
-              name={featuredTestimonial.name}
-              text={featuredTestimonial.text}
-              highlight={featuredTestimonial.highlight}
-              featured
-            />
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:col-span-3">
-            {supportingTestimonials.slice(0, 4).map((testimonial) => (
-              <TestimonialCard
-                key={testimonial.name}
-                name={testimonial.name}
-                text={testimonial.text}
-                highlight={testimonial.highlight}
-              />
-            ))}
-          </div>
-        </div>
-      </SectionShell>
-
-      <SectionShell className={`${offerSectionClass} noise bg-gradient-subtle text-foreground`}>
+      <SectionShell className={`${offerSectionClass} bg-background text-foreground`} containerClassName={offerContainerClass}>
         <div className="max-w-3xl">
           <p className="section-badge">How It Works</p>
-          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+          <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-balance md:text-5xl">
             Three clear steps to get your site live.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
@@ -302,10 +382,10 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className={`${offerSectionClass} bg-background text-foreground`}>
+      <SectionShell className={`${offerSectionClass} bg-background text-foreground`} containerClassName={offerContainerClass}>
         <div className="max-w-3xl">
           <p className="section-badge">FAQ</p>
-          <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight md:text-5xl">
+          <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-balance md:text-5xl">
             The common questions people ask before they hit submit.
           </h2>
         </div>
@@ -314,12 +394,12 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="noise bg-black py-20 pb-28 text-primary-foreground md:py-24 md:pb-32">
+      <SectionShell className="noise bg-black py-16 pb-28 text-primary-foreground md:py-24 md:pb-32" containerClassName={offerContainerClass}>
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start lg:gap-10">
           <div>
             <p className="section-badge">Start Here</p>
-            <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
-              If the offer feels like a fit, send the form and I&apos;ll review it within 24 hours.
+            <h2 className="mt-6 text-4xl font-bold tracking-tight text-primary-foreground sm:text-balance md:text-5xl">
+              Ready for a website that makes your business look more credible and easier to trust?
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/72">
               Tell me about your business and I&apos;ll follow up within 24 hours to confirm whether the project is a fit for the $800 package and what the next step should be.
@@ -350,11 +430,12 @@ export default function WebsiteOfferLandingPage() {
           >
             <PhoneIcon className="h-[1.15rem] w-[1.15rem]" />
           </a>
-          <Button href="#claim-form" className="h-12 flex-1" dataAnalytics="cta-offer-800">
-            Get My $800 Website
+          <Button href="#claim-form" className="h-12 flex-1 text-sm" dataAnalytics="cta-offer-800">
+            <span className="min-[390px]:hidden">Start My Website</span>
+            <span className="hidden min-[390px]:inline">Get My $800 Website</span>
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
