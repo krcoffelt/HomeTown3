@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CloseIcon, MenuIcon } from "@/components/ui/site-icons";
+import { CloseIcon, MenuIcon, PhoneIcon } from "@/components/ui/site-icons";
 import { site } from "@/data/site";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils/cn";
@@ -36,18 +36,18 @@ export function Navbar() {
 
   if (isOfferPage) {
     return (
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/95 md:bg-black/85 md:backdrop-blur-xl">
-        <div className="site-container flex min-h-[74px] items-center justify-between gap-3 py-3 sm:min-h-[78px] sm:gap-4 sm:py-4">
+      <header className="fixed inset-x-0 top-0 z-50">
+        <div className="site-container flex min-h-[64px] items-center justify-between gap-3 py-3 sm:min-h-[68px] sm:gap-4">
           <Link href="/" aria-label="Hometown home" className="shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/HometownLogoWhite2026-sm.png"
               srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
-              sizes="(max-width: 640px) 140px, 220px"
+              sizes="(max-width: 640px) 120px, 180px"
               alt="Hometown Marketing Agency"
-              width={220}
-              height={60}
-              className="h-7 w-auto sm:h-9 md:h-10"
+              width={180}
+              height={52}
+              className="h-6 w-auto sm:h-8"
             />
           </Link>
 
@@ -55,15 +55,12 @@ export function Navbar() {
             <a
               href={`tel:${site.contactPhone}`}
               data-analytics="phone_click"
-              className="hidden text-sm font-medium text-primary-foreground/75 transition hover:text-primary-foreground md:inline-flex"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition hover:-translate-y-0.5"
               onClick={() => pushDataLayerEvent(analyticsEvents.phoneClick)}
+              aria-label="Call Hometown Marketing Agency"
             >
-              {site.contactPhone}
+              <PhoneIcon className="h-4 w-4" />
             </a>
-            <Button href="#claim-form" className="h-10 px-4 text-xs sm:h-11 sm:px-5 sm:text-sm md:px-6" dataAnalytics="cta-offer-800">
-              <span className="sm:hidden">Get Started</span>
-              <span className="hidden sm:inline">Get My $800 Website</span>
-            </Button>
           </div>
         </div>
       </header>
