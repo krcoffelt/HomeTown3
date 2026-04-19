@@ -36,18 +36,18 @@ export function Navbar() {
 
   if (isOfferPage) {
     return (
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-black/6 bg-white/88 backdrop-blur-xl">
-        <div className="site-container flex min-h-[64px] items-center justify-between gap-3 py-3 sm:min-h-[68px] sm:gap-4">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/8 bg-[#0b0d10] text-primary-foreground shadow-[0_18px_40px_rgba(0,0,0,0.24)]">
+        <div className="site-container flex min-h-[70px] items-center justify-between gap-3 py-3 sm:min-h-[78px] sm:gap-4 sm:py-4">
           <Link href="/" aria-label="Hometown home" className="shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/HometownLogo_black2026.png"
-              srcSet="/images/HometownLogo_black2026.png 2000w"
-              sizes="(max-width: 640px) 120px, 180px"
+              src="/images/HometownLogoWhite2026-sm.png"
+              srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
+              sizes="(max-width: 640px) 150px, 220px"
               alt="Hometown Marketing Agency"
-              width={180}
-              height={52}
-              className="h-6 w-auto sm:h-8"
+              width={220}
+              height={60}
+              className="h-7 w-auto sm:h-9"
             />
           </Link>
 
@@ -55,7 +55,7 @@ export function Navbar() {
             <a
               href={`tel:${site.contactPhone}`}
               data-analytics="phone_click"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition hover:-translate-y-0.5"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white text-black shadow-[0_12px_30px_rgba(15,23,42,0.22)] transition hover:-translate-y-0.5"
               onClick={() => pushDataLayerEvent(analyticsEvents.phoneClick)}
               aria-label="Call Hometown Marketing Agency"
             >

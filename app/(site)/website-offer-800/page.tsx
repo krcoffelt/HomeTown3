@@ -12,17 +12,14 @@ import { breadcrumbSchema, faqItemsSchema, webPageSchema, websiteOfferSchema } f
 
 const processSteps = [
   {
-    step: "01",
     title: "Send the basics",
     body: "A few details about your business, what you offer, and what the site needs to do."
   },
   {
-    step: "02",
     title: "We design and build it",
     body: "A clean, custom website built to make your business look established — no templates."
   },
   {
-    step: "03",
     title: "Review and launch",
     body: "Two rounds of revisions, then we connect the essentials and get it live."
   }
@@ -46,7 +43,7 @@ const offerFaqs = [
 export const metadata: Metadata = {
   ...createPageMetadata(
     "Custom Small Business Websites for $800",
-    "Custom websites for Kansas City small businesses. $800 flat rate, built in about 7 business days. 50+ KC projects, 5.0 Google reviews, no contracts.",
+    "Custom websites for Kansas City small businesses. $800 flat rate, built in about 7 business days. 23+ projects, 5.0 Google reviews, no contracts.",
     "/website-offer-800",
     site.brand.shortName
   )
@@ -98,13 +95,10 @@ export default function WebsiteOfferLandingPage() {
             <ol className="mt-10 grid gap-6 md:grid-cols-3">
               {processSteps.map((step) => (
                 <li
-                  key={step.step}
+                  key={step.title}
                   className="relative border-t border-black/12 pt-5"
                 >
-                  <span className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-foreground/40">
-                    Step {step.step}
-                  </span>
-                  <h3 className="mt-3 text-lg font-bold tracking-tight text-foreground">
+                  <h3 className="text-lg font-bold tracking-tight text-foreground">
                     {step.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-foreground/64">{step.body}</p>
@@ -115,7 +109,7 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </section>
 
-      <section className="bg-[#f7f5f0] py-16 md:py-20">
+      <section className="bg-[#f4f6fa] py-16 md:py-20">
         <div className="site-container px-5 sm:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">

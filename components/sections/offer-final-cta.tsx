@@ -56,7 +56,7 @@ export function OfferFinalCta() {
             </figure>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[0.72rem] font-bold uppercase tracking-[0.18em] text-white/65">
-              <span>50+ KC projects</span>
+              <span>23+ projects</span>
               <span aria-hidden="true" className="h-1 w-1 rounded-full bg-white/35" />
               <span>5.0 Google reviews</span>
               <span aria-hidden="true" className="h-1 w-1 rounded-full bg-white/35" />

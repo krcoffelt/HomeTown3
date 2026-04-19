@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { MapPinIcon } from "@/components/ui/site-icons";
 
 const proofItems = [
-  "50+ KC projects",
+  "23+ projects",
   "5.0 ★ Google",
   "No contracts",
   "2 revision rounds"
@@ -12,7 +12,7 @@ const proofItems = [
 
 export function OfferHero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#f4f1ea] pt-28 pb-16 md:pt-36 md:pb-24">
+    <section className="relative isolate overflow-hidden bg-[#f5f7fb] pt-28 pb-16 md:pt-36 md:pb-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -33,41 +33,24 @@ export function OfferHero() {
             <div className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-white/90 px-3.5 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-foreground/70 shadow-sm backdrop-blur-sm">
               <MapPinIcon className="h-3.5 w-3.5 text-accent" />
               <span className="text-foreground/55">Kansas City</span>
-              <span aria-hidden="true" className="text-foreground/25">
-                ·
-              </span>
-              <span>$800 flat</span>
-              <span aria-hidden="true" className="text-foreground/25">
-                ·
-              </span>
-              <span>~7 days</span>
             </div>
 
-            <h1 className="mt-7 font-display text-[2.65rem] font-bold leading-[0.95] tracking-[-0.03em] text-foreground sm:text-[3.5rem] md:text-[4.25rem] lg:text-[4.75rem]">
-              <span className="block text-balance">Look as sharp online</span>
-              <span className="mt-1 block text-balance">
-                as you do{" "}
-                <span className="relative inline">
-                  <span className="relative z-10">on the job.</span>
-                  <span
-                    aria-hidden="true"
-                    className="absolute -inset-x-1 bottom-[0.08em] z-0 h-[0.42em] rounded-sm bg-accent/25"
-                  />
-                </span>
-              </span>
+            <h1 className="mt-7 max-w-[10ch] font-display text-[2.15rem] font-bold leading-[0.92] tracking-[-0.04em] text-foreground sm:text-[3rem] md:max-w-[11ch] md:text-[3.8rem] lg:text-[4.2rem]">
+              <span className="block">Make your business</span>
+              <span className="mt-1 block">look credible online.</span>
             </h1>
 
-            <p className="mt-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-[1.65rem]">
-              <span className="gradient-text">$800</span>
-              <span className="text-foreground/35"> · </span>
-              <span>about 7 business days</span>
-              <span className="text-foreground/35"> · </span>
-              <span className="text-foreground">built for you</span>
+            <p className="mt-3 text-base font-bold tracking-tight text-accent sm:text-lg md:text-[1.3rem]">
+              <span>$800</span>
+              <span className="px-2 text-accent/45">·</span>
+              <span>About 7 business days</span>
+              <span className="px-2 text-accent/45">·</span>
+              <span>Built for you</span>
             </p>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/72 sm:text-[1.05rem]">
-              Custom site—not a drag-and-drop template. Contact form wired, basic SEO and Google Analytics set up, two revision rounds.{" "}
-              <strong className="font-semibold text-foreground">I&apos;m Kyle—I build it and you talk to me.</strong>
+              Custom site, not a drag-and-drop template. Contact form wired, basic SEO and Google Analytics set up, two revision rounds.{" "}
+              <strong className="font-semibold text-foreground">You work directly with Kyle from Hometown through the whole build.</strong>
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">

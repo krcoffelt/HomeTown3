@@ -1,7 +1,7 @@
 import { testimonials } from "@/data/copy";
 
 const metrics = [
-  { value: "50+", label: "KC projects delivered" },
+  { value: "23+", label: "Projects delivered" },
   { value: "5.0", label: "Google review rating" },
   { value: "~7", label: "Business days to launch" },
   { value: "0", label: "Contracts. Ever." }
@@ -39,22 +39,37 @@ export function OfferTrustBand() {
             {trustReviews.map((review) => (
               <figure
                 key={review.name}
-                className="flex h-full flex-col justify-between rounded-2xl border border-black/8 bg-[#f7f5f0] p-5"
+                className="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.6rem] border border-black/8 bg-white p-5 shadow-[0_18px_45px_rgba(15,23,42,0.08)] sm:p-6"
               >
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-0 top-0 h-28 w-28 translate-x-1/3 -translate-y-1/3 rounded-full bg-accent/10 blur-2xl"
+                />
                 <div>
-                  <div className="flex items-center gap-0.5 text-sm text-[#efb11d]">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-0.5 text-[0.95rem] text-[#efb11d]">
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      className="font-display text-[2.4rem] leading-none tracking-[-0.08em] text-accent/55"
+                    >
+                      ”
+                    </span>
                   </div>
-                  <blockquote className="mt-3 text-sm font-semibold leading-snug text-foreground">
+                  <blockquote className="mt-4 text-[1rem] font-semibold leading-[1.5] tracking-[-0.01em] text-foreground sm:text-[1.05rem]">
                     &ldquo;{review.highlight}&rdquo;
                   </blockquote>
                 </div>
-                <figcaption className="mt-4 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-foreground/55">
-                  {review.name} · Google review
+                <figcaption className="mt-6 border-t border-black/6 pt-4">
+                  <p className="text-sm font-bold tracking-tight text-foreground">{review.name}</p>
+                  <p className="mt-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-foreground/50">
+                    Google review
+                  </p>
                 </figcaption>
               </figure>
             ))}

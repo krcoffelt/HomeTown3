@@ -5,15 +5,11 @@ import { ArrowRightIcon } from "@/components/ui/site-icons";
 import { projects } from "@/data/projects";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
-const featuredSlugs = ["plate-kc", "wrapped-up-moving", "zj-carpentry-and-more"];
-
-const featuredProjects = featuredSlugs
-  .map((slug) => projects.find((project) => project.slug === slug))
-  .filter((project): project is (typeof projects)[number] => Boolean(project));
+const featuredProjects = projects.filter((project) => Boolean(project.liveUrl));
 
 export function OfferFeaturedWork() {
   return (
-    <section id="work" className="scroll-mt-28 bg-[#f7f5f0] py-16 md:py-24">
+    <section id="work" className="scroll-mt-28 bg-[#f4f6fa] py-16 md:py-24">
       <div className="site-container px-5 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-end">
@@ -24,11 +20,11 @@ export function OfferFeaturedWork() {
               </h2>
             </div>
             <p className="max-w-md text-base leading-relaxed text-foreground/68 md:justify-self-end md:text-right">
-              Every project on this page is live and built in the same $800 package you&apos;re looking at. Open any of them to see the work in context.
+              Every site below is live. Open any of them to see the level of work and quality this package is built to deliver.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {featuredProjects.map((project, index) => (
               <figure
                 key={project.slug}

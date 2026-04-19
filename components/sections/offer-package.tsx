@@ -104,7 +104,7 @@ export function OfferPackage() {
                   ))}
                 </ul>
 
-                <div className="mt-10 rounded-2xl bg-[#f7f5f0] p-6">
+                <div className="mt-10 rounded-2xl bg-[#f4f6fa] p-6">
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-foreground/55">
                     What&apos;s not included
                   </p>
