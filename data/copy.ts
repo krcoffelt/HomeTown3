@@ -3,9 +3,11 @@ export const homepageCopy = {
   heroTitleLineOne: "You run the business.",
   heroTitleLineTwo: "We'll get you customers.",
   heroSubtitle:
-    "Custom websites from $800. Google Ads, social media, and design, all from a team that knows Kansas City inside and out.",
+    "Custom websites, Paid Ads, Social media, and design, all from a team that knows Kansas City inside and out.",
   trustSignals: ["No contracts", "7-day turnaround", "100% satisfaction"],
   marqueeReviews: [
+    "Kyle does absolutely tremendous work with web design!!!",
+    "I couldn’t be happier with the website Kyle built for me!",
     "Hometown did a fantastic job on my website!",
     "His creativity and attention to detail are on another level.",
     "Kyle is your go to! Hands down.",
@@ -15,7 +17,7 @@ export const homepageCopy = {
   ],
   stats: [
     { value: 7, suffix: " Day", label: "Average turnaround on websites" },
-    { value: 50, suffix: "+", label: "Projects delivered for KC businesses" },
+    { value: 23, suffix: "+", label: "Projects delivered for KC businesses" },
     { value: 100, suffix: "%", label: "Client satisfaction rate" }
   ],
   whyHometown: {
@@ -62,6 +64,18 @@ export const homepageSteps = [
 ];
 
 export const testimonials = [
+  {
+    name: "Dustan Sprowls",
+    text:
+      "I couldn’t be happier with the website Kyle built for me! From the very first meeting, he took the time to understand my brand and translated it into a stunning, modern design. The site is incredibly fast, mobile-friendly, and easy for my customers to navigate. He went above and beyond to ensure every detail was perfect. If you need a web developer who is both creative and technically brilliant, look no further!",
+    highlight: "I couldn’t be happier with the website Kyle built for me."
+  },
+  {
+    name: "Sean Boman",
+    text:
+      "Kyle does absolutely tremendous work with web design!!!",
+    highlight: "Kyle does absolutely tremendous work with web design!!!"
+  },
   {
     name: "Brandon Gregory Jr.",
     text:

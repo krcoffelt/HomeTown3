@@ -14,7 +14,7 @@ export function Marquee({ children, className, speed = 30, reverse = false }: Ma
   return (
     <div className={cn("overflow-hidden", className)}>
       <div
-        className="flex w-max min-w-full gap-8"
+        className="flex w-max min-w-full gap-8 will-change-transform"
         style={{
           animation: `marquee ${speed}s linear infinite`,
           animationDirection: reverse ? "reverse" : "normal"
