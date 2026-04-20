@@ -119,7 +119,6 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
             name="email"
             type="email"
             required
-            autoFocus
             autoComplete="email"
             value={values.email}
             placeholder="Email address"

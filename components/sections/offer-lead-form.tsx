@@ -128,7 +128,6 @@ export function OfferLeadForm() {
             name="email"
             type="email"
             required
-            autoFocus
             autoComplete="email"
             value={values.email}
             placeholder="Email address"
