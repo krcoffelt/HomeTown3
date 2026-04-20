@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { submitOfferLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
-import { Button } from "@/components/ui/button";
+import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
@@ -34,13 +35,20 @@ export function OfferLeadForm() {
   const [state, action, pending] = useActionState(submitOfferLead, initialState);
   const [values, setValues] = useState(initialValues);
   const [hasStarted, setHasStarted] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
+
+  const labelClass = "text-[0.78rem] font-semibold tracking-[0.01em] text-foreground";
+  const inputClass =
+    "h-12 rounded-xl border-black/10 bg-secondary text-foreground placeholder:text-muted-foreground/70 focus-visible:border-foreground/30";
+  const textareaClass =
+    "min-h-[140px] rounded-xl border-black/10 bg-secondary text-foreground placeholder:text-muted-foreground/70 focus-visible:border-foreground/30";
+  const helperClass = "text-sm leading-relaxed text-muted-foreground";
 
   useEffect(() => {
     if (!state.ok) return;
-    setValues(initialValues);
-    setShowDetails(false);
+    setSubmitted(true);
   }, [state.ok]);
 
   useEffect(() => {
@@ -66,24 +74,38 @@ export function OfferLeadForm() {
       emailRef.current?.reportValidity();
       return;
     }
-    setShowDetails(true);
+    setExpanded(true);
   };
 
-  return (
-    <div className="overflow-hidden rounded-[2rem] border border-black/8 bg-white shadow-[0_24px_64px_rgba(15,23,42,0.14)]">
-      <div className="border-b border-black/6 bg-[#f8fafd] px-5 py-5 sm:px-8">
-        <h3 className="text-[1.45rem] font-bold tracking-tight text-foreground sm:text-[1.85rem]">
-          Start with your email.
+  if (submitted) {
+    return (
+      <div className="rounded-[2.25rem] border border-black/8 bg-card p-8 text-center shadow-[var(--shadow-elevated)] sm:p-10">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-accent">
+          <CheckCircleIcon className="h-7 w-7" />
+        </div>
+        <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-foreground">
+          Thanks — we&apos;ll be in touch.
         </h3>
-        <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-          We&apos;ll reply within 24 hours. No pressure if it&apos;s not the right fit.
+        <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+          We usually reply within a few hours.
         </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-[2.25rem] border border-black/8 bg-card p-6 shadow-[var(--shadow-elevated)] sm:p-8 md:p-10">
+      <div className="pb-1">
+        <h3 className="text-[1.3rem] font-bold tracking-tight text-foreground sm:text-[1.55rem]">
+          Start with your email
+        </h3>
       </div>
 
       <form
         id="offer-form"
         action={action}
-        className="grid gap-4 px-5 py-5 sm:px-8 sm:py-8"
+        aria-label="Contact form"
+        className="grid gap-5 pt-4 sm:gap-6 sm:pt-5"
         onSubmit={() => pushDataLayerEvent(analyticsEvents.formSubmit)}
       >
         <LeadAttributionFields />
@@ -93,133 +115,111 @@ export function OfferLeadForm() {
           <input id="offer-hpt" name="_hpt" type="text" tabIndex={-1} autoComplete="off" />
         </div>
 
-        <div className="rounded-[1.5rem] border border-black/8 bg-[#fbfcfe] p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] sm:p-5">
+        <div className="space-y-3">
           <label
             htmlFor="offer-email"
-            className="text-[0.76rem] font-semibold tracking-[0.01em] text-foreground/70"
+            className="sr-only"
           >
-            Email
+            {expanded ? "Email" : "Start with your email"}
           </label>
-          <div className="mt-3 flex flex-col gap-3">
-            <Input
-              id="offer-email"
-              ref={emailRef}
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-              value={values.email}
-              placeholder="Email address"
-              className="h-14 flex-1 rounded-[1.15rem] border-black/10 bg-white px-5 text-[1rem]"
-              onFocus={markStarted}
-              onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
-            />
-            {!showDetails ? (
-              <Button
-                type="button"
-                className="h-14 w-full rounded-full px-8"
-                dataAnalytics="cta-offer-800"
-                onClick={revealDetails}
-              >
-                Continue
-              </Button>
-            ) : (
-              <div className="rounded-[1.15rem] border border-accent/15 bg-accent/[0.06] px-4 py-3 text-sm font-medium text-foreground/78">
-                Tell us a little more below and we&apos;ll send your quote.
-              </div>
-            )}
-          </div>
-          <p className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Reply within 24 hours · No pressure
-          </p>
+          <Input
+            id="offer-email"
+            ref={emailRef}
+            name="email"
+            type="email"
+            required
+            autoFocus
+            autoComplete="email"
+            value={values.email}
+            placeholder="Email address"
+            className={`${inputClass} h-14 rounded-[1.1rem] border-black/10 bg-secondary px-5 text-lg`}
+            onFocus={markStarted}
+            onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
+          />
+          {!expanded ? (
+            <p className={helperClass}>We&apos;ll ask for a few more details next. Takes under a minute.</p>
+          ) : null}
         </div>
 
-        {showDetails ? (
-          <div className="rounded-[1.5rem] border border-black/8 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)] sm:p-6">
-              <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-accent">
-                A few more details
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Keep it simple. Just enough for us to understand the project.
-              </p>
-              <div className="mt-5 grid gap-4">
-                <div className="space-y-2">
-                  <label
-                    htmlFor="offer-name"
-                    className="text-[0.76rem] font-semibold tracking-[0.01em] text-foreground/70"
-                  >
-                    Name
-                  </label>
-                  <Input
-                    id="offer-name"
-                    name="name"
-                    required={showDetails}
-                    autoComplete="name"
-                    value={values.name}
-                    placeholder="Your name"
-                    className="h-13 rounded-[1.05rem] border-black/10 bg-[#fbfcfe]"
-                    onFocus={markStarted}
-                    onChange={(event) => setValues((prev) => ({ ...prev, name: event.target.value }))}
-                  />
+        <AnimatePresence initial={false}>
+          {expanded ? (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{
+                height: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+                opacity: { duration: 0.35, ease: "easeOut", delay: 0.05 }
+              }}
+              className="overflow-hidden"
+            >
+              <div className="grid gap-5 rounded-[1.25rem] border border-black/8 bg-background/60 p-4 sm:p-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <label htmlFor="offer-name" className={labelClass}>
+                      Your Name
+                    </label>
+                    <Input
+                      id="offer-name"
+                      name="name"
+                      required={expanded}
+                      autoComplete="name"
+                      value={values.name}
+                      placeholder="Your name"
+                      className={inputClass}
+                      onFocus={markStarted}
+                      onChange={(event) => setValues((prev) => ({ ...prev, name: event.target.value }))}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="offer-businessName" className={labelClass}>
+                      Business Name
+                    </label>
+                    <Input
+                      id="offer-businessName"
+                      name="businessName"
+                      required={expanded}
+                      autoComplete="organization"
+                      value={values.businessName}
+                      placeholder="Business name"
+                      className={inputClass}
+                      onFocus={markStarted}
+                      onChange={(event) =>
+                        setValues((prev) => ({ ...prev, businessName: event.target.value }))
+                      }
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label
-                    htmlFor="offer-businessName"
-                    className="text-[0.76rem] font-semibold tracking-[0.01em] text-foreground/70"
-                  >
-                    Business Name
-                  </label>
-                  <Input
-                    id="offer-businessName"
-                    name="businessName"
-                    required={showDetails}
-                    autoComplete="organization"
-                    value={values.businessName}
-                    placeholder="Business name"
-                    className="h-13 rounded-[1.05rem] border-black/10 bg-[#fbfcfe]"
-                    onFocus={markStarted}
-                    onChange={(event) =>
-                      setValues((prev) => ({ ...prev, businessName: event.target.value }))
-                    }
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="offer-phone"
-                    className="text-[0.76rem] font-semibold tracking-[0.01em] text-foreground/70"
-                  >
+                  <label htmlFor="offer-phone" className={labelClass}>
                     Phone
                   </label>
                   <Input
                     id="offer-phone"
                     name="phone"
                     type="tel"
-                    required={showDetails}
                     autoComplete="tel"
                     value={values.phone}
                     placeholder="Phone number"
-                    className="h-13 rounded-[1.05rem] border-black/10 bg-[#fbfcfe]"
+                    className={inputClass}
                     onFocus={markStarted}
                     onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label
-                    htmlFor="offer-projectDetails"
-                    className="text-[0.76rem] font-semibold tracking-[0.01em] text-foreground/70"
-                  >
-                    Project Details
+                  <label htmlFor="offer-projectDetails" className={labelClass}>
+                    Tell us about your business
                   </label>
                   <Textarea
                     id="offer-projectDetails"
                     name="projectDetails"
                     rows={4}
                     value={values.projectDetails}
-                    placeholder="What does your business do, and what do you want the site to help with?"
-                    className="min-h-[132px] rounded-[1.2rem] border-black/10 bg-[#fbfcfe]"
+                    placeholder="What do you do, who do you serve, and what should the new site help with?"
+                    className={textareaClass}
                     onFocus={markStarted}
                     onChange={(event) =>
                       setValues((prev) => ({ ...prev, projectDetails: event.target.value }))
@@ -227,18 +227,45 @@ export function OfferLeadForm() {
                   />
                 </div>
               </div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
 
-              <Button
-                type="submit"
-                form="offer-form"
-                className="mt-5 h-14 w-full rounded-full px-8"
-                dataAnalytics="cta-offer-800"
-                disabled={pending}
-              >
-                {pending ? "Sending..." : "Get My Website Quote"}
-              </Button>
-          </div>
-        ) : null}
+        <div className="flex flex-col gap-3">
+          {!expanded ? (
+            <button
+              type="button"
+              className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-[1.1rem] bg-gradient-to-r from-black to-black/85 px-8 text-base font-bold tracking-[0.01em] text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-hero)]"
+              data-analytics="cta-offer-800"
+              onClick={revealDetails}
+            >
+              Continue
+              <ArrowRightIcon className="h-4 w-4" />
+            </button>
+          ) : (
+            <button
+              type="submit"
+              form="offer-form"
+              className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-[1.1rem] bg-gradient-to-r from-black to-black/85 px-8 text-base font-bold tracking-[0.01em] text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-hero)]"
+              data-analytics="cta-offer-800"
+              disabled={pending}
+            >
+              {pending ? "Sending..." : "Request My Website"}
+            </button>
+          )}
+
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            By submitting, you agree to our{" "}
+            <Link href="/privacy-policy" className="transition hover:text-foreground">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link href="/terms-of-service" className="transition hover:text-foreground">
+              Terms of Service
+            </Link>
+            .
+          </p>
+        </div>
 
         {state.message ? (
           <p
@@ -251,24 +278,6 @@ export function OfferLeadForm() {
             {state.message}
           </p>
         ) : null}
-
-        <p className="px-1 text-xs leading-relaxed text-muted-foreground">
-          By submitting, you agree to our{" "}
-          <Link
-            href="/privacy-policy"
-            className="transition hover:text-foreground"
-          >
-            Privacy Policy
-          </Link>{" "}
-          and{" "}
-          <Link
-            href="/terms-of-service"
-            className="transition hover:text-foreground"
-          >
-            Terms of Service
-          </Link>
-          .
-        </p>
       </form>
     </div>
   );

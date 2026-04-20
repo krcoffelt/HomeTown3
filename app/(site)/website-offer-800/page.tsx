@@ -4,6 +4,7 @@ import { OfferPageTracker } from "@/components/analytics/offer-page-tracker";
 import { OfferLeadForm } from "@/components/sections/offer-lead-form";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
+import { ClockIcon, MapPinIcon, PhoneIcon, TargetIcon, ZapIcon } from "@/components/ui/site-icons";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -39,16 +40,25 @@ const inclusions = [
 
 const processSteps = [
   {
+    eyebrow: "Discovery",
     title: "Share your business",
-    desc: "Walk us through what you do, who you serve, and what success looks like."
+    desc: "Walk us through what you do, who you serve, and what success looks like.",
+    duration: "30 min call",
+    bullets: ["Goals & audience", "Brand voice", "What success looks like"]
   },
   {
+    eyebrow: "Craft",
     title: "We design and build",
-    desc: "A custom site, crafted around your brand and tuned for the people you want to reach."
+    desc: "A custom site, crafted around your brand and tuned for the people you want to reach.",
+    duration: "2-3 weeks",
+    bullets: ["Custom design", "Mobile-first build", "Copy that converts"]
   },
   {
+    eyebrow: "Launch",
     title: "Launch with confidence",
-    desc: "Review, refine, approve. We go live the moment it feels right."
+    desc: "Review, refine, approve. We go live the moment it feels right.",
+    duration: "Same week",
+    bullets: ["Final revisions", "QA & analytics", "Go live together"]
   }
 ];
 
@@ -75,11 +85,11 @@ const offerFaqs = [
   }
 ];
 
-const trustLabels = [
-  "Strategic design",
-  "Crafted to convert",
-  "Made in Kansas City",
-  "Starts at $800"
+const trustItems = [
+  { label: "Strategic design", icon: TargetIcon },
+  { label: "Crafted to convert", icon: ZapIcon },
+  { label: "Made in Kansas City", icon: MapPinIcon },
+  { label: "Starts at $800", icon: ClockIcon }
 ];
 
 export const metadata: Metadata = {
@@ -121,13 +131,11 @@ export default function WebsiteOfferLandingPage() {
             <div className="lg:col-span-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-muted-foreground sm:text-xs">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                <span className="whitespace-nowrap">For growing small businesses</span>
+                <span className="whitespace-nowrap">Kansas City</span>
               </div>
 
-              <h1 className="mt-5 max-w-[15ch] font-display text-[1.85rem] font-bold leading-[1] tracking-[-0.03em] text-foreground sm:max-w-[12ch] sm:text-6xl sm:leading-[1.02] lg:text-7xl">
-                <span className="block">Websites that make</span>
-                <span className="block">your business look</span>
-                <span className="block text-accent">established.</span>
+              <h1 className="mt-5 max-w-[11ch] font-display text-[2.15rem] font-bold leading-[0.98] tracking-[-0.04em] text-foreground sm:max-w-[12ch] sm:text-6xl sm:leading-[1.02] lg:text-7xl">
+                Websites that make your business look <span className="text-accent">established.</span>
               </h1>
 
               <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -216,19 +224,22 @@ export default function WebsiteOfferLandingPage() {
       <section className="bg-foreground py-12 text-background md:py-14">
         <div className="site-container">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4">
-            {trustLabels.map((label, index) => (
+            {trustItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
               <div
-                key={label}
+                key={item.label}
                 className={`px-4 text-center md:text-left ${index < 3 ? "md:border-r md:border-background/10" : ""}`}
               >
                 <div className="flex items-baseline justify-center font-display text-4xl font-bold tracking-tight text-background md:justify-start md:text-5xl">
-                  <span className="text-accent">✓</span>
+                  <Icon className="h-7 w-7 text-accent md:h-8 md:w-8" />
                 </div>
                 <div className="mt-2 text-xs font-bold uppercase tracking-widest text-background/50">
-                  {label}
+                  {item.label}
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -352,36 +363,94 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </section>
 
-      <section className="bg-background py-20 md:py-32">
-        <div className="site-container">
-          <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-            <span className="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground sm:text-xs">
-              How It Works
-            </span>
-            <h2 className="font-display text-[1.875rem] font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl sm:leading-tight lg:text-5xl">
-              Three steps. No guesswork.
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              A simple process built to skip the back-and-forth and get you a site you actually love.
-            </p>
+      <section className="relative overflow-hidden bg-foreground py-20 text-background md:py-32">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-[-8rem] top-[-6rem] h-[22rem] w-[22rem] rounded-full bg-accent/10 blur-[120px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-[-8rem] right-[-6rem] h-[20rem] w-[20rem] rounded-full bg-accent/8 blur-[120px]"
+        />
+
+        <div className="site-container relative">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-background/12 bg-background/[0.04] px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-background/72 sm:text-xs">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                How It Works
+              </span>
+              <h2 className="mt-5 font-display text-[2rem] font-bold leading-[1.05] tracking-tight text-background sm:text-5xl sm:leading-[1.02] lg:text-6xl">
+                Three steps.
+                <br />
+                <span className="text-accent">Zero guesswork.</span>
+              </h2>
+            </div>
+
+            <div className="pt-0 lg:col-span-5 lg:pt-4">
+              <p className="max-w-md text-base leading-relaxed text-background/68 sm:text-lg">
+                A simple, transparent process from first call to launch day. No back-and-forth, no surprises, no jargon.
+              </p>
+            </div>
           </div>
 
-          <div className="relative mx-auto grid max-w-5xl gap-6 md:grid-cols-3 md:gap-8">
-            {processSteps.map((step) => (
-              <div
-                key={step.title}
-                className="h-full rounded-2xl border border-border bg-card p-7 transition-all duration-500 hover:shadow-[var(--shadow-card-hover)] md:p-8"
-              >
-                <div className="mb-6">
-                  <span className="text-sm font-bold tracking-widest text-accent">
+          <div className="relative mx-auto mt-12 max-w-6xl md:mt-16">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute left-8 right-8 top-6 hidden h-px bg-gradient-to-r from-transparent via-background/20 to-transparent md:block"
+            />
+            <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+              {processSteps.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="group relative h-full rounded-2xl border border-background/10 bg-background/[0.04] p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-background/20 hover:bg-background/[0.06] hover:shadow-[0_25px_50px_-12px_rgb(0_0_0_/_0.28)] md:p-8"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="absolute left-7 top-6 hidden h-3 w-3 rounded-full border-[5px] border-foreground bg-accent shadow-[0_0_0_8px_hsl(var(--accent)/0.12)] md:block"
+                  />
+                  <div className="flex items-center justify-between gap-4 md:pt-3">
+                    <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-accent">
+                      {step.eyebrow}
+                    </p>
+                    <span className="rounded-full border border-background/12 bg-background/[0.05] px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-background/55">
+                      {step.duration}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-background md:text-2xl">
                     {step.title}
-                  </span>
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-background/60">
+                    {step.desc}
+                  </p>
+
+                  <div className="mt-6 border-t border-background/10 pt-5">
+                    <ul className="grid gap-2.5">
+                      {step.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2.5 text-sm text-background/72">
+                          <span className="mt-[0.42rem] h-2 w-2 shrink-0 rounded-full bg-accent" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {step.desc}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 text-center md:mt-12 md:flex-row">
+            <p className="text-sm text-background/65 sm:text-base">
+              Ready to start? Step one is just a conversation.
+            </p>
+            <Button
+              href="#start"
+              className="h-12 rounded-full px-7"
+              dataAnalytics="cta-offer-800-process"
+            >
+              Get Started →
+            </Button>
           </div>
         </div>
       </section>
@@ -403,7 +472,7 @@ export default function WebsiteOfferLandingPage() {
                 key={item.question}
                 className={`group border-b border-border ${index === offerFaqs.length - 1 ? "border-b-0" : ""}`}
               >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-6 text-left font-display text-base font-bold text-card-foreground hover:no-underline md:text-lg">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-6 pl-3 text-left font-display text-base font-bold text-card-foreground hover:no-underline md:pl-4 md:text-lg">
                   {item.question}
                   <span className="text-muted-foreground transition group-open:rotate-45">+</span>
                 </summary>
@@ -421,33 +490,38 @@ export default function WebsiteOfferLandingPage() {
 
         <div className="site-container relative">
           <div className="mx-auto max-w-3xl">
-            <div className="mb-8 text-center md:mb-10">
+            <div className="mb-10 text-center md:mb-12">
               <span className="mb-5 inline-block rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground sm:text-xs">
                 Start the Conversation
               </span>
-              <h2 className="font-display text-[1.875rem] font-bold leading-[1.15] tracking-tight text-primary-foreground sm:text-4xl sm:leading-tight md:text-5xl">
+              <h2 className="mx-auto max-w-[13ch] font-display text-[1.9rem] font-bold leading-[1.04] tracking-tight text-primary-foreground sm:max-w-none sm:text-5xl sm:leading-[1.02] md:text-6xl">
                 Let&apos;s build something worth showing off.
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/60 sm:text-lg">
+              <p className="mx-auto mt-5 max-w-[24ch] text-lg leading-relaxed text-primary-foreground sm:max-w-xl sm:text-xl">
                 Tell us about your business. We&apos;ll take it from there.
               </p>
             </div>
 
-            <OfferLeadForm />
+            <div className="mx-auto max-w-2xl">
+              <OfferLeadForm />
+            </div>
 
-            <div className="mt-8 flex flex-col items-center justify-center gap-6 text-sm text-primary-foreground/60 sm:flex-row">
-              <a href={`tel:${site.contactPhone}`} className="inline-flex items-center gap-2 transition-colors hover:text-primary-foreground">
-                <span className="text-accent">☎</span>
-                <span className="font-semibold">{site.contactPhone}</span>
+            <div className="mt-10 flex flex-col items-center gap-6 text-center">
+              <a
+                href={`tel:${site.contactPhone}`}
+                className="inline-flex items-center gap-3 text-[1.1rem] font-semibold text-primary-foreground transition hover:text-primary-foreground"
+              >
+                <PhoneIcon className="h-5 w-5 text-accent" />
+                <span>{site.contactPhone}</span>
               </a>
-              <span className="hidden h-3 w-px bg-primary-foreground/20 sm:inline" />
-              <div className="flex items-center gap-1.5">
+
+              <div className="flex flex-wrap items-center justify-center gap-3 text-base text-primary-foreground">
                 <div className="flex items-center gap-1 text-[#efb11d]">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <span key={index}>★</span>
                   ))}
                 </div>
-                <span className="ml-1">5.0 from KC business owners</span>
+                <span>5.0 from KC business owners</span>
               </div>
             </div>
           </div>
