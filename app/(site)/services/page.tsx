@@ -96,14 +96,17 @@ export default function ServicesPage() {
       <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-4xl font-bold tracking-tight md:text-5xl">Not sure what you need? That&apos;s totally fine.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/contact#form" className="h-14 px-8">
-              Let&apos;s Talk
-            </Button>
-            <Button href="/about" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-              Meet Hometown
-            </Button>
-          </div>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Button href="/contact#form" className="h-14 px-8">
+            Let&apos;s Talk
+          </Button>
+          <Button href="/locations" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
+            Browse Service Areas
+          </Button>
+          <Button href="/about" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
+            Meet Hometown
+          </Button>
+        </div>
         </div>
       </SectionShell>
     </PageTransition>

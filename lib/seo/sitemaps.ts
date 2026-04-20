@@ -1,7 +1,8 @@
+import { locations } from "@/data/locations";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
-import { coreRouteSeoEntries, getServiceShareImage } from "@/lib/seo/routes";
+import { coreRouteSeoEntries, getLocationShareImage, getServiceShareImage } from "@/lib/seo/routes";
 
 function xmlEscape(value: string) {
   return value
@@ -97,6 +98,16 @@ export function getServicesSitemapXml() {
   );
 }
 
+export function getLocationsSitemapXml() {
+  return buildUrlSet(
+    locations.map((location) => ({
+      loc: `/locations/${location.slug}`,
+      lastmod: location.updatedAt,
+      changefreq: "monthly"
+    }))
+  );
+}
+
 export function getImagesSitemapXml() {
   const shareImageEntries = coreRouteSeoEntries.map((entry) => ({
     pageLoc: entry.path,
@@ -111,6 +122,13 @@ export function getImagesSitemapXml() {
     caption: service.shortDescription
   }));
 
+  const locationImageEntries = locations.map((location) => ({
+    pageLoc: `/locations/${location.slug}`,
+    imageLoc: getLocationShareImage(location.slug),
+    title: `${location.title} location page preview`,
+    caption: location.heroDescription
+  }));
+
   const projectEntries = projects.map((project) => ({
     pageLoc: "/work",
     imageLoc: project.featuredImageUrl,
@@ -118,5 +136,5 @@ export function getImagesSitemapXml() {
     caption: project.summary
   }));
 
-  return buildImageSitemap([...shareImageEntries, ...serviceImageEntries, ...projectEntries]);
+  return buildImageSitemap([...shareImageEntries, ...serviceImageEntries, ...locationImageEntries, ...projectEntries]);
 }

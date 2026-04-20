@@ -31,3 +31,29 @@ export interface ServiceItem {
   metaTags: string[];
   updatedAt?: string;
 }
+
+export interface LocationItem {
+  title: string;
+  slug: string;
+  city: string;
+  state: string;
+  heroTitle: string;
+  heroDescription: string;
+  seoTitle: string;
+  seoDescription: string;
+  introTitle: string;
+  introDescription: string;
+  localAngle: string;
+  whyTitle: string;
+  whyDescription: string;
+  trustHighlights: string[];
+  whyPoints: string[];
+  priorityServices: string[];
+  faqItems: Array<{
+    question: string;
+    answer: string;
+  }>;
+  relatedProjectSlugs: string[];
+  ctaLabel: string;
+  updatedAt?: string;
+}

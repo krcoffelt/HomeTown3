@@ -65,6 +65,12 @@ export default function ContactPage() {
                 Learn more about who you&apos;ll be working with and how Hometown approaches websites and marketing.
               </p>
             </Link>
+            <Link href="/locations" className="light-panel block p-5 transition hover:-translate-y-0.5 hover:shadow-elevated">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Service Areas</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Explore the new local pages for Overland Park, Olathe, Leawood, Lenexa, and Shawnee.
+              </p>
+            </Link>
             <div className="grid gap-4">
               {infoCards.map((card) => {
                 const Icon = card.icon;

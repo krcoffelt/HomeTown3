@@ -85,3 +85,7 @@ export const projects: ProjectItem[] = [
     updatedAt: "2026-04-16"
   }
 ];
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}

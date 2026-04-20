@@ -18,7 +18,7 @@ export const site = {
     postalCode: "66213",
     addressCountry: "US"
   },
-  serviceAreas: ["Kansas City, MO", "Overland Park, KS", "Leawood, KS", "Olathe, KS"],
+  serviceAreas: ["Kansas City, MO", "Overland Park, KS", "Olathe, KS", "Leawood, KS", "Lenexa, KS", "Shawnee, KS"],
   geo: null as null | { latitude: number; longitude: number },
   sameAs: [] as string[],
   contactDisplay: {
@@ -38,6 +38,7 @@ export const site = {
     "/pricing": "/og/pricing",
     "/contact": "/og/contact",
     "/about": "/og/about",
+    "/locations": "/og/locations",
     "/website-offer-800": "/og/offer",
     "/privacy-policy": "/og/privacy",
     "/terms-of-service": "/og/terms",

@@ -11,6 +11,7 @@ const pageLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/locations", label: "Locations" },
   { href: "/work", label: "Work" },
   { href: "/contact", label: "Contact" }
 ];

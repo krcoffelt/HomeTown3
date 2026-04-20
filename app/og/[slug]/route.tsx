@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getLocationBySlug } from "@/data/locations";
 import { getServiceBySlug } from "@/data/services";
 import { site } from "@/data/site";
 
@@ -35,6 +36,11 @@ const coreOgCopy: Record<string, { eyebrow: string; title: string; description: 
     title: "A small business marketing partner built around clarity and direct work.",
     description: "Meet the team, the service area, and the approach behind Hometown Marketing Agency."
   },
+  locations: {
+    eyebrow: "Service Areas",
+    title: "Marketing support for businesses across the Kansas side of the KC metro.",
+    description: "Explore the first Hometown location pages for Overland Park, Olathe, Leawood, Lenexa, and Shawnee."
+  },
   offer: {
     eyebrow: "$800 Website Offer",
     title: "Professional small business websites for $800.",
@@ -65,6 +71,17 @@ function getOgCopy(slug: string) {
         eyebrow: "Service",
         title: service.title,
         description: service.seoDescription ?? service.description
+      };
+    }
+  }
+
+  if (slug.startsWith("location-")) {
+    const location = getLocationBySlug(slug.replace("location-", ""));
+    if (location) {
+      return {
+        eyebrow: `${location.city}, ${location.state}`,
+        title: location.heroTitle,
+        description: location.heroDescription
       };
     }
   }

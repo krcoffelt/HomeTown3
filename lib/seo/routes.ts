@@ -3,6 +3,7 @@ import { site } from "@/data/site";
 export type CoreRoutePath =
   | "/"
   | "/services"
+  | "/locations"
   | "/work"
   | "/pricing"
   | "/contact"
@@ -23,6 +24,7 @@ export interface CoreRouteSeoEntry {
 export const coreRouteSeoEntries: CoreRouteSeoEntry[] = [
   { id: "home", path: "/", changeFrequency: "weekly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/"] },
   { id: "services", path: "/services", changeFrequency: "weekly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/services"] },
+  { id: "locations", path: "/locations", changeFrequency: "weekly", updatedAt: "2026-04-19", shareImage: site.routeShareImages["/locations"] },
   { id: "work", path: "/work", changeFrequency: "monthly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/work"] },
   { id: "pricing", path: "/pricing", changeFrequency: "weekly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/pricing"] },
   { id: "contact", path: "/contact", changeFrequency: "monthly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/contact"] },
@@ -43,4 +45,8 @@ export function getCoreShareImage(path: string) {
 
 export function getServiceShareImage(slug: string) {
   return `/og/service-${slug}`;
+}
+
+export function getLocationShareImage(slug: string) {
+  return `/og/location-${slug}`;
 }
