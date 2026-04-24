@@ -29,6 +29,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
   const [hasStarted, setHasStarted] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [startedAt, setStartedAt] = useState("");
   const emailRef = useRef<HTMLInputElement>(null);
 
   const labelClass = "text-[0.78rem] font-semibold tracking-[0.01em] text-foreground";
@@ -37,6 +38,10 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
   const textareaClass =
     "min-h-[140px] rounded-xl border-black/10 bg-secondary text-foreground placeholder:text-muted-foreground/70 focus-visible:border-foreground/30";
   const helperClass = "text-sm leading-relaxed text-muted-foreground";
+
+  useEffect(() => {
+    setStartedAt(String(Date.now()));
+  }, []);
 
   useEffect(() => {
     if (!state.ok) return;
@@ -102,6 +107,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
         onSubmit={() => pushDataLayerEvent(analyticsEvents.formSubmit)}
       >
         <input type="hidden" name="serviceNeeded" value="General Inquiry" />
+        <input type="hidden" name="startedAt" value={startedAt} />
         <LeadAttributionFields />
 
         <div className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0" aria-hidden="true">

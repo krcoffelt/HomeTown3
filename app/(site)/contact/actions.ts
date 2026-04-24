@@ -2,13 +2,18 @@
 
 import { getLeadSource, type LeadAttributionFields } from "@/lib/analytics/lead-attribution";
 import { sendLeadNotification } from "@/lib/email/resend";
-import { leadSchema } from "@/lib/validations/lead";
+import { leadSchema, offerLeadSchema } from "@/lib/validations/lead";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import type { ZodError } from "zod";
 
 export interface SubmitLeadState {
   ok: boolean;
   message: string;
 }
+
+const GENERIC_SUBMISSION_ERROR = "Submission failed. Please try again shortly or contact us directly.";
+const SUCCESS_MESSAGE = "Thanks. Your request was sent successfully.";
+const MIN_FORM_COMPLETION_MS = 1000;
 
 function spamGuard(formData: FormData) {
   return String(formData.get("_hpt") ?? "").trim();
@@ -17,6 +22,46 @@ function spamGuard(formData: FormData) {
 function cleanOptional(value?: string) {
   const trimmed = value?.trim();
   return trimmed ? trimmed : undefined;
+}
+
+function suspiciousTimingGuard(formData: FormData) {
+  const rawStartedAt = String(formData.get("startedAt") ?? "").trim();
+  if (!rawStartedAt) return false;
+
+  const startedAt = Number(rawStartedAt);
+  if (!Number.isFinite(startedAt) || startedAt <= 0) return false;
+
+  const elapsedMs = Date.now() - startedAt;
+  return elapsedMs >= 0 && elapsedMs < MIN_FORM_COMPLETION_MS;
+}
+
+function successState(): SubmitLeadState {
+  return {
+    ok: true,
+    message: SUCCESS_MESSAGE
+  };
+}
+
+function validationMessage(error: ZodError) {
+  const issue = error.issues[0];
+  const fieldMap: Record<string, string> = {
+    name: "Name",
+    businessName: "Business Name",
+    email: "Email",
+    phone: "Phone",
+    serviceNeeded: "Service Needed",
+    landingPage: "Landing Page",
+    referrerUrl: "Referrer URL",
+    utmSource: "UTM Source",
+    utmMedium: "UTM Medium",
+    utmCampaign: "UTM Campaign",
+    utmTerm: "UTM Term",
+    utmContent: "UTM Content",
+    gclid: "GCLID",
+    projectDetails: "Project Details"
+  };
+  const field = issue?.path?.[0] ? fieldMap[String(issue.path[0])] ?? "Form" : "Form";
+  return issue?.message ? `${field}: ${issue.message}` : "Please complete all required fields correctly.";
 }
 
 const attributionColumns = [
@@ -89,22 +134,10 @@ async function insertLead(values: {
     }
 
     if (error) {
-      if (error.code === "42P01") {
-        return {
-          ok: false,
-          message: "Leads table is not set up yet. Please run the Supabase schema SQL."
-        };
-      }
-      if (error.code === "42501" || error.code === "401" || error.code === "403") {
-        return {
-          ok: false,
-          message: "Supabase permissions are blocking inserts. Check service role key in env."
-        };
-      }
-
+      console.error("Lead insert failed", error);
       return {
         ok: false,
-        message: `Submission failed: ${error.message}`
+        message: GENERIC_SUBMISSION_ERROR
       };
     }
 
@@ -117,21 +150,12 @@ async function insertLead(values: {
       console.error("Lead notification email failed", error);
     }
 
-    return {
-      ok: true,
-      message: "Thanks. Your request was sent successfully."
-    };
+    return successState();
   } catch (error) {
-    if (error instanceof Error && error.message.startsWith("Missing env var:")) {
-      return {
-        ok: false,
-        message: `${error.message}. Add it in Netlify environment variables.`
-      };
-    }
-
+    console.error("Lead submission failed", error);
     return {
       ok: false,
-      message: "Something went wrong. Please try again shortly."
+      message: GENERIC_SUBMISSION_ERROR
     };
   }
 }
@@ -140,11 +164,8 @@ export async function submitLead(
   _prevState: SubmitLeadState,
   formData: FormData
 ): Promise<SubmitLeadState> {
-  if (spamGuard(formData)) {
-    return {
-      ok: true,
-      message: "Thanks. Your request was sent successfully."
-    };
+  if (spamGuard(formData) || suspiciousTimingGuard(formData)) {
+    return successState();
   }
 
   const parsed = leadSchema.safeParse({
@@ -165,26 +186,7 @@ export async function submitLead(
   });
 
   if (!parsed.success) {
-    const issue = parsed.error.issues[0];
-    const fieldMap: Record<string, string> = {
-      name: "Name",
-      businessName: "Business Name",
-      email: "Email",
-      phone: "Phone",
-      serviceNeeded: "Service Needed",
-      landingPage: "Landing Page",
-      referrerUrl: "Referrer URL",
-      utmSource: "UTM Source",
-      utmMedium: "UTM Medium",
-      utmCampaign: "UTM Campaign",
-      utmTerm: "UTM Term",
-      utmContent: "UTM Content",
-      gclid: "GCLID",
-      projectDetails: "Project Details"
-    };
-    const field = issue?.path?.[0] ? fieldMap[String(issue.path[0])] ?? "Form" : "Form";
-    const message = issue?.message ? `${field}: ${issue.message}` : "Please complete all required fields correctly.";
-    return { ok: false, message };
+    return { ok: false, message: validationMessage(parsed.error) };
   }
 
   return insertLead({
@@ -209,31 +211,15 @@ export async function submitOfferLead(
   _prevState: SubmitLeadState,
   formData: FormData
 ): Promise<SubmitLeadState> {
-  if (spamGuard(formData)) {
-    return {
-      ok: true,
-      message: "Thanks. Your request was sent successfully."
-    };
+  if (spamGuard(formData) || suspiciousTimingGuard(formData)) {
+    return successState();
   }
 
-  const name = String(formData.get("name") ?? "").trim();
-  const businessName = String(formData.get("businessName") ?? "").trim();
-  const email = String(formData.get("email") ?? "").trim();
-  const phone = String(formData.get("phone") ?? "").trim();
-  const projectDetails = String(formData.get("projectDetails") ?? "").trim();
-
-  if (!name || !businessName || !email || !phone) {
-    return {
-      ok: false,
-      message: "Please complete the required fields before submitting."
-    };
-  }
-
-  return insertLead({
-    name,
-    businessName,
-    email,
-    phone,
+  const parsed = offerLeadSchema.safeParse({
+    name: String(formData.get("name") ?? "").trim(),
+    businessName: String(formData.get("businessName") ?? "").trim(),
+    email: String(formData.get("email") ?? "").trim(),
+    phone: String(formData.get("phone") ?? "").trim(),
     landingPage: String(formData.get("landingPage") ?? ""),
     referrerUrl: String(formData.get("referrerUrl") ?? ""),
     utmSource: String(formData.get("utmSource") ?? ""),
@@ -242,6 +228,28 @@ export async function submitOfferLead(
     utmTerm: String(formData.get("utmTerm") ?? ""),
     utmContent: String(formData.get("utmContent") ?? ""),
     gclid: String(formData.get("gclid") ?? ""),
+    projectDetails: String(formData.get("projectDetails") ?? "").trim()
+  });
+
+  if (!parsed.success) {
+    return { ok: false, message: validationMessage(parsed.error) };
+  }
+
+  const projectDetails = cleanOptional(parsed.data.projectDetails);
+
+  return insertLead({
+    name: parsed.data.name,
+    businessName: parsed.data.businessName,
+    email: parsed.data.email,
+    phone: parsed.data.phone ?? "",
+    landingPage: parsed.data.landingPage,
+    referrerUrl: parsed.data.referrerUrl,
+    utmSource: parsed.data.utmSource,
+    utmMedium: parsed.data.utmMedium,
+    utmCampaign: parsed.data.utmCampaign,
+    utmTerm: parsed.data.utmTerm,
+    utmContent: parsed.data.utmContent,
+    gclid: parsed.data.gclid,
     serviceNeeded: "Website Design",
     projectDetails: [
       "$800 website offer inquiry.",
