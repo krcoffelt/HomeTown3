@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -16,6 +17,11 @@ const links = [
   { href: "/work", label: "Work" },
   { href: "/contact", label: "Contact" }
 ];
+
+function isActivePath(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function Navbar() {
   const pathname = usePathname();
@@ -94,33 +100,48 @@ export function Navbar() {
             </Link>
           </div>
 
-          <nav
-            aria-label="Main navigation"
-            className={cn(
-              "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 md:absolute md:left-1/2 md:flex md:-translate-x-1/2 md:backdrop-blur-xl",
-              scrolled
-                ? "border-primary-foreground/10 bg-foreground/90 shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
-                : "border-primary-foreground/[0.08] bg-foreground/30"
-            )}
-          >
-            {links.map((link) => {
-              const active = pathname === link.href;
+          <LayoutGroup id="site-nav">
+            <nav
+              aria-label="Main navigation"
+              className={cn(
+                "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 transition-[background-color,border-color,box-shadow,transform] duration-500 md:absolute md:left-1/2 md:flex md:-translate-x-1/2 md:backdrop-blur-xl",
+                scrolled
+                  ? "border-primary-foreground/10 bg-foreground/90 shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
+                  : "border-primary-foreground/[0.08] bg-foreground/30"
+              )}
+            >
+              {links.map((link) => {
+                const active = isActivePath(pathname, link.href);
 
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "relative rounded-full px-6 py-3 text-base font-medium transition",
-                    active ? "text-primary-foreground" : "text-primary-foreground/60 hover:text-primary-foreground/80"
-                  )}
-                >
-                  {active ? <span className="absolute inset-0 rounded-full bg-accent shadow-[0_2px_12px_hsl(var(--accent)/0.4)]" /> : null}
-                  <span className="relative z-10">{link.label}</span>
-                </Link>
-              );
-            })}
-          </nav>
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "relative rounded-full px-6 py-3 text-base font-medium transition-colors duration-300",
+                      active ? "text-primary-foreground" : "text-primary-foreground/60 hover:text-primary-foreground/85"
+                    )}
+                  >
+                    {active ? (
+                      <motion.span
+                        layoutId="navbar-active-pill"
+                        className="absolute inset-0 rounded-full bg-accent shadow-[0_2px_12px_hsl(var(--accent)/0.4)]"
+                        transition={{
+                          layout: {
+                            type: "spring",
+                            stiffness: 220,
+                            damping: 28,
+                            mass: 1.1
+                          }
+                        }}
+                      />
+                    ) : null}
+                    <span className="relative z-10">{link.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </LayoutGroup>
 
           <div
             className={cn(
@@ -134,7 +155,14 @@ export function Navbar() {
           </div>
 
           <div className="flex w-full items-center justify-between md:hidden">
-            <Link href="/" aria-label="Hometown home">
+            <Link
+              href="/"
+              aria-label="Hometown home"
+              className={cn(
+                "transition-all duration-300 ease-out",
+                scrolled ? "pointer-events-none -translate-x-2 opacity-0" : "translate-x-0 opacity-100"
+              )}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/HometownLogoWhite2026-sm.png"
@@ -159,14 +187,19 @@ export function Navbar() {
           </div>
         </div>
 
-        {isOpen ? (
-          <div
-            id="mobile-nav"
-            className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground p-4 text-primary-foreground md:hidden"
-          >
+        <AnimatePresence initial={false}>
+          {isOpen ? (
+            <motion.div
+              id="mobile-nav"
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground p-4 text-primary-foreground md:hidden"
+            >
               <nav className="flex flex-col gap-2">
                 {links.map((link) => {
-                  const active = pathname === link.href;
+                  const active = isActivePath(pathname, link.href);
                   return (
                     <Link
                       key={link.href}
@@ -184,8 +217,9 @@ export function Navbar() {
               <Button href="/contact#form" className="mt-4 w-full">
                 Get a Free Quote
               </Button>
-          </div>
-        ) : null}
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
       </div>
     </header>
   );
