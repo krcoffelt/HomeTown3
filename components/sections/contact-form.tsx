@@ -95,7 +95,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
     <div className="rounded-[2.25rem] border border-black/8 bg-card p-6 shadow-[var(--shadow-elevated)] sm:p-8 md:p-10">
       <div className="pb-1">
         <h3 className="text-[1.3rem] font-bold tracking-tight text-foreground sm:text-[1.55rem]">
-          Start with your email
+          What&apos;s the best email for you?
         </h3>
       </div>
 
@@ -117,7 +117,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
 
         <div className="space-y-3">
           <label htmlFor="contact-email" className="sr-only">
-            {expanded ? "Email" : "Start with your email"}
+            {expanded ? "Email" : "What's the best email for you?"}
           </label>
           <Input
             id="contact-email"
@@ -248,7 +248,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
               data-analytics="cta-contact"
               disabled={pending}
             >
-              {pending ? "Sending..." : "Start the Conversation"}
+              {pending ? "Sending..." : "Get Started"}
             </button>
           )}
 
