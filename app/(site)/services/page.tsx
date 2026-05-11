@@ -12,6 +12,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 const iconMap: Record<string, typeof GlobeIcon> = {
   "website-design": GlobeIcon,
+  "website-redesign": GlobeIcon,
   "google-ads-management": TargetIcon,
   "social-media-management": ZapIcon,
   "graphic-design": CheckCircleIcon,
@@ -57,7 +58,7 @@ export default function ServicesPage() {
       <SectionShell className="pt-20 md:pt-28">
         <div className="space-y-24">
           {services.map((service, index) => {
-            const Icon = iconMap[service.slug];
+            const Icon = iconMap[service.slug] ?? GlobeIcon;
             const reverse = index % 2 === 1;
 
             return (

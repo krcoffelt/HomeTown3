@@ -1,9 +1,9 @@
 export const homepageCopy = {
   heroBadge: "Kansas City Marketing Agency",
-  heroTitleLineOne: "You run the business.",
-  heroTitleLineTwo: "We'll get you customers.",
+  heroTitleLineOne: "Kansas City websites",
+  heroTitleLineTwo: "and marketing for small businesses.",
   heroSubtitle:
-    "Custom websites, Paid Ads, Social media, and design, all from a team that knows Kansas City inside and out.",
+    "Custom websites from $800, local SEO, paid ads, social media, and design from a team that knows Kansas City inside and out.",
   trustSignals: ["No contracts", "7-day turnaround", "100% satisfaction"],
   marqueeReviews: [
     "Kyle does absolutely tremendous work with web design!!!",

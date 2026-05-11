@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/layout/page-hero";
@@ -6,11 +7,12 @@ import { SectionShell } from "@/components/layout/section-shell";
 import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
 import { Button } from "@/components/ui/button";
-import { CheckCircleIcon } from "@/components/ui/site-icons";
+import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
+import { getProjectBySlug } from "@/data/projects";
 import { getServiceBySlug, services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { getServiceShareImage } from "@/lib/seo/routes";
-import { breadcrumbSchema, serviceSchema, webPageSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, faqItemsSchema, serviceSchema, webPageSchema } from "@/lib/seo/schema";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -29,7 +31,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   }
 
   return createPageMetadata(
-    `${service.title} | Kansas City Marketing Agency`,
+    service.seoTitle ?? `${service.title} | Kansas City Marketing Agency`,
     service.seoDescription ?? service.description,
     `/services/${service.slug}`,
     undefined,
@@ -45,7 +47,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     notFound();
   }
 
-  const schema = [
+  const schema: Array<Record<string, unknown>> = [
     breadcrumbSchema([
       { name: "Home", path: "/" },
       { name: "Services", path: "/services" },
@@ -57,6 +59,20 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       path: `/services/${service.slug}`
     }),
     serviceSchema(service)
+  ];
+
+  if (service.faqItems?.length) {
+    schema.push(faqItemsSchema(service.faqItems));
+  }
+
+  const proofProjects = service.proofProjectSlugs
+    ?.map((projectSlug) => getProjectBySlug(projectSlug))
+    .filter((project): project is NonNullable<typeof project> => Boolean(project));
+
+  const relatedLinks = service.relatedLinks ?? [
+    { label: "Search engine optimization", href: "/services/search-engine-optimization" },
+    { label: "Google Ads management", href: "/services/google-ads-management" },
+    { label: "View our work", href: "/work" }
   ];
 
   return (
@@ -76,8 +92,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <span className="text-primary-foreground">{service.title}</span>
           </nav>
           <PageHero
-            badge="Service"
-            title={service.title}
+            badge={service.heroBadge ?? "Service"}
+            title={service.heroTitle ?? service.title}
             subtitle={service.description}
             light
           />
@@ -137,6 +153,67 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </SectionShell>
 
+      {service.detailSections?.length ? (
+        <SectionShell className="pt-0">
+          <div className="grid gap-6 lg:grid-cols-2">
+            {service.detailSections.map((section) => (
+              <article key={section.title} className="light-panel p-7 md:p-10">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{section.eyebrow}</p>
+                <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">{section.title}</h2>
+                <p className="mt-5 text-base leading-relaxed text-muted-foreground">{section.body}</p>
+                {section.items?.length ? (
+                  <div className="mt-7 grid gap-3">
+                    {section.items.map((item) => (
+                      <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+                        <CheckCircleIcon className="mt-0.5 h-4 w-4 text-accent" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </SectionShell>
+      ) : null}
+
+      {proofProjects?.length ? (
+        <SectionShell className="pt-0">
+          <div className="mb-9 max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Selected Work</p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+              Website proof from Kansas City small-business projects.
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {proofProjects.map((project) => (
+              <a
+                key={project.slug}
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+                  <Image
+                    src={project.featuredImageUrl}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 92vw, 31vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
+                  <h3 className="mt-3 text-xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </SectionShell>
+      ) : null}
+
       <SectionShell className="pt-0">
         <div className="dark-panel p-7 md:p-10">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Process</p>
@@ -149,6 +226,51 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Step {index + 1}</p>
                 <p className="mt-3 text-base leading-relaxed text-primary-foreground">{step}</p>
               </article>
+            ))}
+          </div>
+        </div>
+      </SectionShell>
+
+      {service.faqItems?.length ? (
+        <SectionShell className="pt-0">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-8 text-center">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">FAQs</p>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+                Questions business owners ask before starting.
+              </h2>
+            </div>
+            <div className="rounded-2xl border border-border bg-card px-2 shadow-[var(--shadow-card)] md:px-6">
+              {service.faqItems.map((item, index) => (
+                <details
+                  key={item.question}
+                  className={`group border-b border-border ${index === service.faqItems!.length - 1 ? "border-b-0" : ""}`}
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-6 pl-3 text-left text-base font-bold text-card-foreground md:pl-4 md:text-lg">
+                    {item.question}
+                    <span className="text-muted-foreground transition group-open:rotate-45">+</span>
+                  </summary>
+                  <div className="pb-6 text-sm leading-relaxed text-muted-foreground md:text-base">{item.answer}</div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </SectionShell>
+      ) : null}
+
+      <SectionShell className="pt-0">
+        <div className="light-panel p-7 md:p-10">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Related Pages</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {relatedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+              >
+                {link.label}
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
             ))}
           </div>
         </div>

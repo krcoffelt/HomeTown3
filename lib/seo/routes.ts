@@ -9,6 +9,7 @@ export type CoreRoutePath =
   | "/contact"
   | "/about"
   | "/website-offer-800"
+  | "/website-design-cost-kansas-city"
   | "/privacy-policy"
   | "/terms-of-service"
   | "/cookie-policy";
@@ -30,6 +31,7 @@ export const coreRouteSeoEntries: CoreRouteSeoEntry[] = [
   { id: "contact", path: "/contact", changeFrequency: "monthly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/contact"] },
   { id: "about", path: "/about", changeFrequency: "monthly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/about"] },
   { id: "offer", path: "/website-offer-800", changeFrequency: "weekly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/website-offer-800"] },
+  { id: "website-cost", path: "/website-design-cost-kansas-city", changeFrequency: "monthly", updatedAt: "2026-04-28", shareImage: site.routeShareImages["/website-design-cost-kansas-city"] },
   { id: "privacy", path: "/privacy-policy", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/privacy-policy"] },
   { id: "terms", path: "/terms-of-service", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/terms-of-service"] },
   { id: "cookies", path: "/cookie-policy", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/cookie-policy"] }

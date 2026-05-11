@@ -21,6 +21,9 @@ export interface ServiceItem {
   title: string;
   slug: string;
   price: string;
+  seoTitle?: string;
+  heroTitle?: string;
+  heroBadge?: string;
   shortDescription: string;
   description: string;
   seoDescription?: string;
@@ -29,6 +32,21 @@ export interface ServiceItem {
   idealFor: string[];
   process: string[];
   metaTags: string[];
+  proofProjectSlugs?: string[];
+  detailSections?: Array<{
+    eyebrow: string;
+    title: string;
+    body: string;
+    items?: string[];
+  }>;
+  faqItems?: Array<{
+    question: string;
+    answer: string;
+  }>;
+  relatedLinks?: Array<{
+    label: string;
+    href: string;
+  }>;
   updatedAt?: string;
 }
 

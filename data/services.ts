@@ -5,11 +5,14 @@ export const services: ServiceItem[] = [
     title: "Custom Websites",
     slug: "website-design",
     price: "From $800",
+    seoTitle: "Website Design Kansas City | Custom Websites from $800",
+    heroTitle: "Affordable website design for Kansas City small businesses",
+    heroBadge: "Website Design Kansas City",
     shortDescription: "Fast, mobile-first sites built to turn visitors into customers, not just look pretty.",
     description:
-      "Custom websites for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to leads.",
+      "Custom website design for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to calls, quote requests, and new customers.",
     seoDescription:
-      "Custom website design for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to leads.",
+      "Website design in Kansas City for small businesses. Custom websites from $800 with mobile-first design, basic SEO setup, analytics, and a lead-focused build.",
     features: [
       "Custom design with no templates",
       "Mobile-optimized and blazing fast",
@@ -27,7 +30,8 @@ export const services: ServiceItem[] = [
     idealFor: [
       "Businesses launching their first real website",
       "Owners tired of weak template sites",
-      "KC service businesses that need credibility fast"
+      "KC service businesses that need credibility fast",
+      "Businesses that need more calls, quote requests, or bookings"
     ],
     process: [
       "You tell us about the business and the offer",
@@ -35,12 +39,129 @@ export const services: ServiceItem[] = [
       "We refine it quickly and launch with a clean handoff"
     ],
     metaTags: ["Custom Design", "Lead Focused", "Fast Launch"],
-    updatedAt: "2026-04-16"
+    proofProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "plate-kc"],
+    detailSections: [
+      {
+        eyebrow: "Why Hometown",
+        title: "Built around the way Kansas City small businesses actually get chosen.",
+        body:
+          "Most local customers are comparing credibility before they ever call. The page structure, copy, mobile layout, and contact flow are built to help your business look established and make the next step obvious.",
+        items: ["No long contracts", "Typical 7-business-day turnaround", "Direct communication", "Local service-area strategy"]
+      },
+      {
+        eyebrow: "Small Business Fit",
+        title: "A practical alternative to DIY builders and oversized agency projects.",
+        body:
+          "The $800 starting point is for businesses that need a professional custom site without getting pulled into a slow, expensive process. When the scope needs more pages, integrations, or deeper SEO, we explain that before work starts.",
+        items: ["New business websites", "Website redesigns", "Home-service websites", "Restaurant and local brand sites"]
+      }
+    ],
+    faqItems: [
+      {
+        question: "How much does a website cost in Kansas City?",
+        answer:
+          "Hometown custom websites start at $800. Larger builds can cost more when they need extra pages, booking tools, copywriting, advanced SEO, or custom integrations."
+      },
+      {
+        question: "How fast can my website be done?",
+        answer:
+          "Most small-business website builds are planned around a 7-business-day turnaround once the scope, content, and direction are clear."
+      },
+      {
+        question: "Do you use templates?",
+        answer:
+          "No. The design, structure, and messaging are shaped around your business, your services, and the actions you want visitors to take."
+      },
+      {
+        question: "Can you redesign my existing website?",
+        answer:
+          "Yes. If your current site looks outdated, loads slowly, or does not bring in calls or quote requests, a redesign can usually keep what is useful and rebuild the parts that are holding it back."
+      }
+    ],
+    relatedLinks: [
+      { label: "Website redesign services", href: "/services/website-redesign" },
+      { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
+      { label: "View website work", href: "/work" },
+      { label: "Website offer", href: "/website-offer-800" }
+    ],
+    updatedAt: "2026-04-28"
+  },
+  {
+    title: "Website Redesign",
+    slug: "website-redesign",
+    price: "From $800",
+    seoTitle: "Website Redesign Services Kansas City",
+    heroTitle: "Website redesign services for small businesses that have outgrown their old site",
+    heroBadge: "Website Redesign Services",
+    shortDescription: "Turn an outdated website into a faster, clearer, lead-focused experience.",
+    description:
+      "Website redesign services for Kansas City small businesses with outdated sites, confusing messaging, slow pages, or weak lead flow.",
+    seoDescription:
+      "Website redesign services for Kansas City small businesses. Refresh outdated sites with better messaging, mobile design, SEO structure, and clearer quote or contact paths.",
+    features: [
+      "Existing site audit and priority map",
+      "Updated mobile-first page structure",
+      "Clearer service messaging",
+      "Lead-focused contact and quote flow",
+      "Basic SEO and analytics cleanup"
+    ],
+    deliverables: [
+      "Redesigned homepage and core service pages",
+      "Before-and-after content and layout recommendations",
+      "Mobile, speed, and usability improvements",
+      "Contact form or quote flow cleanup",
+      "Launch support and two rounds of revisions"
+    ],
+    idealFor: [
+      "Businesses with a dated or hard-to-use website",
+      "Owners who are not getting enough calls or form submissions",
+      "Teams that want a stronger site before SEO or ads"
+    ],
+    process: [
+      "We review the current site and identify what is costing trust or leads",
+      "We rebuild the structure, copy, and design around clearer conversion paths",
+      "We launch the improved site and make sure tracking and next steps are clean"
+    ],
+    metaTags: ["Website Redesign", "Conversion Cleanup", "Local SEO"],
+    proofProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "lupi-docs"],
+    detailSections: [
+      {
+        eyebrow: "When Redesign Helps",
+        title: "A redesign makes sense when the site is not helping people choose you.",
+        body:
+          "Many small businesses already have a website, but it does not clearly explain services, show proof, load well on phones, or make contact easy. The redesign focuses on the parts that influence trust and lead flow.",
+        items: ["Outdated visuals", "Weak mobile experience", "Unclear services", "Low quote or contact activity"]
+      }
+    ],
+    faqItems: [
+      {
+        question: "Do I need a full rebuild or just updates?",
+        answer:
+          "It depends on the current site. If the structure, messaging, and mobile experience are weak, a rebuild is usually cleaner than patching the same problems."
+      },
+      {
+        question: "Can you keep my current logo, photos, or copy?",
+        answer:
+          "Yes. Useful assets can stay. The redesign keeps what helps and improves the parts that make the business look less credible or harder to contact."
+      },
+      {
+        question: "Will a redesign help with SEO?",
+        answer:
+          "It can. Cleaner page structure, better headings, faster mobile performance, and clearer service content all support local SEO, especially when paired with ongoing optimization."
+      }
+    ],
+    relatedLinks: [
+      { label: "Website design Kansas City", href: "/services/website-design" },
+      { label: "Website design cost", href: "/website-design-cost-kansas-city" },
+      { label: "Start a redesign", href: "/contact#form" }
+    ],
+    updatedAt: "2026-04-28"
   },
   {
     title: "Google Ads Management",
     slug: "google-ads-management",
     price: "From $300/mo",
+    seoTitle: "Google Ads Management Kansas City | PPC for Local Businesses",
     shortDescription: "Show up when KC locals search for what you sell. We manage every click.",
     description:
       "Search campaigns built around real buyer intent so your business appears when local customers are ready to call, book, or buy.",
@@ -77,6 +198,7 @@ export const services: ServiceItem[] = [
     title: "Social Media Management",
     slug: "social-media-management",
     price: "From $400/mo",
+    seoTitle: "Social Media Management Kansas City",
     shortDescription: "Consistent, on-brand posts that actually get engagement, not just filler.",
     description:
       "Social media support for businesses that need a cleaner online presence, more consistency, and content that supports the rest of their marketing.",
@@ -113,6 +235,7 @@ export const services: ServiceItem[] = [
     title: "Graphic Design",
     slug: "graphic-design",
     price: "Custom pricing",
+    seoTitle: "Graphic Design Kansas City | Flyers, Menus & Brand Assets",
     shortDescription: "Logos, menus, flyers, and social graphics so your brand looks sharp everywhere.",
     description:
       "Design support for businesses that need polished visuals across web, social, print, and promotional materials without hiring a bloated agency.",
@@ -149,6 +272,7 @@ export const services: ServiceItem[] = [
     title: "Search Engine Optimization",
     slug: "search-engine-optimization",
     price: "From $300/mo",
+    seoTitle: "SEO Services Kansas City | Local SEO for Small Businesses",
     shortDescription: "Rank higher on Google for the searches your customers are already making.",
     description:
       "SEO support built around the basics that matter: site structure, local relevance, technical clarity, and content direction that improves organic visibility.",
@@ -185,6 +309,7 @@ export const services: ServiceItem[] = [
     title: "Analytics & Tracking",
     slug: "analytics-and-tracking",
     price: "Included with web builds",
+    seoTitle: "Analytics & Conversion Tracking for Small Businesses",
     shortDescription: "Know exactly where your traffic comes from and what is working.",
     description:
       "Tracking and reporting setup that gives small businesses a clearer picture of traffic, leads, and campaign performance without drowning them in dashboards.",
@@ -221,6 +346,7 @@ export const services: ServiceItem[] = [
     title: "Brand Identity",
     slug: "brand-identity",
     price: "From $500",
+    seoTitle: "Brand Identity & Logo Design Kansas City",
     shortDescription: "A cleaner identity system for businesses that need to look established fast.",
     description:
       "Brand identity work for small businesses that need a stronger logo, clearer visual direction, and a more cohesive foundation before scaling web or ad efforts.",

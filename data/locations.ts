@@ -6,12 +6,12 @@ export const locations: LocationItem[] = [
     slug: "overland-park-ks",
     city: "Overland Park",
     state: "KS",
-    heroTitle: "Marketing for Overland Park businesses that want to look more established online.",
+    heroTitle: "Website design and marketing for Overland Park businesses that need to look established online.",
     heroDescription:
-      "Websites, SEO, ads, and creative built for Overland Park businesses that need a stronger first impression, better local visibility, and more qualified leads.",
-    seoTitle: "Overland Park Marketing Agency",
+      "Custom websites, SEO, ads, and creative built for Overland Park businesses that need a stronger first impression, better local visibility, and more qualified leads.",
+    seoTitle: "Website Design & Marketing Agency in Overland Park KS",
     seoDescription:
-      "Overland Park marketing agency for businesses that need a better website, stronger SEO, sharper creative, and more qualified local leads.",
+      "Website design in Overland Park KS for small businesses that need a better website, stronger SEO, sharper creative, and more qualified local leads.",
     introTitle: "How we help Overland Park businesses compete better online.",
     introDescription:
       "Overland Park businesses are competing in a polished, crowded market. If the website feels dated or the messaging feels generic, trust drops fast. Hometown helps businesses show up with a cleaner brand presence, stronger local visibility, and a marketing system that feels more established from the first click.",
@@ -22,7 +22,7 @@ export const locations: LocationItem[] = [
       "The goal is not flashy marketing for the sake of it. The goal is a better online presence that makes the business feel sharper, more trustworthy, and easier to choose.",
     trustHighlights: ["23+ projects", "5.0 Google reviews", "Direct strategy and build", "Built for Overland Park growth"],
     whyPoints: [
-      "A stronger first impression for competitive local markets",
+      "Custom web design for competitive Overland Park markets",
       "Clearer service positioning for higher-intent prospects",
       "Practical execution without bloated agency overhead"
     ],
@@ -46,19 +46,19 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["plate-kc", "wrapped-up-moving", "zj-carpentry-and-more"],
     ctaLabel: "Start Your Overland Park Project",
-    updatedAt: "2026-04-19"
+    updatedAt: "2026-04-28"
   },
   {
     title: "Olathe",
     slug: "olathe-ks",
     city: "Olathe",
     state: "KS",
-    heroTitle: "Marketing for Olathe businesses that need more calls, quotes, and trust online.",
+    heroTitle: "Website design for Olathe businesses that need more calls, quotes, and trust online.",
     heroDescription:
-      "Hometown helps Olathe businesses with better websites, cleaner messaging, local SEO, and campaigns built to turn interest into leads.",
-    seoTitle: "Olathe Marketing Agency",
+      "Hometown helps Olathe businesses with custom websites, cleaner messaging, local SEO, and campaigns built to turn interest into leads.",
+    seoTitle: "Website Design & Marketing Agency in Olathe KS",
     seoDescription:
-      "Olathe marketing agency for businesses that need stronger websites, cleaner messaging, local SEO, and better lead flow.",
+      "Website design in Olathe KS for businesses that need stronger websites, cleaner messaging, local SEO, and better lead flow.",
     introTitle: "Practical marketing for Olathe businesses that need momentum.",
     introDescription:
       "A lot of Olathe businesses do not need more complicated marketing. They need a clearer website, stronger local visibility, and a cleaner path from attention to inquiry. That is where Hometown focuses the work.",
@@ -69,7 +69,7 @@ export const locations: LocationItem[] = [
       "The strongest gains usually come from fixing the basics that actually influence trust and lead flow: a better website, clearer service messaging, local search relevance, and cleaner tracking.",
     trustHighlights: ["Lead-focused websites", "Local SEO support", "23+ projects", "Built for Olathe growth"],
     whyPoints: [
-      "Cleaner websites that make it easier to request a quote",
+      "Cleaner web design that makes it easier to request a quote",
       "Stronger visibility for local-intent searches",
       "Tracking that shows what is actually working"
     ],
@@ -93,19 +93,19 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
     ctaLabel: "Get Help for Your Olathe Business",
-    updatedAt: "2026-04-19"
+    updatedAt: "2026-04-28"
   },
   {
     title: "Leawood",
     slug: "leawood-ks",
     city: "Leawood",
     state: "KS",
-    heroTitle: "Marketing for Leawood businesses that need to look polished, credible, and worth trusting.",
+    heroTitle: "Website design and brand identity for Leawood businesses that need to look polished and credible.",
     heroDescription:
       "From premium websites to sharper branding and lead-focused strategy, Hometown helps Leawood businesses show up with a more professional presence online.",
-    seoTitle: "Leawood Marketing Agency",
+    seoTitle: "Website Design & Brand Identity in Leawood KS",
     seoDescription:
-      "Leawood marketing agency for businesses that need premium websites, sharper branding, stronger trust, and a more polished online presence.",
+      "Website design in Leawood KS for businesses that need premium websites, sharper branding, stronger trust, and a more polished online presence.",
     introTitle: "A stronger presentation matters in Leawood.",
     introDescription:
       "In Leawood, the first impression has to feel polished. If the brand looks inconsistent or the website feels dated, that can quietly cost trust. Hometown helps businesses tighten the presentation and pair that polish with lead-focused strategy.",
@@ -116,7 +116,7 @@ export const locations: LocationItem[] = [
       "The work combines design quality with business clarity. It is not just about looking nicer. It is about looking established enough that the next step feels easy and justified.",
     trustHighlights: ["Premium presentation", "Custom brand direction", "5.0 Google reviews", "Built for Leawood trust"],
     whyPoints: [
-      "A cleaner, more premium first impression",
+      "Premium website design and first-impression cleanup",
       "Brand consistency across website and creative assets",
       "Lead-focused structure beneath the polish"
     ],
@@ -140,19 +140,19 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["plate-kc", "lupi-docs", "voxwhite"],
     ctaLabel: "Build a Better Leawood Presence",
-    updatedAt: "2026-04-19"
+    updatedAt: "2026-04-28"
   },
   {
     title: "Lenexa",
     slug: "lenexa-ks",
     city: "Lenexa",
     state: "KS",
-    heroTitle: "Marketing for Lenexa businesses that need a clearer online presence and better local visibility.",
+    heroTitle: "Website design and local SEO for Lenexa businesses that need clearer visibility.",
     heroDescription:
       "Hometown builds websites, SEO systems, and campaigns for Lenexa businesses that want to look professional, get found, and make it easier for customers to reach out.",
-    seoTitle: "Lenexa Marketing Agency",
+    seoTitle: "Website Design & Local SEO in Lenexa KS",
     seoDescription:
-      "Lenexa marketing agency for businesses that need clearer websites, stronger local SEO, better visibility, and a cleaner lead path.",
+      "Website design in Lenexa KS for businesses that need clearer websites, stronger local SEO, better visibility, and a cleaner lead path.",
     introTitle: "Clearer marketing for businesses that need to be easy to find and easy to trust.",
     introDescription:
       "For many Lenexa businesses, the issue is not effort. It is clarity. The website may feel outdated, the messaging may be vague, or the local visibility may be weaker than it should be. Hometown helps fix those gaps with cleaner strategy and tighter execution.",
@@ -165,7 +165,7 @@ export const locations: LocationItem[] = [
     whyPoints: [
       "Messaging that explains the business more clearly",
       "SEO structure that supports local visibility",
-      "A cleaner website that makes contact easier"
+      "A cleaner web design that makes contact easier"
     ],
     priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
     faqItems: [
@@ -187,19 +187,19 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "plate-kc"],
     ctaLabel: "Start Your Lenexa Project",
-    updatedAt: "2026-04-19"
+    updatedAt: "2026-04-28"
   },
   {
     title: "Shawnee",
     slug: "shawnee-ks",
     city: "Shawnee",
     state: "KS",
-    heroTitle: "Marketing for Shawnee businesses that want a more credible online presence without agency bloat.",
+    heroTitle: "Website design for Shawnee businesses that want a credible online presence without agency bloat.",
     heroDescription:
-      "Hometown works with Shawnee businesses that need a stronger website, better messaging, and practical marketing built to generate real leads.",
-    seoTitle: "Shawnee Marketing Agency",
+      "Hometown works with Shawnee businesses that need a stronger custom website, better messaging, and practical marketing built to generate real leads.",
+    seoTitle: "Website Design & Marketing Agency in Shawnee KS",
     seoDescription:
-      "Shawnee marketing agency for businesses that need a stronger website, better messaging, local SEO, and an honest lead-focused approach.",
+      "Website design in Shawnee KS for businesses that need a stronger website, better messaging, local SEO, and an honest lead-focused approach.",
     introTitle: "A more personal, practical approach for Shawnee businesses.",
     introDescription:
       "A lot of Shawnee businesses do not want a bloated agency relationship. They want sharper work, clearer communication, and marketing that actually helps. Hometown was built for exactly that kind of business owner.",
@@ -210,7 +210,7 @@ export const locations: LocationItem[] = [
       "The work stays personal, direct, and grounded in results. The focus is not activity for its own sake. It is a stronger online presence that helps good businesses look the part and get contacted more often.",
     trustHighlights: ["Personal approach", "No agency bloat", "Lead-focused websites", "Built for Shawnee trust"],
     whyPoints: [
-      "A stronger website without unnecessary complexity",
+      "Affordable website design without unnecessary complexity",
       "Messaging that feels clearer and more trustworthy",
       "Support that stays direct and honest"
     ],
@@ -234,7 +234,7 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
     ctaLabel: "Talk About Your Shawnee Business",
-    updatedAt: "2026-04-19"
+    updatedAt: "2026-04-28"
   }
 ];
 

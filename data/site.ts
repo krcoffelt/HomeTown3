@@ -40,6 +40,7 @@ export const site = {
     "/about": "/og/about",
     "/locations": "/og/locations",
     "/website-offer-800": "/og/offer",
+    "/website-design-cost-kansas-city": "/og/offer",
     "/privacy-policy": "/og/privacy",
     "/terms-of-service": "/og/terms",
     "/cookie-policy": "/og/cookies"
