@@ -33,7 +33,7 @@ export default function PricingPage() {
           <PageHero
             badge="Pricing"
             title="Simple pricing for small business marketing."
-            subtitle="Start with a website, then add paid ads or SEO when you are ready to grow."
+            subtitle="Start with a website, then add local SEO, website SEO, or paid ads when you are ready to grow."
             light
           />
         </div>

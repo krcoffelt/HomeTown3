@@ -17,22 +17,34 @@ const pricingItems = [
     featured: true
   },
   {
-    label: "Paid Ads",
-    price: "From $300/mo",
-    description: "Google campaigns focused on local searches with buyer intent.",
-    details: ["Campaign setup", "Keyword cleanup", "Monthly optimization"]
+    label: "Local SEO",
+    price: "$250/mo",
+    description: "Google Maps and Google Business Profile support for one business.",
+    details: ["GBP optimization", "Map tracking", "Citation consistency"]
   },
   {
-    label: "SEO",
-    price: "From $300/mo",
-    description: "Local search improvements that help customers find you.",
-    details: ["On-page SEO", "Local visibility", "Content direction"]
+    label: "Website SEO",
+    price: "$400/mo",
+    description: "Website keyword tracking, audits, Search Console review, and monthly SEO planning.",
+    details: ["Keyword tracking", "SEO audits", "Action plan"]
   },
   {
-    label: "Social Media Management",
-    price: "From $400/mo",
-    description: "Consistent content that keeps your business active online.",
-    details: ["Post planning", "Graphics", "Captions"]
+    label: "SEO Setup",
+    price: "$250 one-time",
+    description: "Initial account, keyword, competitor, baseline audit, and reporting setup.",
+    details: ["Baseline audit", "Tool setup", "Reporting setup"]
+  },
+  {
+    label: "Paid Ads Management",
+    price: "$300/mo",
+    description: "Monthly management for Google Ads, Meta Ads, or another paid ad platform.",
+    details: ["Per platform", "Optimization", "Recommendations"]
+  },
+  {
+    label: "Paid Ads Setup",
+    price: "$250 one-time",
+    description: "Campaign, tracking, audience, keyword, ad structure, and launch preparation.",
+    details: ["Campaign setup", "Tracking setup", "Launch prep"]
   }
 ];
 

@@ -233,7 +233,7 @@ export const services: ServiceItem[] = [
   {
     title: "Google Ads Management",
     slug: "google-ads-management",
-    price: "From $300/mo",
+    price: "$300/mo per platform",
     seoTitle: "Google Ads Management Kansas City | PPC for Local Businesses",
     shortDescription: "Show up when KC locals search for what you sell. We manage every click.",
     description:
@@ -344,7 +344,7 @@ export const services: ServiceItem[] = [
   {
     title: "Search Engine Optimization",
     slug: "search-engine-optimization",
-    price: "From $300/mo",
+    price: "$250-$400/mo",
     seoTitle: "SEO Services Kansas City | Local SEO for Small Businesses",
     shortDescription: "Rank higher on Google for the searches your customers are already making.",
     description:

@@ -54,15 +54,15 @@ export const faqs: FAQItem[] = [
     page: "pricing"
   },
   {
-    question: "Do I need a website for my local business?",
+    question: "What does monthly SEO cost?",
     answer:
-      "Yes. A modern website helps local customers validate your business quickly and gives search traffic a direct way to contact you.",
+      "Local SEO is $250/month per business for Google Maps and Google Business Profile visibility. Website SEO is $400/month per business for keyword tracking, audits, Search Console review, page recommendations, and a monthly action plan.",
     page: "pricing"
   },
   {
-    question: "Can someone build my business website for me?",
+    question: "What does paid ads management cost?",
     answer:
-      "Yes. Hometown handles strategy, design, build, and launch while keeping the process simple for local business owners.",
+      "Paid ads management is $300/month per platform. Paid ads setup is $250 one-time per platform for campaign setup, tracking setup, audience or keyword setup, ad structure, and launch preparation.",
     page: "pricing"
   }
 ];
