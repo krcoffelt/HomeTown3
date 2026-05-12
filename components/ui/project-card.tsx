@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRightIcon } from "@/components/ui/site-icons";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
@@ -14,8 +15,14 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ title, description, category, imageUrl, imageAlt, link }: ProjectCardProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   const content = (
-    <article className="group relative h-[400px] overflow-hidden rounded-2xl bg-foreground text-primary-foreground md:h-[480px]">
+    <motion.article
+      className="group relative h-[400px] overflow-hidden rounded-2xl bg-foreground text-primary-foreground md:h-[480px]"
+      whileHover={prefersReducedMotion ? undefined : { y: -8 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+    >
       <Image
         src={imageUrl}
         alt={imageAlt}
@@ -34,13 +41,17 @@ export function ProjectCard({ title, description, category, imageUrl, imageAlt, 
           {description}
         </p>
         {link ? (
-          <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary-foreground">
+          <motion.span
+            className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary-foreground"
+            animate={prefersReducedMotion ? undefined : { x: [0, 4, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          >
             View Project
             <ArrowRightIcon className="h-4 w-4" />
-          </span>
+          </motion.span>
         ) : null}
       </div>
-    </article>
+    </motion.article>
   );
 
   if (!link) return content;

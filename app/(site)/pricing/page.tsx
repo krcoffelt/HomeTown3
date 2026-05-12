@@ -32,8 +32,8 @@ export default function PricingPage() {
         <div className="site-container">
           <PageHero
             badge="Pricing"
-            title="Simple pricing. Clear next steps."
-            subtitle="Start with the website. Add the marketing support that makes sense for your business after that."
+            title="Simple pricing for small business marketing."
+            subtitle="Start with a website, then add paid ads or SEO when you are ready to grow."
             light
           />
         </div>
