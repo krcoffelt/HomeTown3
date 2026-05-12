@@ -12,6 +12,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 const iconMap: Record<string, typeof GlobeIcon> = {
   "website-design": GlobeIcon,
+  "small-business-websites": GlobeIcon,
   "website-redesign": GlobeIcon,
   "google-ads-management": TargetIcon,
   "social-media-management": ZapIcon,

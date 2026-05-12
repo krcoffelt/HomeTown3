@@ -1,6 +1,6 @@
 import { buildSitemapIndex } from "@/lib/seo/sitemaps";
 
-const sitemapPaths = ["/sitemap-pages.xml", "/sitemap-services.xml", "/sitemap-locations.xml", "/sitemap-images.xml"];
+const sitemapPaths = ["/sitemap-pages.xml", "/sitemap-services.xml", "/sitemap-locations.xml", "/sitemap-content.xml", "/sitemap-images.xml"];
 
 export function GET() {
   return new Response(buildSitemapIndex(sitemapPaths), {

@@ -12,6 +12,10 @@ export interface ProjectItem {
   servicesProvided: string[];
   featuredImageUrl: string;
   imageAlt: string;
+  city?: string;
+  problem?: string;
+  solution?: string;
+  result?: string;
   liveUrl?: string;
   quote?: string;
   updatedAt?: string;
@@ -66,6 +70,12 @@ export interface LocationItem {
   whyDescription: string;
   trustHighlights: string[];
   whyPoints: string[];
+  seoSections?: Array<{
+    eyebrow: string;
+    title: string;
+    body: string;
+    items: string[];
+  }>;
   priorityServices: string[];
   faqItems: Array<{
     question: string;
@@ -73,5 +83,28 @@ export interface LocationItem {
   }>;
   relatedProjectSlugs: string[];
   ctaLabel: string;
+  updatedAt?: string;
+}
+
+export interface IndustryItem {
+  title: string;
+  slug: string;
+  seoTitle: string;
+  seoDescription: string;
+  heroTitle: string;
+  heroDescription: string;
+  primaryKeyword: string;
+  secondaryKeywords: string[];
+  proofProjectSlugs: string[];
+  sections: Array<{
+    eyebrow: string;
+    title: string;
+    body: string;
+    items: string[];
+  }>;
+  faqItems: Array<{
+    question: string;
+    answer: string;
+  }>;
   updatedAt?: string;
 }

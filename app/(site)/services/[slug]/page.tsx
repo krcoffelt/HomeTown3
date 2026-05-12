@@ -8,6 +8,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
+import { locations } from "@/data/locations";
 import { getProjectBySlug } from "@/data/projects";
 import { getServiceBySlug, services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -207,9 +208,54 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
                   <h3 className="mt-3 text-xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+                  {project.problem && project.result ? (
+                    <div className="mt-5 space-y-3 border-t border-border pt-5">
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                        {project.city ?? "Kansas City metro"}
+                      </p>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        <span className="font-bold text-foreground">Problem:</span> {project.problem}
+                      </p>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        <span className="font-bold text-foreground">Result:</span> {project.result}
+                      </p>
+                    </div>
+                  ) : null}
                 </div>
               </a>
             ))}
+          </div>
+        </SectionShell>
+      ) : null}
+
+      {service.slug === "website-design" ? (
+        <SectionShell className="pt-0">
+          <div className="dark-panel p-7 md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Service Areas</p>
+                <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
+                  Website design for Kansas City and nearby business owners.
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-primary-foreground/72">
+                  These local pages help connect the main website-design offer to the suburbs where small businesses are already searching.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {locations.map((location) => (
+                  <Link
+                    key={location.slug}
+                    href={`/locations/${location.slug}`}
+                    className="group rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent/70"
+                  >
+                    <p className="text-sm font-bold text-primary-foreground">{location.city}, {location.state}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-primary-foreground/62">
+                      Website design and local marketing for {location.city} businesses.
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </SectionShell>
       ) : null}

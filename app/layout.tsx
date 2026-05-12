@@ -17,13 +17,6 @@ export const metadata: Metadata = {
   },
   applicationName: site.brand.fullName,
   description: site.description,
-  keywords: [
-    "Kansas City marketing agency",
-    "KC small business website",
-    "affordable web design Kansas City",
-    "social media marketing KC",
-    "Google Ads Kansas City"
-  ],
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -35,8 +28,8 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png"
   },
   openGraph: {
-    title: "Hometown Marketing Agency — Kansas City Small Business Marketing",
-    description: "Custom websites, ads, and social media marketing built for KC small businesses. Starting at $800.",
+    title: "Hometown Marketing Agency — Kansas City Website Design",
+    description: "Custom websites, local SEO, ads, and social media marketing built for Kansas City small businesses. Website builds start at $800.",
     type: "website",
     url: site.url,
     siteName: site.brand.fullName,
@@ -49,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hometown Marketing Agency — KC Small Business Marketing",
-    description: "Affordable websites and marketing for Kansas City businesses. No contracts.",
+    title: "Hometown Marketing Agency — Kansas City Website Design",
+    description: "Affordable websites and marketing for Kansas City small businesses. No contracts.",
     images: [getCoreShareImage("/")]
   }
 };

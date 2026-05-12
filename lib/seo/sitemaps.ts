@@ -2,6 +2,7 @@ import { locations } from "@/data/locations";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+import { industries } from "@/data/industries";
 import { coreRouteSeoEntries, getLocationShareImage, getServiceShareImage } from "@/lib/seo/routes";
 
 function xmlEscape(value: string) {
@@ -108,6 +109,32 @@ export function getLocationsSitemapXml() {
   );
 }
 
+export function getContentSitemapXml() {
+  const industryEntries = industries.map((industry) => ({
+    loc: `/industries/${industry.slug}`,
+    lastmod: industry.updatedAt,
+    changefreq: "monthly"
+  }));
+
+  const caseStudyEntries = projects
+    .filter((project) => project.problem && project.solution && project.result)
+    .map((project) => ({
+      loc: `/case-studies/${project.slug}`,
+      lastmod: project.updatedAt,
+      changefreq: "monthly"
+    }));
+
+  const articleEntries = [
+    {
+      loc: "/website-builder-vs-custom-website-for-small-businesses",
+      lastmod: "2026-05-11",
+      changefreq: "monthly"
+    }
+  ];
+
+  return buildUrlSet([...industryEntries, ...caseStudyEntries, ...articleEntries]);
+}
+
 export function getImagesSitemapXml() {
   const shareImageEntries = coreRouteSeoEntries.map((entry) => ({
     pageLoc: entry.path,
@@ -135,6 +162,14 @@ export function getImagesSitemapXml() {
     title: project.clientName,
     caption: project.summary
   }));
+  const caseStudyEntries = projects
+    .filter((project) => project.problem && project.solution && project.result)
+    .map((project) => ({
+      pageLoc: `/case-studies/${project.slug}`,
+      imageLoc: project.featuredImageUrl,
+      title: `${project.clientName} website case study`,
+      caption: project.result ?? project.summary
+    }));
 
-  return buildImageSitemap([...shareImageEntries, ...serviceImageEntries, ...locationImageEntries, ...projectEntries]);
+  return buildImageSitemap([...shareImageEntries, ...serviceImageEntries, ...locationImageEntries, ...projectEntries, ...caseStudyEntries]);
 }

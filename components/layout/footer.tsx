@@ -84,8 +84,6 @@ export function Footer() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/HometownLogoWhite2026-sm.png"
-              srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
-              sizes="180px"
               alt="Hometown Marketing Agency"
               width={260}
               height={70}

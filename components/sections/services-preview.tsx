@@ -9,6 +9,7 @@ import { services } from "@/data/services";
 
 const iconMap: Record<string, typeof GlobeIcon> = {
   "website-design": GlobeIcon,
+  "small-business-websites": GlobeIcon,
   "google-ads-management": TargetIcon,
   "social-media-management": ZapIcon,
   "graphic-design": CheckCircleIcon,

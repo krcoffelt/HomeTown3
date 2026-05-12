@@ -14,6 +14,7 @@ export default function robots(): MetadataRoute.Robots {
       `${site.url}/sitemap-pages.xml`,
       `${site.url}/sitemap-services.xml`,
       `${site.url}/sitemap-locations.xml`,
+      `${site.url}/sitemap-content.xml`,
       `${site.url}/sitemap-images.xml`
     ],
     host: site.url

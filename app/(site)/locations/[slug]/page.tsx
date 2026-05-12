@@ -198,6 +198,42 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
         </div>
       </section>
 
+      {location.seoSections?.length ? (
+        <section className="bg-background py-20 md:py-28">
+          <div className="site-container">
+            <div className="grid gap-6 lg:grid-cols-2">
+              {location.seoSections.map((section) => (
+                <article key={section.title} className="rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] md:p-10">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{section.eyebrow}</p>
+                  <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">{section.title}</h2>
+                  <p className="mt-5 text-base leading-relaxed text-muted-foreground">{section.body}</p>
+                  <div className="mt-7 grid gap-3">
+                    {section.items.map((item) => (
+                      <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+                        <CheckCircleIcon className="mt-0.5 h-4 w-4 text-accent" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+              <article className="rounded-3xl border border-primary-foreground/10 bg-gradient-dark p-7 text-primary-foreground shadow-[var(--shadow-hero)] md:p-10">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">Primary SEO Focus</p>
+                <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
+                  Website design first, then marketing that builds on the site.
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-primary-foreground/72">
+                  The strongest starting point for {location.city} businesses is a custom website that makes the offer clear. SEO, ads, branding, and social work better once that foundation is credible.
+                </p>
+                <Button href="/services/website-design" className="mt-7">
+                  Website Design in {location.city}
+                </Button>
+              </article>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="bg-background py-20 md:py-28">
         <div className="site-container">
           <div className="mb-10 max-w-2xl">

@@ -11,6 +11,10 @@ export const projects: ProjectItem[] = [
     servicesProvided: ["Website Design", "Creative Direction"],
     featuredImageUrl: "/images/work/PlateKCScreenshot.png",
     imageAlt: "Homepage design preview for Plate KC restaurant website",
+    city: "Leawood, KS",
+    problem: "The restaurant needed a polished digital first impression that matched the dining experience and made reservations easier to find.",
+    solution: "We built a visual restaurant site with direct navigation, stronger food and location cues, and clearer reservation paths.",
+    result: "Plate KC has a premium website experience that supports local discovery, trust, and reservation intent.",
     liveUrl: "https://platekc.com",
     quote: "A modern restaurant site that feels premium without losing warmth.",
     updatedAt: "2026-04-16"
@@ -25,6 +29,10 @@ export const projects: ProjectItem[] = [
     servicesProvided: ["Website Design", "Brand Identity"],
     featuredImageUrl: "/images/work/LupiDocsScreenshot.png",
     imageAlt: "Homepage preview for Lupi Docs & Designs publishing website",
+    city: "Kansas City metro",
+    problem: "The brand needed to explain publishing services clearly while looking established enough for authors to trust.",
+    solution: "We created a professional site structure with clearer service positioning, brand polish, and a simpler contact path.",
+    result: "The finished site gives prospective authors a cleaner path from first impression to inquiry.",
     liveUrl: "https://lupidocs.com",
     quote: "Built to feel polished, trustworthy, and easy to navigate.",
     updatedAt: "2026-04-16"
@@ -66,6 +74,10 @@ export const projects: ProjectItem[] = [
     servicesProvided: ["Website Design", "Lead Generation"],
     featuredImageUrl: "/images/WrappedUpMoving_screenshot.png",
     imageAlt: "Homepage preview for Wrapped Up Moving website",
+    city: "Kansas City, MO",
+    problem: "The moving company needed to turn local search and referral traffic into quote requests quickly.",
+    solution: "We focused the site around trust, service clarity, local credibility, and a prominent quote-request flow.",
+    result: "The site now gives moving prospects a faster path from landing page to quote request.",
     liveUrl: "https://wrappedupmoving.com",
     quote: "Built to feel trustworthy, local, and ready to turn visitors into quote requests.",
     updatedAt: "2026-04-16"
@@ -80,6 +92,10 @@ export const projects: ProjectItem[] = [
     servicesProvided: ["Website Design", "Creative Direction"],
     featuredImageUrl: "/images/ZJCarpentry_Screenshot.png",
     imageAlt: "Homepage preview for ZJ Carpentry and More contractor website",
+    city: "Kansas City metro",
+    problem: "The contractor needed a website that made project photos, service lines, and quote requests work together.",
+    solution: "We built a contractor-focused site that puts craftsmanship proof and clear service choices in front of homeowners.",
+    result: "The finished site helps turn homeowner interest into more qualified project conversations.",
     liveUrl: "https://zjcarpentry.com",
     quote: "Built to feel polished, trustworthy, and ready to turn homeowner interest into quote requests.",
     updatedAt: "2026-04-16"

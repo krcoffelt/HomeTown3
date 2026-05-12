@@ -79,12 +79,85 @@ export const services: ServiceItem[] = [
       }
     ],
     relatedLinks: [
+      { label: "Small business websites", href: "/services/small-business-websites" },
       { label: "Website redesign services", href: "/services/website-redesign" },
+      { label: "Construction website design", href: "/industries/construction-website-design-kansas-city" },
+      { label: "Home services website design", href: "/industries/home-services-website-design-kansas-city" },
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
-      { label: "View website work", href: "/work" },
-      { label: "Website offer", href: "/website-offer-800" }
+      { label: "View website work", href: "/work" }
     ],
     updatedAt: "2026-04-28"
+  },
+  {
+    title: "Small Business Websites",
+    slug: "small-business-websites",
+    price: "From $800",
+    seoTitle: "Small Business Website Design Kansas City",
+    heroTitle: "Small business website design for Kansas City owners who need a site that works",
+    heroBadge: "Small Business Website Design",
+    shortDescription: "Custom websites for small businesses that have outgrown DIY builders.",
+    description:
+      "Small business website design for Kansas City companies that need a credible custom site, clearer messaging, and a direct path to calls or quote requests.",
+    seoDescription:
+      "Small business website design in Kansas City. Custom affordable websites from $800 for owners who have outgrown DIY builders and need better lead flow.",
+    features: [
+      "Custom website structure for your services",
+      "Mobile-first design and page speed basics",
+      "Lead-focused contact or quote flow",
+      "Basic local SEO setup",
+      "Analytics and conversion tracking foundation"
+    ],
+    deliverables: [
+      "Homepage and essential internal pages",
+      "Small-business messaging and service positioning",
+      "Mobile-first design built around customer actions",
+      "Contact form, phone, and quote-request pathways",
+      "Launch support and two revision rounds"
+    ],
+    idealFor: [
+      "Owners replacing a DIY website builder",
+      "New businesses that need to look established quickly",
+      "Local service businesses that need more calls or quote requests"
+    ],
+    process: [
+      "We clarify what customers need to understand before they contact you",
+      "We build the site around proof, services, and a simple next step",
+      "We launch with basic SEO, analytics, and a cleaner conversion path"
+    ],
+    metaTags: ["Small Business", "Affordable Websites", "Lead Flow"],
+    proofProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
+    detailSections: [
+      {
+        eyebrow: "Why It Works",
+        title: "Small businesses need clarity before complexity.",
+        body:
+          "The site should answer what you do, where you work, why customers should trust you, and how to get started. That comes before ads, social, or a bigger marketing system.",
+        items: ["Clear service pages", "Local trust signals", "Fast mobile experience", "Simple contact flow"]
+      }
+    ],
+    faqItems: [
+      {
+        question: "Is this better than a website builder?",
+        answer:
+          "A builder can work for a temporary page. A custom small-business site is better when you need stronger messaging, cleaner local SEO structure, and a more credible first impression."
+      },
+      {
+        question: "How much does a small-business website cost?",
+        answer:
+          "Hometown small-business websites start at $800. Larger sites can cost more when they need extra pages, integrations, advanced copywriting, or deeper SEO."
+      },
+      {
+        question: "What kinds of small businesses is this for?",
+        answer:
+          "It is a strong fit for local service companies, restaurants, contractors, professional services, and owner-led businesses that need customers to call, book, or request a quote."
+      }
+    ],
+    relatedLinks: [
+      { label: "Website design Kansas City", href: "/services/website-design" },
+      { label: "Website design cost", href: "/website-design-cost-kansas-city" },
+      { label: "Website builder comparison", href: "/website-builder-vs-custom-website-for-small-businesses" }
+    ],
+    updatedAt: "2026-05-11"
   },
   {
     title: "Website Redesign",

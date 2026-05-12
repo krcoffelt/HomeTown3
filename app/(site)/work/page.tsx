@@ -7,6 +7,7 @@ import { ArrowRightIcon } from "@/components/ui/site-icons";
 import { StructuredData } from "@/components/seo/structured-data";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { projects } from "@/data/projects";
 import Link from "next/link";
 
 export const metadata = createPageMetadata(
@@ -16,6 +17,7 @@ export const metadata = createPageMetadata(
 );
 
 export default function WorkPage() {
+  const caseStudyProjects = projects.filter((project) => project.problem && project.result).slice(0, 4);
   const schema = [
     webPageSchema({
       name: "Our Work",
@@ -44,6 +46,36 @@ export default function WorkPage() {
 
       <SectionShell>
         <WorkGrid />
+        {caseStudyProjects.length ? (
+          <div className="mt-16 rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Case Studies</p>
+                <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+                  Website projects with a clearer problem, solution, and result.
+                </h2>
+              </div>
+              <div className="grid gap-3">
+                {caseStudyProjects.map((project) => (
+                  <Link
+                    key={project.slug}
+                    href={`/case-studies/${project.slug}`}
+                    className="group flex flex-col gap-2 rounded-2xl border border-border bg-background px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <div>
+                      <p className="text-base font-bold text-foreground">{project.clientName}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{project.result}</p>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
+                      Read
+                      <ArrowRightIcon className="h-4 w-4" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : null}
         <div className="mt-14 flex justify-center">
           <div className="flex flex-wrap justify-center gap-3">
             <MagneticButton>

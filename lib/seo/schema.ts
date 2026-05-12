@@ -30,6 +30,11 @@ function maybe<T>(value: T | null | undefined | false) {
   return value ? value : undefined;
 }
 
+function priceFromLabel(label: string) {
+  const match = label.replaceAll(",", "").match(/\$([0-9]+(?:\.[0-9]+)?)/);
+  return match?.[1];
+}
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -66,7 +71,7 @@ export function websiteSchema() {
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "@id": localBusinessId,
     name: site.brand.fullName,
     alternateName: site.brand.shortName,
@@ -163,6 +168,7 @@ export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
 
 export function serviceSchema(service: ServiceItem) {
   const serviceUrl = `${site.url}/services/${service.slug}`;
+  const startingPrice = priceFromLabel(service.price);
 
   return {
     "@context": "https://schema.org",
@@ -181,6 +187,7 @@ export function serviceSchema(service: ServiceItem) {
     },
     offers: {
       "@type": "Offer",
+      price: maybe(startingPrice),
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
       url: serviceUrl,

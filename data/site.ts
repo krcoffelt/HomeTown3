@@ -8,7 +8,7 @@ export const site = {
   name: "Hometown",
   title: "Affordable Websites & Marketing for Kansas City Small Businesses",
   description:
-    "Kansas City's go-to marketing partner for small businesses. Custom websites starting at $800, social media management, Google Ads, and more. No contracts, no fluff, just results.",
+    "Kansas City website design and marketing for small businesses. Custom websites starting at $800, local SEO, Google Ads, social media, and design without long contracts.",
   url: "https://hometownkc.agency",
   location: "Kansas City, MO",
   address: {
@@ -19,7 +19,7 @@ export const site = {
     addressCountry: "US"
   },
   serviceAreas: ["Kansas City, MO", "Overland Park, KS", "Olathe, KS", "Leawood, KS", "Lenexa, KS", "Shawnee, KS"],
-  geo: null as null | { latitude: number; longitude: number },
+  geo: { latitude: 38.89147, longitude: -94.67318 } as null | { latitude: number; longitude: number },
   sameAs: [] as string[],
   contactDisplay: {
     emailLabel: "Email",

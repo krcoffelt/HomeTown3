@@ -26,6 +26,15 @@ export const locations: LocationItem[] = [
       "Clearer service positioning for higher-intent prospects",
       "Practical execution without bloated agency overhead"
     ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Overland Park",
+        title: "Built for polished businesses in a competitive Johnson County market.",
+        body:
+          "Overland Park customers often compare several providers before they call. The website has to explain the offer quickly, look credible on mobile, and make the next step easy.",
+        items: ["Professional first impression", "Service pages for comparison shoppers", "Lead paths for calls and quote requests"]
+      }
+    ],
     priorityServices: ["website-design", "google-ads-management", "search-engine-optimization"],
     faqItems: [
       {
@@ -72,6 +81,15 @@ export const locations: LocationItem[] = [
       "Cleaner web design that makes it easier to request a quote",
       "Stronger visibility for local-intent searches",
       "Tracking that shows what is actually working"
+    ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Olathe",
+        title: "Built for service businesses that need more calls and quote requests.",
+        body:
+          "Olathe businesses usually need practical lead flow more than complicated campaigns. The site should show services, trust, and contact options without making customers hunt.",
+        items: ["Quote-focused layouts", "Home-service proof", "Local SEO structure for Olathe searches"]
+      }
     ],
     priorityServices: ["website-design", "search-engine-optimization", "analytics-and-tracking"],
     faqItems: [
@@ -120,6 +138,15 @@ export const locations: LocationItem[] = [
       "Brand consistency across website and creative assets",
       "Lead-focused structure beneath the polish"
     ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Leawood",
+        title: "Built for brands where presentation and trust carry more weight.",
+        body:
+          "Leawood prospects expect a polished first impression. The website needs to support premium positioning while still making services, proof, and contact clear.",
+        items: ["Premium visual direction", "Brand and website alignment", "Trust-building proof sections"]
+      }
+    ],
     priorityServices: ["website-design", "brand-identity", "graphic-design"],
     faqItems: [
       {
@@ -167,6 +194,15 @@ export const locations: LocationItem[] = [
       "SEO structure that supports local visibility",
       "A cleaner web design that makes contact easier"
     ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Lenexa",
+        title: "Built for clear local visibility and straightforward lead flow.",
+        body:
+          "Lenexa businesses need websites that help people understand the offer, trust the company, and reach out without friction. Local SEO structure supports that work.",
+        items: ["Local service-page structure", "Clearer messaging", "Contact paths for mobile visitors"]
+      }
+    ],
     priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
     faqItems: [
       {
@@ -213,6 +249,15 @@ export const locations: LocationItem[] = [
       "Affordable website design without unnecessary complexity",
       "Messaging that feels clearer and more trustworthy",
       "Support that stays direct and honest"
+    ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Shawnee",
+        title: "Built for owner-led businesses that need practical, affordable websites.",
+        body:
+          "Shawnee businesses often need a sharper site without a heavy agency process. The work focuses on credibility, clear services, and easy next steps.",
+        items: ["Affordable custom websites", "Owner-led business positioning", "Simple calls and quote-request paths"]
+      }
     ],
     priorityServices: ["website-design", "social-media-management", "search-engine-optimization"],
     faqItems: [

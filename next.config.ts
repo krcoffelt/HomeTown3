@@ -24,6 +24,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.hometownkc.agency" }],
+        destination: "https://hometownkc.agency/:path*",
+        permanent: true
+      },
+      {
         source: "/services/logo-and-brand-work",
         destination: "/services/brand-identity",
         permanent: true

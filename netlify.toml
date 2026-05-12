@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "http://hometownkc.agency/*"
+  to = "https://hometownkc.agency/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.hometownkc.agency/*"
+  to = "https://hometownkc.agency/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.hometownkc.agency/*"
+  to = "https://hometownkc.agency/:splat"
+  status = 301
+  force = true

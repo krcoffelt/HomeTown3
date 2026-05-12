@@ -48,8 +48,6 @@ export function Navbar() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/HometownLogoWhite2026-sm.png"
-              srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
-              sizes="(max-width: 640px) 150px, 220px"
               alt="Hometown Marketing Agency"
               width={220}
               height={60}
@@ -90,8 +88,6 @@ export function Navbar() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/HometownLogoWhite2026-sm.png"
-                srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
-                sizes="220px"
                 alt="Hometown Marketing Agency"
                 width={260}
                 height={70}
@@ -166,8 +162,6 @@ export function Navbar() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/HometownLogoWhite2026-sm.png"
-                srcSet="/images/HometownLogoWhite2026-sm.png 360w, /images/HometownLogoWhite2026.png 2000w"
-                sizes="140px"
                 alt="Hometown Marketing Agency"
                 width={210}
                 height={56}
