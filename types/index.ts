@@ -108,3 +108,15 @@ export interface IndustryItem {
   }>;
   updatedAt?: string;
 }
+
+export interface BlogPostItem {
+  title: string;
+  slug: string;
+  href: string;
+  category: string;
+  excerpt: string;
+  publishedAt: string;
+  readingTime: string;
+  targetKeywords: string[];
+  featured?: boolean;
+}

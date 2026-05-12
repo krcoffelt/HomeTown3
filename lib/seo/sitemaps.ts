@@ -3,6 +3,7 @@ import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 import { industries } from "@/data/industries";
+import { blogPosts } from "@/data/blog";
 import { coreRouteSeoEntries, getLocationShareImage, getServiceShareImage } from "@/lib/seo/routes";
 
 function xmlEscape(value: string) {
@@ -124,13 +125,11 @@ export function getContentSitemapXml() {
       changefreq: "monthly"
     }));
 
-  const articleEntries = [
-    {
-      loc: "/website-builder-vs-custom-website-for-small-businesses",
-      lastmod: "2026-05-11",
-      changefreq: "monthly"
-    }
-  ];
+  const articleEntries = blogPosts.map((post) => ({
+    loc: post.href,
+    lastmod: post.publishedAt,
+    changefreq: "monthly"
+  }));
 
   return buildUrlSet([...industryEntries, ...caseStudyEntries, ...articleEntries]);
 }

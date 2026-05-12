@@ -38,6 +38,7 @@ export const site = {
     "/pricing": "/og/pricing",
     "/contact": "/og/contact",
     "/about": "/og/about",
+    "/blog": "/og/services",
     "/locations": "/og/locations",
     "/website-offer-800": "/og/offer",
     "/website-design-cost-kansas-city": "/og/offer",
