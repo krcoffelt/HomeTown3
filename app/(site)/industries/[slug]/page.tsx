@@ -43,6 +43,22 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     .map((projectSlug) => getProjectBySlug(projectSlug))
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
 
+  const relatedReading =
+    industry.slug === "construction-website-design-kansas-city" || industry.slug === "home-services-website-design-kansas-city"
+      ? [
+          {
+            label: "What should a contractor website include?",
+            href: "/what-should-a-contractor-website-include",
+            description: "A practical checklist for project proof, service pages, quote flow, and local SEO structure."
+          },
+          {
+            label: "How much does a website cost in Kansas City?",
+            href: "/website-design-cost-kansas-city",
+            description: "A pricing guide for small-business websites, redesigns, and scope decisions."
+          }
+        ]
+      : [];
+
   const schema = [
     webPageSchema({
       name: industry.title,
@@ -145,6 +161,36 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
           ))}
         </div>
       </SectionShell>
+
+      {relatedReading.length ? (
+        <SectionShell className="pt-0">
+          <div className="dark-panel p-7 md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Related Guides</p>
+                <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
+                  More help for planning a lead-focused website.
+                </h2>
+              </div>
+              <div className="grid gap-3">
+                {relatedReading.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent"
+                  >
+                    <span className="flex items-center justify-between gap-4 text-base font-bold text-primary-foreground">
+                      {item.label}
+                      <ArrowRightIcon className="h-4 w-4 text-accent" />
+                    </span>
+                    <span className="mt-2 block text-sm leading-relaxed text-primary-foreground/68">{item.description}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </SectionShell>
+      ) : null}
 
       <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
         <div className="mx-auto max-w-3xl text-center">

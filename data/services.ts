@@ -83,6 +83,7 @@ export const services: ServiceItem[] = [
       { label: "Website redesign services", href: "/services/website-redesign" },
       { label: "Construction website design", href: "/industries/construction-website-design-kansas-city" },
       { label: "Home services website design", href: "/industries/home-services-website-design-kansas-city" },
+      { label: "Contractor website checklist", href: "/what-should-a-contractor-website-include" },
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "View website work", href: "/work" }
     ],
