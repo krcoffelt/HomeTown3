@@ -188,11 +188,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {proofProjects.map((project) => (
-              <a
+              <Link
                 key={project.slug}
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/case-studies/${project.slug}`}
                 className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
@@ -221,8 +219,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                       </p>
                     </div>
                   ) : null}
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
+                    Read case study
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </SectionShell>

@@ -8,9 +8,9 @@ export const services: ServiceItem[] = [
     seoTitle: "Website Design Kansas City | Custom Websites from $800",
     heroTitle: "Affordable website design for Kansas City small businesses",
     heroBadge: "Website Design Kansas City",
-    shortDescription: "Fast, mobile-first sites built to turn visitors into customers, not just look pretty.",
+    shortDescription: "Kansas City website design for small businesses that need more calls, quote requests, and credibility.",
     description:
-      "Custom website design for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to calls, quote requests, and new customers.",
+      "Custom website design for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to calls, quote requests, and new customers. Built for owners searching for a practical Kansas City website designer, not a bloated agency process.",
     seoDescription:
       "Website design in Kansas City for small businesses. Custom websites from $800 with mobile-first design, basic SEO setup, analytics, and a lead-focused build.",
     features: [
@@ -54,6 +54,20 @@ export const services: ServiceItem[] = [
         body:
           "The $800 starting point is for businesses that need a professional custom site without getting pulled into a slow, expensive process. When the scope needs more pages, integrations, or deeper SEO, we explain that before work starts.",
         items: ["New business websites", "Website redesigns", "Home-service websites", "Restaurant and local brand sites"]
+      },
+      {
+        eyebrow: "Kansas City Website Design",
+        title: "Structured for local searches and real customer decisions.",
+        body:
+          "The page structure supports the terms Kansas City customers actually use, including website design Kansas City, web design Kansas City, Kansas City website designer, and small business website design Kansas City. The copy still stays natural, but the site gives Google and visitors a clearer understanding of what you do and where you work.",
+        items: ["Service pages with clear intent", "Kansas City and suburb relevance", "Mobile-first quote paths", "Internal links to proof and pricing"]
+      },
+      {
+        eyebrow: "Proof and Conversion",
+        title: "A good website should show why someone should trust you before they call.",
+        body:
+          "Portfolio examples, review language, location context, and direct calls to action are built into the website plan so visitors can move from first impression to quote request without friction.",
+        items: ["Mini case-study structure", "Industry-specific proof", "Phone and form paths", "Analytics and conversion tracking"]
       }
     ],
     faqItems: [
@@ -76,6 +90,16 @@ export const services: ServiceItem[] = [
         question: "Can you redesign my existing website?",
         answer:
           "Yes. If your current site looks outdated, loads slowly, or does not bring in calls or quote requests, a redesign can usually keep what is useful and rebuild the parts that are holding it back."
+      },
+      {
+        question: "Do you build websites for contractors and home-service businesses?",
+        answer:
+          "Yes. Contractor, moving, remodeling, restaurant, publishing, and other local service-business websites are a strong fit because they need clear services, local proof, and quote or contact paths."
+      },
+      {
+        question: "Can a new website help me rank for Kansas City searches?",
+        answer:
+          "A stronger website gives SEO a better foundation by clarifying services, locations, headings, metadata, internal links, and conversion paths. Rankings still take time, but a clean structure helps Google understand the business."
       }
     ],
     relatedLinks: [
@@ -87,7 +111,7 @@ export const services: ServiceItem[] = [
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-04-28"
+    updatedAt: "2026-05-14"
   },
   {
     title: "Small Business Websites",

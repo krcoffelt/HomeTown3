@@ -11,8 +11,8 @@ import { projects } from "@/data/projects";
 import Link from "next/link";
 
 export const metadata = createPageMetadata(
-  "Real results for real KC businesses",
-  "Every project is custom. Every client gets our full attention. Here's a taste of what we've built.",
+  "Kansas City Website Design Work & Case Studies",
+  "Recent custom website design projects and case studies for Kansas City small businesses.",
   "/work"
 );
 
@@ -38,7 +38,7 @@ export default function WorkPage() {
           <PageHero
             badge="Our Work"
             title="Real results for real KC businesses"
-            subtitle="Every project is custom. Every client gets our full attention. Here's a taste of what we've built."
+            subtitle="Recent custom website design projects for Kansas City small businesses, restaurants, contractors, publishers, and local service brands."
             light
           />
         </div>
@@ -78,6 +78,15 @@ export default function WorkPage() {
         ) : null}
         <div className="mt-14 flex justify-center">
           <div className="flex flex-wrap justify-center gap-3">
+            <MagneticButton>
+              <Link
+                href="/services/website-design"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+              >
+                Website Design Kansas City
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </MagneticButton>
             <MagneticButton>
               <Link
                 href="/contact#form"

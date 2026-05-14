@@ -23,8 +23,8 @@ const iconMap: Record<string, typeof GlobeIcon> = {
 };
 
 export const metadata = createPageMetadata(
-  "Everything you need. Nothing you don't.",
-  "Websites, ads, social media, and design for Kansas City small businesses. The stuff that actually moves the needle.",
+  "Kansas City Website Design & Marketing Services",
+  "Website design, SEO, paid ads, social media, and design services for Kansas City small businesses.",
   "/services"
 );
 
@@ -32,7 +32,7 @@ export default function ServicesPage() {
   const schema = [
     webPageSchema({
       name: "Services",
-      description: "Websites, ads, social media, and design for Kansas City small businesses.",
+      description: "Website design, SEO, paid ads, social media, and design services for Kansas City small businesses.",
       path: "/services"
     }),
     breadcrumbSchema([
@@ -50,13 +50,46 @@ export default function ServicesPage() {
           <PageHero
             badge="Our Services"
             title="Everything you need. Nothing you don't."
-            subtitle="We keep it simple: websites, ads, social media, and design. The stuff that actually moves the needle for small businesses."
+            subtitle="Start with Kansas City website design, then add SEO, paid ads, social media, and design support when the business is ready."
             light
           />
         </div>
       </section>
 
-      <SectionShell className="pt-20 md:pt-28">
+      <SectionShell className="pt-20 pb-0 md:pt-28">
+        <div className="light-panel p-7 md:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Best First Step</p>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+                Most small businesses need the website foundation first.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+                A clearer website makes SEO, Google Ads, social media, and referral traffic work harder because customers have a better place to land.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { label: "Website Design Kansas City", href: "/services/website-design" },
+                { label: "Small Business Websites", href: "/services/small-business-websites" },
+                { label: "Website Redesign Services", href: "/services/website-redesign" },
+                { label: "Website Design Cost", href: "/website-design-cost-kansas-city" }
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-background px-5 py-4 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                >
+                  {link.label}
+                  <ArrowRightIcon className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell>
         <div className="space-y-24">
           {services.map((service, index) => {
             const Icon = iconMap[service.slug] ?? GlobeIcon;
