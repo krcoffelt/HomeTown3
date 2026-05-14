@@ -1,11 +1,26 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
+import { ArrowRightIcon } from "@/components/ui/site-icons";
 import { blogPosts, plannedBlogTopics } from "@/data/blog";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+
+const postImages: Record<string, string> = {
+  "website-design-cost-kansas-city": "/images/work/LupiDocsScreenshot.png",
+  "what-should-a-contractor-website-include": "/images/ZJCarpentry_Screenshot.png",
+  "website-builder-vs-custom-website-for-small-businesses": "/images/WrappedUpMoving_screenshot.png"
+};
+
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }).format(new Date(`${date}T12:00:00`));
+}
 
 export const metadata = createPageMetadata(
   "Blog | Website Design & Marketing Advice for Kansas City Small Businesses",
@@ -17,6 +32,8 @@ export default function BlogPage() {
   const featuredPost = blogPosts.find((post) => post.featured) ?? blogPosts[0];
   const secondaryPosts = blogPosts.filter((post) => post.href !== featuredPost?.href);
   const latestPosts = secondaryPosts.length > 0 ? secondaryPosts : blogPosts;
+  const categories = Array.from(new Set(blogPosts.map((post) => post.category)));
+  const tags = Array.from(new Set(blogPosts.flatMap((post) => post.targetKeywords))).slice(0, 8);
 
   const schema = [
     webPageSchema({
@@ -31,141 +48,179 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-hidden bg-[#f9f9f9] text-foreground">
       <StructuredData data={schema} />
 
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
-        <div className="site-container">
-          <div className="max-w-4xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Hometown Blog</p>
-            <h1 className="mt-6 font-display text-[2.35rem] font-bold leading-[1.02] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl">
+      <section className="relative isolate overflow-hidden bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="Kansas City skyline at sunset"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/10" />
+        <div className="site-container relative z-10">
+          <div className="max-w-3xl">
+            <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-primary-foreground/86 backdrop-blur">
+              Kansas City Marketing Agency
+            </p>
+            <h1 className="mt-6 font-display text-[2.45rem] font-bold leading-[1.04] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl">
               Website design and marketing advice for Kansas City small businesses
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-primary-foreground/76 md:text-xl">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/78 md:text-xl">
               Practical guides on websites, local SEO, pricing, and lead flow for owners who need clearer marketing decisions.
             </p>
           </div>
         </div>
       </section>
 
-      {featuredPost ? (
-        <SectionShell>
-          <Link
-            href={featuredPost.href}
-            className="group block overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
-          >
-            <article className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
-              <div className="bg-foreground p-7 text-primary-foreground md:p-10">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Featured Guide</p>
-                <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-5xl">{featuredPost.title}</h2>
-                <p className="mt-5 text-base leading-relaxed text-primary-foreground/72">{featuredPost.excerpt}</p>
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {featuredPost.targetKeywords.map((keyword) => (
-                    <span key={keyword} className="rounded-full border border-white/10 px-3 py-1 text-xs font-bold text-primary-foreground/72">
-                      {keyword}
+      <SectionShell className="bg-[#f9f9f9]">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_350px]">
+          <main className="min-w-0">
+            {featuredPost ? (
+              <Link href={featuredPost.href} className="group block">
+                <article>
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-[#e2e8f0] bg-secondary">
+                    <Image
+                      src={postImages[featuredPost.slug] ?? "/images/hero-bg.jpg"}
+                      alt={`${featuredPost.title} featured image`}
+                      fill
+                      sizes="(max-width: 1024px) 92vw, 760px"
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="mt-7">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{featuredPost.category}</span>
+                      <span className="text-sm text-muted-foreground">{formatDate(featuredPost.publishedAt)}</span>
+                      <span className="text-sm text-muted-foreground">{featuredPost.readingTime}</span>
+                    </div>
+                    <h2 className="mt-4 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-foreground transition group-hover:text-accent md:text-4xl">
+                      {featuredPost.title}
+                    </h2>
+                    <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">{featuredPost.excerpt}</p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-accent transition group-hover:gap-3">
+                      Read full guide
+                      <ArrowRightIcon className="h-4 w-4" />
                     </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex flex-col justify-between p-7 md:p-10">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{featuredPost.category}</p>
-                  <div className="mt-6 grid gap-4">
-                    {[
-                      "See what a practical small-business website budget covers",
-                      "Understand when a project costs more than the starting price",
-                      "Compare DIY, freelancer, small agency, and larger agency options"
-                    ].map((item) => (
-                      <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                        <CheckCircleIcon className="mt-0.5 h-4 w-4 text-accent" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
                   </div>
-                </div>
-                <div className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
-                  Read the guide
-                  <ArrowRightIcon className="h-4 w-4" />
-                </div>
-              </div>
-            </article>
-          </Link>
-        </SectionShell>
-      ) : null}
-
-      <SectionShell className="pt-0">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Latest</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Published guides.</h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              New posts will be added here as the SEO content plan builds out.
-            </p>
-          </div>
-
-          <div className="grid gap-4">
-            {latestPosts.map((post) => (
-              <Link
-                key={post.href}
-                href={post.href}
-                className="group rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:border-accent"
-              >
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{post.category}</p>
-                    <h3 className="mt-2 text-xl font-bold tracking-tight text-foreground">{post.title}</h3>
-                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
-                  </div>
-                  <p className="shrink-0 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">{post.readingTime}</p>
-                </div>
+                </article>
               </Link>
-            ))}
-
-            {secondaryPosts.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-border bg-secondary/50 p-5">
-                <p className="text-sm font-bold text-foreground">More posts are queued in the SEO plan.</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  The next guides should cover website pricing, contractor websites, and redesign decisions.
-                </p>
-              </div>
             ) : null}
-          </div>
-        </div>
-      </SectionShell>
 
-      <SectionShell className="pt-0">
-        <div className="dark-panel p-7 md:p-10">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Upcoming Topics</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">The next guides should support buyer-intent searches.</h2>
-            </div>
-            <div className="grid gap-3">
-              {plannedBlogTopics.map((topic) => (
-                <Link
-                  key={topic.title}
-                  href={topic.target}
-                  className="group flex flex-col gap-2 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent sm:flex-row sm:items-center sm:justify-between"
-                >
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{topic.category}</p>
-                    <p className="mt-2 text-base font-bold text-primary-foreground">{topic.title}</p>
-                  </div>
-                  <span className="inline-flex items-center gap-2 text-sm font-bold text-primary-foreground/72 transition group-hover:text-accent">
-                    Related page
-                    <ArrowRightIcon className="h-4 w-4" />
+            <div className="my-14 h-px bg-[#e2e8f0]" />
+
+            <section>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">Recent Articles</h2>
+              <div className="mt-8 grid gap-9">
+                {latestPosts.map((post) => (
+                  <Link key={post.href} href={post.href} className="group grid gap-6 md:grid-cols-[190px_minmax(0,1fr)]">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#e2e8f0] bg-secondary">
+                      <Image
+                        src={postImages[post.slug] ?? "/images/hero-bg.jpg"}
+                        alt={`${post.title} article image`}
+                        fill
+                        sizes="(max-width: 768px) 92vw, 190px"
+                        className="object-cover transition duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <article className="self-center">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{post.category}</span>
+                        <span className="text-sm text-muted-foreground">{formatDate(post.publishedAt)}</span>
+                      </div>
+                      <h3 className="mt-3 text-2xl font-bold leading-tight tracking-tight text-foreground transition group-hover:text-accent">
+                        {post.title}
+                      </h3>
+                      <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </main>
+
+          <aside className="space-y-10 lg:pt-0">
+            <section className="rounded-lg bg-accent p-7 text-accent-foreground">
+              <h2 className="text-2xl font-bold tracking-tight">Weekly Local Growth</h2>
+              <p className="mt-3 text-sm leading-relaxed text-accent-foreground/82">
+                Get practical website, SEO, and paid ads notes for Kansas City small-business decisions.
+              </p>
+              <form className="mt-6 space-y-3">
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  className="h-12 w-full rounded-md border-0 bg-white px-4 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:ring-2 focus:ring-white/50"
+                />
+                <button className="h-12 w-full rounded-md bg-black px-4 text-xs font-bold uppercase tracking-[0.18em] text-white transition hover:bg-black/85">
+                  Subscribe Now
+                </button>
+              </form>
+            </section>
+
+            <section>
+              <h2 className="border-b border-[#e2e8f0] pb-4 text-2xl font-bold tracking-tight text-foreground">Categories</h2>
+              <div className="mt-5 grid gap-3">
+                {categories.map((category) => {
+                  const count = blogPosts.filter((post) => post.category === category).length;
+                  return (
+                    <div key={category} className="flex items-center justify-between gap-4 text-sm text-foreground">
+                      <span>{category}</span>
+                      <span className="rounded bg-[#eeeeee] px-2 py-1 text-xs font-bold text-muted-foreground">{count}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            <section className="rounded-lg bg-[#f3f3f4] p-7">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">About Hometown</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Hometown builds websites and marketing systems for Kansas City small businesses that need clearer visibility and better lead flow.
+              </p>
+              <Link href="/about" className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-accent transition hover:gap-3">
+                Learn our story
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">Tags</h2>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span key={tag} className="rounded bg-[#eeeeee] px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                    {tag}
                   </span>
-                </Link>
-              ))}
-            </div>
-          </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <h2 className="border-b border-[#e2e8f0] pb-4 text-2xl font-bold tracking-tight text-foreground">Upcoming Topics</h2>
+              <div className="mt-5 grid gap-3">
+                {plannedBlogTopics.map((topic) => (
+                  <Link key={topic.title} href={topic.target} className="group block border-b border-[#e2e8f0] pb-4 last:border-b-0">
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{topic.category}</span>
+                    <span className="mt-2 flex items-start justify-between gap-3 text-sm font-bold leading-snug text-foreground transition group-hover:text-accent">
+                      {topic.title}
+                      <ArrowRightIcon className="mt-0.5 h-4 w-4 shrink-0" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </aside>
         </div>
       </SectionShell>
 
-      <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">Need the website before the reading list?</p>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/72">
+      <section className="bg-black py-20 text-primary-foreground">
+        <div className="site-container text-center">
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight md:text-5xl">
+            Need the website before the reading list?
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/70">
             Start with a custom Kansas City small-business website, then use the blog to make better next-step marketing decisions.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -177,7 +232,7 @@ export default function BlogPage() {
             </Button>
           </div>
         </div>
-      </SectionShell>
+      </section>
     </div>
   );
 }
