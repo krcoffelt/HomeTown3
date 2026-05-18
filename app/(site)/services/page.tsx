@@ -23,7 +23,7 @@ const iconMap: Record<string, typeof GlobeIcon> = {
 };
 
 export const metadata = createPageMetadata(
-  "Kansas City Website Design & Marketing Services",
+  "Website Design & Marketing Services Kansas City",
   "Website design, SEO, paid ads, social media, and design services for Kansas City small businesses.",
   "/services"
 );

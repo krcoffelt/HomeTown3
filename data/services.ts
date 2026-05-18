@@ -5,7 +5,7 @@ export const services: ServiceItem[] = [
     title: "Custom Websites",
     slug: "website-design",
     price: "From $800",
-    seoTitle: "Website Design Kansas City | Custom Websites from $800",
+    seoTitle: "Website Design Kansas City | From $800",
     heroTitle: "Affordable website design for Kansas City small businesses",
     heroBadge: "Website Design Kansas City",
     shortDescription: "Kansas City website design for small businesses that need more calls, quote requests, and credibility.",
@@ -188,14 +188,14 @@ export const services: ServiceItem[] = [
     title: "Website Redesign",
     slug: "website-redesign",
     price: "From $800",
-    seoTitle: "Website Redesign Services Kansas City",
+    seoTitle: "Website Redesign Kansas City",
     heroTitle: "Website redesign services for small businesses that have outgrown their old site",
     heroBadge: "Website Redesign Services",
     shortDescription: "Turn an outdated website into a faster, clearer, lead-focused experience.",
     description:
       "Website redesign services for Kansas City small businesses with outdated sites, confusing messaging, slow pages, or weak lead flow.",
     seoDescription:
-      "Website redesign services for Kansas City small businesses. Refresh outdated sites with better messaging, mobile design, SEO structure, and clearer quote or contact paths.",
+      "Website redesign in Kansas City for small businesses that need better messaging, mobile design, SEO structure, and clearer quote paths.",
     features: [
       "Existing site audit and priority map",
       "Updated mobile-first page structure",
@@ -259,7 +259,7 @@ export const services: ServiceItem[] = [
     title: "Google Ads Management",
     slug: "google-ads-management",
     price: "$300/mo per platform",
-    seoTitle: "Google Ads Management Kansas City | PPC for Local Businesses",
+    seoTitle: "Google Ads Management Kansas City",
     shortDescription: "Show up when KC locals search for what you sell. We manage every click.",
     description:
       "Search campaigns built around real buyer intent so your business appears when local customers are ready to call, book, or buy.",
@@ -333,7 +333,7 @@ export const services: ServiceItem[] = [
     title: "Graphic Design",
     slug: "graphic-design",
     price: "Custom pricing",
-    seoTitle: "Graphic Design Kansas City | Flyers, Menus & Brand Assets",
+    seoTitle: "Graphic Design Kansas City",
     shortDescription: "Logos, menus, flyers, and social graphics so your brand looks sharp everywhere.",
     description:
       "Design support for businesses that need polished visuals across web, social, print, and promotional materials without hiring a bloated agency.",
@@ -370,7 +370,7 @@ export const services: ServiceItem[] = [
     title: "Search Engine Optimization",
     slug: "search-engine-optimization",
     price: "$250-$400/mo",
-    seoTitle: "SEO Services Kansas City | Local SEO for Small Businesses",
+    seoTitle: "SEO Services Kansas City",
     shortDescription: "Rank higher on Google for the searches your customers are already making.",
     description:
       "SEO support built around the basics that matter: site structure, local relevance, technical clarity, and content direction that improves organic visibility.",
@@ -407,7 +407,7 @@ export const services: ServiceItem[] = [
     title: "Analytics & Tracking",
     slug: "analytics-and-tracking",
     price: "Included with web builds",
-    seoTitle: "Analytics & Conversion Tracking for Small Businesses",
+    seoTitle: "Analytics & Conversion Tracking",
     shortDescription: "Know exactly where your traffic comes from and what is working.",
     description:
       "Tracking and reporting setup that gives small businesses a clearer picture of traffic, leads, and campaign performance without drowning them in dashboards.",

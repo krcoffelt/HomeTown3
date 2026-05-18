@@ -106,7 +106,7 @@ const budgetPriorities = [
 ];
 
 export const metadata = createPageMetadata(
-  "Website Design Cost Kansas City | Custom Websites from $800",
+  "Website Cost Kansas City | From $800",
   "Learn what small-business website design costs in Kansas City, what Hometown's $800 starting price includes, and when a project may cost more.",
   "/website-design-cost-kansas-city"
 );

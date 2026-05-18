@@ -11,7 +11,7 @@ import { projects } from "@/data/projects";
 import Link from "next/link";
 
 export const metadata = createPageMetadata(
-  "Kansas City Website Design Work & Case Studies",
+  "Kansas City Website Design Work",
   "Recent custom website design projects and case studies for Kansas City small businesses.",
   "/work"
 );

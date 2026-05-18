@@ -15,7 +15,7 @@ export function createPageMetadata(
   options?: MetadataOptions
 ): Metadata {
   const url = `${site.url}${path}`;
-  const brand = brandOverride ?? site.brand.fullName;
+  const brand = brandOverride ?? site.brand.shortName;
   const titled = title.includes(brand) ? title : `${title} | ${brand}`;
   const image = options?.image ?? getCoreShareImage(path);
   return {

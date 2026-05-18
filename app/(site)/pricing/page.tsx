@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 
 export const metadata = createPageMetadata(
-  "Transparent pricing. No surprise invoices.",
+  "Pricing for Websites, SEO & Ads",
   "Website package pricing and supporting marketing services for Kansas City small businesses.",
   "/pricing"
 );

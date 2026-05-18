@@ -65,14 +65,24 @@ export function PricingSection({ className, showIntro = true }: PricingSectionPr
                 Pick the service you need now. Add more when the business is ready.
               </p>
             </div>
-            <Button
-              href="/contact#form"
-              variant="secondary"
-              className="h-12 w-full border-primary-foreground/18 px-7 text-primary-foreground hover:border-primary-foreground hover:text-primary-foreground sm:w-auto"
-            >
-              Get a Quote
-              <ArrowRightIcon className="h-4 w-4" />
-            </Button>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button
+                href="/pricing"
+                variant="secondary"
+                className="h-12 w-full border-primary-foreground/18 px-7 text-primary-foreground hover:border-primary-foreground hover:text-primary-foreground sm:w-auto"
+              >
+                View Pricing
+                <ArrowRightIcon className="h-4 w-4" />
+              </Button>
+              <Button
+                href="/contact#form"
+                variant="secondary"
+                className="h-12 w-full border-primary-foreground/18 px-7 text-primary-foreground hover:border-primary-foreground hover:text-primary-foreground sm:w-auto"
+              >
+                Get a Quote
+                <ArrowRightIcon className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         ) : null}
 

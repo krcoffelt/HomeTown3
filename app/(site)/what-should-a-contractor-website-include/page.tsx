@@ -84,7 +84,7 @@ const mistakes = [
 ];
 
 export const metadata = createPageMetadata(
-  "What Should a Contractor Website Include?",
+  "Contractor Website Checklist",
   "A practical contractor website checklist for Kansas City contractors and home-service businesses that need more quote requests from their website.",
   "/what-should-a-contractor-website-include"
 );

@@ -9,7 +9,7 @@ export const locations: LocationItem[] = [
     heroTitle: "Website design and marketing for Overland Park businesses that need to look established online.",
     heroDescription:
       "Custom websites, SEO, ads, and creative built for Overland Park businesses that need a stronger first impression, better local visibility, and more qualified leads.",
-    seoTitle: "Website Design & Marketing Agency in Overland Park KS",
+    seoTitle: "Website Design Overland Park KS",
     seoDescription:
       "Website design in Overland Park KS for small businesses that need a better website, stronger SEO, sharper creative, and more qualified local leads.",
     introTitle: "How we help Overland Park businesses compete better online.",
@@ -65,7 +65,7 @@ export const locations: LocationItem[] = [
     heroTitle: "Website design for Olathe businesses that need more calls, quotes, and trust online.",
     heroDescription:
       "Hometown helps Olathe businesses with custom websites, cleaner messaging, local SEO, and campaigns built to turn interest into leads.",
-    seoTitle: "Website Design & Marketing Agency in Olathe KS",
+    seoTitle: "Website Design Olathe KS",
     seoDescription:
       "Website design in Olathe KS for businesses that need stronger websites, cleaner messaging, local SEO, and better lead flow.",
     introTitle: "Practical marketing for Olathe businesses that need momentum.",
@@ -121,7 +121,7 @@ export const locations: LocationItem[] = [
     heroTitle: "Website design and brand identity for Leawood businesses that need to look polished and credible.",
     heroDescription:
       "From premium websites to sharper branding and lead-focused strategy, Hometown helps Leawood businesses show up with a more professional presence online.",
-    seoTitle: "Website Design & Brand Identity in Leawood KS",
+    seoTitle: "Website Design Leawood KS",
     seoDescription:
       "Website design in Leawood KS for businesses that need premium websites, sharper branding, stronger trust, and a more polished online presence.",
     introTitle: "A stronger presentation matters in Leawood.",
@@ -177,7 +177,7 @@ export const locations: LocationItem[] = [
     heroTitle: "Website design and local SEO for Lenexa businesses that need clearer visibility.",
     heroDescription:
       "Hometown builds websites, SEO systems, and campaigns for Lenexa businesses that want to look professional, get found, and make it easier for customers to reach out.",
-    seoTitle: "Website Design & Local SEO in Lenexa KS",
+    seoTitle: "Website Design Lenexa KS",
     seoDescription:
       "Website design in Lenexa KS for businesses that need clearer websites, stronger local SEO, better visibility, and a cleaner lead path.",
     introTitle: "Clearer marketing for businesses that need to be easy to find and easy to trust.",
@@ -233,7 +233,7 @@ export const locations: LocationItem[] = [
     heroTitle: "Website design for Shawnee businesses that want a credible online presence without agency bloat.",
     heroDescription:
       "Hometown works with Shawnee businesses that need a stronger custom website, better messaging, and practical marketing built to generate real leads.",
-    seoTitle: "Website Design & Marketing Agency in Shawnee KS",
+    seoTitle: "Website Design Shawnee KS",
     seoDescription:
       "Website design in Shawnee KS for businesses that need a stronger website, better messaging, local SEO, and an honest lead-focused approach.",
     introTitle: "A more personal, practical approach for Shawnee businesses.",

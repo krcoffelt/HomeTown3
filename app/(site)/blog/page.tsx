@@ -9,9 +9,9 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 const postImages: Record<string, string> = {
-  "website-design-cost-kansas-city": "/images/work/LupiDocsScreenshot.png",
-  "what-should-a-contractor-website-include": "/images/ZJCarpentry_Screenshot.png",
-  "website-builder-vs-custom-website-for-small-businesses": "/images/WrappedUpMoving_screenshot.png"
+  "website-design-cost-kansas-city": "/images/work/LupiDocsScreenshot.webp",
+  "what-should-a-contractor-website-include": "/images/ZJCarpentry_Screenshot.webp",
+  "website-builder-vs-custom-website-for-small-businesses": "/images/WrappedUpMoving_screenshot.webp"
 };
 
 function formatDate(date: string) {
@@ -23,7 +23,7 @@ function formatDate(date: string) {
 }
 
 export const metadata = createPageMetadata(
-  "Blog | Website Design & Marketing Advice for Kansas City Small Businesses",
+  "Website Design & SEO Blog Kansas City",
   "Practical website design, SEO, pricing, and marketing advice for Kansas City small-business owners.",
   "/blog"
 );
@@ -53,7 +53,7 @@ export default function BlogPage() {
 
       <section className="relative isolate overflow-hidden bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/hero-bg-desktop.jpg"
           alt="Kansas City skyline at sunset"
           fill
           priority
@@ -84,7 +84,7 @@ export default function BlogPage() {
                 <article>
                   <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-[#e2e8f0] bg-secondary">
                     <Image
-                      src={postImages[featuredPost.slug] ?? "/images/hero-bg.jpg"}
+                      src={postImages[featuredPost.slug] ?? "/images/hero-bg-desktop.jpg"}
                       alt={`${featuredPost.title} featured image`}
                       fill
                       sizes="(max-width: 1024px) 92vw, 760px"
@@ -119,7 +119,7 @@ export default function BlogPage() {
                   <Link key={post.href} href={post.href} className="group grid gap-6 md:grid-cols-[190px_minmax(0,1fr)]">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#e2e8f0] bg-secondary">
                       <Image
-                        src={postImages[post.slug] ?? "/images/hero-bg.jpg"}
+                        src={postImages[post.slug] ?? "/images/hero-bg-desktop.jpg"}
                         alt={`${post.title} article image`}
                         fill
                         sizes="(max-width: 768px) 92vw, 190px"

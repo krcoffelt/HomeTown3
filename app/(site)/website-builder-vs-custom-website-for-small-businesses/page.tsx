@@ -25,7 +25,7 @@ const faqItems = [
 ];
 
 export const metadata = createPageMetadata(
-  "Website Builder vs Custom Website for Small Businesses",
+  "Website Builder vs Custom Website",
   "A practical comparison for small businesses deciding between a DIY website builder and a custom website built around credibility, local SEO, and leads.",
   "/website-builder-vs-custom-website-for-small-businesses"
 );
