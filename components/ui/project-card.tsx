@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRightIcon } from "@/components/ui/site-icons";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
@@ -12,9 +13,11 @@ interface ProjectCardProps {
   imageUrl: string;
   imageAlt: string;
   link?: string;
+  linkExternal?: boolean;
+  linkLabel?: string;
 }
 
-export function ProjectCard({ title, description, category, imageUrl, imageAlt, link }: ProjectCardProps) {
+export function ProjectCard({ title, description, category, imageUrl, imageAlt, link, linkExternal = true, linkLabel = "View Project" }: ProjectCardProps) {
   const prefersReducedMotion = useReducedMotion();
 
   const content = (
@@ -46,7 +49,7 @@ export function ProjectCard({ title, description, category, imageUrl, imageAlt, 
             animate={prefersReducedMotion ? undefined : { x: [0, 4, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           >
-            View Project
+            {linkLabel}
             <ArrowRightIcon className="h-4 w-4" />
           </motion.span>
         ) : null}
@@ -55,6 +58,10 @@ export function ProjectCard({ title, description, category, imageUrl, imageAlt, 
   );
 
   if (!link) return content;
+
+  if (!linkExternal) {
+    return <Link href={link}>{content}</Link>;
+  }
 
   return (
     <a

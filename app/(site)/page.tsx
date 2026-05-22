@@ -37,6 +37,7 @@ export default function HomePage() {
       <WhyHometown />
       <HomeSteps />
       <ServicesPreview />
+      <FeaturedWork />
       <TestimonialsSection />
       <PricingPreview />
       <FAQSection page="home" />

@@ -73,7 +73,10 @@ export default function ServicesPage() {
                 { label: "Website Design Kansas City", href: "/services/website-design" },
                 { label: "Small Business Websites", href: "/services/small-business-websites" },
                 { label: "Website Redesign Services", href: "/services/website-redesign" },
-                { label: "Website Design Cost", href: "/website-design-cost-kansas-city" }
+                { label: "Website Pricing", href: "/pricing" },
+                { label: "Website Design Cost", href: "/website-design-cost-kansas-city" },
+                { label: "View Website Work", href: "/work" },
+                { label: "Contact Hometown", href: "/contact#form" }
               ].map((link) => (
                 <Link
                   key={link.href}

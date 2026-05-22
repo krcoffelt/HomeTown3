@@ -111,7 +111,7 @@ export const services: ServiceItem[] = [
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-05-14"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Small Business Websites",
@@ -182,7 +182,7 @@ export const services: ServiceItem[] = [
       { label: "Website design cost", href: "/website-design-cost-kansas-city" },
       { label: "Website builder comparison", href: "/website-builder-vs-custom-website-for-small-businesses" }
     ],
-    updatedAt: "2026-05-11"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Website Redesign",
@@ -253,7 +253,7 @@ export const services: ServiceItem[] = [
       { label: "Website design cost", href: "/website-design-cost-kansas-city" },
       { label: "Start a redesign", href: "/contact#form" }
     ],
-    updatedAt: "2026-04-28"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Google Ads Management",
@@ -290,7 +290,7 @@ export const services: ServiceItem[] = [
       "We monitor spend, lead quality, and next-step improvements"
     ],
     metaTags: ["Search Ads", "Lead Intent", "Conversion Tracking"],
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Social Media Management",
@@ -327,7 +327,7 @@ export const services: ServiceItem[] = [
       "We adjust based on what resonates and what converts"
     ],
     metaTags: ["Monthly Content", "On-Brand", "Audience Building"],
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Graphic Design",
@@ -364,7 +364,7 @@ export const services: ServiceItem[] = [
       "We deliver polished files ready to publish or print"
     ],
     metaTags: ["Campaign Creative", "Print Design", "Brand Support"],
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Search Engine Optimization",
@@ -401,7 +401,7 @@ export const services: ServiceItem[] = [
       "We improve structure, content direction, and local discoverability"
     ],
     metaTags: ["SEO", "Local Visibility", "Technical Cleanup"],
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Analytics & Tracking",
@@ -438,7 +438,7 @@ export const services: ServiceItem[] = [
       "We hand over a cleaner foundation for smarter decisions"
     ],
     metaTags: ["Analytics", "Attribution", "Performance Clarity"],
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Brand Identity",
@@ -475,7 +475,7 @@ export const services: ServiceItem[] = [
       "We deliver the essentials you need to stay consistent"
     ],
     metaTags: ["Logo Design", "Visual Identity", "Brand Foundation"],
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   }
 ];
 

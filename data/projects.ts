@@ -17,7 +17,7 @@ export const projects: ProjectItem[] = [
     result: "Plate KC has a premium website experience that supports local discovery, trust, and reservation intent.",
     liveUrl: "https://www.platekc.com/",
     quote: "A modern restaurant site that feels premium without losing warmth.",
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Lupi Docs & Designs",
@@ -35,7 +35,7 @@ export const projects: ProjectItem[] = [
     result: "The finished site gives prospective authors a cleaner path from first impression to inquiry.",
     liveUrl: "https://lupidocs.com",
     quote: "Built to feel polished, trustworthy, and easy to navigate.",
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   },
   {
     title: "José Isaí Valdez",
@@ -80,7 +80,7 @@ export const projects: ProjectItem[] = [
     result: "The site now gives moving prospects a faster path from landing page to quote request.",
     liveUrl: "https://www.wrappedupmoving.com/",
     quote: "Built to feel trustworthy, local, and ready to turn visitors into quote requests.",
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   },
   {
     title: "ZJ Carpentry & More",
@@ -98,7 +98,7 @@ export const projects: ProjectItem[] = [
     result: "The finished site helps turn homeowner interest into more qualified project conversations.",
     liveUrl: "https://zjcarpentry.com",
     quote: "Built to feel polished, trustworthy, and ready to turn homeowner interest into quote requests.",
-    updatedAt: "2026-04-16"
+    updatedAt: "2026-05-22"
   }
 ];
 

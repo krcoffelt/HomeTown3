@@ -55,7 +55,7 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["plate-kc", "wrapped-up-moving", "zj-carpentry-and-more"],
     ctaLabel: "Start Your Overland Park Project",
-    updatedAt: "2026-04-28"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Olathe",
@@ -111,7 +111,7 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
     ctaLabel: "Get Help for Your Olathe Business",
-    updatedAt: "2026-04-28"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Leawood",
@@ -167,7 +167,7 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["plate-kc", "lupi-docs", "voxwhite"],
     ctaLabel: "Build a Better Leawood Presence",
-    updatedAt: "2026-04-28"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Lenexa",
@@ -223,7 +223,7 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "plate-kc"],
     ctaLabel: "Start Your Lenexa Project",
-    updatedAt: "2026-04-28"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Shawnee",
@@ -279,7 +279,7 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
     ctaLabel: "Talk About Your Shawnee Business",
-    updatedAt: "2026-04-28"
+    updatedAt: "2026-05-22"
   }
 ];
 

@@ -50,7 +50,7 @@ export const industries: IndustryItem[] = [
           "Yes. The structure can support contractor and construction searches by organizing services, locations, project proof, and FAQs around local buyer intent."
       }
     ],
-    updatedAt: "2026-05-11"
+    updatedAt: "2026-05-22"
   },
   {
     title: "Home Services Website Design Kansas City",
@@ -101,7 +101,7 @@ export const industries: IndustryItem[] = [
           "Yes. Real project photos are usually one of the strongest trust signals for home-service websites."
       }
     ],
-    updatedAt: "2026-05-11"
+    updatedAt: "2026-05-22"
   }
 ];
 

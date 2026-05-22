@@ -17,6 +17,30 @@ interface CaseStudyPageProps {
 
 const caseStudyProjects = projects.filter((project) => project.problem && project.solution && project.result);
 
+const relatedPageLinks: Record<string, Array<{ label: string; href: string; description: string }>> = {
+  "plate-kc": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
+    { label: "Leawood Website Design", href: "/locations/leawood-ks", description: "Local website design and brand identity for Leawood businesses." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ],
+  "lupi-docs": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites built around credibility and lead flow." },
+    { label: "Brand Identity", href: "/services/brand-identity", description: "Logo, identity, and visual direction for small businesses." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ],
+  "wrapped-up-moving": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites for local service businesses." },
+    { label: "Home Services Websites", href: "/industries/home-services-website-design-kansas-city", description: "Website design for movers, remodelers, contractors, and local service companies." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ],
+  "zj-carpentry-and-more": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
+    { label: "Construction Websites", href: "/industries/construction-website-design-kansas-city", description: "Website design for contractors and construction companies." },
+    { label: "Home Services Websites", href: "/industries/home-services-website-design-kansas-city", description: "Website design for local service businesses that need quote requests." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ]
+};
+
 export async function generateStaticParams() {
   return caseStudyProjects.map((project) => ({ slug: project.slug }));
 }
@@ -55,6 +79,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       { name: "Work", path: "/work" },
       { name: `${project.clientName} Case Study`, path: `/case-studies/${project.slug}` }
     ])
+  ];
+  const contextualLinks = relatedPageLinks[project.slug] ?? [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ];
 
   return (
@@ -143,6 +171,31 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 <span>{item}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell className="pt-0">
+        <div className="light-panel p-7 md:p-10">
+          <div className="grid gap-7 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Related Pages</p>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+                Keep exploring the services behind this project.
+              </h2>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {contextualLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group rounded-2xl border border-border bg-background px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent"
+                >
+                  <p className="text-sm font-bold text-foreground transition group-hover:text-accent">{link.label}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{link.description}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </SectionShell>

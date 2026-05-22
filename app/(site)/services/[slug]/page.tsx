@@ -235,7 +235,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="dark-panel p-7 md:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Service Areas</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Website Design by Service Area</p>
                 <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
                   Website design for Kansas City and nearby business owners.
                 </h2>
@@ -244,6 +244,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </p>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
+                <Link
+                  href="/locations"
+                  className="group rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent/70"
+                >
+                  <p className="text-sm font-bold text-primary-foreground">All service areas</p>
+                  <p className="mt-2 text-xs leading-relaxed text-primary-foreground/62">
+                    Website design and marketing pages for the Kansas City metro.
+                  </p>
+                </Link>
                 {locations.map((location) => (
                   <Link
                     key={location.slug}
