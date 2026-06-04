@@ -256,23 +256,25 @@ export const services: ServiceItem[] = [
     updatedAt: "2026-05-22"
   },
   {
-    title: "Google Ads Management",
+    title: "Paid Ads Management",
     slug: "google-ads-management",
-    price: "$300/mo per platform",
+    price: "20% of ad spend",
     seoTitle: "Google Ads Management Kansas City",
-    shortDescription: "Show up when KC locals search for what you sell. We manage every click.",
+    shortDescription: "Google, Meta, or other paid campaigns managed around spend and lead quality.",
     description:
-      "Search campaigns built around real buyer intent so your business appears when local customers are ready to call, book, or buy.",
+      "Search and paid social campaigns managed around budget, targeting, tracking, and lead quality so your business can drive traffic when customers are ready to act.",
     seoDescription:
       "Google Ads management for Kansas City businesses that want qualified inbound leads and better visibility when local customers are ready to buy.",
     features: [
-      "Campaign strategy and account setup",
+      "Campaign strategy and launch setup",
       "Keyword targeting and negative keyword cleanup",
       "Ad copy aligned to your services",
       "Landing page recommendations",
-      "Ongoing optimization and reporting"
+      "Ongoing optimization and reporting",
+      "$250 setup fee per ad platform"
     ],
     deliverables: [
+      "$250 one-time setup per platform",
       "Campaign architecture tailored to your offer",
       "Audience and keyword research",
       "Ad creation and extension setup",
@@ -295,7 +297,7 @@ export const services: ServiceItem[] = [
   {
     title: "Social Media Management",
     slug: "social-media-management",
-    price: "From $400/mo",
+    price: "Custom quote",
     seoTitle: "Social Media Management Kansas City",
     shortDescription: "Consistent, on-brand posts that actually get engagement, not just filler.",
     description:
@@ -332,7 +334,7 @@ export const services: ServiceItem[] = [
   {
     title: "Graphic Design",
     slug: "graphic-design",
-    price: "Custom pricing",
+    price: "Custom quote",
     seoTitle: "Graphic Design Kansas City",
     shortDescription: "Logos, menus, flyers, and social graphics so your brand looks sharp everywhere.",
     description:
@@ -369,26 +371,26 @@ export const services: ServiceItem[] = [
   {
     title: "Search Engine Optimization",
     slug: "search-engine-optimization",
-    price: "$250-$400/mo",
+    price: "$250/mo",
     seoTitle: "SEO Services Kansas City",
     shortDescription: "Rank higher on Google for the searches your customers are already making.",
     description:
-      "SEO support built around the basics that matter: site structure, local relevance, technical clarity, and content direction that improves organic visibility.",
+      "Monthly SEO support built around keyword tracking, Search Console review, site structure, local relevance, and practical recommendations that improve organic visibility.",
     seoDescription:
       "Search engine optimization for businesses that want stronger local visibility, better site structure, and long-term organic growth.",
     features: [
-      "On-page SEO improvements",
-      "Local search alignment",
-      "Metadata and page structure optimization",
-      "Content and keyword recommendations",
-      "Technical issue review"
+      "Keyword tracking",
+      "Google Search Console review",
+      "On-page SEO recommendations",
+      "Internal linking recommendations",
+      "Monthly SEO action plan"
     ],
     deliverables: [
-      "Site audit and opportunity map",
-      "Technical and on-page recommendations",
-      "Local search optimization priorities",
-      "Content guidance for target pages",
-      "Monthly progress review"
+      "Website keyword tracking",
+      "SEO audit notes",
+      "Google Search Console review",
+      "Competitor tracking",
+      "Monthly action plan"
     ],
     idealFor: [
       "Businesses with a site that already exists but underperforms",
@@ -443,7 +445,7 @@ export const services: ServiceItem[] = [
   {
     title: "Brand Identity",
     slug: "brand-identity",
-    price: "From $500",
+    price: "Custom quote",
     seoTitle: "Brand Identity & Logo Design Kansas City",
     shortDescription: "A cleaner identity system for businesses that need to look established fast.",
     description:

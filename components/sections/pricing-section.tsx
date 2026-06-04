@@ -10,41 +10,23 @@ interface PricingSectionProps {
 
 const pricingItems = [
   {
-    label: "Website Design",
+    label: "Custom Websites",
     price: "From $800",
     description: "Custom, mobile-ready sites built to turn visitors into leads.",
     details: ["Custom design", "SEO basics", "Lead form"],
     featured: true
   },
   {
-    label: "Local SEO",
+    label: "SEO",
     price: "$250/mo",
-    description: "Google Maps and Google Business Profile support for one business.",
-    details: ["GBP optimization", "Map tracking", "Citation consistency"]
+    description: "Monthly SEO support for better visibility, keyword tracking, Search Console review, and practical recommendations.",
+    details: ["Keyword tracking", "GSC review", "Action plan"]
   },
   {
-    label: "Website SEO",
-    price: "$400/mo",
-    description: "Website keyword tracking, audits, Search Console review, and monthly SEO planning.",
-    details: ["Keyword tracking", "SEO audits", "Action plan"]
-  },
-  {
-    label: "SEO Setup",
-    price: "$250 one-time",
-    description: "Initial account, keyword, competitor, baseline audit, and reporting setup.",
-    details: ["Baseline audit", "Tool setup", "Reporting setup"]
-  },
-  {
-    label: "Paid Ads Management",
-    price: "$300/mo",
-    description: "Monthly management for Google Ads, Meta Ads, or another paid ad platform.",
-    details: ["Per platform", "Optimization", "Recommendations"]
-  },
-  {
-    label: "Paid Ads Setup",
-    price: "$250 one-time",
-    description: "Campaign, tracking, audience, keyword, ad structure, and launch preparation.",
-    details: ["Campaign setup", "Tracking setup", "Launch prep"]
+    label: "Paid Ads",
+    price: "20% of ad spend",
+    description: "Google Ads, Meta Ads, or another ad platform managed around budget, targeting, tracking, and lead quality.",
+    details: ["$250 setup per platform", "Campaign management", "Tracking review"]
   }
 ];
 
@@ -62,7 +44,7 @@ export function PricingSection({ className, showIntro = true }: PricingSectionPr
                 Simple pricing.
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/62">
-                Pick the service you need now. Add more when the business is ready.
+                Start with a website, add SEO for organic visibility, and use paid ads when you are ready to drive targeted traffic.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">

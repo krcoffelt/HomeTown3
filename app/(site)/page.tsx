@@ -15,7 +15,7 @@ import { faqSchema, webPageSchema } from "@/lib/seo/schema";
 
 export const metadata = createPageMetadata(
   "Kansas City Marketing Agency for Small Businesses",
-  "Kansas City websites and marketing for small businesses. Custom websites starting at $800, local SEO, Google Ads, social media, and design.",
+  "Kansas City websites, SEO, and paid ads for small businesses. Custom websites from $800, SEO from $250/month, and ads managed by spend.",
   "/"
 );
 

@@ -24,7 +24,7 @@ const iconMap: Record<string, typeof GlobeIcon> = {
 
 export const metadata = createPageMetadata(
   "Website Design & Marketing Services Kansas City",
-  "Website design, SEO, paid ads, social media, and design services for Kansas City small businesses.",
+  "Website design, SEO, and paid ads for Kansas City small businesses.",
   "/services"
 );
 
@@ -32,7 +32,7 @@ export default function ServicesPage() {
   const schema = [
     webPageSchema({
       name: "Services",
-      description: "Website design, SEO, paid ads, social media, and design services for Kansas City small businesses.",
+      description: "Website design, SEO, and paid ads for Kansas City small businesses.",
       path: "/services"
     }),
     breadcrumbSchema([
@@ -50,7 +50,7 @@ export default function ServicesPage() {
           <PageHero
             badge="Our Services"
             title="Everything you need. Nothing you don't."
-            subtitle="Start with Kansas City website design, then add SEO, paid ads, social media, and design support when the business is ready."
+            subtitle="Start with Kansas City website design, then add SEO and paid ads when the business is ready to drive more qualified traffic."
             light
           />
         </div>
@@ -65,7 +65,7 @@ export default function ServicesPage() {
                 Most small businesses need the website foundation first.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                A clearer website makes SEO, Google Ads, social media, and referral traffic work harder because customers have a better place to land.
+                A clearer website makes SEO, paid ads, and referral traffic work harder because customers have a better place to land.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">

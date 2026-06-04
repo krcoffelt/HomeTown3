@@ -56,13 +56,13 @@ export const faqs: FAQItem[] = [
   {
     question: "What does monthly SEO cost?",
     answer:
-      "Local SEO is $250/month per business for Google Maps and Google Business Profile visibility. Website SEO is $400/month per business for keyword tracking, audits, Search Console review, page recommendations, and a monthly action plan.",
+      "SEO is $250/month per business for keyword tracking, Search Console review, audits, internal linking recommendations, competitor tracking, and a monthly action plan.",
     page: "pricing"
   },
   {
     question: "What does paid ads management cost?",
     answer:
-      "Paid ads management is $300/month per platform. Paid ads setup is $250 one-time per platform for campaign setup, tracking setup, audience or keyword setup, ad structure, and launch preparation.",
+      "Paid ads management is 20% of ad spend. Setup is $250 one-time per platform for campaign setup, tracking setup, audience or keyword setup, ad structure, and launch preparation.",
     page: "pricing"
   }
 ];

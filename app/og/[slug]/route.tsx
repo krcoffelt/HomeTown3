@@ -9,7 +9,7 @@ const coreOgCopy: Record<string, { eyebrow: string; title: string; description: 
   home: {
     eyebrow: "Kansas City Small Business Marketing",
     title: "Affordable websites and marketing built for KC small businesses.",
-    description: "Custom websites, ads, social media, and design from a team that keeps things practical."
+    description: "Custom websites, SEO, and paid ads from a team that keeps things practical."
   },
   services: {
     eyebrow: "Services",

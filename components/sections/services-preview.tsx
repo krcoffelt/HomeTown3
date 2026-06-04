@@ -18,16 +18,22 @@ const iconMap: Record<string, typeof GlobeIcon> = {
   "brand-identity": ZapIcon
 };
 
+const homepageServiceSlugs = ["website-design", "search-engine-optimization", "google-ads-management"];
+
 export function ServicesPreview() {
+  const homepageServices = homepageServiceSlugs
+    .map((slug) => services.find((service) => service.slug === slug))
+    .filter((service): service is (typeof services)[number] => Boolean(service));
+
   return (
     <SectionShell className="noise bg-gradient-subtle">
       <SectionHeading
         badge="Services"
-        title={"Everything your business\nneeds to grow online"}
-        subtitle="Websites, ads, social media, design, SEO, and tracking support built for small businesses that need momentum."
+        title={"Websites, SEO,\nand paid ads"}
+        subtitle="The core growth stack for small businesses: a stronger website, better search visibility, and paid campaigns when you are ready to drive traffic."
       />
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {services.slice(0, 6).map((service, index) => {
+        {homepageServices.map((service, index) => {
           const Icon = iconMap[service.slug] ?? CheckCircleIcon;
           return (
             <Reveal key={service.slug} delay={index * 0.05}>

@@ -8,7 +8,7 @@ export const site = {
   name: "Hometown",
   title: "Affordable Websites & Marketing for Kansas City Small Businesses",
   description:
-    "Kansas City website design and marketing for small businesses. Custom websites starting at $800, local SEO, Google Ads, social media, and design without long contracts.",
+    "Kansas City website design, SEO, and paid ads for small businesses. Custom websites from $800, SEO from $250/month, and ads managed by spend.",
   url: "https://hometownkc.agency",
   location: "Kansas City, MO",
   address: {

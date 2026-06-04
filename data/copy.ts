@@ -3,7 +3,7 @@ export const homepageCopy = {
   heroTitleLineOne: "Kansas City websites",
   heroTitleLineTwo: "and marketing for small businesses.",
   heroSubtitle:
-    "Custom websites from $800, local SEO, paid ads, social media, and design from a team that knows Kansas City inside and out.",
+    "Custom websites from $800, SEO from $250/month, and paid ads managed at 20% of ad spend by a team that knows Kansas City inside and out.",
   trustSignals: ["No contracts", "7-day turnaround", "100% satisfaction"],
   marqueeReviews: [
     "Kyle does absolutely tremendous work with web design!!!",
