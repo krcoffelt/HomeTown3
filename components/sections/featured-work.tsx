@@ -14,8 +14,8 @@ export function FeaturedWork() {
     <SectionShell>
       <SectionHeading
         badge="Work"
-        title="Real results for real KC businesses"
-        subtitle="Every project is custom. Every client gets our full attention. Here's a taste of what we've built."
+        title="Real websites for real organizations"
+        subtitle="Every project is custom. Every client gets our full attention. Here's a taste of what we've built for local businesses and mission-driven brands."
       />
       <div className="grid gap-6 sm:grid-cols-2">
         {projects.map((project, index) => {

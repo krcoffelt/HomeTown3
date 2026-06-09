@@ -38,6 +38,11 @@ const relatedPageLinks: Record<string, Array<{ label: string; href: string; desc
     { label: "Construction Websites", href: "/industries/construction-website-design-kansas-city", description: "Website design for contractors and construction companies." },
     { label: "Home Services Websites", href: "/industries/home-services-website-design-kansas-city", description: "Website design for local service businesses that need quote requests." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ],
+  "project-salvation": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites built around clarity, trust, and conversion paths." },
+    { label: "Ministry Website Article", href: "/ministry-website-design-project-salvation", description: "A deeper breakdown of the Project Salvation website strategy." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ]
 };
 
@@ -93,7 +98,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <div className="site-container">
           <PageHero
             badge={`${project.category} Website Case Study`}
-            title={`${project.clientName}: website design built around real business outcomes`}
+            title={`${project.clientName}: website design built around real outcomes`}
             subtitle={project.summary}
             light
           />
@@ -163,7 +168,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             {[
               "Shows real industry fit instead of generic service claims",
               "Creates internal links back to the website-design offer",
-              "Adds local proof for Kansas City small-business searches",
+              project.slug === "project-salvation"
+                ? "Builds topical proof for ministry, evangelist, and event website searches"
+                : "Adds local proof for Kansas City small-business searches",
               "Supports future industry pages with relevant examples"
             ].map((item) => (
               <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">

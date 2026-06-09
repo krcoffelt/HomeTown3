@@ -2,6 +2,27 @@ import type { ProjectItem } from "@/types";
 
 export const projects: ProjectItem[] = [
   {
+    title: "Project Salvation",
+    slug: "project-salvation",
+    clientName: "Project Salvation",
+    category: "Ministry",
+    summary: "Bold ministry website for a multi-city evangelistic movement led by Tyshone Roland.",
+    description: "A high-impact ministry site with strong event messaging, tour-city clarity, donation paths, and direct registration CTAs.",
+    servicesProvided: ["Website Design", "Creative Direction", "Event Conversion"],
+    featuredImageUrl: "/images/work/project-salvation.jpg",
+    imageAlt: "Homepage preview for the Project Salvation ministry website",
+    city: "National / multi-city ministry",
+    problem:
+      "Project Salvation needed a digital home that could make a national evangelistic tour feel clear, urgent, credible, and easy to act on for attendees, churches, and supporters.",
+    solution:
+      "We built a cinematic ministry website around the core actions: understand the mission, find a tour city, save a spot, give, and learn how the salvation follow-up process works.",
+    result:
+      "The finished site gives Tyshone Roland and Project Salvation a stronger online hub for event registration, ministry credibility, partner engagement, and multi-city outreach.",
+    liveUrl: "https://www.projectsalvation.co/",
+    quote: "A ministry website built to move people from interest to action.",
+    updatedAt: "2026-06-08"
+  },
+  {
     title: "Plate KC",
     slug: "plate-kc",
     clientName: "Plate KC",

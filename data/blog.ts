@@ -14,6 +14,17 @@ export const blogPosts: BlogPostItem[] = [
     featured: true
   },
   {
+    title: "Ministry Website Design for Project Salvation",
+    slug: "ministry-website-design-project-salvation",
+    href: "/ministry-website-design-project-salvation",
+    category: "Ministry Websites",
+    excerpt:
+      "A breakdown of the Project Salvation website build and what ministries, evangelists, and event-driven organizations should prioritize online.",
+    publishedAt: "2026-06-08",
+    readingTime: "6 min read",
+    targetKeywords: ["ministry website design", "evangelist website design", "Christian event website", "church event registration website"]
+  },
+  {
     title: "What Should a Contractor Website Include?",
     slug: "what-should-a-contractor-website-include",
     href: "/what-should-a-contractor-website-include",

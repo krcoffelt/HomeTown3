@@ -13,13 +13,13 @@ const coreOgCopy: Record<string, { eyebrow: string; title: string; description: 
   },
   services: {
     eyebrow: "Services",
-    title: "Websites, ads, social media, SEO, design, and tracking support.",
-    description: "Everything Hometown offers to help small businesses look established and get more leads."
+    title: "Websites, SEO, and paid ads for growing small businesses.",
+    description: "The core Hometown services for building a stronger website, better search visibility, and targeted paid traffic."
   },
   work: {
     eyebrow: "Our Work",
-    title: "Real website work for real Kansas City businesses.",
-    description: "A look at recent Hometown builds across restaurants, music, publishing, and home services."
+    title: "Real website work for real businesses and organizations.",
+    description: "A look at recent Hometown builds across restaurants, music, publishing, home services, and ministries."
   },
   pricing: {
     eyebrow: "Pricing",

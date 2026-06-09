@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { ProjectCard } from "@/components/ui/project-card";
 import { projects } from "@/data/projects";
 
-const filters = ["All", "Restaurant", "Music", "Publishing", "Home Services"] as const;
+const filters = ["All", "Restaurant", "Music", "Publishing", "Home Services", "Ministry"] as const;
 
 export function WorkGrid() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All");
@@ -56,7 +56,9 @@ export function WorkGrid() {
                 category={project.category}
                 imageUrl={project.featuredImageUrl}
                 imageAlt={project.imageAlt}
-                link={project.liveUrl}
+                link={project.problem && project.solution && project.result ? `/case-studies/${project.slug}` : project.liveUrl}
+                linkExternal={!(project.problem && project.solution && project.result)}
+                linkLabel={project.problem && project.solution && project.result ? "Read Case Study" : "View Project"}
               />
             </motion.div>
           ))}

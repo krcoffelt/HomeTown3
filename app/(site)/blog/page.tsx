@@ -10,6 +10,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 const postImages: Record<string, string> = {
   "website-design-cost-kansas-city": "/images/work/LupiDocsScreenshot.webp",
+  "ministry-website-design-project-salvation": "/images/work/project-salvation.jpg",
   "what-should-a-contractor-website-include": "/images/ZJCarpentry_Screenshot.webp",
   "website-builder-vs-custom-website-for-small-businesses": "/images/WrappedUpMoving_screenshot.webp"
 };

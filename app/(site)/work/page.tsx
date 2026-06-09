@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export const metadata = createPageMetadata(
   "Kansas City Website Design Work",
-  "Recent custom website design projects and case studies for Kansas City small businesses.",
+  "Recent custom website design projects and case studies for small businesses, service brands, restaurants, publishers, and ministries.",
   "/work"
 );
 
@@ -21,7 +21,7 @@ export default function WorkPage() {
   const schema = [
     webPageSchema({
       name: "Our Work",
-      description: "Recent website work for Kansas City businesses across several industries.",
+      description: "Recent website work for small businesses and organizations across several industries.",
       path: "/work"
     }),
     breadcrumbSchema([
@@ -37,8 +37,8 @@ export default function WorkPage() {
         <div className="site-container">
           <PageHero
             badge="Our Work"
-            title="Real results for real KC businesses"
-            subtitle="Recent custom website design projects for Kansas City small businesses, restaurants, contractors, publishers, and local service brands."
+            title="Real websites for real organizations"
+            subtitle="Recent custom website design projects for small businesses, restaurants, contractors, publishers, ministries, and service brands."
             light
           />
         </div>

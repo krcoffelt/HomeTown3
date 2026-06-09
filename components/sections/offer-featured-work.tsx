@@ -5,7 +5,7 @@ import { ArrowRightIcon } from "@/components/ui/site-icons";
 import { projects } from "@/data/projects";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
-const featuredProjects = projects.filter((project) => Boolean(project.liveUrl));
+const featuredProjects = projects.filter((project) => Boolean(project.liveUrl) && project.slug !== "project-salvation");
 
 export function OfferFeaturedWork() {
   return (

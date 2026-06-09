@@ -1,6 +1,6 @@
 export type LeadStatus = "new" | "contacted" | "quoted" | "won" | "lost";
 
-export type ProjectCategory = "Restaurant" | "Music" | "Publishing" | "Home Services";
+export type ProjectCategory = "Restaurant" | "Music" | "Publishing" | "Home Services" | "Ministry";
 
 export interface ProjectItem {
   title: string;
