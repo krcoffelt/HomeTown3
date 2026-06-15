@@ -43,21 +43,36 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     .map((projectSlug) => getProjectBySlug(projectSlug))
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
 
-  const relatedReading =
-    industry.slug === "construction-website-design-kansas-city" || industry.slug === "home-services-website-design-kansas-city"
+  const relatedReading = [
+    {
+      label: "How much does a website cost in Kansas City?",
+      href: "/website-design-cost-kansas-city",
+      description: "A pricing guide for small-business websites, redesigns, and scope decisions."
+    },
+    ...(industry.slug === "construction-website-design-kansas-city" || industry.slug === "home-services-website-design-kansas-city"
       ? [
           {
             label: "What should a contractor website include?",
             href: "/what-should-a-contractor-website-include",
             description: "A practical checklist for project proof, service pages, quote flow, and local SEO structure."
-          },
-          {
-            label: "How much does a website cost in Kansas City?",
-            href: "/website-design-cost-kansas-city",
-            description: "A pricing guide for small-business websites, redesigns, and scope decisions."
           }
         ]
-      : [];
+      : []),
+    ...(industry.slug === "restaurant-website-design-kansas-city"
+      ? [
+          {
+            label: "Plate KC website case study",
+            href: "/case-studies/plate-kc",
+            description: "A restaurant website example built around premium presentation and reservation intent."
+          },
+          {
+            label: "View website work",
+            href: "/work",
+            description: "Recent Hometown website builds across restaurants, service businesses, publishing, music, and ministries."
+          }
+        ]
+      : [])
+  ];
 
   const schema = [
     webPageSchema({
@@ -112,7 +127,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         <div className="mb-9 max-w-2xl">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Relevant Work</p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-            Proof from local service-business website builds.
+            Proof from relevant website builds.
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2">

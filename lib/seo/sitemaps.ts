@@ -127,7 +127,7 @@ export function getContentSitemapXml() {
 
   const articleEntries = blogPosts.map((post) => ({
     loc: post.href,
-    lastmod: post.publishedAt,
+    lastmod: post.updatedAt ?? post.publishedAt,
     changefreq: "monthly"
   }));
 

@@ -80,6 +80,39 @@ const pricingOptions = [
   }
 ];
 
+const websitePricingRows = [
+  {
+    scope: "Starter custom website",
+    range: "From $800",
+    bestFor: "New or small businesses that need a credible custom website, core pages, mobile polish, and a clear contact path."
+  },
+  {
+    scope: "Website redesign",
+    range: "$800+",
+    bestFor: "Businesses with an outdated website that needs clearer messaging, better mobile layout, cleaner SEO structure, and stronger lead flow."
+  },
+  {
+    scope: "Growth website",
+    range: "Custom quote",
+    bestFor: "Businesses that need more service pages, location pages, copywriting, integrations, advanced SEO planning, or content migration."
+  }
+];
+
+const exactMatchGuides = [
+  {
+    keyword: "website design pricing Kansas City",
+    body: "Pricing should be tied to the amount of strategy, content, design, and conversion work the site needs, not just a generic page count."
+  },
+  {
+    keyword: "web design cost Kansas City",
+    body: "A practical small-business web design cost usually starts with the core website foundation, then increases when the scope adds pages, integrations, or deeper SEO."
+  },
+  {
+    keyword: "how much does a website cost in Kansas City",
+    body: "For a focused custom site, Hometown starts at $800. The final number depends on how much the website has to explain, prove, and connect."
+  }
+];
+
 const included = [
   "Custom design built around the business",
   "Core pages for the offer, proof, and contact path",
@@ -185,6 +218,35 @@ export default function WebsiteDesignCostPage() {
       </SectionShell>
 
       <SectionShell className="pt-0">
+        <div className="light-panel overflow-hidden p-0">
+          <div className="border-b border-border p-7 md:p-10">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Website Design Pricing Kansas City</p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">A clearer way to compare website design cost in Kansas City.</h2>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground">
+              If you are searching for website design pricing Kansas City, web design cost Kansas City, or how much does a website cost in Kansas City, the table below gives a practical starting point.
+            </p>
+          </div>
+          <div className="divide-y divide-border">
+            {websitePricingRows.map((row) => (
+              <article key={row.scope} className="grid gap-4 p-6 md:grid-cols-[0.8fr_0.45fr_1.2fr] md:items-center md:p-7">
+                <h3 className="text-xl font-bold tracking-tight text-foreground">{row.scope}</h3>
+                <p className="text-2xl font-bold text-accent">{row.range}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">{row.bestFor}</p>
+              </article>
+            ))}
+          </div>
+          <div className="grid gap-4 border-t border-border p-6 md:grid-cols-3 md:p-7">
+            {exactMatchGuides.map((guide) => (
+              <article key={guide.keyword} className="rounded-2xl border border-border bg-background p-5">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{guide.keyword}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{guide.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell className="pt-0">
         <div className="mb-9 max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">What Affects Cost</p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Six things that change a website quote.</h2>
@@ -243,6 +305,10 @@ export default function WebsiteDesignCostPage() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/pricing" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-foreground transition hover:border-accent hover:text-accent">
+                Full pricing
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
               <Link href="/services/small-business-websites" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-foreground transition hover:border-accent hover:text-accent">
                 Small-business websites
                 <ArrowRightIcon className="h-4 w-4" />

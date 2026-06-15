@@ -98,10 +98,19 @@ export default function WorkPage() {
             </MagneticButton>
             <MagneticButton>
               <Link
-                href="/website-offer-800#claim-form"
+                href="/industries/restaurant-website-design-kansas-city"
                 className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
               >
-                See the $800 Offer
+                Restaurant Website Design
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link
+                href="/industries/construction-website-design-kansas-city"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+              >
+                Contractor Website Design
                 <ArrowRightIcon className="h-4 w-4" />
               </Link>
             </MagneticButton>

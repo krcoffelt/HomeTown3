@@ -9,6 +9,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A Kansas City small-business pricing guide covering what custom websites cost, what Hometown's $800 starting point includes, and when a project needs a larger budget.",
     publishedAt: "2026-05-12",
+    updatedAt: "2026-06-15",
     readingTime: "6 min read",
     targetKeywords: ["website design cost Kansas City", "small business website cost", "custom website pricing"],
     featured: true

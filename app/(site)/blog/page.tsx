@@ -144,6 +144,27 @@ export default function BlogPage() {
           </main>
 
           <aside className="space-y-10 lg:pt-0">
+            <section className="rounded-lg border border-[#e2e8f0] bg-white p-7">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">Start Here</h2>
+              <div className="mt-5 grid gap-3">
+                {[
+                  { label: "Website Design Kansas City", href: "/services/website-design" },
+                  { label: "Website Design Cost", href: "/website-design-cost-kansas-city" },
+                  { label: "Small-Business Websites", href: "/services/small-business-websites" },
+                  { label: "View Website Work", href: "/work" }
+                ].map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="group flex items-center justify-between gap-4 rounded-md border border-[#e2e8f0] bg-[#f9f9f9] px-4 py-3 text-sm font-bold text-foreground transition hover:border-accent hover:text-accent"
+                  >
+                    {link.label}
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </Link>
+                ))}
+              </div>
+            </section>
+
             <section className="rounded-lg bg-accent p-7 text-accent-foreground">
               <h2 className="text-2xl font-bold tracking-tight">Weekly Local Growth</h2>
               <p className="mt-3 text-sm leading-relaxed text-accent-foreground/82">

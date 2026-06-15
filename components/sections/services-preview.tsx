@@ -52,18 +52,30 @@ export function ServicesPreview() {
       <div className="mt-12 flex flex-wrap justify-center gap-3">
         <MagneticButton>
           <Link
-            href="/services"
+            href="/services/website-design"
             className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
           >
-            View All Services
+            Website Design Kansas City
             <ArrowRightIcon className="h-4 w-4" />
           </Link>
         </MagneticButton>
         <Link
-          href="/locations"
+          href="/services/small-business-websites"
           className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
         >
-          Explore Service Areas
+          Small-Business Websites
+        </Link>
+        <Link
+          href="/services/website-redesign"
+          className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+        >
+          Website Redesign
+        </Link>
+        <Link
+          href="/pricing"
+          className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+        >
+          Website Pricing
         </Link>
       </div>
     </SectionShell>

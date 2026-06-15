@@ -14,6 +14,7 @@ export const industries: IndustryItem[] = [
     secondaryKeywords: [
       "website design for construction company",
       "web design for construction company",
+      "contractor web design Kansas City",
       "contractor website design Kansas City"
     ],
     proofProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving"],
@@ -31,6 +32,13 @@ export const industries: IndustryItem[] = [
         body:
           "A construction website should help visitors understand what you build, where you work, and how to start a conversation without digging through generic pages.",
         items: ["Call and form paths", "Trust signals", "Before-and-after proof", "Mobile-first layouts"]
+      },
+      {
+        eyebrow: "Kansas City Contractor SEO",
+        title: "Contractor web design Kansas City searches need proof, services, and location clarity.",
+        body:
+          "The report showed movement around contractor web design Kansas City, contractor website design Kansas City, and construction website design Kansas City. The page should make those signals stronger with contractor-specific language, project proof, and internal links to relevant work.",
+        items: ["Contractor website design Kansas City copy", "Construction website design Kansas City headings", "Project galleries and estimate CTAs", "Links to ZJ Carpentry and home-service proof"]
       }
     ],
     faqItems: [
@@ -48,9 +56,14 @@ export const industries: IndustryItem[] = [
         question: "Can the site help with local SEO?",
         answer:
           "Yes. The structure can support contractor and construction searches by organizing services, locations, project proof, and FAQs around local buyer intent."
+      },
+      {
+        question: "What makes contractor web design different from a normal small-business website?",
+        answer:
+          "Contractor web design needs to show project proof quickly, explain service lines clearly, build trust with homeowners, and make estimate requests easy from mobile devices."
       }
     ],
-    updatedAt: "2026-05-22"
+    updatedAt: "2026-06-15"
   },
   {
     title: "Home Services Website Design Kansas City",
@@ -102,6 +115,65 @@ export const industries: IndustryItem[] = [
       }
     ],
     updatedAt: "2026-05-22"
+  },
+  {
+    title: "Restaurant Website Design Kansas City",
+    slug: "restaurant-website-design-kansas-city",
+    seoTitle: "Restaurant Website Design Kansas City | Hometown",
+    seoDescription:
+      "Restaurant website design in Kansas City for local restaurants that need stronger first impressions, menus, reservations, location clarity, and event or catering leads.",
+    heroTitle: "Restaurant website design for Kansas City restaurants that need more reservations and trust",
+    heroDescription:
+      "Custom websites for Kansas City restaurants, cafes, bars, and hospitality brands that need to show the experience, make menus easy to find, and turn visitors into reservations, calls, and visits.",
+    primaryKeyword: "restaurant website design Kansas City",
+    secondaryKeywords: [
+      "restaurant web design Kansas City",
+      "restaurant website designer Kansas City",
+      "menu website design Kansas City",
+      "hospitality website design Kansas City"
+    ],
+    proofProjectSlugs: ["plate-kc"],
+    sections: [
+      {
+        eyebrow: "Restaurant Fit",
+        title: "A restaurant website has to make the experience easy to picture.",
+        body:
+          "Guests often check the website before they reserve, call, order, or visit. The design should make the restaurant feel credible, current, and easy to understand within a few seconds.",
+        items: ["Menu visibility", "Reservation paths", "Location and hours clarity", "Food, space, and brand photography"]
+      },
+      {
+        eyebrow: "Conversion Paths",
+        title: "The site should support reservations, calls, visits, catering, and private events.",
+        body:
+          "Restaurant website design in Kansas City should not stop at a nice homepage. The page structure needs to guide guests to the action they came for, whether that is viewing a menu, booking a table, checking hours, or asking about an event.",
+        items: ["Reservation CTAs", "Menu and ordering links", "Private event or catering inquiries", "Mobile-first navigation"]
+      },
+      {
+        eyebrow: "Local Search",
+        title: "Restaurant website design Kansas City content should connect food, place, and intent.",
+        body:
+          "Google and guests need clear signals about what kind of restaurant it is, where it is located, what people can do on the site, and why the experience is worth choosing.",
+        items: ["Neighborhood and city context", "Cuisine and service cues", "Internal links to work examples", "Structured FAQs for guest questions"]
+      }
+    ],
+    faqItems: [
+      {
+        question: "What should a restaurant website include?",
+        answer:
+          "A restaurant website should include clear menu access, reservation or ordering paths, hours, location, contact details, strong visuals, private event or catering information when relevant, and mobile-friendly navigation."
+      },
+      {
+        question: "Can a restaurant website help with local SEO?",
+        answer:
+          "Yes. A clear restaurant website can support local SEO by organizing cuisine, location, menu, reservation, hours, and event information in a way that search engines and guests can understand."
+      },
+      {
+        question: "Do you build restaurant websites in Kansas City?",
+        answer:
+          "Yes. Hometown builds restaurant websites for Kansas City hospitality brands that need stronger presentation, easier navigation, and clearer reservation, menu, or event inquiry paths."
+      }
+    ],
+    updatedAt: "2026-06-15"
   }
 ];
 

@@ -75,6 +75,8 @@ export default function ServicesPage() {
                 { label: "Website Redesign Services", href: "/services/website-redesign" },
                 { label: "Website Pricing", href: "/pricing" },
                 { label: "Website Design Cost", href: "/website-design-cost-kansas-city" },
+                { label: "Restaurant Websites", href: "/industries/restaurant-website-design-kansas-city" },
+                { label: "Contractor Websites", href: "/industries/construction-website-design-kansas-city" },
                 { label: "View Website Work", href: "/work" },
                 { label: "Contact Hometown", href: "/contact#form" }
               ].map((link) => (

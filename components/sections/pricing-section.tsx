@@ -115,6 +115,24 @@ export function PricingSection({ className, showIntro = true }: PricingSectionPr
           ))}
         </div>
 
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          {[
+            { label: "Website Design Kansas City", href: "/services/website-design" },
+            { label: "Website Cost Guide", href: "/website-design-cost-kansas-city" },
+            { label: "Small-Business Websites", href: "/services/small-business-websites" },
+            { label: "View Website Work", href: "/work" }
+          ].map((link) => (
+            <Button
+              key={link.href}
+              href={link.href}
+              variant="secondary"
+              className="h-11 border-primary-foreground/18 px-5 text-primary-foreground hover:border-primary-foreground hover:text-primary-foreground"
+            >
+              {link.label}
+            </Button>
+          ))}
+        </div>
+
         <div className="mt-8 flex justify-center">
           <Button href="/contact#form" className="h-12 px-7 md:hidden">
             Get a Quote

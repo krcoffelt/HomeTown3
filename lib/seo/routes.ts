@@ -25,15 +25,15 @@ export interface CoreRouteSeoEntry {
 
 export const coreRouteSeoEntries: CoreRouteSeoEntry[] = [
   { id: "home", path: "/", changeFrequency: "weekly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/"] },
-  { id: "services", path: "/services", changeFrequency: "weekly", updatedAt: "2026-05-22", shareImage: site.routeShareImages["/services"] },
+  { id: "services", path: "/services", changeFrequency: "weekly", updatedAt: "2026-06-15", shareImage: site.routeShareImages["/services"] },
   { id: "locations", path: "/locations", changeFrequency: "weekly", updatedAt: "2026-05-22", shareImage: site.routeShareImages["/locations"] },
-  { id: "work", path: "/work", changeFrequency: "monthly", updatedAt: "2026-05-22", shareImage: site.routeShareImages["/work"] },
-  { id: "pricing", path: "/pricing", changeFrequency: "weekly", updatedAt: "2026-05-22", shareImage: site.routeShareImages["/pricing"] },
+  { id: "work", path: "/work", changeFrequency: "monthly", updatedAt: "2026-06-15", shareImage: site.routeShareImages["/work"] },
+  { id: "pricing", path: "/pricing", changeFrequency: "weekly", updatedAt: "2026-06-15", shareImage: site.routeShareImages["/pricing"] },
   { id: "contact", path: "/contact", changeFrequency: "monthly", updatedAt: "2026-05-22", shareImage: site.routeShareImages["/contact"] },
   { id: "about", path: "/about", changeFrequency: "monthly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/about"] },
-  { id: "blog", path: "/blog", changeFrequency: "weekly", updatedAt: "2026-05-22", shareImage: site.routeShareImages["/blog"] },
+  { id: "blog", path: "/blog", changeFrequency: "weekly", updatedAt: "2026-06-15", shareImage: site.routeShareImages["/blog"] },
   { id: "offer", path: "/website-offer-800", changeFrequency: "weekly", updatedAt: "2026-05-22", shareImage: site.routeShareImages["/website-offer-800"] },
-  { id: "website-cost", path: "/website-design-cost-kansas-city", changeFrequency: "monthly", updatedAt: "2026-05-12", shareImage: site.routeShareImages["/website-design-cost-kansas-city"] },
+  { id: "website-cost", path: "/website-design-cost-kansas-city", changeFrequency: "monthly", updatedAt: "2026-06-15", shareImage: site.routeShareImages["/website-design-cost-kansas-city"] },
   { id: "privacy", path: "/privacy-policy", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/privacy-policy"] },
   { id: "terms", path: "/terms-of-service", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/terms-of-service"] },
   { id: "cookies", path: "/cookie-policy", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/cookie-policy"] }

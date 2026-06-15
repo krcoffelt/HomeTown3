@@ -116,6 +116,7 @@ export interface BlogPostItem {
   category: string;
   excerpt: string;
   publishedAt: string;
+  updatedAt?: string;
   readingTime: string;
   targetKeywords: string[];
   featured?: boolean;
