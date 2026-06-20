@@ -68,7 +68,7 @@ export default function ContactPage() {
             <Link href="/locations" className="light-panel block p-5 transition hover:-translate-y-0.5 hover:shadow-elevated">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Service Areas</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Explore the new local pages for Overland Park, Olathe, Leawood, Lenexa, and Shawnee.
+                Explore local pages for Kansas City, Johnson County, Jackson County, and nearby metro businesses.
               </p>
             </Link>
             <div className="grid gap-4">

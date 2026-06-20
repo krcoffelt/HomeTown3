@@ -195,6 +195,22 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
               );
             })}
           </div>
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            {[
+              { label: "Compare Website Pricing", href: "/pricing" },
+              { label: "View Website Work", href: "/work" },
+              { label: `Start a ${location.city} Project`, href: "/contact#form" }
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

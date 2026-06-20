@@ -9,7 +9,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 export const metadata = createPageMetadata(
   "Kansas City Area Location Pages",
-  "Marketing support for businesses across Overland Park, Olathe, Leawood, Lenexa, and Shawnee.",
+  "Website design, SEO, and paid ads support for businesses across the Kansas City metro.",
   "/locations"
 );
 
@@ -17,7 +17,7 @@ export default function LocationsHubPage() {
   const schema = [
     webPageSchema({
       name: "Locations",
-      description: "Service area pages for Kansas-side Kansas City metro businesses.",
+      description: "Service area pages for Kansas City metro businesses.",
       path: "/locations"
     }),
     breadcrumbSchema([
@@ -35,10 +35,10 @@ export default function LocationsHubPage() {
           <div className="mx-auto max-w-4xl text-center">
             <span className="section-badge">Service Areas</span>
             <h1 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.04] tracking-tight text-primary-foreground md:text-5xl lg:text-6xl">
-              Local marketing pages built for the Kansas side of the KC metro.
+              Website design and local marketing pages built for the Kansas City metro.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-primary-foreground/70">
-              Explore city-specific pages for businesses in Overland Park, Olathe, Leawood, Lenexa, and Shawnee.
+              Explore city-specific pages for businesses across Kansas City, Johnson County, Jackson County, and nearby service areas.
             </p>
           </div>
         </div>

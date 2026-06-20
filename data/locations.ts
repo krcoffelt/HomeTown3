@@ -2,6 +2,342 @@ import type { LocationItem } from "@/types";
 
 export const locations: LocationItem[] = [
   {
+    title: "Kansas City, MO",
+    slug: "kansas-city-mo",
+    city: "Kansas City",
+    state: "MO",
+    heroTitle: "Website design for Kansas City businesses that need more trust, traffic, and leads.",
+    heroDescription:
+      "Hometown builds custom websites, SEO systems, and paid ads support for Kansas City businesses that need a sharper online presence and a clearer path from visitor to lead.",
+    seoTitle: "Website Design Kansas City MO",
+    seoDescription:
+      "Website design in Kansas City MO for small businesses that need custom websites, SEO, paid ads, and clearer lead flow.",
+    introTitle: "A stronger website foundation for Kansas City businesses.",
+    introDescription:
+      "Kansas City businesses compete across search, referrals, social, and word of mouth. The website has to make the offer clear quickly, show enough proof to earn trust, and make the next step easy from mobile. Hometown focuses on that foundation first, then supports it with SEO and paid ads when the business is ready for more qualified traffic.",
+    localAngle:
+      "Built for Kansas City small businesses that need custom website design, practical SEO, and paid ads support tied to real lead flow.",
+    whyTitle: "Why Kansas City businesses work with Hometown",
+    whyDescription:
+      "The work is local, practical, and focused on the parts of marketing that directly affect trust and inquiries: a credible website, clear service messaging, local search structure, and measurable next steps.",
+    trustHighlights: ["Kansas City focused", "Custom websites from $800", "SEO from $250/month", "Ads by spend"],
+    whyPoints: [
+      "Website design that explains the offer before visitors lose interest",
+      "Local SEO structure for Kansas City service searches",
+      "Paid ads and tracking that connect traffic to leads"
+    ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Kansas City MO",
+        title: "Built for local businesses that need to look credible from the first click.",
+        body:
+          "Kansas City website design should do more than look modern. The page structure needs to support service searches, local intent, trust-building proof, and fast quote or contact paths.",
+        items: ["Website design Kansas City MO targeting", "Service pages for small-business searches", "SEO and ads paths after the website foundation"]
+      }
+    ],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
+    faqItems: [
+      {
+        question: "Do you build websites for businesses in Kansas City, Missouri?",
+        answer:
+          "Yes. Hometown builds custom websites for Kansas City businesses that need a better first impression, clearer service pages, and a simpler path to calls or quote requests."
+      },
+      {
+        question: "Should a Kansas City business start with website design, SEO, or ads?",
+        answer:
+          "Most businesses should start with the website and messaging. SEO and ads work better when the site already explains the offer clearly and gives visitors an easy next step."
+      },
+      {
+        question: "Can you help with local SEO for Kansas City searches?",
+        answer:
+          "Yes. Local SEO support can include keyword tracking, page recommendations, internal linking, Google Search Console review, and monthly action planning."
+      }
+    ],
+    relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
+    ctaLabel: "Start Your Kansas City Project",
+    updatedAt: "2026-06-20"
+  },
+  {
+    title: "Kansas City, KS",
+    slug: "kansas-city-ks",
+    city: "Kansas City",
+    state: "KS",
+    heroTitle: "Practical website design for Kansas City, KS businesses that need clearer lead flow.",
+    heroDescription:
+      "Custom websites, SEO, and tracking for Kansas City, KS businesses that want to look more credible, explain services clearly, and make contact easier.",
+    seoTitle: "Website Design Kansas City KS",
+    seoDescription:
+      "Website design in Kansas City KS for owner-led and service businesses that need practical websites, SEO, and clearer tracking.",
+    introTitle: "Websites for Kansas City, KS businesses that need clarity before complexity.",
+    introDescription:
+      "Many Kansas City, KS businesses do not need a complicated marketing stack first. They need a website that looks trustworthy, explains what they do, and gives people a direct way to reach out. Hometown keeps the work practical, with SEO structure and tracking added around the website foundation.",
+    localAngle:
+      "Built for owner-led and service businesses in Kansas City, KS that need a clear, credible website without unnecessary agency layers.",
+    whyTitle: "Why this approach fits Kansas City, KS businesses",
+    whyDescription:
+      "The focus is straightforward: strengthen the website, clean up the message, track the actions that matter, and support local visibility with practical SEO recommendations.",
+    trustHighlights: ["Owner-led focus", "Lead-focused websites", "SEO setup", "Tracking clarity"],
+    whyPoints: [
+      "Custom website design for practical service businesses",
+      "Clear service messaging for local searchers",
+      "Analytics and tracking that show where leads come from"
+    ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Kansas City KS",
+        title: "Built for businesses that need a stronger first impression and simpler next step.",
+        body:
+          "Kansas City, KS website design should make the business easier to understand and easier to contact. That means direct service copy, mobile-first layouts, and tracking for form and phone actions.",
+        items: ["Website design Kansas City KS language", "Small-business website structure", "SEO and analytics support"]
+      }
+    ],
+    priorityServices: ["website-design", "search-engine-optimization", "analytics-and-tracking"],
+    faqItems: [
+      {
+        question: "Can Hometown help a Kansas City, KS business with a smaller website?",
+        answer:
+          "Yes. Smaller sites are a strong fit when the business needs a credible online presence, clear service pages, and a direct path to contact."
+      },
+      {
+        question: "Do you include tracking with websites?",
+        answer:
+          "Tracking can be included so the business can see quote starts, form submissions, phone clicks, and the channels that are driving interest."
+      },
+      {
+        question: "Is SEO useful for Kansas City, KS businesses?",
+        answer:
+          "Yes, especially when the site has clear service pages and local signals that help Google understand the business and service area."
+      }
+    ],
+    relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "lupi-docs"],
+    ctaLabel: "Start Your Kansas City, KS Project",
+    updatedAt: "2026-06-20"
+  },
+  {
+    title: "Lee's Summit",
+    slug: "lees-summit-mo",
+    city: "Lee's Summit",
+    state: "MO",
+    heroTitle: "Website design for Lee's Summit businesses ready to look more polished and generate better leads.",
+    heroDescription:
+      "Hometown helps Lee's Summit businesses with custom websites, local SEO, and Google Ads support built around credibility, service clarity, and lead flow.",
+    seoTitle: "Website Design Lee's Summit MO",
+    seoDescription:
+      "Website design in Lee's Summit MO for growing local businesses that need polished websites, SEO, Google Ads, and more qualified leads.",
+    introTitle: "A polished online presence for growing Lee's Summit businesses.",
+    introDescription:
+      "Lee's Summit has a strong mix of local service businesses, professional companies, and growing owner-led brands. The website needs to feel established enough to earn trust while staying practical enough to turn search and referral traffic into calls, quotes, and conversations.",
+    localAngle:
+      "Built for growing Lee's Summit businesses that need a polished website, stronger local search visibility, and marketing that supports real inquiries.",
+    whyTitle: "Why Lee's Summit businesses choose Hometown",
+    whyDescription:
+      "Hometown pairs stronger website design with the practical marketing pieces that help a growing local business compete: SEO structure, paid traffic strategy, proof, and conversion tracking.",
+    trustHighlights: ["Polished web design", "Local SEO", "Google Ads support", "Lead-focused layouts"],
+    whyPoints: [
+      "Website design that supports trust for comparison shoppers",
+      "SEO structure for Lee's Summit and nearby searches",
+      "Google Ads support when the site is ready for paid traffic"
+    ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Lee's Summit",
+        title: "Built for businesses that need to look established and be easy to choose.",
+        body:
+          "Lee's Summit customers often compare options before reaching out. A stronger website can make services, proof, pricing cues, and contact paths easier to understand.",
+        items: ["Website design Lee's Summit MO targeting", "Service and proof sections", "SEO and Google Ads next steps"]
+      }
+    ],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
+    faqItems: [
+      {
+        question: "Do you work with businesses in Lee's Summit?",
+        answer:
+          "Yes. Hometown works with Lee's Summit businesses that need a better website, clearer service messaging, and stronger local visibility."
+      },
+      {
+        question: "What should a Lee's Summit business fix first online?",
+        answer:
+          "Usually the website and message. Once the business looks credible and the offer is clear, SEO and ads have a stronger foundation."
+      },
+      {
+        question: "Can Google Ads help once the website is updated?",
+        answer:
+          "Yes. Google Ads can help drive targeted traffic once the website has clear landing pages, tracking, and a strong contact path."
+      }
+    ],
+    relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "plate-kc"],
+    ctaLabel: "Start Your Lee's Summit Project",
+    updatedAt: "2026-06-20"
+  },
+  {
+    title: "Blue Springs",
+    slug: "blue-springs-mo",
+    city: "Blue Springs",
+    state: "MO",
+    heroTitle: "Affordable website design for Blue Springs businesses that need calls and quote requests.",
+    heroDescription:
+      "Custom websites, SEO, and paid ads support for Blue Springs service businesses and local companies that need a stronger online presence without extra agency bloat.",
+    seoTitle: "Website Design Blue Springs MO",
+    seoDescription:
+      "Website design in Blue Springs MO for home-service and local businesses that need affordable custom websites, SEO, ads, and lead-focused pages.",
+    introTitle: "A practical website and marketing foundation for Blue Springs businesses.",
+    introDescription:
+      "Blue Springs businesses often need the basics done well: a credible website, clear service pages, local search relevance, and a contact path that works on mobile. Hometown builds around those basics first so marketing feels useful instead of inflated.",
+    localAngle:
+      "Built for Blue Springs home-service and local businesses that need affordable custom websites and clearer quote-request flow.",
+    whyTitle: "Why this works for Blue Springs businesses",
+    whyDescription:
+      "The strategy is simple: make the business look trustworthy, explain services clearly, connect pages to local search intent, and make calls or quote requests easier.",
+    trustHighlights: ["Affordable websites", "Home-service fit", "SEO support", "Quote-focused CTAs"],
+    whyPoints: [
+      "Custom website design without unnecessary complexity",
+      "Service-page structure for local business searches",
+      "Paid ads support after the website can convert traffic"
+    ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Blue Springs",
+        title: "Built for local businesses that need practical lead flow.",
+        body:
+          "Blue Springs website design should help homeowners and local customers quickly understand services, trust the business, and request the next step.",
+        items: ["Website design Blue Springs MO copy", "Home-service proof sections", "Quote and contact paths"]
+      }
+    ],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
+    faqItems: [
+      {
+        question: "Is this a fit for Blue Springs home-service businesses?",
+        answer:
+          "Yes. The structure is especially useful for contractors, movers, remodelers, cleaners, and other service businesses that rely on calls and quote requests."
+      },
+      {
+        question: "Can a custom website stay affordable?",
+        answer:
+          "Yes. Hometown's website work starts from a practical custom foundation instead of forcing every business into a large agency package."
+      },
+      {
+        question: "Should a Blue Springs business use ads right away?",
+        answer:
+          "Ads can help, but the website should be clear and credible first. Paid traffic works better when visitors land on pages built to convert."
+      }
+    ],
+    relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "lupi-docs"],
+    ctaLabel: "Start Your Blue Springs Project",
+    updatedAt: "2026-06-20"
+  },
+  {
+    title: "Independence",
+    slug: "independence-mo",
+    city: "Independence",
+    state: "MO",
+    heroTitle: "Website redesign and local SEO for Independence businesses that need more trust online.",
+    heroDescription:
+      "Hometown helps Independence businesses replace outdated websites, clarify services, improve local SEO structure, and make it easier for customers to reach out.",
+    seoTitle: "Website Design Independence MO",
+    seoDescription:
+      "Website design and website redesign in Independence MO for businesses that need stronger trust, clearer pages, local SEO, and better lead flow.",
+    introTitle: "Better websites for Independence businesses that have outgrown the old site.",
+    introDescription:
+      "A dated or confusing website can make a good business look harder to trust than it really is. For Independence businesses, the first win is often a redesign that cleans up the message, organizes services, and makes contact easier from every important page.",
+    localAngle:
+      "Built for Independence businesses that need website redesign, trust cleanup, local SEO structure, and a clearer path to customer inquiries.",
+    whyTitle: "Why Independence businesses start with the website",
+    whyDescription:
+      "The website is where referrals, searchers, and ad traffic decide whether to keep going. Cleaning up the site first makes every other marketing channel more useful.",
+    trustHighlights: ["Website redesign", "Trust cleanup", "Local SEO", "Clearer lead flow"],
+    whyPoints: [
+      "Redesign strategy for outdated or confusing websites",
+      "Service pages that make the business easier to evaluate",
+      "Local SEO recommendations tied to real search behavior"
+    ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Independence",
+        title: "Built for businesses that need to replace confusion with credibility.",
+        body:
+          "Independence website design and redesign should make services easier to understand, proof easier to find, and the next step easier to take.",
+        items: ["Website design Independence MO targeting", "Website redesign messaging", "Local SEO and lead-flow cleanup"]
+      }
+    ],
+    priorityServices: ["website-design", "website-redesign", "search-engine-optimization"],
+    faqItems: [
+      {
+        question: "Can you redesign an existing Independence business website?",
+        answer:
+          "Yes. Redesigns are a strong fit when the current site feels outdated, unclear, hard to use on mobile, or weak at generating inquiries."
+      },
+      {
+        question: "What changes most in a website redesign?",
+        answer:
+          "Usually the messaging, page structure, mobile layout, calls to action, and service explanations. The goal is to make the business easier to trust and contact."
+      },
+      {
+        question: "Does local SEO matter after a redesign?",
+        answer:
+          "Yes. A redesign is a good time to improve page titles, service structure, internal links, and Google Search Console tracking."
+      }
+    ],
+    relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
+    ctaLabel: "Start Your Independence Project",
+    updatedAt: "2026-06-20"
+  },
+  {
+    title: "Prairie Village",
+    slug: "prairie-village-ks",
+    city: "Prairie Village",
+    state: "KS",
+    heroTitle: "Polished website design for Prairie Village businesses that need a stronger first impression.",
+    heroDescription:
+      "Custom websites, brand identity, and SEO support for Prairie Village, Mission, and Roeland Park businesses that need to look credible and easy to choose.",
+    seoTitle: "Website Design Prairie Village KS",
+    seoDescription:
+      "Website design in Prairie Village KS for small businesses that need polished websites, brand identity, SEO, and stronger local trust.",
+    introTitle: "A more polished digital presence for northeast Johnson County businesses.",
+    introDescription:
+      "Prairie Village, Mission, and Roeland Park businesses often win trust through presentation, reputation, and clarity. The website should feel polished without becoming overbuilt, and it should give visitors a direct way to understand the business and take action.",
+    localAngle:
+      "Built for Prairie Village and northeast Johnson County businesses that need polished custom websites, sharper brand presentation, and practical SEO support.",
+    whyTitle: "Why Prairie Village businesses choose Hometown",
+    whyDescription:
+      "The work balances presentation and practicality. Hometown helps businesses look more established while keeping the site focused on services, trust, and inquiries.",
+    trustHighlights: ["Polished websites", "Brand identity", "SEO support", "Northeast JoCo focus"],
+    whyPoints: [
+      "Custom website design with a more polished first impression",
+      "Brand identity support for businesses that need more consistency",
+      "SEO structure for Prairie Village, Mission, and Roeland Park searches"
+    ],
+    seoSections: [
+      {
+        eyebrow: "Website Design Prairie Village",
+        title: "Built for businesses where presentation and trust both matter.",
+        body:
+          "Prairie Village website design should feel polished, local, and easy to use. The page can also support nearby northeast Johnson County intent without creating thin pages for every adjacent suburb.",
+        items: ["Website design Prairie Village KS targeting", "Mission and Roeland Park language used naturally", "Brand and SEO alignment"]
+      }
+    ],
+    priorityServices: ["website-design", "brand-identity", "search-engine-optimization"],
+    faqItems: [
+      {
+        question: "Do you work with businesses in Prairie Village and nearby cities?",
+        answer:
+          "Yes. This page is focused on Prairie Village and naturally includes nearby Mission and Roeland Park when the business serves that northeast Johnson County area."
+      },
+      {
+        question: "Can you help the site feel more polished without overcomplicating it?",
+        answer:
+          "Yes. The goal is a stronger first impression, clearer message, and cleaner lead path, not unnecessary design complexity."
+      },
+      {
+        question: "Should brand identity be part of the website project?",
+        answer:
+          "It can be useful when the business needs more consistency across the website, logo, colors, messaging, and supporting creative."
+      }
+    ],
+    relatedProjectSlugs: ["plate-kc", "lupi-docs", "voxwhite"],
+    ctaLabel: "Start Your Prairie Village Project",
+    updatedAt: "2026-06-20"
+  },
+  {
     title: "Overland Park",
     slug: "overland-park-ks",
     city: "Overland Park",

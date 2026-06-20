@@ -38,8 +38,8 @@ const coreOgCopy: Record<string, { eyebrow: string; title: string; description: 
   },
   locations: {
     eyebrow: "Service Areas",
-    title: "Marketing support for businesses across the Kansas side of the KC metro.",
-    description: "Explore the first Hometown location pages for Overland Park, Olathe, Leawood, Lenexa, and Shawnee."
+    title: "Website design and marketing support across the Kansas City metro.",
+    description: "Explore Hometown service-area pages for Kansas City, Johnson County, Jackson County, and nearby cities."
   },
   offer: {
     eyebrow: "$800 Website Offer",
