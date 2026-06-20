@@ -23,7 +23,27 @@ export const blogPosts: BlogPostItem[] = [
       "A breakdown of the Project Salvation website build and what ministries, evangelists, and event-driven organizations should prioritize online.",
     publishedAt: "2026-06-08",
     readingTime: "6 min read",
+    image: "/images/work/project-salvation.jpg",
+    imageAlt: "Project Salvation website homepage preview",
     targetKeywords: ["ministry website design", "evangelist website design", "Christian event website", "church event registration website"]
+  },
+  {
+    title: "Deck Contractor Website Design for DecksRXKC",
+    slug: "deck-contractor-website-design-kansas-city",
+    href: "/deck-contractor-website-design-kansas-city",
+    category: "Contractor Websites",
+    excerpt:
+      "A DecksRXKC website breakdown for deck builders, contractors, and home-service businesses that need stronger project proof and quote-request paths.",
+    publishedAt: "2026-06-19",
+    readingTime: "6 min read",
+    image: "/images/work/decksrxkc-website-preview.webp",
+    imageAlt: "DecksRXKC website homepage preview",
+    targetKeywords: [
+      "deck contractor website design",
+      "contractor website design Kansas City",
+      "deck builder website design",
+      "home service website design Kansas City"
+    ]
   },
   {
     title: "What Should a Contractor Website Include?",

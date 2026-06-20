@@ -119,5 +119,7 @@ export interface BlogPostItem {
   updatedAt?: string;
   readingTime: string;
   targetKeywords: string[];
+  image?: string;
+  imageAlt?: string;
   featured?: boolean;
 }

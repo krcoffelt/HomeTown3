@@ -169,6 +169,21 @@ export function getImagesSitemapXml() {
       title: `${project.clientName} website case study`,
       caption: project.result ?? project.summary
     }));
+  const articleImageEntries = blogPosts
+    .filter((post) => post.image)
+    .map((post) => ({
+      pageLoc: post.href,
+      imageLoc: post.image!,
+      title: post.imageAlt ?? post.title,
+      caption: post.excerpt
+    }));
 
-  return buildImageSitemap([...shareImageEntries, ...serviceImageEntries, ...locationImageEntries, ...projectEntries, ...caseStudyEntries]);
+  return buildImageSitemap([
+    ...shareImageEntries,
+    ...serviceImageEntries,
+    ...locationImageEntries,
+    ...projectEntries,
+    ...caseStudyEntries,
+    ...articleImageEntries
+  ]);
 }
