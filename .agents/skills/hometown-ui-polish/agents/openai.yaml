@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hometown UI Polish"
+  short_description: "Polish UI and accessibility."
+  default_prompt: "Use this skill to improve HometownKC page layouts, components, mobile behavior, accessibility, or animation polish."

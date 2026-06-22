@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hometown Launch QA"
+  short_description: "Verify launch readiness checks."
+  default_prompt: "Use this skill to verify HometownKC before launch or after SEO, tracking, form, or route changes."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hometown Lead Capture"
+  short_description: "Maintain lead capture flows."
+  default_prompt: "Use this skill to debug or change HometownKC lead forms, attribution, logging, Supabase, or Resend behavior."

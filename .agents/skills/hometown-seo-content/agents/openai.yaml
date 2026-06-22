@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hometown SEO Content"
+  short_description: "Maintain SEO content integrity."
+  default_prompt: "Use this skill to update or audit HometownKC SEO content, metadata, schema, internal links, and sitemaps."
