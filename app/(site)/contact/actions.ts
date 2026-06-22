@@ -2,6 +2,7 @@
 
 import { getLeadSource, type LeadAttributionFields } from "@/lib/analytics/lead-attribution";
 import { sendLeadNotification } from "@/lib/email/resend";
+import { createRequestId, logEvent } from "@/lib/logging/logger";
 import { leadSchema, offerLeadSchema } from "@/lib/validations/lead";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { ZodError } from "zod";
@@ -99,6 +100,7 @@ async function insertLead(values: {
   utmTerm?: string;
   utmContent?: string;
   gclid?: string;
+  requestId?: string;
 }): Promise<SubmitLeadState> {
   try {
     const supabase = createSupabaseServerClient();
@@ -134,7 +136,21 @@ async function insertLead(values: {
     }
 
     if (error) {
-      console.error("Lead insert failed", error);
+      logEvent({
+        level: "error",
+        event: "lead_database_insert_failed",
+        message: "Lead database insert failed.",
+        requestId: values.requestId,
+        route: values.landingPage,
+        metadata: {
+          serviceNeeded: values.serviceNeeded,
+          leadSource,
+          hasPhone: Boolean(cleanOptional(values.phone)),
+          hasReferrer: Boolean(cleanOptional(values.referrerUrl)),
+          hasUtmSource: Boolean(cleanOptional(values.utmSource))
+        },
+        error
+      });
       return {
         ok: false,
         message: GENERIC_SUBMISSION_ERROR
@@ -147,12 +163,33 @@ async function insertLead(values: {
         leadSource
       });
     } catch (error) {
-      console.error("Lead notification email failed", error);
+      logEvent({
+        level: "warn",
+        event: "lead_email_notification_failed",
+        message: "Lead notification email failed.",
+        requestId: values.requestId,
+        route: values.landingPage,
+        metadata: {
+          serviceNeeded: values.serviceNeeded,
+          leadSource
+        },
+        error
+      });
     }
 
     return successState();
   } catch (error) {
-    console.error("Lead submission failed", error);
+    logEvent({
+      level: "error",
+      event: "lead_submission_failed",
+      message: "Lead submission failed.",
+      requestId: values.requestId,
+      route: values.landingPage,
+      metadata: {
+        serviceNeeded: values.serviceNeeded
+      },
+      error
+    });
     return {
       ok: false,
       message: GENERIC_SUBMISSION_ERROR
@@ -164,7 +201,33 @@ export async function submitLead(
   _prevState: SubmitLeadState,
   formData: FormData
 ): Promise<SubmitLeadState> {
-  if (spamGuard(formData) || suspiciousTimingGuard(formData)) {
+  const requestId = createRequestId();
+
+  if (spamGuard(formData)) {
+    logEvent({
+      level: "warn",
+      event: "lead_spam_guard_matched",
+      message: "Lead spam guard matched.",
+      requestId,
+      route: String(formData.get("landingPage") ?? "/contact"),
+      metadata: {
+        form: "contact"
+      }
+    });
+    return successState();
+  }
+
+  if (suspiciousTimingGuard(formData)) {
+    logEvent({
+      level: "warn",
+      event: "lead_timing_guard_matched",
+      message: "Lead timing guard matched.",
+      requestId,
+      route: String(formData.get("landingPage") ?? "/contact"),
+      metadata: {
+        form: "contact"
+      }
+    });
     return successState();
   }
 
@@ -186,6 +249,19 @@ export async function submitLead(
   });
 
   if (!parsed.success) {
+    const issue = parsed.error.issues[0];
+    logEvent({
+      level: "warn",
+      event: "lead_validation_failed",
+      message: "Lead validation failed.",
+      requestId,
+      route: String(formData.get("landingPage") ?? "/contact"),
+      metadata: {
+        form: "contact",
+        field: issue?.path?.[0] ? String(issue.path[0]) : "form",
+        issue: issue?.message ?? "Invalid submission"
+      }
+    });
     return { ok: false, message: validationMessage(parsed.error) };
   }
 
@@ -203,7 +279,8 @@ export async function submitLead(
     utmTerm: parsed.data.utmTerm,
     utmContent: parsed.data.utmContent,
     gclid: parsed.data.gclid,
-    projectDetails: parsed.data.projectDetails
+    projectDetails: parsed.data.projectDetails,
+    requestId
   });
 }
 
@@ -211,7 +288,33 @@ export async function submitOfferLead(
   _prevState: SubmitLeadState,
   formData: FormData
 ): Promise<SubmitLeadState> {
-  if (spamGuard(formData) || suspiciousTimingGuard(formData)) {
+  const requestId = createRequestId();
+
+  if (spamGuard(formData)) {
+    logEvent({
+      level: "warn",
+      event: "lead_spam_guard_matched",
+      message: "Lead spam guard matched.",
+      requestId,
+      route: String(formData.get("landingPage") ?? "/website-offer-800"),
+      metadata: {
+        form: "offer"
+      }
+    });
+    return successState();
+  }
+
+  if (suspiciousTimingGuard(formData)) {
+    logEvent({
+      level: "warn",
+      event: "lead_timing_guard_matched",
+      message: "Lead timing guard matched.",
+      requestId,
+      route: String(formData.get("landingPage") ?? "/website-offer-800"),
+      metadata: {
+        form: "offer"
+      }
+    });
     return successState();
   }
 
@@ -232,6 +335,19 @@ export async function submitOfferLead(
   });
 
   if (!parsed.success) {
+    const issue = parsed.error.issues[0];
+    logEvent({
+      level: "warn",
+      event: "lead_validation_failed",
+      message: "Lead validation failed.",
+      requestId,
+      route: String(formData.get("landingPage") ?? "/website-offer-800"),
+      metadata: {
+        form: "offer",
+        field: issue?.path?.[0] ? String(issue.path[0]) : "form",
+        issue: issue?.message ?? "Invalid submission"
+      }
+    });
     return { ok: false, message: validationMessage(parsed.error) };
   }
 
@@ -257,6 +373,7 @@ export async function submitOfferLead(
       projectDetails ? `Project details: ${projectDetails}` : null
     ]
       .filter(Boolean)
-      .join("\n\n")
+      .join("\n\n"),
+    requestId
   });
 }

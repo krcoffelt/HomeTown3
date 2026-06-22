@@ -1,5 +1,26 @@
 # HometownKC Website
 
+## Local Development
+
+Install dependencies and run the local Next.js server:
+
+```bash
+npm install
+npm run dev
+```
+
+Useful quality commands:
+
+- `npm run typecheck` checks TypeScript.
+- `npm run lint` checks Next.js lint rules.
+- `npm run test` runs the Vitest unit and data-integrity tests.
+- `npm run test:watch` runs tests while editing.
+- `npm run test:coverage` runs tests with coverage output.
+- `npm run build` verifies the production build.
+- `npm run verify` runs typecheck, lint, test, and build in order.
+
+Run `npm run verify` before pushing SEO, pricing, content-model, or lead-form changes.
+
 ## Lead Form Environment Variables
 
 Set these in Netlify for lead capture and notifications:
