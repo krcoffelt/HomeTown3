@@ -15,6 +15,8 @@ const postImages: Record<string, string> = {
   "website-builder-vs-custom-website-for-small-businesses": "/images/WrappedUpMoving_screenshot.webp"
 };
 
+const editorialTags = ["Website Pricing", "Small Business Websites", "Contractor Websites", "Home Services", "Website Redesign", "Local SEO"];
+
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("en", {
     month: "short",
@@ -34,7 +36,6 @@ export default function BlogPage() {
   const secondaryPosts = blogPosts.filter((post) => post.href !== featuredPost?.href);
   const latestPosts = secondaryPosts.length > 0 ? secondaryPosts : blogPosts;
   const categories = Array.from(new Set(blogPosts.map((post) => post.category)));
-  const tags = Array.from(new Set(blogPosts.flatMap((post) => post.targetKeywords))).slice(0, 8);
 
   const schema = [
     webPageSchema({
@@ -149,8 +150,8 @@ export default function BlogPage() {
               <div className="mt-5 grid gap-3">
                 {[
                   { label: "Website Design Kansas City", href: "/services/website-design" },
-                  { label: "Website Design Cost", href: "/website-design-cost-kansas-city" },
-                  { label: "Small-Business Websites", href: "/services/small-business-websites" },
+                  { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
+                  { label: "Small business website design Kansas City", href: "/services/small-business-websites" },
                   { label: "View Website Work", href: "/work" }
                 ].map((link) => (
                   <Link
@@ -211,7 +212,7 @@ export default function BlogPage() {
             <section>
               <h2 className="text-2xl font-bold tracking-tight text-foreground">Tags</h2>
               <div className="mt-5 flex flex-wrap gap-2">
-                {tags.map((tag) => (
+                {editorialTags.map((tag) => (
                   <span key={tag} className="rounded bg-[#eeeeee] px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted-foreground">
                     {tag}
                   </span>

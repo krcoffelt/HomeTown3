@@ -310,7 +310,7 @@ export default function WebsiteDesignCostPage() {
                 <ArrowRightIcon className="h-4 w-4" />
               </Link>
               <Link href="/services/small-business-websites" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-foreground transition hover:border-accent hover:text-accent">
-                Small-business websites
+                Small business website design Kansas City
                 <ArrowRightIcon className="h-4 w-4" />
               </Link>
               <Link href="/work" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-foreground transition hover:border-accent hover:text-accent">
@@ -395,7 +395,7 @@ export default function WebsiteDesignCostPage() {
               Get a Website Quote
             </Button>
             <Button href="/services/website-design" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-              Website Design Service
+              Website Design Kansas City Service
             </Button>
           </div>
         </div>

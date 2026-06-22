@@ -20,7 +20,7 @@ const caseStudyProjects = projects.filter((project) => project.problem && projec
 const relatedPageLinks: Record<string, Array<{ label: string; href: string; description: string }>> = {
   "plate-kc": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
-    { label: "Leawood Website Design", href: "/locations/leawood-ks", description: "Local website design and brand identity for Leawood businesses." },
+    { label: "Website design Leawood KS", href: "/locations/leawood-ks", description: "Local website design and brand identity for Leawood businesses." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ],
   "lupi-docs": [
@@ -30,13 +30,13 @@ const relatedPageLinks: Record<string, Array<{ label: string; href: string; desc
   ],
   "wrapped-up-moving": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites for local service businesses." },
-    { label: "Home Services Websites", href: "/industries/home-services-website-design-kansas-city", description: "Website design for movers, remodelers, contractors, and local service companies." },
+    { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city", description: "Website design for movers, remodelers, contractors, and local service companies." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ],
   "zj-carpentry-and-more": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
-    { label: "Construction Websites", href: "/industries/construction-website-design-kansas-city", description: "Website design for contractors and construction companies." },
-    { label: "Home Services Websites", href: "/industries/home-services-website-design-kansas-city", description: "Website design for local service businesses that need quote requests." },
+    { label: "Contractor website design Kansas City", href: "/industries/construction-website-design-kansas-city", description: "Website design for contractors and construction companies." },
+    { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city", description: "Website design for local service businesses that need quote requests." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ],
   "project-salvation": [

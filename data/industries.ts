@@ -73,9 +73,10 @@ export const industries: IndustryItem[] = [
       "Home services website design in Kansas City for movers, remodelers, contractors, cleaners, HVAC companies, and local service businesses.",
     heroTitle: "Home services website design for local businesses that need calls and quote requests",
     heroDescription:
-      "Custom websites for Kansas City service businesses that need to look trustworthy, explain what they do, and turn mobile visitors into real leads.",
+      "Custom websites for Kansas City service businesses that need to look trustworthy, explain what they do, and turn mobile visitors into real leads. This is the main Hometown page for home service website design Kansas City and home services website design Kansas City searches.",
     primaryKeyword: "home services website design Kansas City",
     secondaryKeywords: [
+      "home service website design Kansas City",
       "website design for service businesses",
       "local service business website design",
       "contractor website design Kansas City"
@@ -84,17 +85,24 @@ export const industries: IndustryItem[] = [
     sections: [
       {
         eyebrow: "Service Business Fit",
-        title: "Built for customers who want to know if they can trust you quickly.",
+        title: "Home service website design Kansas City buyers need trust quickly.",
         body:
           "Home-service buyers usually compare credibility, availability, and clarity before they reach out. The website needs to make those answers obvious.",
         items: ["Service area clarity", "Trust and review sections", "Quote-focused structure", "Fast mobile calls"]
       },
       {
         eyebrow: "Local SEO Structure",
-        title: "Organized around services, cities, and customer action.",
+        title: "Home services website design Kansas City pages should connect services, cities, and action.",
         body:
           "A home-service website should help search engines and customers understand what you offer, where you work, and what someone should do next.",
         items: ["Service pages", "City relevance", "Project proof", "Phone and form tracking"]
+      },
+      {
+        eyebrow: "Website Design for Service Businesses",
+        title: "The page should support movers, remodelers, cleaners, HVAC companies, and other local service teams.",
+        body:
+          "The strongest home-service websites organize proof around the jobs customers need done. Clear service sections, real photos, local language, and quote paths help this page support both home service website design Kansas City and home services website design Kansas City intent.",
+        items: ["Local service business website design", "Project-photo proof", "Quote request CTAs", "Links to contractor and website design strategy"]
       }
     ],
     faqItems: [
@@ -114,7 +122,7 @@ export const industries: IndustryItem[] = [
           "Yes. Real project photos are usually one of the strongest trust signals for home-service websites."
       }
     ],
-    updatedAt: "2026-05-22"
+    updatedAt: "2026-06-22"
   },
   {
     title: "Restaurant Website Design Kansas City",

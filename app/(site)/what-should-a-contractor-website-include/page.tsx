@@ -244,8 +244,8 @@ export default function ContractorWebsiteChecklistPage() {
           </div>
           <div className="grid gap-3">
             {[
-              { label: "Construction website design", href: "/industries/construction-website-design-kansas-city" },
-              { label: "Home-service website design", href: "/industries/home-services-website-design-kansas-city" },
+              { label: "Contractor website design Kansas City", href: "/industries/construction-website-design-kansas-city" },
+              { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city" },
               { label: "Website design Kansas City", href: "/services/website-design" },
               { label: "See website work", href: "/work" }
             ].map((link) => (

@@ -557,9 +557,9 @@ export const locations: LocationItem[] = [
           "It works best for businesses that need to look more credible online and make the next step easier for prospects, especially service-driven local companies."
       }
     ],
-    relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "plate-kc"],
+    relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "lupi-docs"],
     ctaLabel: "Start Your Lenexa Project",
-    updatedAt: "2026-05-22"
+    updatedAt: "2026-06-22"
   },
   {
     title: "Shawnee",

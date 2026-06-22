@@ -118,8 +118,8 @@ export function PricingSection({ className, showIntro = true }: PricingSectionPr
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           {[
             { label: "Website Design Kansas City", href: "/services/website-design" },
-            { label: "Website Cost Guide", href: "/website-design-cost-kansas-city" },
-            { label: "Small-Business Websites", href: "/services/small-business-websites" },
+            { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
+            { label: "Small business website design Kansas City", href: "/services/small-business-websites" },
             { label: "View Website Work", href: "/work" }
           ].map((link) => (
             <Button

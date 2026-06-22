@@ -53,7 +53,7 @@ export const services: ServiceItem[] = [
         title: "A practical alternative to DIY builders and oversized agency projects.",
         body:
           "The $800 starting point is for businesses that need a professional custom site without getting pulled into a slow, expensive process. When the scope needs more pages, integrations, or deeper SEO, we explain that before work starts.",
-        items: ["New business websites", "Website redesigns", "Home-service websites", "Restaurant and local brand sites"]
+        items: ["New business websites", "Website redesigns", "Home services website design", "Restaurant and local brand sites"]
       },
       {
         eyebrow: "Kansas City Website Design",
@@ -103,15 +103,15 @@ export const services: ServiceItem[] = [
       }
     ],
     relatedLinks: [
-      { label: "Small business websites", href: "/services/small-business-websites" },
+      { label: "Small business website design Kansas City", href: "/services/small-business-websites" },
       { label: "Website redesign services", href: "/services/website-redesign" },
       { label: "Construction website design", href: "/industries/construction-website-design-kansas-city" },
-      { label: "Home services website design", href: "/industries/home-services-website-design-kansas-city" },
+      { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city" },
       { label: "Contractor website checklist", href: "/what-should-a-contractor-website-include" },
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-06-15"
+    updatedAt: "2026-06-22"
   },
   {
     title: "Small Business Websites",
@@ -172,6 +172,13 @@ export const services: ServiceItem[] = [
         body:
           "The page supports terms like small business website design Kansas City, small business websites Kansas City, custom websites for small business, and local business website design Kansas City while keeping the copy useful for owners comparing options.",
         items: ["Custom websites for small business", "Affordable starting point", "Local proof and work examples", "Links to website cost and redesign planning"]
+      },
+      {
+        eyebrow: "Local Business Website Design",
+        title: "Local business website design in Kansas City should make the next step obvious.",
+        body:
+          "A local business website has to explain the service, show why the company is credible, and make it easy for a visitor to call, book, or request a quote. This page is the main target for local business website design Kansas City and small business website design Kansas City searches.",
+        items: ["Service clarity for local buyers", "Kansas City small-business positioning", "Quote, call, or booking paths", "Links to website pricing and recent work"]
       }
     ],
     faqItems: [
@@ -193,12 +200,12 @@ export const services: ServiceItem[] = [
     ],
     relatedLinks: [
       { label: "Website design Kansas City", href: "/services/website-design" },
-      { label: "Website design cost", href: "/website-design-cost-kansas-city" },
+      { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "Website redesign services", href: "/services/website-redesign" },
       { label: "Website builder comparison", href: "/website-builder-vs-custom-website-for-small-businesses" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-06-15"
+    updatedAt: "2026-06-22"
   },
   {
     title: "Website Redesign",

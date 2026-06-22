@@ -46,7 +46,7 @@ const seoLessons = [
   "Use homeowner search language like deck contractor Kansas City, screened-in decks Kansas City, covered decks Kansas City, and deck builder website design.",
   "Connect project photos to services so Google and visitors understand what each photo proves.",
   "Keep location language specific without stuffing city names into every sentence.",
-  "Link contractor content back to website design, home-service website design, and related case studies."
+  "Link contractor content back to website design, home services website design Kansas City, and related case studies."
 ];
 
 export const metadata: Metadata = {
@@ -277,8 +277,8 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             {[
               { label: "Contractor website checklist", href: "/what-should-a-contractor-website-include" },
-              { label: "Construction website design", href: "/industries/construction-website-design-kansas-city" },
-              { label: "Home-service websites", href: "/industries/home-services-website-design-kansas-city" },
+              { label: "Contractor website design Kansas City", href: "/industries/construction-website-design-kansas-city" },
+              { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city" },
               { label: "View website work", href: "/work" }
             ].map((link) => (
               <Link

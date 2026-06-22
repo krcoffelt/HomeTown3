@@ -63,7 +63,7 @@ export function ServicesPreview() {
           href="/services/small-business-websites"
           className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
         >
-          Small-Business Websites
+          Small Business Website Design Kansas City
         </Link>
         <Link
           href="/services/website-redesign"
@@ -72,10 +72,10 @@ export function ServicesPreview() {
           Website Redesign
         </Link>
         <Link
-          href="/pricing"
+          href="/website-design-cost-kansas-city"
           className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
         >
-          Website Pricing
+          Website Design Pricing Kansas City
         </Link>
       </div>
     </SectionShell>
