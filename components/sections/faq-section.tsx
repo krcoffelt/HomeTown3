@@ -7,9 +7,10 @@ import { faqs } from "@/data/faqs";
 
 interface FAQSectionProps {
   page: "home" | "pricing";
+  ctaHref?: string;
 }
 
-export function FAQSection({ page }: FAQSectionProps) {
+export function FAQSection({ page, ctaHref = "/contact#form" }: FAQSectionProps) {
   const items = faqs.filter((faq) => faq.page === page);
 
   return (
@@ -23,7 +24,7 @@ export function FAQSection({ page }: FAQSectionProps) {
             centered={false}
           />
           <MagneticButton>
-            <Button href="/contact#form" variant="secondary">Ask a Question</Button>
+            <Button href={ctaHref} variant="secondary">Ask a Question</Button>
           </MagneticButton>
         </div>
         <div className="lg:col-span-3">

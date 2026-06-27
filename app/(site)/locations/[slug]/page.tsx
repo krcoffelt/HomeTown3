@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { OfferLeadForm } from "@/components/sections/offer-lead-form";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon, GlobeIcon, MapPinIcon, TargetIcon, TrendingUpIcon, ZapIcon } from "@/components/ui/site-icons";
@@ -102,7 +102,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
                 {location.heroDescription}
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href="#start" className="h-14 px-8" dataAnalytics="cta-location-primary">
+                <Button href="#form" className="h-14 px-8" dataAnalytics="cta-location-primary">
                   {location.ctaLabel}
                 </Button>
                 <Button href="/website-offer-800" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
@@ -200,7 +200,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
             {[
               { label: "Compare Website Pricing", href: "/pricing" },
               { label: "View Website Work", href: "/work" },
-              { label: `Start a ${location.city} Project`, href: "/contact#form" }
+              { label: `Start a ${location.city} Project`, href: "#form" }
             ].map((link) => (
               <Link
                 key={link.href}
@@ -359,26 +359,12 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
         </div>
       </section>
 
-      <section id="start" className="relative overflow-hidden py-20 md:py-28" style={{ background: "var(--gradient-dark)" }}>
-        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[160px]" />
-        <div className="site-container relative">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground sm:text-xs">
-              Start the Conversation
-            </span>
-            <h2 className="mx-auto mt-5 max-w-[14ch] font-display text-[2.1rem] font-bold leading-[1.02] tracking-tight text-primary-foreground sm:max-w-none sm:text-5xl sm:leading-[1.02] md:text-6xl">
-              {location.ctaLabel}
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/72">
-              If your business in {location.city} needs a better website, stronger visibility, or clearer marketing, start here.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-2xl">
-            <OfferLeadForm />
-          </div>
-        </div>
-      </section>
+      <ContactCta
+        title={location.ctaLabel}
+        accentText={location.city}
+        body={`If your business in ${location.city} needs a better website, stronger visibility, or clearer marketing, start here.`}
+        links={[{ href: "/website-offer-800", label: "See the $800 Website Offer" }]}
+      />
     </div>
   );
 }

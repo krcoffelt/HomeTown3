@@ -2,7 +2,7 @@ import Link from "next/link";
 import { TrackedAnchor } from "@/components/analytics/tracked-anchor";
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
-import { ContactForm } from "@/components/sections/contact-form";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { FounderNote } from "@/components/sections/founder-note";
 import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
@@ -53,24 +53,9 @@ export default function ContactPage() {
       </section>
 
       <SectionShell>
-        <div className="grid gap-12 lg:grid-cols-5">
-          <div className="lg:col-span-3">
-            <ContactForm />
-          </div>
-          <div className="space-y-6 lg:col-span-2">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="space-y-6">
             <FounderNote />
-            <Link href="/about" className="light-panel block p-5 transition hover:-translate-y-0.5 hover:shadow-elevated">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">About Hometown</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Learn more about who you&apos;ll be working with and how Hometown approaches websites and marketing.
-              </p>
-            </Link>
-            <Link href="/locations" className="light-panel block p-5 transition hover:-translate-y-0.5 hover:shadow-elevated">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Service Areas</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Explore local pages for Kansas City, Johnson County, Jackson County, and nearby metro businesses.
-              </p>
-            </Link>
             <div className="grid gap-4">
               {infoCards.map((card) => {
                 const Icon = card.icon;
@@ -105,8 +90,38 @@ export default function ContactPage() {
               })}
             </div>
           </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-1">
+            <Link href="/about" className="light-panel block p-7 transition hover:-translate-y-0.5 hover:shadow-elevated">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">About Hometown</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Learn more about who you&apos;ll be working with and how Hometown approaches websites and marketing.
+              </p>
+            </Link>
+            <Link href="/locations" className="light-panel block p-7 transition hover:-translate-y-0.5 hover:shadow-elevated">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Service Areas</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Explore local pages for Kansas City, Johnson County, Jackson County, and nearby metro businesses.
+              </p>
+            </Link>
+            <Link href="#form" className="dark-panel block p-7 transition hover:-translate-y-0.5 hover:shadow-elevated">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">Project Details</p>
+              <p className="mt-3 text-sm leading-relaxed text-primary-foreground/72">
+                Ready to send the basics? The form is right below this contact information.
+              </p>
+            </Link>
+          </div>
         </div>
       </SectionShell>
+
+      <ContactCta
+        title="Send the details when you're ready."
+        accentText="when you're ready."
+        body="Use this form for website, SEO, ads, or general marketing questions. We'll reply with the cleanest next step."
+        links={[
+          { href: "/services", label: "View Services" },
+          { href: "/locations", label: "Service Areas" }
+        ]}
+      />
     </PageTransition>
   );
 }

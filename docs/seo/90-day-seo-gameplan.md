@@ -39,7 +39,7 @@ Primary goal: generate website design and website redesign leads in Kansas City 
   - `/industries/home-services-website-design-kansas-city`
   - `/website-builder-vs-custom-website-for-small-businesses`
 - Add GBP posts tied to each new page.
-- Add one internal link from each new page back to `/services/website-design` and `/contact#form`.
+- Add one internal link from each new action page back to `/services/website-design` and the local embedded form anchor (`#form`) when the page includes a form.
 
 ## Week 9-12: Authority and Proof
 

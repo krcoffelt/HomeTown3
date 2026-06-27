@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
 import { StructuredData } from "@/components/seo/structured-data";
@@ -75,6 +76,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     { label: "Google Ads management", href: "/services/google-ads-management" },
     { label: "View our work", href: "/work" }
   ];
+  const ctaLinks = service.slug === "website-design"
+    ? [{ href: "/website-offer-800#claim-form", label: "See the $800 Website Offer" }]
+    : [{ href: "/services", label: "View All Services" }];
 
   return (
     <PageTransition>
@@ -133,7 +137,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
             </div>
 
-            <Button href="/contact#form" className="mt-6 w-full">
+            <Button href="#form" className="mt-6 w-full">
               Ask About {service.title}
             </Button>
           </aside>
@@ -333,24 +337,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0">
-        <div className="light-panel flex flex-col items-start justify-between gap-5 p-7 md:flex-row md:items-center md:p-10">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Next Step</p>
-            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              If this service looks like the right fit, send a message and we&apos;ll map out the best next move for your business.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Button href="/contact#form">Start the Conversation</Button>
-            {service.slug === "website-design" ? (
-              <Button href="/website-offer-800#claim-form" variant="secondary">
-                See the $800 Website Offer
-              </Button>
-            ) : null}
-          </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title={`Ready to talk through ${service.title.toLowerCase()}?`}
+        accentText={service.title.toLowerCase()}
+        body="Send a few details about the business, the current site, and what needs to improve. We'll map the best next move before you spend money."
+        links={ctaLinks}
+      />
     </PageTransition>
   );
 }

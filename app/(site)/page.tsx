@@ -40,7 +40,7 @@ export default function HomePage() {
       <FeaturedWork />
       <TestimonialsSection />
       <PricingPreview />
-      <FAQSection page="home" />
+      <FAQSection page="home" ctaHref="#form" />
       <ContactCta />
     </PageTransition>
   );

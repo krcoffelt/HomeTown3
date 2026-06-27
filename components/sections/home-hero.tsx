@@ -76,7 +76,7 @@ export function HomeHero() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="mt-10 flex flex-wrap gap-4"
           >
-            <Button href="/contact#form" className="h-14 px-8">Get Your Free Quote</Button>
+            <Button href="#form" className="h-14 px-8">Get Your Free Quote</Button>
             <Button href="/work" variant="secondary" className="h-14 px-8 border-primary-foreground/20 bg-transparent text-primary-foreground hover:border-primary-foreground hover:bg-primary-foreground/8">
               See Our Work
             </Button>

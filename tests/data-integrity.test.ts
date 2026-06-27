@@ -119,6 +119,11 @@ describe("configured internal links", () => {
     ];
 
     for (const href of configuredLinks) {
+      if (href.startsWith("#")) {
+        expect(href, `${href} should be a valid same-page anchor`).toMatch(/^#[A-Za-z][A-Za-z0-9_-]*$/);
+        continue;
+      }
+
       expect(knownInternalRoutes.has(stripHash(href)), `${href} should be a known route`).toBe(true);
     }
   });

@@ -89,11 +89,12 @@ Run this checklist after any major SEO, metadata, tracking, or form changes:
 
 ### Lead capture + tracking
 
-- Submit a test lead through `/contact` and confirm:
+- Submit a test lead through one representative embedded general form on an action page, such as `/services/website-design`, and confirm:
   - Supabase insert succeeds
   - email notification is sent
   - GTM / GA4 events fire for `form_start`, `form_submit`, and success
-- Submit a test lead through `/website-offer-800` and confirm the same.
+- Submit a test lead through the minimal `/contact` page form and confirm the same.
+- Submit a test lead through `/website-offer-800` and confirm the offer form path separately.
 - Trigger an invalid form submit and confirm `form_error` is available in GTM preview.
 - Click a live work example and confirm `outbound_website_click` is available in GTM preview.
 

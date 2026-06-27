@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SectionShell } from "@/components/layout/section-shell";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
@@ -293,29 +294,12 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="page-section-cta noise bg-black text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">
-            Need a contractor website built around quote requests?
-          </p>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/70">
-            Hometown builds website pages that help contractors show proof, explain services, and give homeowners a clear path to start a
-            project conversation.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/contact#form" className="h-14 px-8">
-              Start a Website Project
-            </Button>
-            <Button
-              href="/industries/construction-website-design-kansas-city"
-              variant="secondary"
-              className="h-14 px-8 text-primary-foreground hover:text-primary-foreground"
-            >
-              See Contractor Website Strategy
-            </Button>
-          </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title="Need a contractor website built around quote requests?"
+        accentText="quote requests?"
+        body="Hometown builds website pages that help contractors show proof, explain services, and give homeowners a clear path to start a project conversation."
+        links={[{ href: "/industries/construction-website-design-kansas-city", label: "See Contractor Website Strategy" }]}
+      />
     </div>
   );
 }

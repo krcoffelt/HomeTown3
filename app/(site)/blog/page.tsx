@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
-import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "@/components/ui/site-icons";
 import { blogPosts, plannedBlogTopics } from "@/data/blog";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -238,24 +238,12 @@ export default function BlogPage() {
         </div>
       </SectionShell>
 
-      <section className="bg-black py-20 text-primary-foreground">
-        <div className="site-container text-center">
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight md:text-5xl">
-            Need the website before the reading list?
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/70">
-            Start with a custom Kansas City small-business website, then use the blog to make better next-step marketing decisions.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/services/website-design" className="h-14 px-8">
-              Website Design Service
-            </Button>
-            <Button href="/contact#form" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-              Ask About a Website
-            </Button>
-          </div>
-        </div>
-      </section>
+      <ContactCta
+        title="Need the website before the reading list?"
+        accentText="before the reading list?"
+        body="Start with a custom Kansas City small-business website, then use the blog to make better next-step marketing decisions."
+        links={[{ href: "/services/website-design", label: "Website Design Service" }]}
+      />
     </div>
   );
 }

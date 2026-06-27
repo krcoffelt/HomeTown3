@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { WorkGrid } from "@/components/sections/work-grid";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { PageTransition } from "@/components/ui/page-transition";
@@ -89,7 +90,7 @@ export default function WorkPage() {
             </MagneticButton>
             <MagneticButton>
               <Link
-                href="/contact#form"
+                href="#form"
                 className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
               >
                 Start Your Project
@@ -117,6 +118,13 @@ export default function WorkPage() {
           </div>
         </div>
       </SectionShell>
+
+      <ContactCta
+        title="Want your website to feel this intentional?"
+        accentText="this intentional?"
+        body="Send a few details about your business, what the current site is missing, and what would make the next version a win."
+        links={[{ href: "/services/website-design", label: "Website Design Service" }]}
+      />
     </PageTransition>
   );
 }

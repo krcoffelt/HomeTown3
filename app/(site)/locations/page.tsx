@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { PageTransition } from "@/components/ui/page-transition";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
@@ -70,12 +71,19 @@ export default function LocationsHubPage() {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <Button href="/contact#form" className="px-8">
+            <Button href="#form" className="px-8">
               Talk About Your Business
             </Button>
           </div>
         </div>
       </section>
+
+      <ContactCta
+        title="Want local customers to find you first?"
+        accentText="find you first?"
+        body="Tell us where your business serves customers and what kind of leads you want more of. We'll help shape the right local website path."
+        links={[{ href: "/services/website-design", label: "Website Design Service" }]}
+      />
     </PageTransition>
   );
 }

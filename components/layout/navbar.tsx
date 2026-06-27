@@ -24,11 +24,37 @@ function isActivePath(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
+function hasEmbeddedContactForm(pathname: string) {
+  const staticPaths = new Set([
+    "/",
+    "/about",
+    "/blog",
+    "/contact",
+    "/deck-contractor-website-design-kansas-city",
+    "/locations",
+    "/ministry-website-design-project-salvation",
+    "/pricing",
+    "/services",
+    "/website-builder-vs-custom-website-for-small-businesses",
+    "/website-design-cost-kansas-city",
+    "/what-should-a-contractor-website-include",
+    "/work"
+  ]);
+
+  return (
+    staticPaths.has(pathname) ||
+    pathname.startsWith("/services/") ||
+    pathname.startsWith("/locations/") ||
+    pathname.startsWith("/industries/")
+  );
+}
+
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const isOfferPage = pathname === "/website-offer-800";
+  const quoteHref = hasEmbeddedContactForm(pathname) ? "#form" : "/contact#form";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -146,7 +172,7 @@ export function Navbar() {
               scrolled ? "pointer-events-none translate-x-3 opacity-0" : "translate-x-0 opacity-100"
             )}
           >
-            <Button href="/contact#form" className="h-12 px-7 text-base">
+            <Button href={quoteHref} className="h-12 px-7 text-base">
               Get a Free Quote
             </Button>
           </div>
@@ -209,7 +235,7 @@ export function Navbar() {
                   );
                 })}
               </nav>
-              <Button href="/contact#form" className="mt-4 w-full">
+              <Button href={quoteHref} className="mt-4 w-full">
                 Get a Free Quote
               </Button>
             </motion.div>

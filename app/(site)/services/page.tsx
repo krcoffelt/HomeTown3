@@ -1,10 +1,10 @@
 import Link from "next/link";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
 import { PageTransition } from "@/components/ui/page-transition";
 import { Reveal } from "@/components/ui/reveal";
 import { ArrowRightIcon, CheckCircleIcon, GlobeIcon, TargetIcon, TrendingUpIcon, ZapIcon } from "@/components/ui/site-icons";
-import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { StructuredData } from "@/components/seo/structured-data";
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                 { label: "Restaurant Websites", href: "/industries/restaurant-website-design-kansas-city" },
                 { label: "Contractor Websites", href: "/industries/construction-website-design-kansas-city" },
                 { label: "View Website Work", href: "/work" },
-                { label: "Contact Hometown", href: "/contact#form" }
+                { label: "Contact Hometown", href: "#form" }
               ].map((link) => (
                 <Link
                   key={link.href}
@@ -133,22 +133,15 @@ export default function ServicesPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">Not sure what you need? That&apos;s totally fine.</p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button href="/contact#form" className="h-14 px-8">
-            Let&apos;s Talk
-          </Button>
-          <Button href="/locations" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-            Browse Service Areas
-          </Button>
-          <Button href="/about" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-            Meet Hometown
-          </Button>
-        </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title="Not sure what you need? That's totally fine."
+        accentText="totally fine."
+        body="Tell us where the business is stuck. We'll help you decide whether the next move is a better website, clearer SEO, stronger ads, or something simpler."
+        links={[
+          { href: "/locations", label: "Browse Service Areas" },
+          { href: "/about", label: "Meet Hometown" }
+        ]}
+      />
     </PageTransition>
   );
 }

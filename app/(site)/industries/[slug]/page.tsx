@@ -2,10 +2,10 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
 import { StructuredData } from "@/components/seo/structured-data";
-import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { getIndustryBySlug, industries } from "@/data/industries";
 import { getProjectBySlug } from "@/data/projects";
@@ -207,22 +207,12 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         </SectionShell>
       ) : null}
 
-      <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">Ready to turn local searches into project conversations?</p>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/72">
-            Start with a website that shows your work clearly and gives customers a direct path to reach out.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/contact#form" className="h-14 px-8">
-              Start a Website Project
-            </Button>
-            <Button href="/services/website-design" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-              Website Design Service
-            </Button>
-          </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title="Ready to turn local searches into project conversations?"
+        accentText="project conversations?"
+        body="Start with a website that shows your work clearly and gives customers a direct path to reach out."
+        links={[{ href: "/services/website-design", label: "Website Design Service" }]}
+      />
     </div>
   );
 }

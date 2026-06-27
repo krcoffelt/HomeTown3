@@ -57,7 +57,7 @@ export function PricingSection({ className, showIntro = true }: PricingSectionPr
                 <ArrowRightIcon className="h-4 w-4" />
               </Button>
               <Button
-                href="/contact#form"
+                href="#form"
                 variant="secondary"
                 className="h-12 w-full border-primary-foreground/18 px-7 text-primary-foreground hover:border-primary-foreground hover:text-primary-foreground sm:w-auto"
               >
@@ -134,7 +134,7 @@ export function PricingSection({ className, showIntro = true }: PricingSectionPr
         </div>
 
         <div className="mt-8 flex justify-center">
-          <Button href="/contact#form" className="h-12 px-7 md:hidden">
+          <Button href="#form" className="h-12 px-7 md:hidden">
             Get a Quote
             <ArrowRightIcon className="h-4 w-4" />
           </Button>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
@@ -120,7 +121,7 @@ export default function ContractorWebsiteChecklistPage() {
               A contractor website should prove the work, explain the services, build local trust, and make it easy for a qualified customer to request a quote.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button href="/contact#form" className="h-14 px-8">
+              <Button href="#form" className="h-14 px-8">
                 Get a Website Quote
               </Button>
               <Button href="/industries/construction-website-design-kansas-city" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
@@ -279,22 +280,12 @@ export default function ContractorWebsiteChecklistPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">Need a contractor website built around quote requests?</p>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/72">
-            Hometown builds custom websites for Kansas City contractors and small businesses starting at $800.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/contact#form" className="h-14 px-8">
-              Get a Website Quote
-            </Button>
-            <Button href="/services/website-design" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-              Website Design Service
-            </Button>
-          </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title="Need a contractor website built around quote requests?"
+        accentText="quote requests?"
+        body="Hometown builds custom websites for Kansas City contractors and small businesses starting at $800."
+        links={[{ href: "/services/website-design", label: "Website Design Service" }]}
+      />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
@@ -246,24 +247,12 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="page-section-cta noise bg-black text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">
-            Need a website for a ministry, event, or mission-driven organization?
-          </p>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/70">
-            Hometown builds clear, conversion-focused websites for organizations that need people to understand the mission and take action.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/services/website-design" className="h-14 px-8">
-              Website Design Service
-            </Button>
-            <Button href="/contact#form" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-              Start a Project
-            </Button>
-          </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title="Need a website for a ministry, event, or mission-driven organization?"
+        accentText="mission-driven organization?"
+        body="Hometown builds clear, conversion-focused websites for organizations that need people to understand the mission and take action."
+        links={[{ href: "/services/website-design", label: "Website Design Service" }]}
+      />
     </div>
   );
 }

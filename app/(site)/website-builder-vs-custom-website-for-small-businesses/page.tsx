@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
-import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
@@ -161,22 +161,12 @@ export default function WebsiteBuilderComparisonPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">Ready to move past the DIY site?</p>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/72">
-            Hometown builds custom websites for Kansas City small businesses starting at $800.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/contact#form" className="h-14 px-8">
-              Ask About a Website
-            </Button>
-            <Button href="/work" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-              See Website Work
-            </Button>
-          </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title="Ready to move past the DIY site?"
+        accentText="DIY site?"
+        body="Hometown builds custom websites for Kansas City small businesses starting at $800."
+        links={[{ href: "/work", label: "See Website Work" }]}
+      />
     </div>
   );
 }

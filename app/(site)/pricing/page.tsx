@@ -1,4 +1,5 @@
 import { FAQSection } from "@/components/sections/faq-section";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { PageHero } from "@/components/layout/page-hero";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { StructuredData } from "@/components/seo/structured-data";
@@ -41,7 +42,13 @@ export default function PricingPage() {
 
       <PricingSection showIntro={false} />
 
-      <FAQSection page="pricing" />
+      <FAQSection page="pricing" ctaHref="#form" />
+      <ContactCta
+        title="Want a clear recommendation before you spend?"
+        accentText="before you spend?"
+        body="Tell us what you are trying to build, what is working now, and where the budget needs to land. We'll help you choose the cleanest next step."
+        links={[{ href: "/services", label: "View Services" }]}
+      />
     </PageTransition>
   );
 }

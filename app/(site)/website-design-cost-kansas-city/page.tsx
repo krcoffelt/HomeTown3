@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/ui/page-transition";
@@ -174,7 +175,7 @@ export default function WebsiteDesignCostPage() {
               Hometown custom websites start at $800. The final price depends on scope, content, integrations, and how much strategy the website needs to turn visitors into leads.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button href="/contact#form" className="h-14 px-8">
+              <Button href="#form" className="h-14 px-8">
                 Get a Website Quote
               </Button>
               <Button href="/services/website-design" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
@@ -384,22 +385,12 @@ export default function WebsiteDesignCostPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">Want a real number for your website?</p>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/72">
-            Send the basics about your business, current site, and what needs to change. We will map the cleanest scope before you spend money.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/contact#form" className="h-14 px-8">
-              Get a Website Quote
-            </Button>
-            <Button href="/services/website-design" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-              Website Design Kansas City Service
-            </Button>
-          </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title="Want a real number for your website?"
+        accentText="real number"
+        body="Send the basics about your business, current site, and what needs to change. We will map the cleanest scope before you spend money."
+        links={[{ href: "/services/website-design", label: "Website Design Kansas City Service" }]}
+      />
     </PageTransition>
   );
 }

@@ -274,7 +274,7 @@ export const services: ServiceItem[] = [
     relatedLinks: [
       { label: "Website design Kansas City", href: "/services/website-design" },
       { label: "Website design cost", href: "/website-design-cost-kansas-city" },
-      { label: "Start a redesign", href: "/contact#form" }
+      { label: "Start a redesign", href: "#form" }
     ],
     updatedAt: "2026-05-22"
   },

@@ -1,8 +1,8 @@
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
+import { ContactCta } from "@/components/sections/contact-cta";
 import { FounderNote } from "@/components/sections/founder-note";
 import { StructuredData } from "@/components/seo/structured-data";
-import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/ui/page-transition";
 import { CheckCircleIcon } from "@/components/ui/site-icons";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -154,22 +154,12 @@ export default function AboutPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0">
-        <div className="light-panel flex flex-col items-start justify-between gap-6 p-7 md:flex-row md:items-center md:p-10">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Let&apos;s build something that works</p>
-            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              If you are a local business looking for a better website, better marketing, and a partner who actually cares about results, Hometown Marketing Agency is here to help.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Button href="/services">View Services</Button>
-            <Button href="/contact#form" variant="secondary">
-              Contact Hometown
-            </Button>
-          </div>
-        </div>
-      </SectionShell>
+      <ContactCta
+        title="Let's build something that works."
+        accentText="works."
+        body="If you are a local business looking for a better website, better marketing, and a partner who cares about results, send the basics here."
+        links={[{ href: "/services", label: "View Services" }]}
+      />
     </PageTransition>
   );
 }

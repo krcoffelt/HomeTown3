@@ -144,7 +144,7 @@ export default function WebsiteOfferLandingPage() {
 
               <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-start">
                 <Button
-                  href="#start"
+                  href="#claim-form"
                   className="h-14 px-8 text-base shadow-[var(--shadow-elevated)]"
                   dataAnalytics="cta-offer-800"
                 >
@@ -350,7 +350,7 @@ export default function WebsiteOfferLandingPage() {
                     No contracts. No hidden fees.
                   </div>
                   <Button
-                    href="#start"
+                    href="#claim-form"
                     className="h-12 rounded-full px-8"
                     dataAnalytics="cta-offer-800-package"
                   >
@@ -445,7 +445,7 @@ export default function WebsiteOfferLandingPage() {
               Ready to start? Step one is just a conversation.
             </p>
             <Button
-              href="#start"
+              href="#claim-form"
               className="h-12 rounded-full px-7"
               dataAnalytics="cta-offer-800-process"
             >
@@ -485,7 +485,7 @@ export default function WebsiteOfferLandingPage() {
         </div>
       </section>
 
-      <section id="start" className="relative overflow-hidden py-20 md:py-32" style={{ background: "var(--gradient-dark)" }}>
+      <section id="claim-form" className="relative overflow-hidden py-20 md:py-32" style={{ background: "var(--gradient-dark)" }}>
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[160px]" />
 
         <div className="site-container relative">
