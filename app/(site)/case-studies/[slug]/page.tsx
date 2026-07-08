@@ -21,6 +21,7 @@ const relatedPageLinks: Record<string, Array<{ label: string; href: string; desc
   "plate-kc": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
     { label: "Website design Leawood KS", href: "/locations/leawood-ks", description: "Local website design and brand identity for Leawood businesses." },
+    { label: "Restaurant website design Kansas City", href: "/industries/restaurant-website-design-kansas-city", description: "Restaurant website strategy built around menus, reservations, and local proof." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ],
   "lupi-docs": [
@@ -37,6 +38,7 @@ const relatedPageLinks: Record<string, Array<{ label: string; href: string; desc
     { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
     { label: "Contractor website design Kansas City", href: "/industries/construction-website-design-kansas-city", description: "Website design for contractors and construction companies." },
     { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city", description: "Website design for local service businesses that need quote requests." },
+    { label: "Contractor website checklist", href: "/what-should-a-contractor-website-include", description: "A practical guide to project proof, service pages, and estimate-request flow." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ],
   "project-salvation": [

@@ -77,6 +77,18 @@ export function ServicesPreview() {
         >
           Website Design Pricing Kansas City
         </Link>
+        <Link
+          href="/industries/restaurant-website-design-kansas-city"
+          className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+        >
+          Restaurant Website Design
+        </Link>
+        <Link
+          href="/locations/leawood-ks"
+          className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+        >
+          Leawood Website Design
+        </Link>
       </div>
     </SectionShell>
   );

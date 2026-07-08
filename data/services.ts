@@ -12,7 +12,7 @@ export const services: ServiceItem[] = [
     description:
       "Custom website design for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to calls, quote requests, and new customers. Built for owners searching for a practical Kansas City website designer, not a bloated agency process.",
     seoDescription:
-      "Website design in Kansas City for small businesses. Custom websites from $800 with mobile-first design, basic SEO setup, analytics, and a lead-focused build.",
+      "Website design and web design in Kansas City for small businesses. Custom websites from $800 with mobile-first design, basic SEO setup, analytics, and lead-focused build strategy.",
     features: [
       "Custom design with no templates",
       "Mobile-optimized and blazing fast",
@@ -45,7 +45,7 @@ export const services: ServiceItem[] = [
         eyebrow: "Why Hometown",
         title: "Built around the way Kansas City small businesses actually get chosen.",
         body:
-          "Most local customers are comparing credibility before they ever call. The page structure, copy, mobile layout, and contact flow are built to help your business look established and make the next step obvious.",
+          "Most local customers are comparing credibility before they ever call. The page structure, copy, mobile layout, and contact flow are built to help your business look established when someone searches for a Kansas City website designer or web design company.",
         items: ["No long contracts", "Typical 7-business-day turnaround", "Direct communication", "Local service-area strategy"]
       },
       {
@@ -59,8 +59,8 @@ export const services: ServiceItem[] = [
         eyebrow: "Kansas City Website Design",
         title: "Structured for local searches and real customer decisions.",
         body:
-          "The page structure supports the terms Kansas City customers actually use, including website design Kansas City, web design Kansas City, Kansas City website designer, and small business website design Kansas City. The copy still stays natural, but the site gives Google and visitors a clearer understanding of what you do and where you work.",
-        items: ["Service pages with clear intent", "Kansas City and suburb relevance", "Mobile-first quote paths", "Internal links to proof and pricing"]
+          "The page structure supports the terms Kansas City customers actually use, including website design Kansas City, web design Kansas City, Kansas City website designer, website design company Kansas City, and website design agency Kansas City. The copy still stays natural, but the site gives Google and visitors a clearer understanding of what you do and where you work.",
+        items: ["Service pages with clear intent", "Kansas City and suburb relevance", "Web design company and website designer signals", "Internal links to proof and pricing"]
       },
       {
         eyebrow: "Proof and Conversion",
@@ -107,24 +107,26 @@ export const services: ServiceItem[] = [
       { label: "Website redesign services", href: "/services/website-redesign" },
       { label: "Construction website design", href: "/industries/construction-website-design-kansas-city" },
       { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city" },
+      { label: "Restaurant website design Kansas City", href: "/industries/restaurant-website-design-kansas-city" },
+      { label: "Leawood website design", href: "/locations/leawood-ks" },
       { label: "Contractor website checklist", href: "/what-should-a-contractor-website-include" },
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-06-22"
+    updatedAt: "2026-07-08"
   },
   {
     title: "Small Business Websites",
     slug: "small-business-websites",
     price: "From $800",
-    seoTitle: "Small Business Website Design Kansas City",
+    seoTitle: "Small Business Website Design Kansas City | Local Business Websites",
     heroTitle: "Small business website design for Kansas City owners who need a site that works",
     heroBadge: "Small Business Website Design",
-    shortDescription: "Custom websites for small businesses that have outgrown DIY builders.",
+    shortDescription: "Custom, affordable websites for local businesses that have outgrown DIY builders.",
     description:
-      "Small business website design for Kansas City companies that need a credible custom site, clearer messaging, and a direct path to calls or quote requests. Built for searches like small business website design Kansas City, small business websites Kansas City, custom websites for small business, and local business website design Kansas City.",
+      "Small business website design for Kansas City companies that need a credible custom site, clearer messaging, and a direct path to calls or quote requests. Built for searches like small business website design Kansas City, local business website design Kansas City, affordable web design Kansas City, small business websites Kansas City, and custom websites for small business.",
     seoDescription:
-      "Small business website design in Kansas City. Custom affordable websites from $800 for owners who have outgrown DIY builders and need better lead flow.",
+      "Small business and local business website design in Kansas City. Custom affordable websites from $800 for owners who have outgrown DIY builders and need better lead flow.",
     features: [
       "Custom website structure for your services",
       "Mobile-first design and page speed basics",
@@ -156,7 +158,7 @@ export const services: ServiceItem[] = [
         eyebrow: "Why It Works",
         title: "Small businesses need clarity before complexity.",
         body:
-          "The site should answer what you do, where you work, why customers should trust you, and how to get started. That comes before ads, social, or a bigger marketing system.",
+          "The site should answer what you do, where you work, why customers should trust you, and how to get started. That matters for owners comparing affordable website design, local business website design, and small-business website options.",
         items: ["Clear service pages", "Local trust signals", "Fast mobile experience", "Simple contact flow"]
       },
       {
@@ -170,8 +172,8 @@ export const services: ServiceItem[] = [
         eyebrow: "Keyword Fit",
         title: "Built around small-business website searches that are already showing movement.",
         body:
-          "The page supports terms like small business website design Kansas City, small business websites Kansas City, custom websites for small business, and local business website design Kansas City while keeping the copy useful for owners comparing options.",
-        items: ["Custom websites for small business", "Affordable starting point", "Local proof and work examples", "Links to website cost and redesign planning"]
+          "The page supports terms like small business website design Kansas City, small business websites Kansas City, affordable web design Kansas City, custom websites for small business, and local business website design Kansas City while keeping the copy useful for owners comparing options.",
+        items: ["Custom websites for small business", "Affordable starting point", "Local business website design signals", "Links to website cost and redesign planning"]
       },
       {
         eyebrow: "Local Business Website Design",
@@ -202,10 +204,11 @@ export const services: ServiceItem[] = [
       { label: "Website design Kansas City", href: "/services/website-design" },
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "Website redesign services", href: "/services/website-redesign" },
+      { label: "Home-service website design", href: "/industries/home-services-website-design-kansas-city" },
       { label: "Website builder comparison", href: "/website-builder-vs-custom-website-for-small-businesses" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-06-22"
+    updatedAt: "2026-07-08"
   },
   {
     title: "Website Redesign",
@@ -218,7 +221,7 @@ export const services: ServiceItem[] = [
     description:
       "Website redesign services for Kansas City small businesses with outdated sites, confusing messaging, slow pages, or weak lead flow.",
     seoDescription:
-      "Website redesign in Kansas City for small businesses that need better messaging, mobile design, SEO structure, and clearer quote paths.",
+      "Website redesign services in Kansas City for small businesses that need better messaging, mobile design, SEO structure, and clearer quote paths.",
     features: [
       "Existing site audit and priority map",
       "Updated mobile-first page structure",
@@ -252,6 +255,13 @@ export const services: ServiceItem[] = [
         body:
           "Many small businesses already have a website, but it does not clearly explain services, show proof, load well on phones, or make contact easy. The redesign focuses on the parts that influence trust and lead flow.",
         items: ["Outdated visuals", "Weak mobile experience", "Unclear services", "Low quote or contact activity"]
+      },
+      {
+        eyebrow: "Redesign SEO",
+        title: "Website redesign should protect trust, search clarity, and conversion paths.",
+        body:
+          "For searches like website redesign Kansas City, web redesign Kansas City, outdated website redesign, and business website redesign, the page needs to show that the work is more than a visual refresh. The goal is a clearer site that search engines can understand and customers can act on.",
+        items: ["Cleaner headings and service structure", "Better mobile contact paths", "Internal links to pricing and proof", "Launch checks for analytics and indexing"]
       }
     ],
     faqItems: [
@@ -273,10 +283,12 @@ export const services: ServiceItem[] = [
     ],
     relatedLinks: [
       { label: "Website design Kansas City", href: "/services/website-design" },
+      { label: "Small business websites", href: "/services/small-business-websites" },
       { label: "Website design cost", href: "/website-design-cost-kansas-city" },
+      { label: "View redesign-ready work", href: "/work" },
       { label: "Start a redesign", href: "#form" }
     ],
-    updatedAt: "2026-05-22"
+    updatedAt: "2026-07-08"
   },
   {
     title: "Paid Ads Management",

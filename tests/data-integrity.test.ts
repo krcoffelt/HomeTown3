@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { blogPosts, plannedBlogTopics } from "@/data/blog";
 import { industries } from "@/data/industries";
 import { locations } from "@/data/locations";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
+import { site } from "@/data/site";
 import { coreRouteSeoEntries } from "@/lib/seo/routes";
 
 function expectUnique(values: string[], label: string) {
@@ -13,6 +16,26 @@ function expectUnique(values: string[], label: string) {
 
 function stripHash(path: string) {
   return path.split("#")[0] ?? path;
+}
+
+function parseKeywordMonitoringRows() {
+  const csv = readFileSync(join(process.cwd(), "docs/seo/keyword-monitoring.csv"), "utf8").trim();
+  const [header, ...lines] = csv.split(/\r?\n/);
+
+  return {
+    header,
+    rows: lines.map((line, index) => {
+      const columns = line.split(",");
+
+      if (columns.length !== 5) {
+        throw new Error(`keyword-monitoring.csv row ${index + 2} should have 5 columns`);
+      }
+
+      const [cluster, keyword, location, priority, targetUrl] = columns;
+
+      return { cluster, keyword, location, priority, targetUrl };
+    })
+  };
 }
 
 const serviceRoutes = services.map((service) => `/services/${service.slug}`);
@@ -32,6 +55,7 @@ const knownInternalRoutes = new Set([
 ]);
 const projectSlugs = new Set(projects.map((project) => project.slug));
 const serviceSlugs = new Set(services.map((service) => service.slug));
+const keywordMonitoring = parseKeywordMonitoringRows();
 
 describe("content slugs", () => {
   it("keeps service, location, blog, industry, and project slugs unique", () => {
@@ -149,6 +173,29 @@ describe("configured internal links", () => {
         expect(projectSlugs.has(slug), `${industry.slug} proof project ${slug}`).toBe(true);
       }
     }
+  });
+});
+
+describe("keyword monitoring targets", () => {
+  it("points every tracked keyword to a known Hometown route", () => {
+    expect(keywordMonitoring.header).toBe("cluster,keyword,location,priority,target_url");
+    expect(keywordMonitoring.rows.length).toBeGreaterThan(100);
+
+    for (const row of keywordMonitoring.rows) {
+      expect(row.cluster, `${row.keyword} cluster`).toBeTruthy();
+      expect(row.keyword, `${row.keyword} keyword`).toBeTruthy();
+      expect(row.location, `${row.keyword} location`).toBeTruthy();
+      expect(row.priority, `${row.keyword} priority`).toMatch(/^[1-4]$/);
+
+      const url = new URL(row.targetUrl);
+      expect(url.origin, `${row.keyword} target origin`).toBe(site.url);
+      expect(knownInternalRoutes.has(stripHash(url.pathname)), `${row.keyword} target route`).toBe(true);
+    }
+  });
+
+  it("keeps one target URL per tracked keyword phrase", () => {
+    const normalizedKeywords = keywordMonitoring.rows.map((row) => row.keyword.trim().toLowerCase());
+    expectUnique(normalizedKeywords, "Keyword monitoring phrases");
   });
 });
 

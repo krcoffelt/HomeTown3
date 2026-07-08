@@ -77,6 +77,8 @@ export default function ServicesPage() {
                 { label: "Website Design Cost", href: "/website-design-cost-kansas-city" },
                 { label: "Restaurant Websites", href: "/industries/restaurant-website-design-kansas-city" },
                 { label: "Contractor Websites", href: "/industries/construction-website-design-kansas-city" },
+                { label: "Home-Service Websites", href: "/industries/home-services-website-design-kansas-city" },
+                { label: "Leawood Website Design", href: "/locations/leawood-ks" },
                 { label: "View Website Work", href: "/work" },
                 { label: "Contact Hometown", href: "#form" }
               ].map((link) => (

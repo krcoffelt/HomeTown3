@@ -55,6 +55,11 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             label: "What should a contractor website include?",
             href: "/what-should-a-contractor-website-include",
             description: "A practical checklist for project proof, service pages, quote flow, and local SEO structure."
+          },
+          {
+            label: "DecksRXKC website breakdown",
+            href: "/deck-contractor-website-design-kansas-city",
+            description: "A deck contractor website example built around project photos and quote-request paths."
           }
         ]
       : []),
@@ -64,6 +69,11 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             label: "Plate KC website case study",
             href: "/case-studies/plate-kc",
             description: "A restaurant website example built around premium presentation and reservation intent."
+          },
+          {
+            label: "Leawood website design",
+            href: "/locations/leawood-ks",
+            description: "Local website design proof and positioning for Leawood businesses."
           },
           {
             label: "View website work",

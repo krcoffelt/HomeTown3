@@ -262,34 +262,56 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {relatedProjects.map((project) => (
-              <a
-                key={project.slug}
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
-                  <Image
-                    src={project.featuredImageUrl}
-                    alt={project.imageAlt}
-                    fill
-                    sizes="(max-width: 768px) 92vw, 31vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
-                  <h3 className="mt-3 text-xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
-                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
-                    View live site
-                    <ArrowRightIcon className="h-4 w-4" />
+            {relatedProjects.map((project) => {
+              const hasCaseStudy = Boolean(project.problem && project.solution && project.result);
+              const projectHref = hasCaseStudy ? `/case-studies/${project.slug}` : project.liveUrl ?? "/work";
+              const projectCard = (
+                <>
+                  <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+                    <Image
+                      src={project.featuredImageUrl}
+                      alt={project.imageAlt}
+                      fill
+                      sizes="(max-width: 768px) 92vw, 31vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
                   </div>
-                </div>
-              </a>
-            ))}
+                  <div className="p-6">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
+                    <h3 className="mt-3 text-xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+                    <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
+                      {hasCaseStudy ? "Read case study" : "View live site"}
+                      <ArrowRightIcon className="h-4 w-4" />
+                    </div>
+                  </div>
+                </>
+              );
+
+              if (hasCaseStudy) {
+                return (
+                  <Link
+                    key={project.slug}
+                    href={projectHref}
+                    className="group overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+                  >
+                    {projectCard}
+                  </Link>
+                );
+              }
+
+              return (
+                <a
+                  key={project.slug}
+                  href={projectHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+                >
+                  {projectCard}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

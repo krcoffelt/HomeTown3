@@ -115,6 +115,24 @@ export default function WorkPage() {
                 <ArrowRightIcon className="h-4 w-4" />
               </Link>
             </MagneticButton>
+            <MagneticButton>
+              <Link
+                href="/industries/home-services-website-design-kansas-city"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+              >
+                Home-Service Website Design
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link
+                href="/locations/leawood-ks"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
+              >
+                Leawood Website Design
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </MagneticButton>
           </div>
         </div>
       </SectionShell>
