@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { ProjectCard } from "@/components/ui/project-card";
 import { projects } from "@/data/projects";
@@ -25,31 +24,17 @@ export function WorkGrid() {
               key={filter}
               type="button"
               onClick={() => setActiveFilter(filter)}
-              className={`relative rounded-full px-5 py-2.5 text-sm font-bold transition ${active ? "text-accent-foreground" : "bg-secondary text-secondary-foreground"}`}
+              aria-pressed={active}
+              className={`rounded-full px-5 py-2.5 text-sm font-bold transition ${active ? "bg-accent text-accent-foreground" : "bg-secondary text-secondary-foreground hover:bg-secondary/70"}`}
             >
-              {active ? (
-                <motion.span
-                  layoutId="filter-active"
-                  className="absolute inset-0 rounded-full bg-accent"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              ) : null}
-              <span className="relative z-10">{filter}</span>
+              {filter}
             </button>
           );
         })}
       </div>
-      <motion.div layout className="grid gap-6 sm:grid-cols-2">
-        <AnimatePresence mode="popLayout">
+      <div className="grid gap-6 sm:grid-cols-2">
           {filteredProjects.map((project) => (
-            <motion.div
-              key={project.slug}
-              layout
-              initial={false}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            >
+            <div key={project.slug}>
               <ProjectCard
                 title={project.clientName}
                 description={project.description}
@@ -60,10 +45,9 @@ export function WorkGrid() {
                 linkExternal={!(project.problem && project.solution && project.result)}
                 linkLabel={project.problem && project.solution && project.result ? "Read Case Study" : "View Project"}
               />
-            </motion.div>
+            </div>
           ))}
-        </AnimatePresence>
-      </motion.div>
+      </div>
     </>
   );
 }

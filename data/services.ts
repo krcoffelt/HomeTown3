@@ -6,13 +6,13 @@ export const services: ServiceItem[] = [
     slug: "website-design",
     price: "From $800",
     seoTitle: "Website Design Kansas City | From $800",
-    heroTitle: "Affordable website design for Kansas City small businesses",
+    heroTitle: "Custom website design for Kansas City businesses ready to grow",
     heroBadge: "Website Design Kansas City",
-    shortDescription: "Kansas City website design for small businesses that need more calls, quote requests, and credibility.",
+    shortDescription: "Custom Kansas City website design built for more calls, quote requests, and credibility.",
     description:
       "Custom website design for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to calls, quote requests, and new customers. Built for owners searching for a practical Kansas City website designer, not a bloated agency process.",
     seoDescription:
-      "Website design and web design in Kansas City for small businesses. Custom websites from $800 with mobile-first design, basic SEO setup, analytics, and lead-focused build strategy.",
+      "Website design in Kansas City for small businesses. Custom sites from $800 with mobile-first design, basic SEO, analytics, and lead-focused strategy.",
     features: [
       "Custom design with no templates",
       "Mobile-optimized and blazing fast",
@@ -113,20 +113,20 @@ export const services: ServiceItem[] = [
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-07-08"
+    updatedAt: "2026-07-09"
   },
   {
     title: "Small Business Websites",
     slug: "small-business-websites",
     price: "From $800",
-    seoTitle: "Small Business Website Design Kansas City | Local Business Websites",
+    seoTitle: "Small Business Website Design Kansas City",
     heroTitle: "Small business website design for Kansas City owners who need a site that works",
     heroBadge: "Small Business Website Design",
     shortDescription: "Custom, affordable websites for local businesses that have outgrown DIY builders.",
     description:
       "Small business website design for Kansas City companies that need a credible custom site, clearer messaging, and a direct path to calls or quote requests. Built for searches like small business website design Kansas City, local business website design Kansas City, affordable web design Kansas City, small business websites Kansas City, and custom websites for small business.",
     seoDescription:
-      "Small business and local business website design in Kansas City. Custom affordable websites from $800 for owners who have outgrown DIY builders and need better lead flow.",
+      "Affordable small-business website design in Kansas City. Custom sites from $800 for owners replacing DIY builders and improving lead flow.",
     features: [
       "Custom website structure for your services",
       "Mobile-first design and page speed basics",
@@ -208,7 +208,7 @@ export const services: ServiceItem[] = [
       { label: "Website builder comparison", href: "/website-builder-vs-custom-website-for-small-businesses" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-07-08"
+    updatedAt: "2026-07-09"
   },
   {
     title: "Website Redesign",

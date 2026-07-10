@@ -5,7 +5,7 @@ import { TestimonialCard } from "@/components/ui/testimonial-card";
 import { testimonials } from "@/data/copy";
 
 export function TestimonialsSection() {
-  const [featured, ...rest] = testimonials;
+  const [featured, ...rest] = testimonials.slice(0, 5);
 
   return (
     <SectionShell className="bg-background">

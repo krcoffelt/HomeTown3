@@ -23,8 +23,8 @@ const iconMap: Record<string, typeof GlobeIcon> = {
 };
 
 export const metadata = createPageMetadata(
-  "Website Design & Marketing Services Kansas City",
-  "Website design, SEO, and paid ads for Kansas City small businesses.",
+  "Website & Marketing Services Kansas City",
+  "Explore custom website design, local SEO, paid ads, branding, and analytics services for Kansas City small businesses that want more qualified leads.",
   "/services"
 );
 
@@ -32,7 +32,8 @@ export default function ServicesPage() {
   const schema = [
     webPageSchema({
       name: "Services",
-      description: "Website design, SEO, and paid ads for Kansas City small businesses.",
+      description:
+        "Custom website design, local SEO, paid ads, branding, and analytics services for Kansas City small businesses.",
       path: "/services"
     }),
     breadcrumbSchema([

@@ -153,6 +153,78 @@ export function webPageSchema({
   };
 }
 
+export function blogPostingSchema({
+  headline,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  image
+}: {
+  headline: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+}) {
+  const url = absoluteUrl(path);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline,
+    description,
+    url,
+    datePublished,
+    dateModified: dateModified ?? datePublished,
+    image: maybe(image ? absoluteUrl(image) : undefined),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`
+    },
+    author: {
+      "@id": organizationId
+    },
+    publisher: {
+      "@id": organizationId
+    }
+  };
+}
+
+export function creativeWorkSchema({
+  name,
+  description,
+  path,
+  image,
+  dateModified,
+  about
+}: {
+  name: string;
+  description: string;
+  path: string;
+  image: string;
+  dateModified?: string;
+  about?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name,
+    description,
+    url: absoluteUrl(path),
+    image: absoluteUrl(image),
+    dateModified: maybe(dateModified),
+    about: maybe(about),
+    creator: {
+      "@id": organizationId
+    },
+    publisher: {
+      "@id": organizationId
+    }
+  };
+}
+
 export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
   return {
     "@context": "https://schema.org",

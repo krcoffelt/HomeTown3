@@ -6,7 +6,7 @@ import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { blogPostingSchema, breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 import { site } from "@/data/site";
 
 const pagePath = "/deck-contractor-website-design-kansas-city";
@@ -95,30 +95,14 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
       { name: "Blog", path: "/blog" },
       { name: "Deck Contractor Website Design for DecksRXKC", path: pagePath }
     ]),
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
+    blogPostingSchema({
       headline: "Deck Contractor Website Design for DecksRXKC",
       description: pageDescription,
+      path: pagePath,
       datePublished: "2026-06-19",
       dateModified: "2026-06-19",
-      author: {
-        "@type": "Organization",
-        name: site.brand.fullName,
-        url: site.url
-      },
-      publisher: {
-        "@type": "Organization",
-        name: site.brand.fullName,
-        url: site.url,
-        logo: {
-          "@type": "ImageObject",
-          url: `${site.url}${site.brand.visibleLogo}`
-        }
-      },
-      image: `${site.url}${previewImage}`,
-      mainEntityOfPage: `${site.url}${pagePath}`
-    }
+      image: previewImage
+    })
   ];
 
   return (

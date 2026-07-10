@@ -4,7 +4,7 @@ import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
+import { blogPostingSchema, breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
 
 const faqItems = [
   {
@@ -40,9 +40,17 @@ export default function WebsiteBuilderComparisonPage() {
     }),
     breadcrumbSchema([
       { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
       { name: "Website Builder vs Custom Website", path: "/website-builder-vs-custom-website-for-small-businesses" }
     ]),
-    faqItemsSchema(faqItems)
+    faqItemsSchema(faqItems),
+    blogPostingSchema({
+      headline: "Website Builder vs Custom Website for Small Businesses",
+      description:
+        "A practical comparison for small businesses choosing between DIY website builders and custom website design.",
+      path: "/website-builder-vs-custom-website-for-small-businesses",
+      datePublished: "2026-05-11"
+    })
   ];
 
   const builderFit = [

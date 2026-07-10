@@ -63,7 +63,7 @@ export function Footer() {
             <p>{site.location}</p>
           </div>
         </div>
-        <div className="site-container border-t border-white/10 py-5 text-xs text-primary-foreground/36">
+        <div className="site-container border-t border-white/10 py-5 text-xs text-primary-foreground/60">
           <p>© {year} Hometown Marketing Agency. All rights reserved.</p>
         </div>
       </footer>
@@ -91,14 +91,14 @@ export function Footer() {
               height={70}
               className="h-9 w-auto md:h-10"
             />
-            <p className="mt-8 max-w-md text-sm leading-8 text-primary-foreground/42">
+            <p className="mt-8 max-w-md text-sm leading-8 text-primary-foreground/70">
               Affordable, personalized marketing for Kansas City small businesses. No contracts, no corporate nonsense, just a neighbor who knows how to build websites and run ads.
             </p>
           </div>
 
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-primary-foreground/58">Pages</p>
-            <ul className="mt-7 space-y-5 text-base text-primary-foreground/48">
+            <ul className="mt-7 space-y-5 text-base text-primary-foreground/70">
               {pageLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="transition hover:text-primary-foreground">
@@ -111,7 +111,7 @@ export function Footer() {
 
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-primary-foreground/58">Contact</p>
-            <ul className="mt-7 space-y-5 text-base text-primary-foreground/48">
+            <ul className="mt-7 space-y-5 text-base text-primary-foreground/70">
               <li className="flex items-start gap-3">
                 <MailIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
                 <a
@@ -142,7 +142,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/14 py-8 text-xs text-primary-foreground/32 md:mt-20 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-white/14 py-8 text-xs text-primary-foreground/60 md:mt-20 md:flex-row md:items-center md:justify-between">
           <p>© {year} Hometown Marketing Agency. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             {legalLinks.map((link) => (

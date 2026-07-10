@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, creativeWorkSchema, webPageSchema } from "@/lib/seo/schema";
 
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>;
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
 
   return createPageMetadata(
     `${project.clientName} Website Case Study`,
-    `${project.clientName} website design case study: ${project.result}`,
+    `${project.clientName} website case study: ${project.summary}`,
     `/case-studies/${project.slug}`
   );
 }
@@ -85,7 +85,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       { name: "Home", path: "/" },
       { name: "Work", path: "/work" },
       { name: `${project.clientName} Case Study`, path: `/case-studies/${project.slug}` }
-    ])
+    ]),
+    creativeWorkSchema({
+      name: `${project.clientName} Website Case Study`,
+      description: project.result,
+      path: `/case-studies/${project.slug}`,
+      image: project.featuredImageUrl,
+      dateModified: project.updatedAt,
+      about: `${project.category} website design`
+    })
   ];
   const contextualLinks = relatedPageLinks[project.slug] ?? [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },

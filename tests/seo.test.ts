@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { faqItemsSchema, serviceSchema, webPageSchema } from "@/lib/seo/schema";
+import { blogPostingSchema, creativeWorkSchema, faqItemsSchema, serviceSchema, webPageSchema } from "@/lib/seo/schema";
 import { getContentSitemapXml, getLocationsSitemapXml, getPagesSitemapXml, getServicesSitemapXml } from "@/lib/seo/sitemaps";
 
 describe("SEO metadata", () => {
@@ -64,6 +64,34 @@ describe("structured data helpers", () => {
     expect(schema["@id"]).toBe(`${site.url}/pricing#webpage`);
     expect(schema.url).toBe(`${site.url}/pricing`);
     expect(schema.isPartOf).toEqual({ "@id": `${site.url}/#website` });
+  });
+
+  it("builds BlogPosting schema with organization references", () => {
+    const schema = blogPostingSchema({
+      headline: "Website Builder vs Custom Website",
+      description: "A practical comparison for small businesses.",
+      path: "/website-builder-vs-custom-website-for-small-businesses",
+      datePublished: "2026-05-11"
+    });
+
+    expect(schema["@type"]).toBe("BlogPosting");
+    expect(schema.url).toBe(`${site.url}/website-builder-vs-custom-website-for-small-businesses`);
+    expect(schema.publisher).toEqual({ "@id": `${site.url}/#organization` });
+  });
+
+  it("builds CreativeWork schema for case studies", () => {
+    const schema = creativeWorkSchema({
+      name: "Plate KC Website Case Study",
+      description: "A restaurant website focused on reservation intent.",
+      path: "/case-studies/plate-kc",
+      image: "/images/work/PlateKCScreenshot.webp",
+      dateModified: "2026-05-22",
+      about: "Restaurant website design"
+    });
+
+    expect(schema["@type"]).toBe("CreativeWork");
+    expect(schema.image).toBe(`${site.url}/images/work/PlateKCScreenshot.webp`);
+    expect(schema.creator).toEqual({ "@id": `${site.url}/#organization` });
   });
 });
 

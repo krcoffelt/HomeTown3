@@ -8,7 +8,6 @@ export const homepageCopy = {
   marqueeReviews: [
     "Kyle does absolutely tremendous work with web design!!!",
     "I couldn’t be happier with the website Kyle built for me!",
-    "Hometown did a fantastic job on my website!",
     "His creativity and attention to detail are on another level.",
     "Kyle is your go to! Hands down.",
     "They built us a great website that actually gets us leads.",
@@ -106,12 +105,6 @@ export const testimonials = [
     text:
       "Not only did he deliver it incredibly fast, but the final result looked clean, modern, and professional.",
     highlight: "Kyle built a website for my business and absolutely nailed it."
-  },
-  {
-    name: "Kyle Coffelt",
-    text:
-      "Really appreciate the hard work and attention to detail. Definitely recommend small business owners take advantage of them.",
-    highlight: "Hometown did a fantastic job on my website."
   },
   {
     name: "Tyler White",

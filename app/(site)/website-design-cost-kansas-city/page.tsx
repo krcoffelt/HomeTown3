@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/ui/page-transition";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
+import { blogPostingSchema, breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
 
 const faqItems = [
   {
@@ -155,9 +155,18 @@ export default function WebsiteDesignCostPage() {
     }),
     breadcrumbSchema([
       { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
       { name: "Website Design Cost Kansas City", path: "/website-design-cost-kansas-city" }
     ]),
-    faqItemsSchema(faqItems)
+    faqItemsSchema(faqItems),
+    blogPostingSchema({
+      headline: "How Much Does a Website Cost in Kansas City?",
+      description:
+        "A practical pricing guide for Kansas City small businesses comparing custom website design, redesigns, and DIY website builders.",
+      path: "/website-design-cost-kansas-city",
+      datePublished: "2026-05-12",
+      dateModified: "2026-06-15"
+    })
   ];
 
   return (

@@ -102,6 +102,18 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             subtitle={service.description}
             light
           />
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button href="#form" className="h-14 px-8">
+              Get a Website Quote
+            </Button>
+            <Button
+              href="/work"
+              variant="secondary"
+              className="h-14 border-primary-foreground/20 px-8 text-primary-foreground hover:border-primary-foreground hover:text-primary-foreground"
+            >
+              See Our Work
+            </Button>
+          </div>
         </div>
       </section>
 

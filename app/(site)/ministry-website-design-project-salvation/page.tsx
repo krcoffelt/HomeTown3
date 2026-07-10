@@ -6,8 +6,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
-import { site } from "@/data/site";
+import { blogPostingSchema, breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
 const pagePath = "/ministry-website-design-project-salvation";
 
@@ -65,31 +64,15 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
       { name: "Blog", path: "/blog" },
       { name: "Ministry Website Design for Project Salvation", path: pagePath }
     ]),
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
+    blogPostingSchema({
       headline: "Ministry Website Design for Project Salvation",
       description:
         "A Project Salvation website case study and guide for ministries, evangelists, churches, and Christian events that need stronger websites.",
+      path: pagePath,
       datePublished: "2026-06-08",
       dateModified: "2026-06-08",
-      author: {
-        "@type": "Organization",
-        name: site.brand.fullName,
-        url: site.url
-      },
-      publisher: {
-        "@type": "Organization",
-        name: site.brand.fullName,
-        url: site.url,
-        logo: {
-          "@type": "ImageObject",
-          url: `${site.url}${site.brand.visibleLogo}`
-        }
-      },
-      image: `${site.url}/images/work/project-salvation.jpg`,
-      mainEntityOfPage: `${site.url}${pagePath}`
-    }
+      image: "/images/work/project-salvation.jpg"
+    })
   ];
 
   return (

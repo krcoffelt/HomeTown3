@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { submitLead, type SubmitLeadState } from "@/app/(site)/contact/actions";
 import { LeadAttributionFields } from "@/components/analytics/lead-attribution-fields";
@@ -137,18 +136,8 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
           ) : null}
         </div>
 
-        <AnimatePresence initial={false}>
-          {expanded ? (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{
-                height: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-                opacity: { duration: 0.35, ease: "easeOut", delay: 0.05 }
-              }}
-              className="overflow-hidden"
-            >
+        {expanded ? (
+            <div>
               <div className="grid gap-5 rounded-[1.25rem] border border-black/8 bg-background/60 p-4 sm:p-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="space-y-2">
@@ -225,9 +214,8 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
                   />
                 </div>
               </div>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+            </div>
+        ) : null}
 
         <div className="flex flex-col gap-3">
           {!expanded ? (
@@ -248,7 +236,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
               data-analytics="cta-contact"
               disabled={pending}
             >
-              {pending ? "Sending..." : "Get Started"}
+              {pending ? "Sending..." : "Get a Website Quote"}
             </button>
           )}
 

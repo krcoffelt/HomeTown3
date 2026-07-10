@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -123,48 +122,35 @@ export function Navbar() {
             </Link>
           </div>
 
-          <LayoutGroup id="site-nav">
-            <nav
-              aria-label="Main navigation"
-              className={cn(
-                "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 transition-[background-color,border-color,box-shadow,transform] duration-500 md:absolute md:left-1/2 md:flex md:-translate-x-1/2 md:backdrop-blur-xl",
-                scrolled
-                  ? "border-primary-foreground/10 bg-foreground/90 shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
-                  : "border-primary-foreground/[0.08] bg-foreground/30"
-              )}
-            >
-              {links.map((link) => {
-                const active = isActivePath(pathname, link.href);
+          <nav
+            aria-label="Main navigation"
+            className={cn(
+              "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 transition-[background-color,border-color,box-shadow,transform] duration-500 md:absolute md:left-1/2 md:flex md:-translate-x-1/2 md:backdrop-blur-xl",
+              scrolled
+                ? "border-primary-foreground/10 bg-foreground/90 shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
+                : "border-primary-foreground/[0.08] bg-foreground/30"
+            )}
+          >
+            {links.map((link) => {
+              const active = isActivePath(pathname, link.href);
 
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      "relative rounded-full px-6 py-3 text-base font-medium transition-colors duration-300",
-                      active ? "text-primary-foreground" : "text-primary-foreground/60 hover:text-primary-foreground/85"
-                    )}
-                  >
-                    {active ? (
-                      <motion.span
-                        layoutId="navbar-active-pill"
-                        className="absolute inset-0 rounded-full bg-accent shadow-[0_2px_12px_hsl(var(--accent)/0.4)]"
-                        transition={{
-                          layout: {
-                            type: "spring",
-                            stiffness: 220,
-                            damping: 28,
-                            mass: 1.1
-                          }
-                        }}
-                      />
-                    ) : null}
-                    <span className="relative z-10">{link.label}</span>
-                  </Link>
-                );
-              })}
-            </nav>
-          </LayoutGroup>
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "relative rounded-full px-6 py-3 text-base font-medium transition-colors duration-300",
+                    active
+                      ? "bg-accent text-primary-foreground shadow-[0_2px_12px_hsl(var(--accent)/0.4)]"
+                      : "text-primary-foreground/70 hover:text-primary-foreground"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
 
           <div
             className={cn(
@@ -173,7 +159,7 @@ export function Navbar() {
             )}
           >
             <Button href={quoteHref} className="h-12 px-7 text-base">
-              Get a Free Quote
+              Get a Website Quote
             </Button>
           </div>
 
@@ -208,39 +194,34 @@ export function Navbar() {
           </div>
         </div>
 
-        <AnimatePresence initial={false}>
-          {isOpen ? (
-            <motion.div
-              id="mobile-nav"
-              initial={{ opacity: 0, y: -10, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.98 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground p-4 text-primary-foreground md:hidden"
-            >
-              <nav className="flex flex-col gap-2">
-                {links.map((link) => {
-                  const active = isActivePath(pathname, link.href);
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={cn(
-                        "rounded-lg px-4 py-3 text-sm font-medium transition",
-                        active ? "bg-primary/10 text-primary" : "text-primary-foreground/50 hover:bg-primary/5 hover:text-primary-foreground"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                })}
-              </nav>
-              <Button href={quoteHref} className="mt-4 w-full">
-                Get a Free Quote
-              </Button>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+        {isOpen ? (
+          <div
+            id="mobile-nav"
+            className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground p-4 text-primary-foreground md:hidden"
+          >
+            <nav className="flex flex-col gap-2">
+              {links.map((link) => {
+                const active = isActivePath(pathname, link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "rounded-lg px-4 py-3 text-sm font-medium transition",
+                      active ? "bg-primary/10 text-primary" : "text-primary-foreground/50 hover:bg-primary/5 hover:text-primary-foreground"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
+            <Button href={quoteHref} className="mt-4 w-full">
+              Get a Website Quote
+            </Button>
+          </div>
+        ) : null}
       </div>
     </header>
   );

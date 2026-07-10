@@ -5,7 +5,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
+import { blogPostingSchema, breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
 
 const faqItems = [
   {
@@ -103,7 +103,14 @@ export default function ContractorWebsiteChecklistPage() {
       { name: "Blog", path: "/blog" },
       { name: "What Should a Contractor Website Include?", path: "/what-should-a-contractor-website-include" }
     ]),
-    faqItemsSchema(faqItems)
+    faqItemsSchema(faqItems),
+    blogPostingSchema({
+      headline: "What Should a Contractor Website Include?",
+      description:
+        "A contractor website checklist covering service pages, project proof, local SEO structure, quote forms, and conversion tracking.",
+      path: "/what-should-a-contractor-website-include",
+      datePublished: "2026-05-14"
+    })
   ];
 
   return (

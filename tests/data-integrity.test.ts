@@ -103,6 +103,8 @@ describe("required SEO fields", () => {
     for (const service of services) {
       expect(service.seoTitle, `${service.slug} seoTitle`).toBeTruthy();
       expect(service.seoDescription, `${service.slug} seoDescription`).toBeTruthy();
+      expect(`${service.seoTitle} | Hometown`.length, `${service.slug} rendered title length`).toBeLessThanOrEqual(60);
+      expect(service.seoDescription!.length, `${service.slug} seoDescription length`).toBeLessThanOrEqual(160);
       expect(service.title, `${service.slug} title`).toBeTruthy();
       expect(service.shortDescription, `${service.slug} shortDescription`).toBeTruthy();
       expect(service.updatedAt, `${service.slug} updatedAt`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
@@ -129,6 +131,8 @@ describe("required SEO fields", () => {
     for (const industry of industries) {
       expect(industry.seoTitle, `${industry.slug} seoTitle`).toBeTruthy();
       expect(industry.seoDescription, `${industry.slug} seoDescription`).toBeTruthy();
+      expect(`${industry.seoTitle} | Hometown`.length, `${industry.slug} rendered title length`).toBeLessThanOrEqual(60);
+      expect(industry.seoDescription.length, `${industry.slug} seoDescription length`).toBeLessThanOrEqual(160);
       expect(industry.updatedAt, `${industry.slug} updatedAt`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       expect(industry.faqItems.length, `${industry.slug} FAQ items`).toBeGreaterThan(0);
     }

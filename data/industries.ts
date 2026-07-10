@@ -4,7 +4,7 @@ export const industries: IndustryItem[] = [
   {
     title: "Construction Website Design Kansas City",
     slug: "construction-website-design-kansas-city",
-    seoTitle: "Construction Website Design Kansas City | Contractor Websites",
+    seoTitle: "Construction Website Design Kansas City",
     seoDescription:
       "Construction website design in Kansas City for contractors, carpenters, remodelers, and construction companies that need more project proof and quote requests.",
     heroTitle: "Construction website design that turns project photos into quote requests",
@@ -64,12 +64,12 @@ export const industries: IndustryItem[] = [
           "Contractor web design needs to show project proof quickly, explain service lines clearly, build trust with homeowners, and make estimate requests easy from mobile devices."
       }
     ],
-    updatedAt: "2026-07-08"
+    updatedAt: "2026-07-09"
   },
   {
     title: "Home Services Website Design Kansas City",
     slug: "home-services-website-design-kansas-city",
-    seoTitle: "Home Services Website Design Kansas City | Service Business Websites",
+    seoTitle: "Home Service Website Design Kansas City",
     seoDescription:
       "Home services website design in Kansas City for movers, remodelers, contractors, cleaners, HVAC companies, and local service businesses.",
     heroTitle: "Home services website design for local businesses that need calls and quote requests",
@@ -125,14 +125,14 @@ export const industries: IndustryItem[] = [
           "Yes. Real project photos are usually one of the strongest trust signals for home-service websites."
       }
     ],
-    updatedAt: "2026-07-08"
+    updatedAt: "2026-07-09"
   },
   {
     title: "Restaurant Website Design Kansas City",
     slug: "restaurant-website-design-kansas-city",
-    seoTitle: "Restaurant Website Design Kansas City | Restaurant Web Design",
+    seoTitle: "Restaurant Website Design Kansas City",
     seoDescription:
-      "Restaurant website design in Kansas City for local restaurants that need stronger first impressions, menus, reservations, location clarity, and event or catering leads.",
+      "Restaurant website design in Kansas City for local restaurants needing clear menus, reservations, location details, and catering or event leads.",
     heroTitle: "Restaurant website design for Kansas City restaurants that need more reservations and trust",
     heroDescription:
       "Custom websites for Kansas City restaurants, cafes, bars, and hospitality brands that need to show the experience, make menus easy to find, and turn visitors into reservations, calls, and visits. Plate KC in Leawood is the proof example for this page.",
@@ -184,7 +184,7 @@ export const industries: IndustryItem[] = [
           "Yes. Hometown builds restaurant websites for Kansas City hospitality brands that need stronger presentation, easier navigation, and clearer reservation, menu, or event inquiry paths."
       }
     ],
-    updatedAt: "2026-07-08"
+    updatedAt: "2026-07-09"
   }
 ];
 
