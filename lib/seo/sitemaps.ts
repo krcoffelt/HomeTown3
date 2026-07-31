@@ -169,6 +169,14 @@ export function getImagesSitemapXml() {
       title: `${project.clientName} website case study`,
       caption: project.result ?? project.summary
     }));
+  const caseStudyGalleryEntries = projects.flatMap((project) =>
+    (project.galleryImages ?? []).map((image) => ({
+      pageLoc: `/case-studies/${project.slug}`,
+      imageLoc: image.url,
+      title: `${project.clientName} ${image.label} page screenshot`,
+      caption: image.alt
+    }))
+  );
   const articleImageEntries = blogPosts
     .filter((post) => post.image)
     .map((post) => ({
@@ -184,6 +192,7 @@ export function getImagesSitemapXml() {
     ...locationImageEntries,
     ...projectEntries,
     ...caseStudyEntries,
+    ...caseStudyGalleryEntries,
     ...articleImageEntries
   ]);
 }

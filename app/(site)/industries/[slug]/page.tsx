@@ -66,6 +66,11 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     ...(industry.slug === "restaurant-website-design-kansas-city"
       ? [
           {
+            label: "Dragonfly Catering website case study",
+            href: "/case-studies/dragonfly-catering",
+            description: "A catering website built around chef credibility, sample menus, event services, and custom proposal requests."
+          },
+          {
             label: "Plate KC website case study",
             href: "/case-studies/plate-kc",
             description: "A restaurant website example built around premium presentation and reservation intent."

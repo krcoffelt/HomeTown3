@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { ProjectCard } from "@/components/ui/project-card";
 import { projects } from "@/data/projects";
 
-const filters = ["All", "Restaurant", "Music", "Publishing", "Home Services", "Ministry"] as const;
+const filters = ["All", "Catering", "Restaurant", "Music", "Publishing", "Home Services", "Ministry"] as const;
 
 export function WorkGrid() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All");

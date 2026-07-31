@@ -18,6 +18,11 @@ interface CaseStudyPageProps {
 const caseStudyProjects = projects.filter((project) => project.problem && project.solution && project.result);
 
 const relatedPageLinks: Record<string, Array<{ label: string; href: string; description: string }>> = {
+  "dragonfly-catering": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites built around trust, story, and conversion paths." },
+    { label: "Restaurant & Hospitality Website Design", href: "/industries/restaurant-website-design-kansas-city", description: "Website strategy for restaurants, caterers, menus, reservations, and event inquiries." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ],
   "plate-kc": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
     { label: "Website design Leawood KS", href: "/locations/leawood-ks", description: "Local website design and brand identity for Leawood businesses." },
@@ -148,10 +153,57 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   ))}
                 </div>
               </div>
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-primary-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                >
+                  Visit Live Website
+                  <ArrowRightIcon className="h-4 w-4" />
+                </a>
+              ) : null}
             </div>
           </aside>
         </div>
       </SectionShell>
+
+      {project.galleryImages?.length ? (
+        <SectionShell className="pt-0">
+          <div className="mb-9 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Inside the Website</p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              A connected experience across every important page.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              The design system carries the same visual direction, clear hierarchy, and conversion path from the homepage into the pages customers use to make a decision.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {project.galleryImages.map((image) => (
+              <figure
+                key={image.url}
+                className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+              >
+                <div className="relative aspect-[36/25] overflow-hidden bg-secondary">
+                  <Image
+                    src={image.url}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 1024px) 92vw, 46vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                </div>
+                <figcaption className="flex items-center justify-between gap-4 px-5 py-4">
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{image.label}</span>
+                  <span className="text-sm text-muted-foreground">{project.clientName}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </SectionShell>
+      ) : null}
 
       <SectionShell className="pt-0">
         <div className="grid gap-6 md:grid-cols-3">
@@ -180,7 +232,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               "Creates internal links back to the website-design offer",
               project.slug === "project-salvation"
                 ? "Builds topical proof for ministry, evangelist, and event website searches"
-                : "Adds local proof for Kansas City small-business searches",
+                : `Builds specific proof for ${project.category.toLowerCase()} and small-business website searches`,
               "Supports future industry pages with relevant examples"
             ].map((item) => (
               <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">

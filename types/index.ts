@@ -1,6 +1,12 @@
 export type LeadStatus = "new" | "contacted" | "quoted" | "won" | "lost";
 
-export type ProjectCategory = "Restaurant" | "Music" | "Publishing" | "Home Services" | "Ministry";
+export type ProjectCategory = "Restaurant" | "Catering" | "Music" | "Publishing" | "Home Services" | "Ministry";
+
+export interface ProjectGalleryImage {
+  url: string;
+  alt: string;
+  label: string;
+}
 
 export interface ProjectItem {
   title: string;
@@ -12,6 +18,7 @@ export interface ProjectItem {
   servicesProvided: string[];
   featuredImageUrl: string;
   imageAlt: string;
+  galleryImages?: ProjectGalleryImage[];
   city?: string;
   problem?: string;
   solution?: string;

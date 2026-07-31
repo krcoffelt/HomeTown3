@@ -2,6 +2,50 @@ import type { ProjectItem } from "@/types";
 
 export const projects: ProjectItem[] = [
   {
+    title: "Dragonfly Catering",
+    slug: "dragonfly-catering",
+    clientName: "Dragonfly Catering",
+    category: "Catering",
+    summary: "Chef-led catering website for weddings, private dinners, and gatherings in Chester County, Pennsylvania.",
+    description:
+      "A hospitality-focused website with cinematic food photography, custom menu pathways, service and venue pages, and a clear proposal-request flow.",
+    servicesProvided: ["Website Design", "Content Strategy", "Local SEO"],
+    featuredImageUrl: "/images/work/dragonfly-catering/homepage.jpg",
+    imageAlt: "Dragonfly Catering homepage with chef-led catering message and proposal call to action",
+    galleryImages: [
+      {
+        url: "/images/work/dragonfly-catering/services.jpg",
+        alt: "Dragonfly Catering services page showing catering service options",
+        label: "Services"
+      },
+      {
+        url: "/images/work/dragonfly-catering/sample-menus.jpg",
+        alt: "Dragonfly Catering sample menus page with event menu collections",
+        label: "Sample Menus"
+      },
+      {
+        url: "/images/work/dragonfly-catering/gallery.jpg",
+        alt: "Dragonfly Catering gallery page featuring food and private event photography",
+        label: "Gallery"
+      },
+      {
+        url: "/images/work/dragonfly-catering/about.jpg",
+        alt: "Dragonfly Catering about page introducing Chef Matthew Stone",
+        label: "About"
+      }
+    ],
+    city: "Downingtown, PA",
+    problem:
+      "Dragonfly Catering needed a modern website that could match the quality of its chef-led food, explain a broad mix of catering and event services, and turn inspiration into detailed proposal requests.",
+    solution:
+      "We built a warm, editorial hospitality site around real event photography, Chef Matthew Stone's story, service-specific pages, browsable sample menus, venue information, and repeated paths to request a custom proposal.",
+    result:
+      "The finished site gives Dragonfly a polished digital home that makes its craft easy to see, its services easy to explore, and the next step clear for wedding, private, corporate, and social-event clients.",
+    liveUrl: "https://dragonfly-catering.com/",
+    quote: "A chef-led catering site designed to make every gathering feel personal before the first conversation.",
+    updatedAt: "2026-07-31"
+  },
+  {
     title: "Project Salvation",
     slug: "project-salvation",
     clientName: "Project Salvation",

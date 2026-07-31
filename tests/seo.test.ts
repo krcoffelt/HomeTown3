@@ -3,7 +3,7 @@ import { services } from "@/data/services";
 import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { blogPostingSchema, creativeWorkSchema, faqItemsSchema, serviceSchema, webPageSchema } from "@/lib/seo/schema";
-import { getContentSitemapXml, getLocationsSitemapXml, getPagesSitemapXml, getServicesSitemapXml } from "@/lib/seo/sitemaps";
+import { getContentSitemapXml, getImagesSitemapXml, getLocationsSitemapXml, getPagesSitemapXml, getServicesSitemapXml } from "@/lib/seo/sitemaps";
 
 describe("SEO metadata", () => {
   it("adds the short Hometown title suffix and canonical URL", () => {
@@ -113,5 +113,16 @@ describe("sitemaps", () => {
     expect(contentSitemap).toContain(`${site.url}/industries/construction-website-design-kansas-city`);
     expect(contentSitemap).toContain(`${site.url}/deck-contractor-website-design-kansas-city`);
     expect(contentSitemap).toContain(`${site.url}/case-studies/project-salvation`);
+    expect(contentSitemap).toContain(`${site.url}/case-studies/dragonfly-catering`);
+  });
+
+  it("includes Dragonfly Catering case-study screenshots in the image sitemap", () => {
+    const imageSitemap = getImagesSitemapXml();
+
+    expect(imageSitemap).toContain(`${site.url}/images/work/dragonfly-catering/homepage.jpg`);
+    expect(imageSitemap).toContain(`${site.url}/images/work/dragonfly-catering/services.jpg`);
+    expect(imageSitemap).toContain(`${site.url}/images/work/dragonfly-catering/sample-menus.jpg`);
+    expect(imageSitemap).toContain(`${site.url}/images/work/dragonfly-catering/gallery.jpg`);
+    expect(imageSitemap).toContain(`${site.url}/images/work/dragonfly-catering/about.jpg`);
   });
 });

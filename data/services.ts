@@ -39,7 +39,7 @@ export const services: ServiceItem[] = [
       "We refine it quickly and launch with a clean handoff"
     ],
     metaTags: ["Custom Design", "Lead Focused", "Fast Launch"],
-    proofProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "plate-kc"],
+    proofProjectSlugs: ["dragonfly-catering", "wrapped-up-moving", "zj-carpentry-and-more", "plate-kc"],
     detailSections: [
       {
         eyebrow: "Why Hometown",
@@ -113,7 +113,7 @@ export const services: ServiceItem[] = [
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-07-09"
+    updatedAt: "2026-07-31"
   },
   {
     title: "Small Business Websites",

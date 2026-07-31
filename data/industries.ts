@@ -135,7 +135,7 @@ export const industries: IndustryItem[] = [
       "Restaurant website design in Kansas City for local restaurants needing clear menus, reservations, location details, and catering or event leads.",
     heroTitle: "Restaurant website design for Kansas City restaurants that need more reservations and trust",
     heroDescription:
-      "Custom websites for Kansas City restaurants, cafes, bars, and hospitality brands that need to show the experience, make menus easy to find, and turn visitors into reservations, calls, and visits. Plate KC in Leawood is the proof example for this page.",
+      "Custom websites for Kansas City restaurants, caterers, cafes, bars, and hospitality brands that need to show the experience, make menus easy to find, and turn visitors into reservations, calls, visits, and event inquiries.",
     primaryKeyword: "restaurant website design Kansas City",
     secondaryKeywords: [
       "restaurant web design Kansas City",
@@ -143,7 +143,7 @@ export const industries: IndustryItem[] = [
       "menu website design Kansas City",
       "hospitality website design Kansas City"
     ],
-    proofProjectSlugs: ["plate-kc"],
+    proofProjectSlugs: ["dragonfly-catering", "plate-kc"],
     sections: [
       {
         eyebrow: "Restaurant Fit",
@@ -163,8 +163,8 @@ export const industries: IndustryItem[] = [
         eyebrow: "Local Search",
         title: "Restaurant website design Kansas City content should connect food, place, and intent.",
         body:
-          "Google and guests need clear signals about what kind of restaurant it is, where it is located, what people can do on the site, and why the experience is worth choosing. The Plate KC case study gives this page local Leawood proof instead of relying on generic hospitality claims.",
-        items: ["Neighborhood and city context", "Cuisine and service cues", "Internal links to Plate KC proof", "Structured FAQs for guest questions"]
+          "Google and guests need clear signals about the food, location, service style, and next step. The Plate KC and Dragonfly Catering case studies show how those priorities change across restaurants, catering, private events, menus, and reservations.",
+        items: ["Neighborhood and city context", "Cuisine and service cues", "Restaurant and catering project proof", "Structured FAQs for guest questions"]
       }
     ],
     faqItems: [
@@ -184,7 +184,7 @@ export const industries: IndustryItem[] = [
           "Yes. Hometown builds restaurant websites for Kansas City hospitality brands that need stronger presentation, easier navigation, and clearer reservation, menu, or event inquiry paths."
       }
     ],
-    updatedAt: "2026-07-09"
+    updatedAt: "2026-07-31"
   }
 ];
 

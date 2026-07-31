@@ -24,10 +24,10 @@ export interface CoreRouteSeoEntry {
 }
 
 export const coreRouteSeoEntries: CoreRouteSeoEntry[] = [
-  { id: "home", path: "/", changeFrequency: "weekly", updatedAt: "2026-07-09", shareImage: site.routeShareImages["/"] },
+  { id: "home", path: "/", changeFrequency: "weekly", updatedAt: "2026-07-31", shareImage: site.routeShareImages["/"] },
   { id: "services", path: "/services", changeFrequency: "weekly", updatedAt: "2026-07-09", shareImage: site.routeShareImages["/services"] },
   { id: "locations", path: "/locations", changeFrequency: "weekly", updatedAt: "2026-06-20", shareImage: site.routeShareImages["/locations"] },
-  { id: "work", path: "/work", changeFrequency: "monthly", updatedAt: "2026-06-15", shareImage: site.routeShareImages["/work"] },
+  { id: "work", path: "/work", changeFrequency: "monthly", updatedAt: "2026-07-31", shareImage: site.routeShareImages["/work"] },
   { id: "pricing", path: "/pricing", changeFrequency: "weekly", updatedAt: "2026-06-15", shareImage: site.routeShareImages["/pricing"] },
   { id: "contact", path: "/contact", changeFrequency: "monthly", updatedAt: "2026-06-20", shareImage: site.routeShareImages["/contact"] },
   { id: "about", path: "/about", changeFrequency: "monthly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/about"] },

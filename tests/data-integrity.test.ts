@@ -137,6 +137,19 @@ describe("required SEO fields", () => {
       expect(industry.faqItems.length, `${industry.slug} FAQ items`).toBeGreaterThan(0);
     }
   });
+
+  it("keeps project and case-study media complete", () => {
+    for (const project of projects) {
+      expect(project.featuredImageUrl, `${project.slug} featured image`).toMatch(/^\/images\//);
+      expect(project.imageAlt, `${project.slug} featured image alt`).toBeTruthy();
+
+      for (const image of project.galleryImages ?? []) {
+        expect(image.url, `${project.slug} gallery image`).toMatch(/^\/images\//);
+        expect(image.alt, `${project.slug} gallery image alt`).toBeTruthy();
+        expect(image.label, `${project.slug} gallery image label`).toBeTruthy();
+      }
+    }
+  });
 });
 
 describe("configured internal links", () => {
