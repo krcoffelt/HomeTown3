@@ -18,6 +18,13 @@ interface CaseStudyPageProps {
 const caseStudyProjects = projects.filter((project) => project.problem && project.solution && project.result);
 
 const relatedPageLinks: Record<string, Array<{ label: string; href: string; description: string }>> = {
+  "noble-hardwoods": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites built around trust, local relevance, and lead flow." },
+    { label: "Contractor Website Design", href: "/industries/construction-website-design-kansas-city", description: "Website strategy for contractors and construction companies that need project proof and estimate requests." },
+    { label: "Home-Service Website Design", href: "/industries/home-services-website-design-kansas-city", description: "Lead-focused website design for flooring companies and local service teams." },
+    { label: "Website Design Kansas City", href: "/locations/kansas-city-mo", description: "Local website design, SEO, and conversion strategy for Kansas City businesses." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ],
   "dragonfly-catering": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites built around trust, story, and conversion paths." },
     { label: "Restaurant & Hospitality Website Design", href: "/industries/restaurant-website-design-kansas-city", description: "Website strategy for restaurants, caterers, menus, reservations, and event inquiries." },

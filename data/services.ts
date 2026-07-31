@@ -39,7 +39,7 @@ export const services: ServiceItem[] = [
       "We refine it quickly and launch with a clean handoff"
     ],
     metaTags: ["Custom Design", "Lead Focused", "Fast Launch"],
-    proofProjectSlugs: ["dragonfly-catering", "wrapped-up-moving", "zj-carpentry-and-more", "plate-kc"],
+    proofProjectSlugs: ["noble-hardwoods", "dragonfly-catering", "wrapped-up-moving", "zj-carpentry-and-more", "plate-kc"],
     detailSections: [
       {
         eyebrow: "Why Hometown",

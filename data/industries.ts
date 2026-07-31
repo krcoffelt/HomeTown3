@@ -6,10 +6,10 @@ export const industries: IndustryItem[] = [
     slug: "construction-website-design-kansas-city",
     seoTitle: "Construction Website Design Kansas City",
     seoDescription:
-      "Construction website design in Kansas City for contractors, carpenters, remodelers, and construction companies that need more project proof and quote requests.",
+      "Construction website design in Kansas City for contractors, flooring companies, remodelers, and builders that need stronger project proof and quote requests.",
     heroTitle: "Construction website design that turns project photos into quote requests",
     heroDescription:
-      "Custom websites for Kansas City contractors and construction companies that need to show proof, explain services, and make it easy for homeowners to start a project.",
+      "Custom websites for Kansas City contractors, flooring companies, and construction teams that need to show proof, explain services, and make it easy for homeowners to start a project.",
     primaryKeyword: "construction website design",
     secondaryKeywords: [
       "website design for construction company",
@@ -18,7 +18,7 @@ export const industries: IndustryItem[] = [
       "contractor website design Kansas City",
       "contractor seo Kansas City"
     ],
-    proofProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving"],
+    proofProjectSlugs: ["noble-hardwoods", "zj-carpentry-and-more", "wrapped-up-moving"],
     sections: [
       {
         eyebrow: "Contractor Fit",
@@ -38,8 +38,8 @@ export const industries: IndustryItem[] = [
         eyebrow: "Kansas City Contractor SEO",
         title: "Contractor web design Kansas City searches need proof, services, and location clarity.",
         body:
-          "Contractor web design Kansas City, contractor website design Kansas City, website design for construction company, and construction website design Kansas City searches need contractor-specific language, project proof, and internal links to relevant work.",
-        items: ["Contractor website design Kansas City copy", "Construction website design Kansas City headings", "Website design for construction company language", "Links to ZJ Carpentry and home-service proof"]
+          "Contractor web design Kansas City, contractor website design Kansas City, website design for construction company, and construction website design Kansas City searches need trade-specific language, project proof, and internal links to relevant work.",
+        items: ["Contractor website design Kansas City copy", "Construction website design Kansas City headings", "Website design for construction company language", "Noble Hardwoods and ZJ Carpentry project proof"]
       }
     ],
     faqItems: [
@@ -64,14 +64,14 @@ export const industries: IndustryItem[] = [
           "Contractor web design needs to show project proof quickly, explain service lines clearly, build trust with homeowners, and make estimate requests easy from mobile devices."
       }
     ],
-    updatedAt: "2026-07-09"
+    updatedAt: "2026-07-31"
   },
   {
     title: "Home Services Website Design Kansas City",
     slug: "home-services-website-design-kansas-city",
     seoTitle: "Home Service Website Design Kansas City",
     seoDescription:
-      "Home services website design in Kansas City for movers, remodelers, contractors, cleaners, HVAC companies, and local service businesses.",
+      "Home services website design in Kansas City for movers, flooring contractors, remodelers, cleaners, HVAC companies, and local service businesses.",
     heroTitle: "Home services website design for local businesses that need calls and quote requests",
     heroDescription:
       "Custom websites for Kansas City service businesses that need to look trustworthy, explain what they do, and turn mobile visitors into real leads. This is the main Hometown page for home service website design Kansas City and home services website design Kansas City searches.",
@@ -84,7 +84,7 @@ export const industries: IndustryItem[] = [
       "HVAC website design Kansas City",
       "contractor website design Kansas City"
     ],
-    proofProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more"],
+    proofProjectSlugs: ["noble-hardwoods", "wrapped-up-moving", "zj-carpentry-and-more"],
     sections: [
       {
         eyebrow: "Service Business Fit",
@@ -104,15 +104,15 @@ export const industries: IndustryItem[] = [
         eyebrow: "Website Design for Service Businesses",
         title: "The page should support movers, remodelers, cleaners, HVAC companies, and other local service teams.",
         body:
-          "The strongest home-service websites organize proof around the jobs customers need done. Clear service sections, real photos, local language, and quote paths help this page support home service website design Kansas City, home services website design Kansas City, service business website design, and HVAC website design Kansas City intent without creating thin trade-specific pages.",
-        items: ["Local service business website design", "HVAC and home-service intent", "Quote request CTAs", "Links to contractor and website design strategy"]
+          "The strongest home-service websites organize proof around the jobs customers need done. Clear service sections, real photos, local language, and quote paths help this page support home service website design Kansas City, home services website design Kansas City, service business website design, and contractor website intent without creating thin trade-specific pages.",
+        items: ["Local service business website design", "Flooring and contractor project proof", "Quote request CTAs", "Links to contractor and website design strategy"]
       }
     ],
     faqItems: [
       {
         question: "What home-service businesses is this for?",
         answer:
-          "It fits movers, remodelers, carpenters, HVAC companies, cleaners, landscapers, roofers, and other local businesses that need calls, bookings, or quote requests."
+          "It fits movers, flooring companies, remodelers, carpenters, HVAC companies, cleaners, landscapers, roofers, and other local businesses that need calls, bookings, or quote requests."
       },
       {
         question: "Do home-service websites need SEO?",
@@ -125,7 +125,7 @@ export const industries: IndustryItem[] = [
           "Yes. Real project photos are usually one of the strongest trust signals for home-service websites."
       }
     ],
-    updatedAt: "2026-07-09"
+    updatedAt: "2026-07-31"
   },
   {
     title: "Restaurant Website Design Kansas City",

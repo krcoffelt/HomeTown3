@@ -114,6 +114,7 @@ describe("sitemaps", () => {
     expect(contentSitemap).toContain(`${site.url}/deck-contractor-website-design-kansas-city`);
     expect(contentSitemap).toContain(`${site.url}/case-studies/project-salvation`);
     expect(contentSitemap).toContain(`${site.url}/case-studies/dragonfly-catering`);
+    expect(contentSitemap).toContain(`${site.url}/case-studies/noble-hardwoods`);
   });
 
   it("includes Dragonfly Catering case-study screenshots in the image sitemap", () => {
@@ -124,5 +125,15 @@ describe("sitemaps", () => {
     expect(imageSitemap).toContain(`${site.url}/images/work/dragonfly-catering/sample-menus.jpg`);
     expect(imageSitemap).toContain(`${site.url}/images/work/dragonfly-catering/gallery.jpg`);
     expect(imageSitemap).toContain(`${site.url}/images/work/dragonfly-catering/about.jpg`);
+  });
+
+  it("includes Noble Hardwoods case-study screenshots in the image sitemap", () => {
+    const imageSitemap = getImagesSitemapXml();
+
+    expect(imageSitemap).toContain(`${site.url}/images/work/noble-hardwoods/homepage.jpg`);
+    expect(imageSitemap).toContain(`${site.url}/images/work/noble-hardwoods/services.jpg`);
+    expect(imageSitemap).toContain(`${site.url}/images/work/noble-hardwoods/projects.jpg`);
+    expect(imageSitemap).toContain(`${site.url}/images/work/noble-hardwoods/about.jpg`);
+    expect(imageSitemap).toContain(`${site.url}/images/work/noble-hardwoods/contact.jpg`);
   });
 });

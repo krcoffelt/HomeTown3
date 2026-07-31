@@ -53,9 +53,9 @@ export const locations: LocationItem[] = [
           "Yes. Local SEO support can include keyword tracking, page recommendations, internal linking, Google Search Console review, and monthly action planning."
       }
     ],
-    relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
+    relatedProjectSlugs: ["noble-hardwoods", "wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
     ctaLabel: "Start Your Kansas City Project",
-    updatedAt: "2026-06-20"
+    updatedAt: "2026-07-31"
   },
   {
     title: "Kansas City, KS",

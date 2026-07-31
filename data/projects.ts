@@ -2,6 +2,51 @@ import type { ProjectItem } from "@/types";
 
 export const projects: ProjectItem[] = [
   {
+    title: "Noble Hardwoods",
+    slug: "noble-hardwoods",
+    clientName: "Noble Hardwoods",
+    category: "Home Services",
+    summary:
+      "Conversion-focused website for a Kansas City hardwood flooring company, pairing craftsmanship proof with clear quote paths.",
+    description:
+      "A bold home-services website with real project photography, service-specific navigation, local trust signals, and a detailed flooring quote experience.",
+    servicesProvided: ["Website Design", "Content Strategy", "Local SEO", "Lead Capture"],
+    featuredImageUrl: "/images/work/noble-hardwoods/homepage.jpg",
+    imageAlt: "Noble Hardwoods homepage with Kansas City hardwood flooring message and project photography",
+    galleryImages: [
+      {
+        url: "/images/work/noble-hardwoods/services.jpg",
+        alt: "Noble Hardwoods services page introducing the Kansas City hardwood flooring team",
+        label: "Services"
+      },
+      {
+        url: "/images/work/noble-hardwoods/projects.jpg",
+        alt: "Noble Hardwoods projects page featuring real hardwood flooring work in Kansas City homes",
+        label: "Projects"
+      },
+      {
+        url: "/images/work/noble-hardwoods/about.jpg",
+        alt: "Noble Hardwoods about page focused on craftsmanship and the people behind the work",
+        label: "About"
+      },
+      {
+        url: "/images/work/noble-hardwoods/contact.jpg",
+        alt: "Noble Hardwoods quote page with detailed hardwood flooring project intake fields",
+        label: "Quote Request"
+      }
+    ],
+    city: "Kansas City metro",
+    problem:
+      "Noble Hardwoods needed a website that could translate expert flooring craftsmanship into immediate homeowner trust, organize several service lines, and make it easy to start a serious project conversation.",
+    solution:
+      "We built a bold, locally focused website around real floor photography, direct installation and refinishing pathways, 15-plus years of experience, a 5.0 Google rating, project proof, and a detailed quote form that captures scope before the first call.",
+    result:
+      "The finished site gives Noble Hardwoods a distinctive Kansas City presence that makes the quality of the work visible, helps homeowners find the right service quickly, and turns interest into better-informed flooring inquiries.",
+    liveUrl: "https://www.noblehardwoods.co/",
+    quote: "Craftsmanship made visible, with a quote path built for serious flooring projects.",
+    updatedAt: "2026-07-31"
+  },
+  {
     title: "Dragonfly Catering",
     slug: "dragonfly-catering",
     clientName: "Dragonfly Catering",

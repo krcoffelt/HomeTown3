@@ -148,6 +148,11 @@ describe("required SEO fields", () => {
         expect(image.alt, `${project.slug} gallery image alt`).toBeTruthy();
         expect(image.label, `${project.slug} gallery image label`).toBeTruthy();
       }
+
+      if (project.problem && project.solution && project.result) {
+        expect(project.liveUrl, `${project.slug} live website`).toMatch(/^https:\/\//);
+        expect(project.updatedAt, `${project.slug} updatedAt`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      }
     }
   });
 });

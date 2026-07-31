@@ -52,6 +52,11 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     ...(industry.slug === "construction-website-design-kansas-city" || industry.slug === "home-services-website-design-kansas-city"
       ? [
           {
+            label: "Noble Hardwoods website case study",
+            href: "/case-studies/noble-hardwoods",
+            description: "A Kansas City flooring website built around craftsmanship, local proof, service clarity, and detailed quote requests."
+          },
+          {
             label: "What should a contractor website include?",
             href: "/what-should-a-contractor-website-include",
             description: "A practical checklist for project proof, service pages, quote flow, and local SEO structure."
