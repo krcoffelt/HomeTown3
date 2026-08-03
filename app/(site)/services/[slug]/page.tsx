@@ -114,6 +114,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               See Our Work
             </Button>
           </div>
+          {proofProjects?.length ? (
+            <div className="mx-auto mt-8 grid max-w-4xl gap-3 sm:grid-cols-3">
+              {proofProjects.slice(0, 3).map((project) => (
+                <Link
+                  key={project.slug}
+                  href={`/case-studies/${project.slug}`}
+                  className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-4 py-3 text-left transition hover:-translate-y-0.5 hover:border-accent/70"
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{project.category}</p>
+                  <p className="mt-2 text-sm font-bold text-primary-foreground">{project.clientName}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-primary-foreground/62">{project.city ?? "Kansas City metro"} proof</p>
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 

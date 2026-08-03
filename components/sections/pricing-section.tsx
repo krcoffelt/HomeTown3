@@ -121,6 +121,7 @@ export function PricingSection({ className, showIntro = true }: PricingSectionPr
             { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
             { label: "Small business website design Kansas City", href: "/services/small-business-websites" },
             { label: "Website redesign Kansas City", href: "/services/website-redesign" },
+            { label: "SEO agency Kansas City", href: "/services/search-engine-optimization" },
             { label: "Restaurant website design", href: "/industries/restaurant-website-design-kansas-city" },
             { label: "Leawood website design", href: "/locations/leawood-ks" },
             { label: "View Website Work", href: "/work" }

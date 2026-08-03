@@ -12,7 +12,12 @@ const faqItems = [
   {
     question: "How much does a small-business website cost in Kansas City?",
     answer:
-      "A focused custom small-business website can start around $800 with Hometown. Larger projects cost more when they need more pages, copywriting, integrations, SEO strategy, or content migration."
+      "A focused custom small-business website can start at $800 with Hometown. Larger projects cost more when they need more pages, copywriting, integrations, SEO strategy, or content migration."
+  },
+  {
+    question: "What is normal website design pricing in Kansas City?",
+    answer:
+      "Website design pricing in Kansas City depends on scope. A focused custom site can start at $800 with Hometown, while larger builds cost more when they need extra service pages, location pages, copywriting, booking tools, or deeper SEO planning."
   },
   {
     question: "What is included in the $800 starting price?",
@@ -23,6 +28,11 @@ const faqItems = [
     question: "When does a website cost more than $800?",
     answer:
       "A project can cost more when it needs deeper copywriting, more service pages, advanced forms, booking or payment integrations, a larger content migration, or ongoing SEO support."
+  },
+  {
+    question: "Is website design cost different from web design cost?",
+    answer:
+      "Most Kansas City buyers use those phrases for the same decision. The real cost difference comes from strategy, content, page count, integrations, SEO depth, and how much the website needs to help with lead generation."
   },
   {
     question: "Is a cheaper website builder enough?",
@@ -140,8 +150,8 @@ const budgetPriorities = [
 ];
 
 export const metadata = createPageMetadata(
-  "Website Cost Kansas City | From $800",
-  "Learn what small-business website design costs in Kansas City, what Hometown's $800 starting price includes, and when a project may cost more.",
+  "Website Design Cost Kansas City | From $800",
+  "Compare website design pricing in Kansas City, what Hometown's $800 starting point includes, and when a web design project may cost more.",
   "/website-design-cost-kansas-city"
 );
 
@@ -165,7 +175,7 @@ export default function WebsiteDesignCostPage() {
         "A practical pricing guide for Kansas City small businesses comparing custom website design, redesigns, and DIY website builders.",
       path: "/website-design-cost-kansas-city",
       datePublished: "2026-05-12",
-      dateModified: "2026-06-15"
+      dateModified: "2026-08-03"
     })
   ];
 
@@ -177,6 +187,7 @@ export default function WebsiteDesignCostPage() {
         <div className="site-container">
           <div className="max-w-4xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Website Pricing</p>
+            <p className="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-primary-foreground/58">Updated August 2026</p>
             <h1 className="mt-6 font-display text-[2.4rem] font-bold leading-[1.02] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl">
               How much does a website cost in Kansas City?
             </h1>
@@ -201,7 +212,7 @@ export default function WebsiteDesignCostPage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">The Short Answer</p>
             <p className="mt-4 text-6xl font-bold tracking-tight text-primary-foreground">$800</p>
             <p className="mt-5 text-base leading-relaxed text-primary-foreground/74">
-              That is Hometown&apos;s starting point for a focused custom website for a Kansas City small business.
+              That is Hometown&apos;s August 2026 starting point for a focused custom website for a Kansas City small business.
             </p>
             <Link href="/services/website-design" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-accent transition hover:text-primary-foreground">
               See the website design service

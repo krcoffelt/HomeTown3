@@ -117,17 +117,17 @@ export const projects: ProjectItem[] = [
     clientName: "Plate KC",
     category: "Restaurant",
     summary: "Full website for a modern Italian restaurant in Leawood.",
-    description: "A hospitality-focused build with stronger navigation, bolder visuals, and clearer reservation paths.",
+    description: "A Leawood hospitality-focused build with stronger navigation, bolder visuals, local restaurant signals, and clearer reservation paths.",
     servicesProvided: ["Website Design", "Creative Direction"],
     featuredImageUrl: "/images/work/PlateKCScreenshot.webp",
     imageAlt: "Homepage design preview for Plate KC restaurant website",
     city: "Leawood, KS",
-    problem: "The restaurant needed a polished digital first impression that matched the dining experience and made reservations easier to find.",
-    solution: "We built a visual restaurant site with direct navigation, stronger food and location cues, and clearer reservation paths.",
-    result: "Plate KC has a premium website experience that supports local discovery, trust, and reservation intent.",
+    problem: "The restaurant needed a polished Leawood digital first impression that matched the dining experience, made reservations easier to find, and gave local searchers more confidence before choosing a table.",
+    solution: "We built a visual restaurant site with direct navigation, stronger food and location cues, Leawood context, and clearer reservation paths.",
+    result: "Plate KC has a premium website experience that supports local discovery, restaurant trust, Leawood relevance, and reservation intent.",
     liveUrl: "https://www.platekc.com/",
     quote: "A modern restaurant site that feels premium without losing warmth.",
-    updatedAt: "2026-05-22"
+    updatedAt: "2026-08-03"
   },
   {
     title: "Lupi Docs & Designs",

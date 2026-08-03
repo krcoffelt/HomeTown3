@@ -1,10 +1,12 @@
+import Link from "next/link";
 import { PageHero } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { FounderNote } from "@/components/sections/founder-note";
 import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
-import { CheckCircleIcon } from "@/components/ui/site-icons";
+import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
+import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
@@ -14,6 +16,22 @@ const trustPoints = [
   "Ad campaigns focused on leads and calls.",
   "Social media content that fits the brand.",
   "Clear messaging that helps businesses stand out."
+];
+
+const entityFacts = [
+  "Business name: Hometown Marketing Agency",
+  "Primary market: Kansas City metro",
+  "Website design starts at $800",
+  "SEO starts at $250/month",
+  "Google Ads management is 20% of ad spend"
+];
+
+const canonicalLinks = [
+  { label: "Kansas City website design", href: "/services/website-design" },
+  { label: "Small business websites", href: "/services/small-business-websites" },
+  { label: "Website pricing guide", href: "/website-design-cost-kansas-city" },
+  { label: "SEO services", href: "/services/search-engine-optimization" },
+  { label: "Recent work", href: "/work" }
 ];
 
 export const metadata = createPageMetadata(
@@ -76,6 +94,54 @@ export default function AboutPage() {
           </div>
 
           <FounderNote />
+        </div>
+      </SectionShell>
+
+      <SectionShell className="pt-0">
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <section className="dark-panel p-7 md:p-10">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">Entity Summary</p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
+              Hometown is a Kansas City-area website design and marketing agency for small businesses.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-primary-foreground/74">
+              The core work is custom website design, local SEO, paid ads, brand identity, graphic design, and tracking for owner-led businesses that need clearer trust and lead flow.
+            </p>
+            <div className="mt-7 grid gap-3">
+              {entityFacts.map((fact) => (
+                <div key={fact} className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4">
+                  <p className="text-sm font-semibold text-primary-foreground">{fact}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="light-panel p-7 md:p-10">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Canonical Service Paths</p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+              The main pages for service, pricing, and proof.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              These pages are the preferred sources for search engines, AI assistants, and business owners comparing Hometown&apos;s services.
+            </p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              {canonicalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group rounded-2xl border border-border bg-background px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent"
+                >
+                  <span className="flex items-center justify-between gap-3 text-sm font-bold text-foreground transition group-hover:text-accent">
+                    {link.label}
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <p className="mt-7 text-sm leading-relaxed text-muted-foreground">
+              Service areas include {site.serviceAreas.join(", ")}.
+            </p>
+          </section>
         </div>
       </SectionShell>
 

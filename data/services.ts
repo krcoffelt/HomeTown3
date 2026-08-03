@@ -12,7 +12,7 @@ export const services: ServiceItem[] = [
     description:
       "Custom website design for Kansas City small businesses that need a stronger first impression, cleaner messaging, and a direct path to calls, quote requests, and new customers. Built for owners searching for a practical Kansas City website designer, not a bloated agency process.",
     seoDescription:
-      "Website design in Kansas City for small businesses. Custom sites from $800 with mobile-first design, basic SEO, analytics, and lead-focused strategy.",
+      "Website design Kansas City service for small businesses. Custom sites from $800 with mobile-first web design, SEO basics, and lead flow.",
     features: [
       "Custom design with no templates",
       "Mobile-optimized and blazing fast",
@@ -63,6 +63,13 @@ export const services: ServiceItem[] = [
         items: ["Service pages with clear intent", "Kansas City and suburb relevance", "Web design company and website designer signals", "Internal links to proof and pricing"]
       },
       {
+        eyebrow: "Buyer Language",
+        title: "Clear enough for owners comparing a website designer, web design company, or small agency.",
+        body:
+          "Some buyers search for a Kansas City website designer. Others search for a web design company, website design agency, or custom website design service. This page keeps those terms connected to one offer so the broad Kansas City website design intent stays focused instead of split across competing pages.",
+        items: ["One primary website design URL", "Custom website design language", "Agency and designer intent covered", "Pricing and proof links kept close"]
+      },
+      {
         eyebrow: "Proof and Conversion",
         title: "A good website should show why someone should trust you before they call.",
         body:
@@ -97,6 +104,11 @@ export const services: ServiceItem[] = [
           "Yes. Contractor, moving, remodeling, restaurant, publishing, and other local service-business websites are a strong fit because they need clear services, local proof, and quote or contact paths."
       },
       {
+        question: "Are you a Kansas City website designer or a web design company?",
+        answer:
+          "Both searches fit the same service. Hometown is a small Kansas City-area website design company that works directly with owners who want custom web design, clear strategy, and a practical process."
+      },
+      {
         question: "Can a new website help me rank for Kansas City searches?",
         answer:
           "A stronger website gives SEO a better foundation by clarifying services, locations, headings, metadata, internal links, and conversion paths. Rankings still take time, but a clean structure helps Google understand the business."
@@ -113,7 +125,7 @@ export const services: ServiceItem[] = [
       { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-07-31"
+    updatedAt: "2026-08-03"
   },
   {
     title: "Small Business Websites",
@@ -126,7 +138,7 @@ export const services: ServiceItem[] = [
     description:
       "Small business website design for Kansas City companies that need a credible custom site, clearer messaging, and a direct path to calls or quote requests. Built for searches like small business website design Kansas City, local business website design Kansas City, affordable web design Kansas City, small business websites Kansas City, and custom websites for small business.",
     seoDescription:
-      "Affordable small-business website design in Kansas City. Custom sites from $800 for owners replacing DIY builders and improving lead flow.",
+      "Small business and local business website design in Kansas City. Custom affordable sites from $800 for clearer trust and lead flow.",
     features: [
       "Custom website structure for your services",
       "Mobile-first design and page speed basics",
@@ -181,6 +193,13 @@ export const services: ServiceItem[] = [
         body:
           "A local business website has to explain the service, show why the company is credible, and make it easy for a visitor to call, book, or request a quote. This page is the main target for local business website design Kansas City and small business website design Kansas City searches.",
         items: ["Service clarity for local buyers", "Kansas City small-business positioning", "Quote, call, or booking paths", "Links to website pricing and recent work"]
+      },
+      {
+        eyebrow: "Use Cases",
+        title: "Built for owner-led local businesses that need credibility before more traffic.",
+        body:
+          "Restaurants, contractors, movers, publishers, service providers, and new local brands usually need the same foundation first: a credible homepage, clear service explanations, proof that feels real, and a contact path that works from a phone.",
+        items: ["Restaurant and hospitality proof", "Contractor and home-service proof", "Owner-led brand positioning", "Affordable custom website scope"]
       }
     ],
     faqItems: [
@@ -198,6 +217,11 @@ export const services: ServiceItem[] = [
         question: "What kinds of small businesses is this for?",
         answer:
           "It is a strong fit for local service companies, restaurants, contractors, professional services, and owner-led businesses that need customers to call, book, or request a quote."
+      },
+      {
+        question: "What should a local business website include?",
+        answer:
+          "A local business website should include clear services, service areas, proof, reviews or trust signals, mobile-friendly calls to action, basic SEO structure, and a simple way to call, book, or request a quote."
       }
     ],
     relatedLinks: [
@@ -208,7 +232,7 @@ export const services: ServiceItem[] = [
       { label: "Website builder comparison", href: "/website-builder-vs-custom-website-for-small-businesses" },
       { label: "View website work", href: "/work" }
     ],
-    updatedAt: "2026-07-09"
+    updatedAt: "2026-08-03"
   },
   {
     title: "Website Redesign",
@@ -407,12 +431,12 @@ export const services: ServiceItem[] = [
     title: "Search Engine Optimization",
     slug: "search-engine-optimization",
     price: "$250/mo",
-    seoTitle: "SEO Services Kansas City",
-    shortDescription: "Rank higher on Google for the searches your customers are already making.",
+    seoTitle: "SEO Agency Kansas City",
+    shortDescription: "Local SEO support for Kansas City businesses that need clearer visibility and better search priorities.",
     description:
-      "Monthly SEO support built around keyword tracking, Search Console review, site structure, local relevance, and practical recommendations that improve organic visibility.",
+      "Monthly SEO support built around keyword tracking, Search Console review, site structure, local relevance, and practical recommendations that improve organic visibility without turning every issue into a bloated retainer.",
     seoDescription:
-      "Search engine optimization for businesses that want stronger local visibility, better site structure, and long-term organic growth.",
+      "SEO agency support in Kansas City for local businesses that need keyword tracking, Search Console review, site structure, and organic growth.",
     features: [
       "Keyword tracking",
       "Google Search Console review",
@@ -438,7 +462,48 @@ export const services: ServiceItem[] = [
       "We improve structure, content direction, and local discoverability"
     ],
     metaTags: ["SEO", "Local Visibility", "Technical Cleanup"],
-    updatedAt: "2026-05-22"
+    proofProjectSlugs: ["noble-hardwoods", "zj-carpentry-and-more", "wrapped-up-moving"],
+    detailSections: [
+      {
+        eyebrow: "SEO Agency Kansas City",
+        title: "A practical SEO agency path for businesses that need priorities, not noise.",
+        body:
+          "Kansas City businesses searching for an SEO agency usually need help understanding which pages, keywords, links, and technical issues matter first. Hometown keeps monthly SEO focused on measurable search visibility, clearer page intent, and work that supports real leads.",
+        items: ["Keyword tracking", "Search Console review", "Local service-page priorities", "Internal-link recommendations"]
+      },
+      {
+        eyebrow: "Local SEO Fit",
+        title: "SEO works better when the website, services, and proof are already connected.",
+        body:
+          "For contractors, home-service businesses, restaurants, and owner-led local brands, SEO should connect service pages, location relevance, case studies, and quote paths. The work supports local SEO without splitting intent into thin pages too early.",
+        items: ["Contractor and home-service SEO support", "Website design and SEO alignment", "Content expansion decisions from data", "14-day and 28-day monitoring cadence"]
+      }
+    ],
+    faqItems: [
+      {
+        question: "Is Hometown an SEO agency in Kansas City?",
+        answer:
+          "Yes. Hometown provides practical SEO agency support for Kansas City-area small businesses, including keyword tracking, Search Console review, on-page recommendations, internal-link planning, and monthly action priorities."
+      },
+      {
+        question: "What is included in monthly SEO support?",
+        answer:
+          "Monthly SEO support can include tracking priority keywords, reviewing Search Console data, improving page structure, recommending internal links, identifying content gaps, and prioritizing the next highest-leverage fixes."
+      },
+      {
+        question: "Do contractors and home-service businesses need SEO?",
+        answer:
+          "Yes. Contractor and home-service SEO works best when service pages, project proof, city relevance, quote paths, and Google Business Profile signals all support the same local intent."
+      }
+    ],
+    relatedLinks: [
+      { label: "Website design Kansas City", href: "/services/website-design" },
+      { label: "Contractor website design Kansas City", href: "/industries/construction-website-design-kansas-city" },
+      { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city" },
+      { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
+      { label: "Local SEO basics topic", href: "/blog" }
+    ],
+    updatedAt: "2026-08-03"
   },
   {
     title: "Analytics & Tracking",

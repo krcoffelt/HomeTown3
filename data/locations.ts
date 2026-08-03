@@ -462,7 +462,7 @@ export const locations: LocationItem[] = [
       "Website design in Leawood KS for businesses that need premium web design, sharper branding, stronger trust, and a more polished online presence.",
     introTitle: "A stronger presentation matters in Leawood.",
     introDescription:
-      "In Leawood, the first impression has to feel polished. If the brand looks inconsistent or the website feels dated, that can quietly cost trust. Hometown helps businesses tighten the presentation and pair that polish with lead-focused strategy, local search clarity, and proof from relevant Kansas City-area work.",
+      "In Leawood, the first impression has to feel polished. If the brand looks inconsistent or the website feels dated, that can quietly cost trust. Hometown helps businesses tighten the presentation and pair that polish with lead-focused strategy, local search clarity, and proof from relevant Kansas City-area work including Plate KC.",
     localAngle:
       "Built for Leawood businesses searching for a website designer, premium web design, or a more polished online presence without bloated agency packaging.",
     whyTitle: "Why Hometown fits Leawood brands",
@@ -479,7 +479,7 @@ export const locations: LocationItem[] = [
         eyebrow: "Website Design Leawood",
         title: "Built for brands where presentation and trust carry more weight.",
         body:
-          "Leawood prospects expect a polished first impression. The website needs to support premium positioning while still making services, proof, and contact clear for searches like website design Leawood KS, Leawood web design, and website designer Leawood.",
+          "Leawood prospects expect a polished first impression. The website needs to support premium positioning while still making services, proof, and contact clear for searches like website design Leawood KS, Leawood web design, and website designer Leawood. Plate KC gives this page local restaurant and hospitality proof without needing a separate overlapping Leawood restaurant page.",
         items: ["Premium visual direction", "Brand and website alignment", "Plate KC and local proof sections", "Clear contact paths for Leawood buyers"]
       }
     ],
@@ -508,7 +508,7 @@ export const locations: LocationItem[] = [
     ],
     relatedProjectSlugs: ["plate-kc", "lupi-docs", "voxwhite"],
     ctaLabel: "Build a Better Leawood Presence",
-    updatedAt: "2026-07-08"
+    updatedAt: "2026-08-03"
   },
   {
     title: "Lenexa",

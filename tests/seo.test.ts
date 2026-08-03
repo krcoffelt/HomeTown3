@@ -2,7 +2,15 @@ import { describe, expect, it } from "vitest";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { blogPostingSchema, creativeWorkSchema, faqItemsSchema, serviceSchema, webPageSchema } from "@/lib/seo/schema";
+import {
+  blogPostingSchema,
+  creativeWorkSchema,
+  faqItemsSchema,
+  localBusinessSchema,
+  organizationSchema,
+  serviceSchema,
+  webPageSchema
+} from "@/lib/seo/schema";
 import { getContentSitemapXml, getImagesSitemapXml, getLocationsSitemapXml, getPagesSitemapXml, getServicesSitemapXml } from "@/lib/seo/sitemaps";
 
 describe("SEO metadata", () => {
@@ -52,6 +60,33 @@ describe("structured data helpers", () => {
       priceCurrency: "USD",
       description: "From $800"
     });
+  });
+
+  it("adds entity knowledge, service areas, and offer catalog to organization schema", () => {
+    const schema = organizationSchema();
+
+    expect(schema.knowsAbout).toEqual(expect.arrayContaining(["Kansas City website design", "local SEO"]));
+    expect(schema.areaServed).toEqual(expect.arrayContaining([{ "@type": "AdministrativeArea", name: "Leawood, KS" }]));
+    expect(schema.hasOfferCatalog.itemListElement).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          "@type": "Offer",
+          description: "From $800",
+          price: "800",
+          priceCurrency: "USD"
+        })
+      ])
+    );
+    expect(schema.sameAs).toBeUndefined();
+  });
+
+  it("adds the same conservative entity signals to local business schema", () => {
+    const schema = localBusinessSchema();
+
+    expect(schema["@type"]).toBe("ProfessionalService");
+    expect(schema.knowsAbout).toEqual(expect.arrayContaining(["restaurant website design", "contractor website design"]));
+    expect(schema.hasOfferCatalog.name).toBe("Hometown Marketing Agency services");
+    expect(schema.sameAs).toBeUndefined();
   });
 
   it("builds WebPage schema with absolute URLs", () => {

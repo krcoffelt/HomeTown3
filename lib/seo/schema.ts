@@ -1,4 +1,5 @@
 import { faqs } from "@/data/faqs";
+import { services } from "@/data/services";
 import { site } from "@/data/site";
 import type { ServiceItem } from "@/types";
 
@@ -35,6 +36,52 @@ function priceFromLabel(label: string) {
   return match?.[1];
 }
 
+const knowsAbout = [
+  "Kansas City website design",
+  "web design Kansas City",
+  "small business website design",
+  "local business website design",
+  "website redesign",
+  "local SEO",
+  "SEO agency services",
+  "Google Ads management",
+  "contractor website design",
+  "home services website design",
+  "restaurant website design"
+];
+
+function areaServedSchema() {
+  return site.serviceAreas.map((area) => ({
+    "@type": "AdministrativeArea",
+    name: area
+  }));
+}
+
+function offerCatalogSchema() {
+  return {
+    "@type": "OfferCatalog",
+    name: "Hometown Marketing Agency services",
+    itemListElement: services.map((service) => {
+      const serviceUrl = `${site.url}/services/${service.slug}`;
+      const startingPrice = priceFromLabel(service.price);
+
+      return {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          serviceType: service.title,
+          url: serviceUrl
+        },
+        price: maybe(startingPrice),
+        priceCurrency: maybe(startingPrice ? "USD" : undefined),
+        url: serviceUrl,
+        description: service.price
+      };
+    })
+  };
+}
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -48,6 +95,9 @@ export function organizationSchema() {
     telephone: site.contactPhone,
     logo: absoluteUrl(site.brand.visibleLogo),
     image: absoluteUrl(site.brand.socialImage),
+    areaServed: areaServedSchema(),
+    knowsAbout,
+    hasOfferCatalog: offerCatalogSchema(),
     contactPoint: [contactPointSchema()],
     sameAs: maybe(site.sameAs.length ? site.sameAs : undefined)
   };
@@ -91,10 +141,10 @@ export function localBusinessSchema() {
     image: absoluteUrl(site.brand.socialImage),
     logo: absoluteUrl(site.brand.visibleLogo),
     contactPoint: [contactPointSchema()],
-    areaServed: site.serviceAreas.map((area) => ({
-      "@type": "AdministrativeArea",
-      name: area
-    })),
+    areaServed: areaServedSchema(),
+    knowsAbout,
+    hasOfferCatalog: offerCatalogSchema(),
+    sameAs: maybe(site.sameAs.length ? site.sameAs : undefined),
     geo: maybe(
       site.geo && {
         "@type": "GeoCoordinates",

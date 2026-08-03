@@ -38,8 +38,8 @@ export const industries: IndustryItem[] = [
         eyebrow: "Kansas City Contractor SEO",
         title: "Contractor web design Kansas City searches need proof, services, and location clarity.",
         body:
-          "Contractor web design Kansas City, contractor website design Kansas City, website design for construction company, and construction website design Kansas City searches need trade-specific language, project proof, and internal links to relevant work.",
-        items: ["Contractor website design Kansas City copy", "Construction website design Kansas City headings", "Website design for construction company language", "Noble Hardwoods and ZJ Carpentry project proof"]
+          "Contractor web design Kansas City, contractor website design Kansas City, contractor SEO Kansas City, website design for construction company, and construction website design Kansas City searches need trade-specific language, project proof, and internal links to relevant work.",
+        items: ["Contractor website design Kansas City copy", "Construction website design Kansas City headings", "Contractor SEO and quote-flow language", "Noble Hardwoods and ZJ Carpentry project proof"]
       }
     ],
     faqItems: [
@@ -64,7 +64,7 @@ export const industries: IndustryItem[] = [
           "Contractor web design needs to show project proof quickly, explain service lines clearly, build trust with homeowners, and make estimate requests easy from mobile devices."
       }
     ],
-    updatedAt: "2026-07-31"
+    updatedAt: "2026-08-03"
   },
   {
     title: "Home Services Website Design Kansas City",
@@ -104,7 +104,7 @@ export const industries: IndustryItem[] = [
         eyebrow: "Website Design for Service Businesses",
         title: "The page should support movers, remodelers, cleaners, HVAC companies, and other local service teams.",
         body:
-          "The strongest home-service websites organize proof around the jobs customers need done. Clear service sections, real photos, local language, and quote paths help this page support home service website design Kansas City, home services website design Kansas City, service business website design, and contractor website intent without creating thin trade-specific pages.",
+          "The strongest home-service websites organize proof around the jobs customers need done. Clear service sections, real photos, local language, and quote paths help this page support home service website design Kansas City, home services website design Kansas City, HVAC website design Kansas City as a secondary term, service business website design, and contractor website intent without creating thin trade-specific pages.",
         items: ["Local service business website design", "Flooring and contractor project proof", "Quote request CTAs", "Links to contractor and website design strategy"]
       }
     ],
@@ -125,7 +125,7 @@ export const industries: IndustryItem[] = [
           "Yes. Real project photos are usually one of the strongest trust signals for home-service websites."
       }
     ],
-    updatedAt: "2026-07-31"
+    updatedAt: "2026-08-03"
   },
   {
     title: "Restaurant Website Design Kansas City",
@@ -163,8 +163,8 @@ export const industries: IndustryItem[] = [
         eyebrow: "Local Search",
         title: "Restaurant website design Kansas City content should connect food, place, and intent.",
         body:
-          "Google and guests need clear signals about the food, location, service style, and next step. The Plate KC and Dragonfly Catering case studies show how those priorities change across restaurants, catering, private events, menus, and reservations.",
-        items: ["Neighborhood and city context", "Cuisine and service cues", "Restaurant and catering project proof", "Structured FAQs for guest questions"]
+          "Google and guests need clear signals about the food, location, service style, and next step. Plate KC anchors the Kansas City and Leawood restaurant proof, while Dragonfly Catering shows how those priorities change across catering, private events, menus, and proposal requests.",
+        items: ["Neighborhood and city context", "Cuisine and service cues", "Plate KC and Dragonfly project proof", "Structured FAQs for guest questions"]
       }
     ],
     faqItems: [
@@ -184,7 +184,7 @@ export const industries: IndustryItem[] = [
           "Yes. Hometown builds restaurant websites for Kansas City hospitality brands that need stronger presentation, easier navigation, and clearer reservation, menu, or event inquiry paths."
       }
     ],
-    updatedAt: "2026-07-31"
+    updatedAt: "2026-08-03"
   }
 ];
 
