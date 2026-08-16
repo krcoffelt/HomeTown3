@@ -1,68 +1,44 @@
 export interface FAQItem {
   question: string;
   answer: string;
-  page: "home" | "pricing";
+  page: "home";
 }
 
 export const faqs: FAQItem[] = [
   {
-    question: "How much does a website cost?",
+    question: "What is included in the free marketing audit?",
     answer:
-      "Our custom websites start at $800, a fraction of what big agencies charge. Every site is mobile-optimized, fast, and built to convert visitors into paying customers.",
+      "We review the clearest available signals across your website, search visibility, paid campaigns, conversion tracking, and lead flow. You get a practical conversation about what is working, what needs attention, and the highest-value next step.",
     page: "home"
   },
   {
-    question: "Do I need to sign a long-term contract?",
+    question: "Do you only work with small businesses?",
     answer:
-      "Never. We work month-to-month on recurring services and project-by-project on one-time builds. You stay because you want to, not because you have to.",
+      "Small businesses are our focus. Our approach is designed for owner-led teams that need practical marketing, direct communication, and a clear connection between the work and real leads.",
     page: "home"
   },
   {
-    question: "How fast can I get my website?",
+    question: "How do you track real conversions?",
     answer:
-      "Most websites are delivered within 7 business days. Complex projects may take longer, but we will always give you a clear timeline upfront.",
+      "We define the actions that matter for your business—such as calls, forms, bookings, qualified leads, and sales conversations—then configure measurement so those actions can guide decisions.",
     page: "home"
   },
   {
-    question: "I'm not tech-savvy. Is that okay?",
+    question: "Can you help if we do not know what is working?",
     answer:
-      "Absolutely. Most of our clients are not. You tell us about your business, and we handle the rest. No jargon, no confusing dashboards, just results you can see.",
+      "Yes. That is exactly where the audit starts. We assess the available data, identify tracking gaps, and separate strong signals from assumptions so the next decision is clearer.",
     page: "home"
   },
   {
-    question: "Do you work with businesses outside KC?",
+    question: "Do you manage both Google Ads and Meta Ads?",
     answer:
-      "We do, but our roots are here in Kansas City and that is where we do our best work. If you are anywhere in the metro, we can even meet in person.",
+      "Yes. We use Google, Meta, or both based on customer intent, your offer, the sales process, and what can be measured reliably.",
     page: "home"
   },
   {
-    question: "What if I already have a website but it's not working?",
+    question: "What if our current website is not producing leads?",
     answer:
-      "We will audit it for free and tell you exactly what is holding it back. Sometimes it is a quick fix. Sometimes a fresh start makes more sense. Either way, we will be honest.",
+      "We will audit the message, mobile experience, trust signals, calls to action, forms, traffic quality, and tracking. Then we will explain whether focused fixes or a new conversion-focused website is the better next move.",
     page: "home"
-  },
-  {
-    question: "How much does a small business website cost in Kansas City?",
-    answer:
-      "Our current website package is $800, with a regular price of $1,000 for the same build scope.",
-    page: "pricing"
-  },
-  {
-    question: "What is included in a small business website?",
-    answer:
-      "A custom homepage, core internal pages, mobile optimization, conversion-focused sections, analytics installation, and contact lead capture setup.",
-    page: "pricing"
-  },
-  {
-    question: "What does monthly SEO cost?",
-    answer:
-      "SEO is $250/month per business for keyword tracking, Search Console review, audits, internal linking recommendations, competitor tracking, and a monthly action plan.",
-    page: "pricing"
-  },
-  {
-    question: "What does paid ads management cost?",
-    answer:
-      "Paid ads management is 20% of ad spend. Setup is $250 one-time per platform for campaign setup, tracking setup, audience or keyword setup, ad structure, and launch preparation.",
-    page: "pricing"
   }
 ];

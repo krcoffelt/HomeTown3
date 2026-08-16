@@ -1,10 +1,10 @@
 export const homepageCopy = {
-  heroBadge: "Kansas City Marketing Agency",
-  heroTitleLineOne: "Kansas City websites",
-  heroTitleLineTwo: "and marketing for small businesses.",
+  heroBadge: "Small Business Marketing · Kansas City",
+  heroTitleLineOne: "Kansas City Marketing Agency",
+  heroTitleLineTwo: "Built for Real Leads",
   heroSubtitle:
-    "Custom websites from $800, SEO from $250/month, and paid ads managed at 20% of ad spend by a team that knows Kansas City inside and out.",
-  trustSignals: ["No contracts", "7-day turnaround", "100% satisfaction"],
+    "We build websites that convert, SEO that earns real rankings, and Google and Meta campaigns tied to qualified leads—not vanity metrics.",
+  trustSignals: ["Real conversion tracking", "Clear reporting", "Built for small businesses"],
   marqueeReviews: [
     "Kyle does absolutely tremendous work with web design!!!",
     "I couldn’t be happier with the website Kyle built for me!",
@@ -15,50 +15,41 @@ export const homepageCopy = {
     "A personal touch that other companies can't give you."
   ],
   stats: [
-    { value: 7, suffix: " Day", label: "Average turnaround on websites" },
+    { value: 3, suffix: "", label: "Connected growth channels" },
     { value: 23, suffix: "+", label: "Projects delivered for KC businesses" },
     { value: 100, suffix: "%", label: "Client satisfaction rate" }
   ],
   whyHometown: {
     badge: "Why Hometown",
-    title: "Marketing that actually makes sense for your budget",
+    title: "Real data. Real rankings. Real results.",
     intro:
-      "No bloated retainers. No mystery process. Just the core marketing pieces that help small businesses look more established and get more leads."
+      "You should know which marketing creates calls, forms, qualified leads, and customers. We connect the work to measurable business actions."
   },
   howItWorks: {
     badge: "How It Works",
-    title: "Three steps to more customers",
+    title: "From uncertainty to a measurable growth plan",
     subtitle:
-      "No 12-week onboarding. No complicated contracts. Just a straightforward process that gets results."
+      "Start with a free marketing audit, focus on the biggest opportunity, and measure the actions that matter."
   },
-  pricingFeatures: [
-    "Custom design with no templates",
-    "Mobile-optimized and blazing fast",
-    "Basic SEO setup included",
-    "Contact form integration",
-    "Google Analytics installed",
-    "2 rounds of revisions",
-    "Delivered in about 7 business days"
-  ],
   founderNote:
-    "Hey — I'm the person who'll actually be building your website and running your ads. Not an intern, not an outsourced team overseas. When you reach out, you're talking to me directly. I started Hometown because I saw too many KC businesses getting overcharged for mediocre work. You deserve better."
+    "Hey — I'm the person who'll help audit your marketing, build your website, and improve your campaigns. When you reach out, you're talking directly to the person doing the work. I started Hometown because small-business owners deserve clear answers about what is working, what is not, and what to do next."
 };
 
 export const homepageSteps = [
   {
     step: "01",
-    title: "Tell Us About Your Business",
-    description: "We learn what you do, who you serve, and what kind of leads you want more of."
+    title: "Get a Free Marketing Audit",
+    description: "We review your website, search visibility, ads, tracking, and goals to find the clearest growth opportunity."
   },
   {
     step: "02",
-    title: "We Build Your Game Plan",
-    description: "We map the website, messaging, or marketing support around what will actually move the needle."
+    title: "Focus the Growth Plan",
+    description: "We explain what is working, what is leaking leads, and whether websites, SEO, or paid ads should come first."
   },
   {
     step: "03",
-    title: "Watch Customers Roll In",
-    description: "You launch with a cleaner brand presence and a faster path from search to inquiry."
+    title: "Track Real Conversions",
+    description: "We implement the work and measure calls, forms, qualified leads, rankings, and revenue signals—not empty reach."
   }
 ];
 

@@ -32,13 +32,13 @@ const relatedPageLinks: Record<string, Array<{ label: string; href: string; desc
   ],
   "plate-kc": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites for Kansas City small businesses." },
-    { label: "Website design Leawood KS", href: "/locations/leawood-ks", description: "Local website design and brand identity for Leawood businesses." },
+    { label: "Website design Leawood KS", href: "/locations/leawood-ks", description: "Local website design, SEO, paid ads, and conversion tracking for Leawood businesses." },
     { label: "Restaurant website design Kansas City", href: "/industries/restaurant-website-design-kansas-city", description: "Restaurant website strategy built around menus, reservations, and local proof." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ],
   "lupi-docs": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites built around credibility and lead flow." },
-    { label: "Brand Identity", href: "/services/brand-identity", description: "Logo, identity, and visual direction for small businesses." },
+    { label: "Google & Meta Ads", href: "/services/google-ads-management", description: "Paid campaigns measured by qualified leads and revenue signals." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ],
   "wrapped-up-moving": [

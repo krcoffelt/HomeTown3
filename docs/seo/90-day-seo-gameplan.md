@@ -1,6 +1,16 @@
 # Hometown SEO 90-Day Gameplan
 
-Primary goal: generate website design and website redesign leads in Kansas City and nearby cities while protecting one primary URL per keyword intent.
+Current primary goal: generate qualified small-business leads for conversion-focused websites, SEO, and Google/Meta ads while protecting one primary URL per keyword intent.
+
+## August 16 Positioning Update
+
+- The primary conversion is a free marketing audit and consultation at `/contact#form`.
+- Do not publish service prices or use price-led positioning.
+- Canonical service pages are `/services/website-design`, `/services/search-engine-optimization`, and `/services/google-ads-management`.
+- Retired cost, offer, and secondary-service URLs permanently redirect to the closest current intent.
+- Measure calls, forms, qualified leads, rankings, and revenue signals; do not treat reach or impressions as the final outcome.
+
+Earlier report notes below remain historical evidence. Where an earlier recommendation conflicts with this update, this section controls.
 
 ## July 6 Report Baseline
 
@@ -96,9 +106,10 @@ These steps require separate approval before execution.
 
 ## Week 9-12: Proof, AI Discoverability, And Authority
 
-- Keep `public/llms.txt` aligned with live pricing, service areas, proof projects, and canonical URLs.
+- Keep the generated `/llms.txt` endpoint aligned with live pricing, service areas, proof projects, and canonical URLs through source data and tests.
 - Review AI prompt visibility monthly: mention presence, link presence, and whether citations point to the correct canonical pages.
-- Keep the August 3 AI baseline visible in `public/llms.txt`: 0% mention presence and 40% link presence.
+- Keep the August 3 AI baseline in internal operations documentation, not in public machine-readable content: 0% mention presence and 40% link presence.
+- Use `docs/seo/ai-discovery-rollout.md` for the compressed validation and measurement schedule. Keep `/llms-full.txt` and `/ai.txt` behind their documented evidence and policy gates.
 - Add or refresh client proof where it supports existing page intent, especially Plate KC for restaurant and Leawood, ZJ Carpentry for contractor, Wrapped Up Moving for home services, and Lupi Docs for brand/publishing proof.
 - Ask happy clients for Google reviews that naturally mention the service and city.
 - Add local citations or partner backlinks only where business information can stay consistent.

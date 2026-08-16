@@ -15,7 +15,7 @@ const postImages: Record<string, string> = {
   "website-builder-vs-custom-website-for-small-businesses": "/images/WrappedUpMoving_screenshot.webp"
 };
 
-const editorialTags = ["Website Pricing", "Small Business Websites", "Contractor Websites", "Home Services", "Website Redesign", "Local SEO"];
+const editorialTags = ["Lead Generation", "Small Business Websites", "Contractor Websites", "Home Services", "Conversion Tracking", "Local SEO"];
 
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("en", {
@@ -27,7 +27,7 @@ function formatDate(date: string) {
 
 export const metadata = createPageMetadata(
   "Website Design & SEO Blog Kansas City",
-  "Practical website design, SEO, pricing, and marketing advice for Kansas City small-business owners.",
+  "Practical website, SEO, paid advertising, conversion tracking, and lead-generation advice for Kansas City small-business owners.",
   "/blog"
 );
 
@@ -72,7 +72,7 @@ export default function BlogPage() {
               Website design and marketing advice for Kansas City small businesses
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/78 md:text-xl">
-              Practical guides on websites, local SEO, pricing, and lead flow for owners who need clearer marketing decisions.
+              Practical guides on websites, local SEO, paid ads, conversion tracking, and lead flow for owners who need clearer marketing decisions.
             </p>
           </div>
         </div>
@@ -150,8 +150,8 @@ export default function BlogPage() {
               <div className="mt-5 grid gap-3">
                 {[
                   { label: "Website Design Kansas City", href: "/services/website-design" },
-                  { label: "Website design cost in Kansas City", href: "/website-design-cost-kansas-city" },
-                  { label: "Small business website design Kansas City", href: "/services/small-business-websites" },
+                  { label: "Free small business marketing audit", href: "/contact#form" },
+                  { label: "Small business website design Kansas City", href: "/services/website-design" },
                   { label: "View Website Work", href: "/work" }
                 ].map((link) => (
                   <Link

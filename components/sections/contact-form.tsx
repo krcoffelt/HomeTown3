@@ -81,10 +81,10 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
           <CheckCircleIcon className="h-7 w-7" />
         </div>
         <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-foreground">
-          Thanks — we&apos;ll be in touch.
+          Your audit request is in.
         </h3>
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-          We usually reply within a few hours.
+          We&apos;ll review your details and reach out to schedule the consultation.
         </p>
       </div>
     );
@@ -94,7 +94,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
     <div className="rounded-[2.25rem] border border-black/8 bg-card p-6 shadow-[var(--shadow-elevated)] sm:p-8 md:p-10">
       <div className="pb-1">
         <h3 className="text-[1.3rem] font-bold tracking-tight text-foreground sm:text-[1.55rem]">
-          What&apos;s the best email for you?
+          Where should we send your audit follow-up?
         </h3>
       </div>
 
@@ -105,7 +105,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
         className="grid gap-5 pt-4 sm:gap-6 sm:pt-5"
         onSubmit={() => pushDataLayerEvent(analyticsEvents.formSubmit)}
       >
-        <input type="hidden" name="serviceNeeded" value="General Inquiry" />
+        <input type="hidden" name="serviceNeeded" value="Free Marketing Audit" />
         <input type="hidden" name="startedAt" value={startedAt} />
         <LeadAttributionFields />
 
@@ -116,7 +116,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
 
         <div className="space-y-3">
           <label htmlFor="contact-email" className="sr-only">
-            {expanded ? "Email" : "What's the best email for you?"}
+            {expanded ? "Email" : "Where should we send your audit follow-up?"}
           </label>
           <Input
             id="contact-email"
@@ -197,7 +197,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
 
                 <div className="space-y-2">
                   <label htmlFor="contact-projectDetails" className={labelClass}>
-                    Tell us about your business
+                    What should we audit?
                   </label>
                   <Textarea
                     id="contact-projectDetails"
@@ -205,7 +205,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
                     required={expanded}
                     rows={4}
                     value={values.projectDetails}
-                    placeholder="What do you do, what do you need, and what would make this a win?"
+                    placeholder="What do you sell, where do leads come from today, and what are you unsure is working?"
                     className={textareaClass}
                     onFocus={markStarted}
                     onChange={(event) =>
@@ -236,7 +236,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
               data-analytics="cta-contact"
               disabled={pending}
             >
-              {pending ? "Sending..." : "Get a Website Quote"}
+              {pending ? "Sending..." : "Request My Free Marketing Audit"}
             </button>
           )}
 

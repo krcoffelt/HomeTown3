@@ -31,11 +31,6 @@ function maybe<T>(value: T | null | undefined | false) {
   return value ? value : undefined;
 }
 
-function priceFromLabel(label: string) {
-  const match = label.replaceAll(",", "").match(/\$([0-9]+(?:\.[0-9]+)?)/);
-  return match?.[1];
-}
-
 const knowsAbout = [
   "Kansas City website design",
   "web design Kansas City",
@@ -63,8 +58,6 @@ function offerCatalogSchema() {
     name: "Hometown Marketing Agency services",
     itemListElement: services.map((service) => {
       const serviceUrl = `${site.url}/services/${service.slug}`;
-      const startingPrice = priceFromLabel(service.price);
-
       return {
         "@type": "Offer",
         itemOffered: {
@@ -73,10 +66,8 @@ function offerCatalogSchema() {
           serviceType: service.title,
           url: serviceUrl
         },
-        price: maybe(startingPrice),
-        priceCurrency: maybe(startingPrice ? "USD" : undefined),
         url: serviceUrl,
-        description: service.price
+        description: service.shortDescription
       };
     })
   };
@@ -137,7 +128,6 @@ export function localBusinessSchema() {
     telephone: site.contactPhone,
     email: site.contactEmail,
     url: site.url,
-    priceRange: "$$",
     image: absoluteUrl(site.brand.socialImage),
     logo: absoluteUrl(site.brand.visibleLogo),
     contactPoint: [contactPointSchema()],
@@ -158,7 +148,7 @@ export function localBusinessSchema() {
   };
 }
 
-export function faqSchema(page: "home" | "pricing") {
+export function faqSchema(page: "home") {
   const items = faqs.filter((item) => item.page === page);
   return faqItemsSchema(items);
 }
@@ -290,8 +280,6 @@ export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
 
 export function serviceSchema(service: ServiceItem) {
   const serviceUrl = `${site.url}/services/${service.slug}`;
-  const startingPrice = priceFromLabel(service.price);
-
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -306,45 +294,6 @@ export function serviceSchema(service: ServiceItem) {
     })),
     provider: {
       "@id": localBusinessId
-    },
-    offers: {
-      "@type": "Offer",
-      price: maybe(startingPrice),
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: serviceUrl,
-      description: service.price
-    }
-  };
-}
-
-export function websiteOfferSchema() {
-  const offerUrl = `${site.url}/website-offer-800`;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${offerUrl}#offer`,
-    name: "Professional Small Business Websites for $800",
-    serviceType: "Small Business Website Design",
-    description:
-      "A flat-rate website package for small businesses that need a clean, credible, lead-focused website fast.",
-    url: offerUrl,
-    areaServed: site.serviceAreas.map((area) => ({
-      "@type": "AdministrativeArea",
-      name: area
-    })),
-    provider: {
-      "@id": localBusinessId
-    },
-    offers: {
-      "@type": "Offer",
-      price: "800",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: offerUrl,
-      category: "Website Design",
-      description: "Custom multi-page small business website package."
     }
   };
 }

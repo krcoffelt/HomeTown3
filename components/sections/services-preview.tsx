@@ -4,18 +4,13 @@ import { MagneticButton } from "@/components/ui/magnetic-button";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ServiceCard } from "@/components/ui/service-card";
-import { ArrowRightIcon, CheckCircleIcon, GlobeIcon, TargetIcon, TrendingUpIcon, ZapIcon } from "@/components/ui/site-icons";
+import { ArrowRightIcon, CheckCircleIcon, GlobeIcon, TargetIcon } from "@/components/ui/site-icons";
 import { services } from "@/data/services";
 
 const iconMap: Record<string, typeof GlobeIcon> = {
   "website-design": GlobeIcon,
-  "small-business-websites": GlobeIcon,
   "google-ads-management": TargetIcon,
-  "social-media-management": ZapIcon,
-  "graphic-design": CheckCircleIcon,
-  "search-engine-optimization": GlobeIcon,
-  "analytics-and-tracking": TrendingUpIcon,
-  "brand-identity": ZapIcon
+  "search-engine-optimization": GlobeIcon
 };
 
 const homepageServiceSlugs = ["website-design", "search-engine-optimization", "google-ads-management"];
@@ -29,8 +24,8 @@ export function ServicesPreview() {
     <SectionShell className="noise bg-gradient-subtle">
       <SectionHeading
         badge="Services"
-        title={"Websites, SEO,\nand paid ads"}
-        subtitle="The core growth stack for small businesses: a stronger website, better search visibility, and paid campaigns when you are ready to drive traffic."
+        title={"Websites, SEO,\nand paid ads that convert"}
+        subtitle="Three connected growth channels for small businesses, measured by the calls, forms, qualified leads, rankings, and revenue signals they create."
       />
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {homepageServices.map((service, index) => {
@@ -42,7 +37,6 @@ export function ServicesPreview() {
                   icon={<Icon className="h-5 w-5" />}
                   title={service.title}
                   description={service.shortDescription}
-                  price={service.price}
                 />
               </Link>
             </Reveal>
@@ -60,22 +54,16 @@ export function ServicesPreview() {
           </Link>
         </MagneticButton>
         <Link
-          href="/services/small-business-websites"
+          href="/services/search-engine-optimization"
           className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
         >
-          Small Business Website Design Kansas City
+          Small Business SEO Kansas City
         </Link>
         <Link
-          href="/services/website-redesign"
+          href="/services/google-ads-management"
           className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
         >
-          Website Redesign
-        </Link>
-        <Link
-          href="/website-design-cost-kansas-city"
-          className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
-        >
-          Website Design Pricing Kansas City
+          Google &amp; Meta Ads
         </Link>
         <Link
           href="/industries/restaurant-website-design-kansas-city"

@@ -8,11 +8,13 @@ Source: `data/services.ts`
 
 Routes: `/services/[slug]`
 
-Service records control service page metadata, hero copy, pricing labels, FAQs, proof projects, and related links. Keep pricing labels aligned with the public offers:
+Service records control service page metadata, hero copy, FAQs, proof projects, and related links. The public service architecture is intentionally limited to:
 
-- Websites: `From $800`
-- SEO: `$250/mo`
-- Google Ads: `20% of ad spend`
+- Conversion-focused websites
+- SEO tied to rankings and qualified organic demand
+- Google and Meta ads tied to qualified leads and revenue signals
+
+Do not publish service prices. The primary conversion path is `/contact#form`, where owners request a free marketing audit and consultation.
 
 ## Locations
 

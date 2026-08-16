@@ -2,19 +2,6 @@ import type { BlogPostItem } from "@/types";
 
 export const blogPosts: BlogPostItem[] = [
   {
-    title: "How Much Does a Website Cost in Kansas City?",
-    slug: "website-design-cost-kansas-city",
-    href: "/website-design-cost-kansas-city",
-    category: "Website Pricing",
-    excerpt:
-      "A Kansas City small-business pricing guide covering what custom websites cost, what Hometown's $800 starting point includes, and when a project needs a larger budget.",
-    publishedAt: "2026-05-12",
-    updatedAt: "2026-08-03",
-    readingTime: "6 min read",
-    targetKeywords: ["website design cost Kansas City", "website design pricing Kansas City", "web design cost Kansas City", "small business website cost", "custom website pricing"],
-    featured: true
-  },
-  {
     title: "Ministry Website Design for Project Salvation",
     slug: "ministry-website-design-project-salvation",
     href: "/ministry-website-design-project-salvation",
@@ -73,7 +60,7 @@ export const plannedBlogTopics = [
   {
     title: "How to Tell When Your Small Business Website Needs a Redesign",
     category: "Website Redesign",
-    target: "/services/website-redesign"
+    target: "/services/website-design"
   },
   {
     title: "Local SEO Basics for Kansas City Small Businesses",

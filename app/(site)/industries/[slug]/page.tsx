@@ -45,9 +45,9 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
   const relatedReading = [
     {
-      label: "How much does a website cost in Kansas City?",
-      href: "/website-design-cost-kansas-city",
-      description: "A pricing guide for small-business websites, redesigns, and scope decisions."
+      label: "Schedule a free marketing audit",
+      href: "/contact#form",
+      description: "Find the biggest website, SEO, paid-ads, or tracking opportunity before choosing the next move."
     },
     ...(industry.slug === "construction-website-design-kansas-city" || industry.slug === "home-services-website-design-kansas-city"
       ? [
@@ -228,10 +228,10 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
       ) : null}
 
       <ContactCta
-        title="Ready to turn local searches into project conversations?"
-        accentText="project conversations?"
-        body="Start with a website that shows your work clearly and gives customers a direct path to reach out."
-        links={[{ href: "/services/website-design", label: "Website Design Service" }]}
+        title="Ready to find your biggest lead-generation opportunity?"
+        accentText="lead-generation opportunity?"
+        body="Start with a free marketing audit across your website, local search visibility, paid campaigns, and conversion tracking."
+        links={[{ href: "/services", label: "Explore Services" }]}
       />
     </div>
   );

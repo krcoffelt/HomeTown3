@@ -6,7 +6,7 @@ import { SectionShell } from "@/components/layout/section-shell";
 import { faqs } from "@/data/faqs";
 
 interface FAQSectionProps {
-  page: "home" | "pricing";
+  page: "home";
   ctaHref?: string;
 }
 
@@ -20,11 +20,11 @@ export function FAQSection({ page, ctaHref = "/contact#form" }: FAQSectionProps)
           <SectionHeading
             badge="FAQ"
             title="Questions? We've got answers."
-            subtitle="If you don't see your question here, just ask us. We love talking shop."
+            subtitle="If you still are not sure where to start, the free audit is built for that conversation."
             centered={false}
           />
           <MagneticButton>
-            <Button href={ctaHref} variant="secondary">Ask a Question</Button>
+            <Button href={ctaHref} variant="secondary">Get a Free Audit</Button>
           </MagneticButton>
         </div>
         <div className="lg:col-span-3">

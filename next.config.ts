@@ -31,7 +31,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/services/logo-and-brand-work",
-        destination: "/services/brand-identity",
+        destination: "/services/website-design",
         permanent: true
       },
       {
@@ -41,7 +41,37 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/services/meta-ads-management",
-        destination: "/services/social-media-management",
+        destination: "/services/google-ads-management",
+        permanent: true
+      },
+      {
+        source: "/services/small-business-websites",
+        destination: "/services/website-design",
+        permanent: true
+      },
+      {
+        source: "/services/website-redesign",
+        destination: "/services/website-design",
+        permanent: true
+      },
+      {
+        source: "/services/social-media-management",
+        destination: "/services/google-ads-management",
+        permanent: true
+      },
+      {
+        source: "/services/graphic-design",
+        destination: "/services/website-design",
+        permanent: true
+      },
+      {
+        source: "/services/analytics-and-tracking",
+        destination: "/services",
+        permanent: true
+      },
+      {
+        source: "/services/brand-identity",
+        destination: "/services/website-design",
         permanent: true
       }
     ];

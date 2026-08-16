@@ -20,7 +20,7 @@ export const locations: LocationItem[] = [
     whyTitle: "Why Kansas City businesses work with Hometown",
     whyDescription:
       "The work is local, practical, and focused on the parts of marketing that directly affect trust and inquiries: a credible website, clear service messaging, local search structure, and measurable next steps.",
-    trustHighlights: ["Kansas City focused", "Custom websites from $800", "SEO from $250/month", "Ads by spend"],
+    trustHighlights: ["Kansas City focused", "Conversion-focused websites", "Real ranking data", "Lead-focused ads"],
     whyPoints: [
       "Website design that explains the offer before visitors lose interest",
       "Local SEO structure for Kansas City service searches",
@@ -54,7 +54,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["noble-hardwoods", "wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
-    ctaLabel: "Start Your Kansas City Project",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-07-31"
   },
   {
@@ -91,7 +91,7 @@ export const locations: LocationItem[] = [
         items: ["Website design Kansas City KS language", "Small-business website structure", "SEO and analytics support"]
       }
     ],
-    priorityServices: ["website-design", "search-engine-optimization", "analytics-and-tracking"],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
     faqItems: [
       {
         question: "Can Hometown help a Kansas City, KS business with a smaller website?",
@@ -110,7 +110,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "lupi-docs"],
-    ctaLabel: "Start Your Kansas City, KS Project",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-06-20"
   },
   {
@@ -143,7 +143,7 @@ export const locations: LocationItem[] = [
         eyebrow: "Website Design Lee's Summit",
         title: "Built for businesses that need to look established and be easy to choose.",
         body:
-          "Lee's Summit customers often compare options before reaching out. A stronger website can make services, proof, pricing cues, and contact paths easier to understand.",
+          "Lee's Summit customers often compare options before reaching out. A stronger website can make services, proof, value, and contact paths easier to understand.",
         items: ["Website design Lee's Summit MO targeting", "Service and proof sections", "SEO and Google Ads next steps"]
       }
     ],
@@ -166,7 +166,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "plate-kc"],
-    ctaLabel: "Start Your Lee's Summit Project",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-06-20"
   },
   {
@@ -174,21 +174,21 @@ export const locations: LocationItem[] = [
     slug: "blue-springs-mo",
     city: "Blue Springs",
     state: "MO",
-    heroTitle: "Affordable website design for Blue Springs businesses that need calls and quote requests.",
+    heroTitle: "Website design for Blue Springs businesses that need calls and qualified leads.",
     heroDescription:
       "Custom websites, SEO, and paid ads support for Blue Springs service businesses and local companies that need a stronger online presence without extra agency bloat.",
     seoTitle: "Website Design Blue Springs MO",
     seoDescription:
-      "Website design in Blue Springs MO for home-service and local businesses that need affordable custom websites, SEO, ads, and lead-focused pages.",
+      "Website design in Blue Springs MO for home-service and local businesses that need conversion-focused websites, SEO, ads, and measurable lead flow.",
     introTitle: "A practical website and marketing foundation for Blue Springs businesses.",
     introDescription:
       "Blue Springs businesses often need the basics done well: a credible website, clear service pages, local search relevance, and a contact path that works on mobile. Hometown builds around those basics first so marketing feels useful instead of inflated.",
     localAngle:
-      "Built for Blue Springs home-service and local businesses that need affordable custom websites and clearer quote-request flow.",
+      "Built for Blue Springs home-service and local businesses that need conversion-focused websites and clearer quote-request flow.",
     whyTitle: "Why this works for Blue Springs businesses",
     whyDescription:
       "The strategy is simple: make the business look trustworthy, explain services clearly, connect pages to local search intent, and make calls or quote requests easier.",
-    trustHighlights: ["Affordable websites", "Home-service fit", "SEO support", "Quote-focused CTAs"],
+    trustHighlights: ["Conversion-focused websites", "Home-service fit", "SEO support", "Tracked lead actions"],
     whyPoints: [
       "Custom website design without unnecessary complexity",
       "Service-page structure for local business searches",
@@ -211,7 +211,7 @@ export const locations: LocationItem[] = [
           "Yes. The structure is especially useful for contractors, movers, remodelers, cleaners, and other service businesses that rely on calls and quote requests."
       },
       {
-        question: "Can a custom website stay affordable?",
+        question: "Can a custom website stay focused on what the business needs?",
         answer:
           "Yes. Hometown's website work starts from a practical custom foundation instead of forcing every business into a large agency package."
       },
@@ -222,7 +222,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "lupi-docs"],
-    ctaLabel: "Start Your Blue Springs Project",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-06-20"
   },
   {
@@ -259,7 +259,7 @@ export const locations: LocationItem[] = [
         items: ["Website design Independence MO targeting", "Website redesign messaging", "Local SEO and lead-flow cleanup"]
       }
     ],
-    priorityServices: ["website-design", "website-redesign", "search-engine-optimization"],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
     faqItems: [
       {
         question: "Can you redesign an existing Independence business website?",
@@ -278,7 +278,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
-    ctaLabel: "Start Your Independence Project",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-06-20"
   },
   {
@@ -288,10 +288,10 @@ export const locations: LocationItem[] = [
     state: "KS",
     heroTitle: "Polished website design for Prairie Village businesses that need a stronger first impression.",
     heroDescription:
-      "Custom websites, brand identity, and SEO support for Prairie Village, Mission, and Roeland Park businesses that need to look credible and easy to choose.",
+      "Conversion-focused websites, SEO, and paid-ad support for Prairie Village, Mission, and Roeland Park businesses that need to look credible and easy to choose.",
     seoTitle: "Website Design Prairie Village KS",
     seoDescription:
-      "Website design in Prairie Village KS for small businesses that need polished websites, brand identity, SEO, and stronger local trust.",
+      "Website design in Prairie Village KS for small businesses that need polished websites, SEO, paid ads, and stronger local trust.",
     introTitle: "A more polished digital presence for northeast Johnson County businesses.",
     introDescription:
       "Prairie Village, Mission, and Roeland Park businesses often win trust through presentation, reputation, and clarity. The website should feel polished without becoming overbuilt, and it should give visitors a direct way to understand the business and take action.",
@@ -300,10 +300,10 @@ export const locations: LocationItem[] = [
     whyTitle: "Why Prairie Village businesses choose Hometown",
     whyDescription:
       "The work balances presentation and practicality. Hometown helps businesses look more established while keeping the site focused on services, trust, and inquiries.",
-    trustHighlights: ["Polished websites", "Brand identity", "SEO support", "Northeast JoCo focus"],
+    trustHighlights: ["Polished websites", "Conversion tracking", "SEO support", "Northeast JoCo focus"],
     whyPoints: [
       "Custom website design with a more polished first impression",
-      "Brand identity support for businesses that need more consistency",
+      "Conversion tracking for businesses that need clearer performance data",
       "SEO structure for Prairie Village, Mission, and Roeland Park searches"
     ],
     seoSections: [
@@ -315,7 +315,7 @@ export const locations: LocationItem[] = [
         items: ["Website design Prairie Village KS targeting", "Mission and Roeland Park language used naturally", "Brand and SEO alignment"]
       }
     ],
-    priorityServices: ["website-design", "brand-identity", "search-engine-optimization"],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
     faqItems: [
       {
         question: "Do you work with businesses in Prairie Village and nearby cities?",
@@ -328,13 +328,13 @@ export const locations: LocationItem[] = [
           "Yes. The goal is a stronger first impression, clearer message, and cleaner lead path, not unnecessary design complexity."
       },
       {
-        question: "Should brand identity be part of the website project?",
+        question: "Should conversion tracking be part of the website project?",
         answer:
-          "It can be useful when the business needs more consistency across the website, logo, colors, messaging, and supporting creative."
+          "Yes. Tracking calls, forms, bookings, and other meaningful actions helps the business understand which pages and campaigns are producing real opportunities."
       }
     ],
     relatedProjectSlugs: ["plate-kc", "lupi-docs", "voxwhite"],
-    ctaLabel: "Start Your Prairie Village Project",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-06-20"
   },
   {
@@ -347,7 +347,7 @@ export const locations: LocationItem[] = [
       "Custom websites, SEO, ads, and creative built for Overland Park businesses that need a stronger first impression, better local visibility, and more qualified leads.",
     seoTitle: "Website Design Overland Park KS",
     seoDescription:
-      "Website design in Overland Park KS for small businesses that need a better website, stronger SEO, sharper creative, and more qualified local leads.",
+      "Website design in Overland Park KS for small businesses that need a better website, stronger SEO, paid ads, and more qualified local leads.",
     introTitle: "How we help Overland Park businesses compete better online.",
     introDescription:
       "Overland Park businesses are competing in a polished, crowded market. If the website feels dated or the messaging feels generic, trust drops fast. Hometown helps businesses show up with a cleaner brand presence, stronger local visibility, and a marketing system that feels more established from the first click.",
@@ -390,7 +390,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["plate-kc", "wrapped-up-moving", "zj-carpentry-and-more"],
-    ctaLabel: "Start Your Overland Park Project",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-05-22"
   },
   {
@@ -427,7 +427,7 @@ export const locations: LocationItem[] = [
         items: ["Quote-focused layouts", "Home-service proof", "Local SEO structure for Olathe searches"]
       }
     ],
-    priorityServices: ["website-design", "search-engine-optimization", "analytics-and-tracking"],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
     faqItems: [
       {
         question: "Will this help an Olathe business get more calls or quote requests?",
@@ -446,7 +446,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
-    ctaLabel: "Get Help for Your Olathe Business",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-05-22"
   },
   {
@@ -456,10 +456,10 @@ export const locations: LocationItem[] = [
     state: "KS",
     heroTitle: "Website design and web design for Leawood businesses that need to look polished and credible.",
     heroDescription:
-      "From premium websites to sharper branding and lead-focused strategy, Hometown helps Leawood businesses show up with a more professional presence online and a clearer path from search to inquiry.",
+      "From conversion-focused websites to SEO, paid ads, and lead tracking, Hometown helps Leawood businesses create a clearer path from search to inquiry.",
     seoTitle: "Website Design Leawood KS",
     seoDescription:
-      "Website design in Leawood KS for businesses that need premium web design, sharper branding, stronger trust, and a more polished online presence.",
+      "Website design in Leawood KS for businesses that need premium web design, SEO, paid ads, stronger trust, and clearer lead tracking.",
     introTitle: "A stronger presentation matters in Leawood.",
     introDescription:
       "In Leawood, the first impression has to feel polished. If the brand looks inconsistent or the website feels dated, that can quietly cost trust. Hometown helps businesses tighten the presentation and pair that polish with lead-focused strategy, local search clarity, and proof from relevant Kansas City-area work including Plate KC.",
@@ -483,7 +483,7 @@ export const locations: LocationItem[] = [
         items: ["Premium visual direction", "Brand and website alignment", "Plate KC and local proof sections", "Clear contact paths for Leawood buyers"]
       }
     ],
-    priorityServices: ["website-design", "brand-identity", "graphic-design"],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
     faqItems: [
       {
         question: "Will the work actually feel custom and premium?",
@@ -507,7 +507,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["plate-kc", "lupi-docs", "voxwhite"],
-    ctaLabel: "Build a Better Leawood Presence",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-08-03"
   },
   {
@@ -563,7 +563,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["zj-carpentry-and-more", "wrapped-up-moving", "lupi-docs"],
-    ctaLabel: "Start Your Lenexa Project",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-06-22"
   },
   {
@@ -587,20 +587,20 @@ export const locations: LocationItem[] = [
       "The work stays personal, direct, and grounded in results. The focus is not activity for its own sake. It is a stronger online presence that helps good businesses look the part and get contacted more often.",
     trustHighlights: ["Personal approach", "No agency bloat", "Lead-focused websites", "Built for Shawnee trust"],
     whyPoints: [
-      "Affordable website design without unnecessary complexity",
+      "Conversion-focused website design without unnecessary complexity",
       "Messaging that feels clearer and more trustworthy",
       "Support that stays direct and honest"
     ],
     seoSections: [
       {
         eyebrow: "Website Design Shawnee",
-        title: "Built for owner-led businesses that need practical, affordable websites.",
+        title: "Built for owner-led businesses that need practical, conversion-focused websites.",
         body:
           "Shawnee businesses often need a sharper site without a heavy agency process. The work focuses on credibility, clear services, and easy next steps.",
-        items: ["Affordable custom websites", "Owner-led business positioning", "Simple calls and quote-request paths"]
+        items: ["Conversion-focused custom websites", "Owner-led business positioning", "Simple calls and quote-request paths"]
       }
     ],
-    priorityServices: ["website-design", "social-media-management", "search-engine-optimization"],
+    priorityServices: ["website-design", "search-engine-optimization", "google-ads-management"],
     faqItems: [
       {
         question: "Is this only for businesses on a tight budget?",
@@ -619,7 +619,7 @@ export const locations: LocationItem[] = [
       }
     ],
     relatedProjectSlugs: ["wrapped-up-moving", "zj-carpentry-and-more", "lupi-docs"],
-    ctaLabel: "Talk About Your Shawnee Business",
+    ctaLabel: "Get a Free Marketing Audit",
     updatedAt: "2026-05-22"
   }
 ];

@@ -24,9 +24,9 @@ const faqItems = [
       "Yes. Project photos are one of the fastest ways to build trust, especially when they show real work, before-and-after progress, location context, and the type of jobs the contractor wants more of."
   },
   {
-    question: "How much does a contractor website cost?",
+    question: "How do I know what my contractor website needs first?",
     answer:
-      "Hometown custom websites start at $800. Contractor websites can cost more when they need many service pages, project galleries, copywriting, advanced SEO, or integrations for booking and estimates."
+      "A free marketing audit can identify the biggest gaps across service clarity, project proof, local SEO, quote flow, mobile usability, and conversion tracking."
   }
 ];
 
@@ -129,7 +129,7 @@ export default function ContractorWebsiteChecklistPage() {
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button href="#form" className="h-14 px-8">
-                Get a Website Quote
+                Get a Free Marketing Audit
               </Button>
               <Button href="/industries/construction-website-design-kansas-city" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
                 Contractor Website Design
@@ -156,7 +156,7 @@ export default function ContractorWebsiteChecklistPage() {
 
           <section className="light-panel p-7 md:p-10">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Why It Matters</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Most customers are comparing trust before they compare price.</h2>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Most customers are comparing trust before they choose who to call.</h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 Contractor and home-service customers usually want proof before they reach out. They are looking for signs that the business is real, experienced, local, responsive, and capable of handling their specific project.
@@ -290,7 +290,7 @@ export default function ContractorWebsiteChecklistPage() {
       <ContactCta
         title="Need a contractor website built around quote requests?"
         accentText="quote requests?"
-        body="Hometown builds custom websites for Kansas City contractors and small businesses starting at $800."
+        body="Start with a free marketing audit to see which website, local SEO, and conversion improvements can create more qualified quote requests."
         links={[{ href: "/services/website-design", label: "Website Design Service" }]}
       />
     </div>

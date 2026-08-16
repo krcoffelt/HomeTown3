@@ -4,9 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CloseIcon, MenuIcon, PhoneIcon } from "@/components/ui/site-icons";
-import { site } from "@/data/site";
-import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
+import { CloseIcon, MenuIcon } from "@/components/ui/site-icons";
 import { cn } from "@/lib/utils/cn";
 
 const links = [
@@ -32,10 +30,8 @@ function hasEmbeddedContactForm(pathname: string) {
     "/deck-contractor-website-design-kansas-city",
     "/locations",
     "/ministry-website-design-project-salvation",
-    "/pricing",
     "/services",
     "/website-builder-vs-custom-website-for-small-businesses",
-    "/website-design-cost-kansas-city",
     "/what-should-a-contractor-website-include",
     "/work"
   ]);
@@ -52,8 +48,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isOfferPage = pathname === "/website-offer-800";
-  const quoteHref = hasEmbeddedContactForm(pathname) ? "#form" : "/contact#form";
+  const auditHref = hasEmbeddedContactForm(pathname) ? "#form" : "/contact#form";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -65,40 +60,6 @@ export function Navbar() {
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
-
-  if (isOfferPage) {
-    return (
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/8 bg-[#0b0d10] text-primary-foreground shadow-[0_18px_40px_rgba(0,0,0,0.24)]">
-        <div className="site-container flex min-h-[70px] items-center justify-between gap-3 py-3 sm:min-h-[78px] sm:gap-4 sm:py-4">
-          <Link href="/" aria-label="Hometown home" className="shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/HometownLogoWhite2026-sm.png"
-              alt="Hometown Marketing Agency"
-              width={220}
-              height={60}
-              className="h-7 w-auto sm:h-9"
-            />
-          </Link>
-
-          <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href={`tel:${site.contactPhone}`}
-              data-analytics="phone_click"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white text-black shadow-[0_12px_30px_rgba(15,23,42,0.22)] transition hover:-translate-y-0.5"
-              onClick={() => pushDataLayerEvent(analyticsEvents.phoneClick)}
-              aria-label="Call Hometown Marketing Agency"
-            >
-              <PhoneIcon className="h-4 w-4" />
-            </a>
-            <Button href="#claim-form" className="hidden h-10 px-5 text-sm sm:inline-flex" dataAnalytics="cta-offer-800">
-              Start My Website
-            </Button>
-          </div>
-        </div>
-      </header>
-    );
-  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -158,8 +119,8 @@ export function Navbar() {
               scrolled ? "pointer-events-none translate-x-3 opacity-0" : "translate-x-0 opacity-100"
             )}
           >
-            <Button href={quoteHref} className="h-12 px-7 text-base">
-              Get a Website Quote
+            <Button href={auditHref} className="h-12 px-7 text-base">
+              Get a Free Audit
             </Button>
           </div>
 
@@ -217,8 +178,8 @@ export function Navbar() {
                 );
               })}
             </nav>
-            <Button href={quoteHref} className="mt-4 w-full">
-              Get a Website Quote
+            <Button href={auditHref} className="mt-4 w-full">
+              Get a Free Marketing Audit
             </Button>
           </div>
         ) : null}

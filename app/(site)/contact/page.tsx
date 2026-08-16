@@ -20,16 +20,16 @@ const infoCards = [
 ];
 
 export const metadata = createPageMetadata(
-  "Let's talk about your business",
-  "No pressure, no pitch deck, no 47-slide presentation. Just a real conversation about how we can help.",
+  "Free Small Business Marketing Audit",
+  "Schedule a free marketing audit to see what is working, what is costing leads, and where websites, SEO, or paid ads can create the most growth.",
   "/contact"
 );
 
 export default function ContactPage() {
   const schema = [
     webPageSchema({
-      name: "Contact",
-      description: "Talk through your business, website, or marketing goals with Hometown.",
+      name: "Free Small Business Marketing Audit",
+      description: "Request a free audit of your website, SEO, paid ads, conversion tracking, and lead flow.",
       path: "/contact"
     }),
     breadcrumbSchema([
@@ -44,9 +44,9 @@ export default function ContactPage() {
       <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
         <div className="site-container">
           <PageHero
-            badge="Contact Us"
-            title="Let's talk about your business"
-            subtitle="No pressure, no pitch deck, no 47-slide presentation. Just a real conversation about how we can help."
+            badge="Free Marketing Audit"
+            title="Find the clearest path to more qualified leads"
+            subtitle="We’ll review the available evidence across your website, SEO, ads, and tracking—then explain what is working, what is leaking opportunities, and what to do next."
             light
           />
         </div>
@@ -104,9 +104,9 @@ export default function ContactPage() {
               </p>
             </Link>
             <Link href="#form" className="dark-panel block p-7 transition hover:-translate-y-0.5 hover:shadow-elevated">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">Project Details</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">Start Your Audit</p>
               <p className="mt-3 text-sm leading-relaxed text-primary-foreground/72">
-                Ready to send the basics? The form is right below this contact information.
+                Share the basics below. We&apos;ll review them before the consultation so the conversation starts with useful context.
               </p>
             </Link>
           </div>
@@ -114,9 +114,9 @@ export default function ContactPage() {
       </SectionShell>
 
       <ContactCta
-        title="Send the details when you're ready."
-        accentText="when you're ready."
-        body="Use this form for website, SEO, ads, or general marketing questions. We'll reply with the cleanest next step."
+        title="Schedule your free marketing audit."
+        accentText="free marketing audit."
+        body="Tell us what your business sells, how leads arrive today, and what you are unsure is working. We’ll follow up to schedule the consultation."
         links={[
           { href: "/services", label: "View Services" },
           { href: "/locations", label: "Service Areas" }

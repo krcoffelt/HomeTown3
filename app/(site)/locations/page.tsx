@@ -72,17 +72,17 @@ export default function LocationsHubPage() {
 
           <div className="mt-12 flex justify-center">
             <Button href="#form" className="px-8">
-              Talk About Your Business
+              Get a Free Marketing Audit
             </Button>
           </div>
         </div>
       </section>
 
       <ContactCta
-        title="Want local customers to find you first?"
-        accentText="find you first?"
-        body="Tell us where your business serves customers and what kind of leads you want more of. We'll help shape the right local website path."
-        links={[{ href: "/services/website-design", label: "Website Design Service" }]}
+        title="Want local customers to find and choose you?"
+        accentText="find and choose you?"
+        body="Start with a free marketing audit. We’ll review your local visibility, website conversion path, and tracking to find the clearest opportunity."
+        links={[{ href: "/services", label: "Explore Services" }]}
       />
     </PageTransition>
   );

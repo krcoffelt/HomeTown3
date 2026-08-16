@@ -19,7 +19,7 @@ Useful quality commands:
 - `npm run build` verifies the production build.
 - `npm run verify` runs typecheck, lint, test, and build in order.
 
-Run `npm run verify` before pushing SEO, pricing, content-model, or lead-form changes.
+Run `npm run verify` before pushing SEO, positioning, content-model, or lead-form changes.
 
 ## Lead Form Environment Variables
 
@@ -51,7 +51,6 @@ The app also accepts the older aliases `FROM_EMAIL` and `LEAD_NOTIFICATION_EMAIL
   - Measurement ID: `G-4FYSV8WK5P`
   - Trigger: `All Pages`
 - Event tags:
-  - `view_offer_page`
   - `cta_click`
   - `phone_click`
   - `email_click`
@@ -76,14 +75,13 @@ Run this checklist after any major SEO, metadata, tracking, or form changes:
   - `/services`
   - one `/services/[slug]`
   - `/work`
-  - `/pricing`
   - `/contact`
   - `/about`
-  - `/website-offer-800`
+  - Verify `/pricing`, `/website-offer-800`, and `/website-design-cost-kansas-city` permanently redirect to their current canonical destinations.
 
 ### Structured data
 
-- Validate schema on homepage, a service page, `/about`, and `/website-offer-800`.
+- Validate schema on homepage, a service page, `/about`, and `/contact`.
 - Confirm breadcrumb schema matches the visible page hierarchy.
 - Confirm FAQ schema still matches the visible FAQ copy where used.
 
@@ -93,8 +91,7 @@ Run this checklist after any major SEO, metadata, tracking, or form changes:
   - Supabase insert succeeds
   - email notification is sent
   - GTM / GA4 events fire for `form_start`, `form_submit`, and success
-- Submit a test lead through the minimal `/contact` page form and confirm the same.
-- Submit a test lead through `/website-offer-800` and confirm the offer form path separately.
+- Submit a test lead through the `/contact` free-audit form and confirm the same.
 - Trigger an invalid form submit and confirm `form_error` is available in GTM preview.
 - Click a live work example and confirm `outbound_website_click` is available in GTM preview.
 

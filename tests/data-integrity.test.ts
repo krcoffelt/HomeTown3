@@ -72,8 +72,6 @@ describe("priority SEO routes", () => {
     expect(Array.from(serviceSlugs)).toEqual(
       expect.arrayContaining([
         "website-design",
-        "small-business-websites",
-        "website-redesign",
         "search-engine-optimization",
         "google-ads-management"
       ])
@@ -87,13 +85,12 @@ describe("priority SEO routes", () => {
     );
     expect(blogPosts.map((post) => post.href)).toEqual(
       expect.arrayContaining([
-        "/website-design-cost-kansas-city",
         "/deck-contractor-website-design-kansas-city",
         "/website-builder-vs-custom-website-for-small-businesses"
       ])
     );
     expect(coreRouteSeoEntries.map((entry) => entry.path)).toEqual(
-      expect.arrayContaining(["/", "/services", "/pricing", "/work", "/blog", "/contact"])
+      expect.arrayContaining(["/", "/services", "/work", "/blog", "/contact"])
     );
   });
 });
@@ -221,11 +218,12 @@ describe("keyword monitoring targets", () => {
   });
 });
 
-describe("pricing alignment", () => {
-  it("keeps current public offer pricing in service data", () => {
-    expect(services.find((service) => service.slug === "website-design")?.price).toBe("From $800");
-    expect(services.find((service) => service.slug === "small-business-websites")?.price).toBe("From $800");
-    expect(services.find((service) => service.slug === "search-engine-optimization")?.price).toBe("$250/mo");
-    expect(services.find((service) => service.slug === "google-ads-management")?.price).toBe("20% of ad spend");
+describe("positioning alignment", () => {
+  it("keeps the public service architecture focused on websites, SEO, and paid ads", () => {
+    expect(services.map((service) => service.slug)).toEqual([
+      "website-design",
+      "search-engine-optimization",
+      "google-ads-management"
+    ]);
   });
 });

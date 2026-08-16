@@ -6,11 +6,10 @@ interface ServiceCardProps {
   icon: ReactNode;
   title: string;
   description: string;
-  price?: string;
   className?: string;
 }
 
-export function ServiceCard({ icon, title, description, price, className }: ServiceCardProps) {
+export function ServiceCard({ icon, title, description, className }: ServiceCardProps) {
   return (
     <article className={cn("group light-panel flex h-full flex-col gap-5 p-7 transition duration-300 hover:-translate-y-1 hover:shadow-elevated", className)}>
       <div className="flex items-start justify-between gap-4">
@@ -23,7 +22,6 @@ export function ServiceCard({ icon, title, description, price, className }: Serv
         <h3 className="text-xl font-bold text-foreground">{title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
       </div>
-      {price ? <p className="mt-auto text-sm font-bold uppercase tracking-[0.16em] text-accent">{price}</p> : null}
     </article>
   );
 }

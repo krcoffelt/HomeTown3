@@ -8,8 +8,8 @@ export const runtime = "edge";
 const coreOgCopy: Record<string, { eyebrow: string; title: string; description: string }> = {
   home: {
     eyebrow: "Kansas City Small Business Marketing",
-    title: "Affordable websites and marketing built for KC small businesses.",
-    description: "Custom websites, SEO, and paid ads from a team that keeps things practical."
+    title: "Small-business marketing built for real leads.",
+    description: "Conversion-focused websites, SEO, and Google and Meta ads with clear conversion tracking."
   },
   services: {
     eyebrow: "Services",
@@ -20,11 +20,6 @@ const coreOgCopy: Record<string, { eyebrow: string; title: string; description: 
     eyebrow: "Our Work",
     title: "Real website work for real businesses and organizations.",
     description: "A look at recent Hometown builds across restaurants, music, publishing, home services, and ministries."
-  },
-  pricing: {
-    eyebrow: "Pricing",
-    title: "Transparent pricing without surprise invoices.",
-    description: "See the $800 website offer and the supporting marketing services available beyond the build."
   },
   contact: {
     eyebrow: "Contact",
@@ -40,11 +35,6 @@ const coreOgCopy: Record<string, { eyebrow: string; title: string; description: 
     eyebrow: "Service Areas",
     title: "Website design and marketing support across the Kansas City metro.",
     description: "Explore Hometown service-area pages for Kansas City, Johnson County, Jackson County, and nearby cities."
-  },
-  offer: {
-    eyebrow: "$800 Website Offer",
-    title: "Professional small business websites for $800.",
-    description: "A focused landing page for service businesses that need a clean, credible website fast."
   },
   privacy: {
     eyebrow: "Privacy Policy",

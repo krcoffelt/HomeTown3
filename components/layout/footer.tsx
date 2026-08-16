@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Reveal } from "@/components/ui/reveal";
 import { MailIcon, MapPinIcon, PhoneIcon } from "@/components/ui/site-icons";
 import { site } from "@/data/site";
@@ -11,7 +10,6 @@ const pageLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/locations", label: "Locations" },
   { href: "/work", label: "Work" },
   { href: "/blog", label: "Blog" },
@@ -26,49 +24,6 @@ const legalLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const pathname = usePathname();
-  const showOfferEmail = !site.contactEmail.toLowerCase().endsWith("@gmail.com");
-
-  if (pathname === "/website-offer-800") {
-    return (
-      <footer className="border-t border-border bg-black text-primary-foreground">
-        <div className="site-container flex flex-col gap-5 py-8 text-sm md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="font-bold">{site.brand.fullName}</p>
-            <p className="mt-1 text-primary-foreground/65">
-              {showOfferEmail
-                ? "Questions before you submit? Call or email and we usually reply within 24 hours."
-                : "Questions before you submit? Call us and we usually reply within 24 hours."}
-            </p>
-          </div>
-          <div className="flex flex-col gap-1 text-primary-foreground/65 md:items-end">
-            <a
-              href={`tel:${site.contactPhone}`}
-              data-analytics="phone_click"
-              className="transition hover:text-primary-foreground"
-              onClick={() => pushDataLayerEvent(analyticsEvents.phoneClick)}
-            >
-              {site.contactPhone}
-            </a>
-            {showOfferEmail ? (
-              <a
-                href={`mailto:${site.contactEmail}`}
-                data-analytics="email_click"
-                className="transition hover:text-primary-foreground"
-                onClick={() => pushDataLayerEvent(analyticsEvents.emailClick)}
-              >
-                {site.contactEmail}
-              </a>
-            ) : null}
-            <p>{site.location}</p>
-          </div>
-        </div>
-        <div className="site-container border-t border-white/10 py-5 text-xs text-primary-foreground/60">
-          <p>© {year} Hometown Marketing Agency. All rights reserved.</p>
-        </div>
-      </footer>
-    );
-  }
 
   return (
     <footer className="relative overflow-hidden bg-black text-primary-foreground">
@@ -92,7 +47,7 @@ export function Footer() {
               className="h-9 w-auto md:h-10"
             />
             <p className="mt-8 max-w-md text-sm leading-8 text-primary-foreground/70">
-              Affordable, personalized marketing for Kansas City small businesses. No contracts, no corporate nonsense, just a neighbor who knows how to build websites and run ads.
+              Websites, SEO, and Google and Meta ads for small businesses—built around real leads, clear reporting, and conversion data you can use.
             </p>
           </div>
 

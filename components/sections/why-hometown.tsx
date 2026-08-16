@@ -6,24 +6,24 @@ import { homepageCopy } from "@/data/copy";
 
 const cards = [
   {
-    title: "Direct Communication",
-    body: "You work directly with the person doing the work, not an account manager buffering every decision.",
+    title: "Real Data",
+    body: "We connect marketing activity to calls, forms, bookings, qualified leads, and the revenue signals your business can act on.",
     icon: MessageCircleIcon,
     featured: true
   },
   {
-    title: "Website-First Approach",
-    body: "Your site becomes the anchor that connects brand, ads, and organic traffic into one cleaner funnel.",
+    title: "Real Rankings",
+    body: "We show where you rank, which searches create qualified visibility, and where the next organic opportunity lives.",
     icon: GlobeIcon
   },
   {
-    title: "Conversion-Focused",
-    body: "Every page and campaign is built around getting calls, forms, and real customer actions.",
+    title: "Real Results",
+    body: "Websites and campaigns are built around customer actions and improved with evidence—not applause for impressions or reach.",
     icon: TargetIcon
   },
   {
-    title: "KC Local Context",
-    body: "We know how Kansas City small businesses need to communicate to feel real, credible, and local.",
+    title: "Small-Business Clarity",
+    body: "You work directly with the person doing the work and get a focused explanation of what is working, what is not, and what comes next.",
     icon: ZapIcon
   }
 ];
@@ -43,7 +43,7 @@ export function WhyHometown() {
             <Reveal
               key={card.title}
               delay={index * 0.08}
-              className={card.featured ? "row-span-2" : card.title === "KC Local Context" ? "md:col-span-2" : ""}
+              className={card.featured ? "row-span-2" : card.title === "Small-Business Clarity" ? "md:col-span-2" : ""}
             >
               <article
                 className={

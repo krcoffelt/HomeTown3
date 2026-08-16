@@ -13,7 +13,7 @@ This repo uses Vitest with `jsdom` for lightweight quality checks. The goal is t
 
 - Data integrity for services, locations, industries, blog posts, and projects.
 - Priority SEO route presence in data and sitemap output.
-- Pricing alignment for current public offers.
+- Positioning alignment for the three public services and free marketing audit funnel.
 - Lead attribution behavior.
 - Analytics dataLayer event pushes.
 - Metadata, schema, and sitemap helper output.

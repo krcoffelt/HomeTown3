@@ -76,9 +76,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     { label: "Google Ads management", href: "/services/google-ads-management" },
     { label: "View our work", href: "/work" }
   ];
-  const ctaLinks = service.slug === "website-design"
-    ? [{ href: "/website-offer-800#claim-form", label: "See the $800 Website Offer" }]
-    : [{ href: "/services", label: "View All Services" }];
+  const ctaLinks = [{ href: "/services", label: "View All Services" }];
 
   return (
     <PageTransition>
@@ -104,7 +102,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button href="#form" className="h-14 px-8">
-              Get a Website Quote
+              Get a Free Marketing Audit
             </Button>
             <Button
               href="/work"
@@ -149,8 +147,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </section>
 
           <aside className="dark-panel p-7 md:p-9">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Pricing</p>
-            <p className="mt-4 text-4xl font-bold tracking-tight text-primary-foreground">{service.price}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Best Next Step</p>
+            <p className="mt-4 text-4xl font-bold tracking-tight text-primary-foreground">Start with the evidence.</p>
             <p className="mt-4 text-base leading-relaxed text-primary-foreground/72">{service.shortDescription}</p>
 
             <div className="mt-8 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.03] p-5">
@@ -165,7 +163,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </div>
 
             <Button href="#form" className="mt-6 w-full">
-              Ask About {service.title}
+              Get a Free Marketing Audit
             </Button>
           </aside>
         </div>
@@ -214,7 +212,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="mb-9 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Selected Work</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-              Website proof from Kansas City small-business projects.
+              Work from Kansas City small-business projects.
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -271,7 +269,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   Website design for Kansas City and nearby business owners.
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-primary-foreground/72">
-                  These local pages help connect the main website-design offer to the suburbs where small businesses are already searching.
+                  These local pages connect our website, SEO, and paid-ad work to the communities where small businesses are growing.
                 </p>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
@@ -306,7 +304,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="dark-panel p-7 md:p-10">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Process</p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
-            A straightforward process from first message to delivery.
+            A straightforward process from audit to measurable improvement.
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {service.process.map((step, index) => (
@@ -365,9 +363,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       </SectionShell>
 
       <ContactCta
-        title={`Ready to talk through ${service.title.toLowerCase()}?`}
-        accentText={service.title.toLowerCase()}
-        body="Send a few details about the business, the current site, and what needs to improve. We'll map the best next move before you spend money."
+        title={`Ready to audit your ${service.title.toLowerCase()} opportunity?`}
+        accentText={`${service.title.toLowerCase()} opportunity?`}
+        body="Send a few details about the business, what you are doing now, and which results are unclear. We’ll identify the strongest next move and the data needed to measure it."
         links={ctaLinks}
       />
     </PageTransition>

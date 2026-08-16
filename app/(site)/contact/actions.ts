@@ -3,7 +3,7 @@
 import { getLeadSource, type LeadAttributionFields } from "@/lib/analytics/lead-attribution";
 import { sendLeadNotification } from "@/lib/email/resend";
 import { createRequestId, logEvent } from "@/lib/logging/logger";
-import { leadSchema, offerLeadSchema } from "@/lib/validations/lead";
+import { leadSchema } from "@/lib/validations/lead";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { ZodError } from "zod";
 
@@ -13,7 +13,7 @@ export interface SubmitLeadState {
 }
 
 const GENERIC_SUBMISSION_ERROR = "Submission failed. Please try again shortly or contact us directly.";
-const SUCCESS_MESSAGE = "Thanks. Your request was sent successfully.";
+const SUCCESS_MESSAGE = "Thanks. Your free marketing audit request was sent successfully.";
 const MIN_FORM_COMPLETION_MS = 1000;
 
 function spamGuard(formData: FormData) {
@@ -280,100 +280,6 @@ export async function submitLead(
     utmContent: parsed.data.utmContent,
     gclid: parsed.data.gclid,
     projectDetails: parsed.data.projectDetails,
-    requestId
-  });
-}
-
-export async function submitOfferLead(
-  _prevState: SubmitLeadState,
-  formData: FormData
-): Promise<SubmitLeadState> {
-  const requestId = createRequestId();
-
-  if (spamGuard(formData)) {
-    logEvent({
-      level: "warn",
-      event: "lead_spam_guard_matched",
-      message: "Lead spam guard matched.",
-      requestId,
-      route: String(formData.get("landingPage") ?? "/website-offer-800"),
-      metadata: {
-        form: "offer"
-      }
-    });
-    return successState();
-  }
-
-  if (suspiciousTimingGuard(formData)) {
-    logEvent({
-      level: "warn",
-      event: "lead_timing_guard_matched",
-      message: "Lead timing guard matched.",
-      requestId,
-      route: String(formData.get("landingPage") ?? "/website-offer-800"),
-      metadata: {
-        form: "offer"
-      }
-    });
-    return successState();
-  }
-
-  const parsed = offerLeadSchema.safeParse({
-    name: String(formData.get("name") ?? "").trim(),
-    businessName: String(formData.get("businessName") ?? "").trim(),
-    email: String(formData.get("email") ?? "").trim(),
-    phone: String(formData.get("phone") ?? "").trim(),
-    landingPage: String(formData.get("landingPage") ?? ""),
-    referrerUrl: String(formData.get("referrerUrl") ?? ""),
-    utmSource: String(formData.get("utmSource") ?? ""),
-    utmMedium: String(formData.get("utmMedium") ?? ""),
-    utmCampaign: String(formData.get("utmCampaign") ?? ""),
-    utmTerm: String(formData.get("utmTerm") ?? ""),
-    utmContent: String(formData.get("utmContent") ?? ""),
-    gclid: String(formData.get("gclid") ?? ""),
-    projectDetails: String(formData.get("projectDetails") ?? "").trim()
-  });
-
-  if (!parsed.success) {
-    const issue = parsed.error.issues[0];
-    logEvent({
-      level: "warn",
-      event: "lead_validation_failed",
-      message: "Lead validation failed.",
-      requestId,
-      route: String(formData.get("landingPage") ?? "/website-offer-800"),
-      metadata: {
-        form: "offer",
-        field: issue?.path?.[0] ? String(issue.path[0]) : "form",
-        issue: issue?.message ?? "Invalid submission"
-      }
-    });
-    return { ok: false, message: validationMessage(parsed.error) };
-  }
-
-  const projectDetails = cleanOptional(parsed.data.projectDetails);
-
-  return insertLead({
-    name: parsed.data.name,
-    businessName: parsed.data.businessName,
-    email: parsed.data.email,
-    phone: parsed.data.phone ?? "",
-    landingPage: parsed.data.landingPage,
-    referrerUrl: parsed.data.referrerUrl,
-    utmSource: parsed.data.utmSource,
-    utmMedium: parsed.data.utmMedium,
-    utmCampaign: parsed.data.utmCampaign,
-    utmTerm: parsed.data.utmTerm,
-    utmContent: parsed.data.utmContent,
-    gclid: parsed.data.gclid,
-    serviceNeeded: "Website Design",
-    projectDetails: [
-      "$800 website offer inquiry.",
-      "Lead came from the website-offer-800 landing page.",
-      projectDetails ? `Project details: ${projectDetails}` : null
-    ]
-      .filter(Boolean)
-      .join("\n\n"),
     requestId
   });
 }

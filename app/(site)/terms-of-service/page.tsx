@@ -15,7 +15,7 @@ const sections = [
   {
     title: "Project information",
     body:
-      "Content on this site is for general marketing and informational purposes. Pricing, timelines, and project scope examples are directional and may change based on the actual needs of each project."
+      "Content on this site is for general marketing and informational purposes. Timelines, recommendations, and project-scope examples are directional and may change based on the actual needs of each project."
   },
   {
     title: "Intellectual property",
@@ -61,7 +61,7 @@ export default function TermsOfServicePage() {
           <PageHero
             badge="Terms"
             title="Terms of Service"
-            subtitle="The practical rules for using the site, submitting inquiries, and understanding what published pricing and marketing language does and does not promise."
+            subtitle="The practical rules for using the site, submitting inquiries, and understanding what our marketing language and recommendations do and do not promise."
             light
           />
         </div>

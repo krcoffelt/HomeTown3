@@ -93,7 +93,7 @@ export default function WorkPage() {
                 href="#form"
                 className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
               >
-                Start Your Project
+                Get a Free Marketing Audit
                 <ArrowRightIcon className="h-4 w-4" />
               </Link>
             </MagneticButton>

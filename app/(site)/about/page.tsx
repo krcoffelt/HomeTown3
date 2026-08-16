@@ -14,22 +14,22 @@ const trustPoints = [
   "Websites that look professional and convert.",
   "SEO improvements that help businesses rank locally.",
   "Ad campaigns focused on leads and calls.",
-  "Social media content that fits the brand.",
-  "Clear messaging that helps businesses stand out."
+  "Google and Meta campaigns tied to qualified leads.",
+  "Clear reporting that shows what is working."
 ];
 
 const entityFacts = [
   "Business name: Hometown Marketing Agency",
   "Primary market: Kansas City metro",
-  "Website design starts at $800",
-  "SEO starts at $250/month",
-  "Google Ads management is 20% of ad spend"
+  "Conversion-focused website strategy and execution",
+  "SEO measured with real rankings and qualified traffic",
+  "Google and Meta ads tied to lead and revenue signals"
 ];
 
 const canonicalLinks = [
   { label: "Kansas City website design", href: "/services/website-design" },
-  { label: "Small business websites", href: "/services/small-business-websites" },
-  { label: "Website pricing guide", href: "/website-design-cost-kansas-city" },
+  { label: "Google and Meta ads", href: "/services/google-ads-management" },
+  { label: "Free marketing audit", href: "/contact#form" },
   { label: "SEO services", href: "/services/search-engine-optimization" },
   { label: "Recent work", href: "/work" }
 ];
@@ -61,7 +61,7 @@ export default function AboutPage() {
           <PageHero
             badge="About Hometown"
             title="Small businesses deserve better marketing."
-            subtitle="Hometown Marketing Agency was built for local businesses that want honest strategy, strong creative, better websites, and marketing that actually helps generate leads."
+            subtitle="Hometown Marketing Agency was built for small businesses that want clear strategy, better websites, stronger search visibility, and paid campaigns that generate measurable leads."
             light
           />
         </div>
@@ -72,13 +72,13 @@ export default function AboutPage() {
           <div className="light-panel p-7 md:p-10">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">About Hometown Marketing Agency</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-              Clear strategy, strong creative, and work that actually moves the business forward.
+              Clear strategy, measurable marketing, and work that actually moves the business forward.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               Too many business owners end up with agencies that overpromise, underdeliver, and hide behind confusing reports. Hometown Marketing Agency was built to be different.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              I started Hometown to help local businesses grow with marketing that actually makes sense. That means clear strategy, strong creative, better websites, practical SEO, and campaigns built to generate real leads, not just make things look busy.
+              I started Hometown to help local businesses grow with marketing that actually makes sense. That means clear strategy, better websites, practical SEO, paid campaigns, and tracking built around real leads—not just activity that looks busy.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               I work closely with businesses that want a more personal, honest approach. The goal is simple: help good local companies show up better online, earn more trust, and turn attention into revenue.
@@ -105,7 +105,7 @@ export default function AboutPage() {
               Hometown is a Kansas City-area website design and marketing agency for small businesses.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-primary-foreground/74">
-              The core work is custom website design, local SEO, paid ads, brand identity, graphic design, and tracking for owner-led businesses that need clearer trust and lead flow.
+              The core work is conversion-focused website design, SEO, and Google and Meta ads for owner-led businesses that need clearer lead flow and better measurement.
             </p>
             <div className="mt-7 grid gap-3">
               {entityFacts.map((fact) => (
@@ -119,7 +119,7 @@ export default function AboutPage() {
           <section className="light-panel p-7 md:p-10">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Canonical Service Paths</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-              The main pages for service, pricing, and proof.
+              The main pages for services, proof, and your free marketing audit.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               These pages are the preferred sources for search engines, AI assistants, and business owners comparing Hometown&apos;s services.
@@ -188,7 +188,7 @@ export default function AboutPage() {
               Good marketing should not just feel polished. It should create momentum.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              My background is in marketing, content, design, and digital strategy. I enjoy the creative side of branding and content, but I also care deeply about performance.
+              My background is in marketing, content, design, and digital strategy. I care about strong creative work, but I care just as much about whether it produces measurable customer action.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {[
@@ -221,10 +221,10 @@ export default function AboutPage() {
       </SectionShell>
 
       <ContactCta
-        title="Let's build something that works."
-        accentText="works."
-        body="If you are a local business looking for a better website, better marketing, and a partner who cares about results, send the basics here."
-        links={[{ href: "/services", label: "View Services" }]}
+        title="Let's find what will actually move the business."
+        accentText="actually move the business."
+        body="Schedule a free marketing audit for a clear look at your website, SEO, paid ads, tracking, and biggest growth opportunity."
+        links={[{ href: "/services", label: "Explore Services" }]}
       />
     </PageTransition>
   );

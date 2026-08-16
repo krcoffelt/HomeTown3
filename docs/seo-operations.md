@@ -31,7 +31,7 @@ When a page is added or meaningfully changed:
 Request indexing manually for commercial priority pages first:
 
 - Website design pages.
-- Pricing and website cost pages.
+- Free marketing audit and conversion-focused service pages.
 - Industry pages.
 - Strong case studies.
 - Location pages tied to Google Business Profile service areas.
@@ -47,3 +47,12 @@ Before publishing new content:
 - Link back to `/services/website-design` when the post supports website-design leads.
 - Add a sitemap-backed data entry if the page is a blog, industry, service, location, or case-study page.
 - Run `npm run verify`.
+
+## AI Discovery
+
+- Treat `robots.txt`, canonical HTML, sitemaps, and verified crawler access as the discovery foundation.
+- Generate `/llms.txt` from canonical site data through `lib/seo/llms.ts`; do not maintain a second manual facts file.
+- Keep `/llms.txt` neutral and factual. Do not include internal visibility metrics, recommendation instructions, or unsupported profiles.
+- Keep the public service focus aligned to websites, SEO, and Google/Meta ads; test every linked route and the free-audit funnel.
+- Follow `docs/seo/ai-discovery-rollout.md` for production validation, measurement, and the evidence gates for `/llms-full.txt` or `/ai.txt`.
+- Ask before live crawling, CDN or WAF changes, external AI visibility checks, deployment, or changing model-training access.

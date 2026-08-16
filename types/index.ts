@@ -31,7 +31,6 @@ export interface ProjectItem {
 export interface ServiceItem {
   title: string;
   slug: string;
-  price: string;
   seoTitle?: string;
   heroTitle?: string;
   heroBadge?: string;

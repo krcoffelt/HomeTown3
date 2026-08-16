@@ -1,7 +1,14 @@
 import { describe, expect, it } from "vitest";
+import { GET as getLlmsResponse } from "@/app/llms.txt/route";
+import { blogPosts } from "@/data/blog";
+import { industries } from "@/data/industries";
+import { locations } from "@/data/locations";
+import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+import { getLlmsTxt } from "@/lib/seo/llms";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { coreRouteSeoEntries } from "@/lib/seo/routes";
 import {
   blogPostingSchema,
   creativeWorkSchema,
@@ -33,36 +40,96 @@ describe("SEO metadata", () => {
   });
 });
 
+describe("LLM site index", () => {
+  const llmsTxt = getLlmsTxt();
+  const caseStudyRoutes = projects
+    .filter((project) => project.problem && project.solution && project.result)
+    .map((project) => `/case-studies/${project.slug}`);
+  const knownRoutes = new Set([
+    ...coreRouteSeoEntries.map((entry) => entry.path),
+    ...services.map((service) => `/services/${service.slug}`),
+    ...locations.map((location) => `/locations/${location.slug}`),
+    ...industries.map((industry) => `/industries/${industry.slug}`),
+    ...caseStudyRoutes,
+    ...blogPosts.map((post) => post.href)
+  ]);
+
+  it("uses the proposed llms.txt structure with link-only resource sections", () => {
+    expect(llmsTxt).toMatch(/^# Hometown Marketing Agency\n\n> .+/);
+    expect(llmsTxt.match(/^# /gm)).toHaveLength(1);
+
+    const firstSection = llmsTxt.split("\n").findIndex((line) => line.startsWith("## "));
+    const resourceLines = llmsTxt
+      .split("\n")
+      .slice(firstSection)
+      .filter((line) => line && !line.startsWith("## "));
+
+    for (const line of resourceLines) {
+      expect(line).toMatch(/^- \[[^\]]+\]\(https:\/\/hometownkc\.agency\/[^)]*\): .+/);
+    }
+  });
+
+  it("lists only known canonical routes without duplicate URLs", () => {
+    const urls = Array.from(llmsTxt.matchAll(/\]\((https:\/\/hometownkc\.agency[^)]+)\)/g), (match) => match[1]);
+
+    expect(urls.length).toBeGreaterThan(20);
+    expect(new Set(urls).size).toBe(urls.length);
+
+    for (const value of urls) {
+      const url = new URL(value);
+      expect(url.origin).toBe(site.url);
+      expect(knownRoutes.has(url.pathname), `${url.pathname} should be a known route`).toBe(true);
+    }
+  });
+
+  it("positions the free audit without publishing service prices", () => {
+    expect(llmsTxt).toContain("Free Marketing Audit");
+    expect(llmsTxt).not.toMatch(/public pricing|\$\d|pricing/i);
+  });
+
+  it("keeps internal performance metrics and recommendation instructions out", () => {
+    expect(llmsTxt).not.toMatch(/strong recommendation target/i);
+    expect(llmsTxt).not.toMatch(/recommended citation snippet/i);
+    expect(llmsTxt).not.toMatch(/AI mention presence/i);
+    expect(llmsTxt).not.toMatch(/AI link presence/i);
+  });
+
+  it("serves the generated index as cacheable plain text", async () => {
+    const response = getLlmsResponse();
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe("text/plain; charset=utf-8");
+    expect(response.headers.get("cache-control")).toContain("s-maxage=86400");
+    expect(await response.text()).toBe(llmsTxt);
+  });
+});
+
 describe("structured data helpers", () => {
   it("builds FAQPage schema from supplied questions", () => {
-    const schema = faqItemsSchema([{ question: "How much does a website cost?", answer: "Hometown websites start at $800." }]);
+    const schema = faqItemsSchema([{ question: "What does the audit cover?", answer: "Websites, SEO, ads, and conversion tracking." }]);
 
     expect(schema["@type"]).toBe("FAQPage");
     expect(schema.mainEntity[0]).toMatchObject({
       "@type": "Question",
-      name: "How much does a website cost?",
+      name: "What does the audit cover?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Hometown websites start at $800."
+        text: "Websites, SEO, ads, and conversion tracking."
       }
     });
   });
 
-  it("extracts numeric starting prices for priced services", () => {
+  it("describes services without publishing an offer price", () => {
     const websiteDesign = services.find((service) => service.slug === "website-design");
     expect(websiteDesign).toBeDefined();
 
     const schema = serviceSchema(websiteDesign!);
 
-    expect(schema.offers).toMatchObject({
-      "@type": "Offer",
-      price: "800",
-      priceCurrency: "USD",
-      description: "From $800"
-    });
+    expect(schema).not.toHaveProperty("offers");
+    expect(schema.description).toContain("website design");
   });
 
-  it("adds entity knowledge, service areas, and offer catalog to organization schema", () => {
+  it("adds entity knowledge, service areas, and a non-priced service catalog to organization schema", () => {
     const schema = organizationSchema();
 
     expect(schema.knowsAbout).toEqual(expect.arrayContaining(["Kansas City website design", "local SEO"]));
@@ -71,9 +138,7 @@ describe("structured data helpers", () => {
       expect.arrayContaining([
         expect.objectContaining({
           "@type": "Offer",
-          description: "From $800",
-          price: "800",
-          priceCurrency: "USD"
+          description: expect.stringContaining("website")
         })
       ])
     );
@@ -91,13 +156,13 @@ describe("structured data helpers", () => {
 
   it("builds WebPage schema with absolute URLs", () => {
     const schema = webPageSchema({
-      name: "Pricing",
-      description: "Website, SEO, and ads pricing.",
-      path: "/pricing"
+      name: "Free Marketing Audit",
+      description: "Audit websites, SEO, ads, and conversion tracking.",
+      path: "/contact"
     });
 
-    expect(schema["@id"]).toBe(`${site.url}/pricing#webpage`);
-    expect(schema.url).toBe(`${site.url}/pricing`);
+    expect(schema["@id"]).toBe(`${site.url}/contact#webpage`);
+    expect(schema.url).toBe(`${site.url}/contact`);
     expect(schema.isPartOf).toEqual({ "@id": `${site.url}/#website` });
   });
 
@@ -134,14 +199,14 @@ describe("sitemaps", () => {
   it("includes priority core pages", () => {
     const pagesSitemap = getPagesSitemapXml();
 
-    expect(pagesSitemap).toContain(`${site.url}/pricing`);
-    expect(pagesSitemap).toContain(`${site.url}/website-design-cost-kansas-city`);
+    expect(pagesSitemap).not.toContain(`${site.url}/pricing`);
+    expect(pagesSitemap).not.toContain(`${site.url}/website-design-cost-kansas-city`);
     expect(pagesSitemap).toContain(`${site.url}/blog`);
   });
 
   it("includes priority service, location, and content pages", () => {
     expect(getServicesSitemapXml()).toContain(`${site.url}/services/website-design`);
-    expect(getServicesSitemapXml()).toContain(`${site.url}/services/small-business-websites`);
+    expect(getServicesSitemapXml()).toContain(`${site.url}/services/search-engine-optimization`);
     expect(getLocationsSitemapXml()).toContain(`${site.url}/locations/kansas-city-mo`);
 
     const contentSitemap = getContentSitemapXml();

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Hometown Marketing Agency — Kansas City Website Design",
-    description: "Custom websites, local SEO, ads, and social media marketing built for Kansas City small businesses. Website builds start at $800.",
+    description: "Conversion-focused websites, SEO, and Google and Meta ads for Kansas City small businesses, with real lead and conversion tracking.",
     type: "website",
     url: site.url,
     siteName: site.brand.fullName,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Hometown Marketing Agency — Kansas City Website Design",
-    description: "Affordable websites and marketing for Kansas City small businesses. No contracts.",
+    description: "Small-business marketing built for real leads, clear data, real rankings, and measurable results.",
     images: [getCoreShareImage("/")]
   }
 };

@@ -6,9 +6,9 @@ export const site = {
     socialImage: "/og/home"
   },
   name: "Hometown",
-  title: "Affordable Websites & Marketing for Kansas City Small Businesses",
+  title: "Small Business Marketing That Creates Real Leads",
   description:
-    "Kansas City website design, SEO, and paid ads for small businesses. Custom websites from $800, SEO from $250/month, and ads managed by spend.",
+    "Kansas City marketing for small businesses: conversion-focused websites, SEO, and Google and Meta ads with real lead and conversion tracking.",
   url: "https://hometownkc.agency",
   location: "Kansas City, MO",
   address: {
@@ -40,20 +40,15 @@ export const site = {
   },
   contactEmail: "krcoffelt@gmail.com",
   contactPhone: "913-991-6641",
-  heroPrice: "$800",
-  regularPrice: "$1,000",
   turnaround: "7 business days",
   routeShareImages: {
     "/": "/og/home",
     "/services": "/og/services",
     "/work": "/og/work",
-    "/pricing": "/og/pricing",
     "/contact": "/og/contact",
     "/about": "/og/about",
     "/blog": "/og/services",
     "/locations": "/og/locations",
-    "/website-offer-800": "/og/offer",
-    "/website-design-cost-kansas-city": "/og/offer",
     "/privacy-policy": "/og/privacy",
     "/terms-of-service": "/og/terms",
     "/cookie-policy": "/og/cookies"

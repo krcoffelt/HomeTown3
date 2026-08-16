@@ -18,9 +18,9 @@ const faqItems = [
       "It is time to move on when the site looks generic, is hard to update, does not explain services clearly, or is not generating calls, bookings, or quote requests."
   },
   {
-    question: "How much does a custom small-business website cost?",
+    question: "How do I know whether a custom website is the right next step?",
     answer:
-      "Hometown custom websites start at $800. Larger projects can cost more when they need more pages, integrations, copywriting, or deeper SEO work."
+      "Start with the free marketing audit. We will look at the current site, traffic, lead paths, and tracking to explain whether focused fixes or a new conversion-focused website makes more sense."
   }
 ];
 
@@ -128,7 +128,7 @@ export default function WebsiteBuilderComparisonPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/services/small-business-websites"
+              href="/services/website-design"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
             >
               Small business websites
@@ -142,10 +142,10 @@ export default function WebsiteBuilderComparisonPage() {
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
             <Link
-              href="/website-design-cost-kansas-city"
+              href="/contact#form"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
             >
-              Website design cost
+              Get a free marketing audit
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </div>
@@ -172,7 +172,7 @@ export default function WebsiteBuilderComparisonPage() {
       <ContactCta
         title="Ready to move past the DIY site?"
         accentText="DIY site?"
-        body="Hometown builds custom websites for Kansas City small businesses starting at $800."
+        body="Start with a free marketing audit to see whether focused improvements or a conversion-focused rebuild is the best next move."
         links={[{ href: "/work", label: "See Website Work" }]}
       />
     </div>

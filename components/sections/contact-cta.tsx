@@ -15,10 +15,10 @@ interface ContactCtaProps {
 }
 
 export function ContactCta({
-  title = "Ready to stop losing customers to competitors with better websites?",
-  accentText = "better websites?",
-  body = "Tell us about your business. We'll put together a free, no-pressure game plan to get you more customers.",
-  links = [{ href: "/about", label: "Meet Hometown" }]
+  title = "Find out what is actually driving your growth.",
+  accentText = "actually driving your growth.",
+  body = "Schedule a free marketing audit. We'll review the available data, find the biggest opportunity, and give you a clear next step for your website, SEO, or paid ads.",
+  links = [{ href: "/services", label: "Explore Our Services" }]
 }: ContactCtaProps) {
   const titleParts = accentText ? title.split(accentText) : [title];
 

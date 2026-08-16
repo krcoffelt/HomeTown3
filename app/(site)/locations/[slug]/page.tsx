@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, CheckCircleIcon, GlobeIcon, MapPinIcon, TargetIcon, TrendingUpIcon, ZapIcon } from "@/components/ui/site-icons";
+import { ArrowRightIcon, CheckCircleIcon, GlobeIcon, MapPinIcon, TargetIcon, TrendingUpIcon } from "@/components/ui/site-icons";
 import { getLocationBySlug, locations } from "@/data/locations";
 import { getProjectBySlug } from "@/data/projects";
 import { getServiceBySlug } from "@/data/services";
@@ -20,11 +20,7 @@ interface LocationPageProps {
 const iconMap: Record<string, typeof GlobeIcon> = {
   "website-design": GlobeIcon,
   "google-ads-management": TargetIcon,
-  "social-media-management": ZapIcon,
-  "graphic-design": ZapIcon,
-  "search-engine-optimization": TrendingUpIcon,
-  "analytics-and-tracking": CheckCircleIcon,
-  "brand-identity": MapPinIcon
+  "search-engine-optimization": TrendingUpIcon
 };
 
 export async function generateStaticParams() {
@@ -103,10 +99,10 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href="#form" className="h-14 px-8" dataAnalytics="cta-location-primary">
-                  {location.ctaLabel}
+                  Get a Free Marketing Audit
                 </Button>
-                <Button href="/website-offer-800" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
-                  See the $800 Website Offer
+                <Button href="/services" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
+                  Explore Services
                 </Button>
               </div>
             </div>
@@ -184,7 +180,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-accent">{service.price}</p>
+                  <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-accent">Real leads. Clear data.</p>
                   <h3 className="mt-3 text-2xl font-bold tracking-tight text-foreground">{service.title}</h3>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">{service.shortDescription}</p>
                   <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
@@ -198,7 +194,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
 
           <div className="mt-10 flex flex-wrap gap-3">
             {[
-              { label: "Compare Website Pricing", href: "/pricing" },
+              { label: "Get a Free Marketing Audit", href: "#form" },
               { label: "View Website Work", href: "/work" },
               { label: `Start a ${location.city} Project`, href: "#form" }
             ].map((link) => (
@@ -239,7 +235,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
                   Website design first, then marketing that builds on the site.
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-primary-foreground/72">
-                  The strongest starting point for {location.city} businesses is a custom website that makes the offer clear. SEO, ads, branding, and social work better once that foundation is credible.
+                  The strongest starting point for {location.city} businesses is a clear offer, a website that converts, and reliable measurement. SEO and paid ads work harder when that foundation is credible.
                 </p>
                 <Button href="/services/website-design" className="mt-7">
                   Website Design in {location.city}
@@ -385,7 +381,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
         title={location.ctaLabel}
         accentText={location.city}
         body={`If your business in ${location.city} needs a better website, stronger visibility, or clearer marketing, start here.`}
-        links={[{ href: "/website-offer-800", label: "See the $800 Website Offer" }]}
+        links={[{ href: "/services", label: "Explore Websites, SEO & Ads" }]}
       />
     </div>
   );

@@ -46,9 +46,9 @@ export function HomeHero() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="#form" className="h-14 px-8">Get a Website Quote</Button>
+            <Button href="#form" className="h-14 px-8">Get a Free Marketing Audit</Button>
             <Button href="/work" variant="secondary" className="h-14 px-8 border-primary-foreground/20 bg-transparent text-primary-foreground hover:border-primary-foreground hover:bg-primary-foreground/8">
-              See Our Work
+              See Real Work
             </Button>
           </div>
 
