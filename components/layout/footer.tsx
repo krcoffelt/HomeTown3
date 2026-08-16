@@ -44,7 +44,7 @@ export function Footer() {
               alt="Hometown Marketing Agency"
               width={260}
               height={70}
-              className="h-9 w-auto md:h-10"
+              className="h-20 w-auto md:h-24"
             />
             <p className="mt-8 max-w-md text-sm leading-8 text-primary-foreground/70">
               Websites, SEO, and Google and Meta ads for small businesses—built around real leads, clear reporting, and conversion data you can use.

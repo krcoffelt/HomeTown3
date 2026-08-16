@@ -28,7 +28,7 @@ export function ProjectCard({ title, description, category, imageUrl, imageAlt, 
         className="object-cover transition duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
-      <div className="absolute left-5 top-5 rounded-full bg-accent/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-accent-foreground backdrop-blur-sm">
+      <div className="absolute left-5 top-5 rounded-full bg-black px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
         {category}
       </div>
       <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">

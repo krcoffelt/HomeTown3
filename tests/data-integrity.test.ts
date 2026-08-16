@@ -146,6 +146,17 @@ describe("required SEO fields", () => {
         expect(image.label, `${project.slug} gallery image label`).toBeTruthy();
       }
 
+      for (const metric of project.metrics ?? []) {
+        expect(metric.value, `${project.slug} metric value`).toBeTruthy();
+        expect(metric.label, `${project.slug} metric label`).toBeTruthy();
+      }
+
+      if (project.testimonial) {
+        expect(project.testimonial.quote, `${project.slug} testimonial quote`).toBeTruthy();
+        expect(project.testimonial.name, `${project.slug} testimonial name`).toBeTruthy();
+        expect(project.testimonial.role, `${project.slug} testimonial role`).toBeTruthy();
+      }
+
       if (project.problem && project.solution && project.result) {
         expect(project.liveUrl, `${project.slug} live website`).toMatch(/^https:\/\//);
         expect(project.updatedAt, `${project.slug} updatedAt`).toMatch(/^\d{4}-\d{2}-\d{2}$/);

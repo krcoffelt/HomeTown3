@@ -227,6 +227,39 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </div>
       </SectionShell>
 
+      {project.metrics?.length ? (
+        <SectionShell className="pt-0">
+          <div className="noise overflow-hidden rounded-3xl bg-black p-7 text-white md:p-10 lg:p-12">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Measured Results</p>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Performance tied to real customer actions.
+              </h2>
+            </div>
+            <dl className="mt-9 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+              {project.metrics.map((metric) => (
+                <div key={metric.label} className="bg-black p-5 md:p-6">
+                  <dd className="text-3xl font-bold tracking-tight text-white md:text-4xl">{metric.value}</dd>
+                  <dt className="mt-3 text-sm font-bold leading-snug text-white">{metric.label}</dt>
+                  {metric.detail ? <p className="mt-2 text-xs uppercase tracking-[0.14em] text-white/55">{metric.detail}</p> : null}
+                </div>
+              ))}
+            </dl>
+            {project.testimonial ? (
+              <figure className="mt-9 border-t border-white/12 pt-8 md:mt-12 md:pt-10">
+                <blockquote className="max-w-4xl text-xl font-bold leading-relaxed text-white md:text-2xl">
+                  &ldquo;{project.testimonial.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-6">
+                  <p className="font-bold text-white">{project.testimonial.name}</p>
+                  <p className="mt-1 text-sm text-white/60">{project.testimonial.role}</p>
+                </figcaption>
+              </figure>
+            ) : null}
+          </div>
+        </SectionShell>
+      ) : null}
+
       <SectionShell className="pt-0">
         <div className="light-panel p-7 md:p-10">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Why It Matters for SEO</p>

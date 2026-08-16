@@ -55,6 +55,24 @@ export const homepageSteps = [
 
 export const testimonials = [
   {
+    name: "Sandy Sparklez",
+    text:
+      "He did a wonderful job and he was easy to communicate with, even though I was not easy to communicate with since I’m technically challenged and he made it work!",
+    highlight: "He did a wonderful job and he made it work!"
+  },
+  {
+    name: "Rookstool Purtle",
+    text:
+      "BEST/Easiest buildout ever. So grateful for the work Kyle did for us. Change our profitablity big time as a company.",
+    highlight: "BEST/Easiest buildout ever."
+  },
+  {
+    name: "Tyshone Roland",
+    text:
+      "Working with Kyle and his team was absolutely amazing. I shared with him my vision and literally within 3 days he gave me a site that exceeded my expectations. So grateful for him and his team. I highly recommend them!",
+    highlight: "Within 3 days he gave me a site that exceeded my expectations."
+  },
+  {
     name: "Dustan Sprowls",
     text:
       "I couldn’t be happier with the website Kyle built for me! From the very first meeting, he took the time to understand my brand and translated it into a stunning, modern design. The site is incredibly fast, mobile-friendly, and easy for my customers to navigate. He went above and beyond to ensure every detail was perfect. If you need a web developer who is both creative and technically brilliant, look no further!",

@@ -8,6 +8,18 @@ export interface ProjectGalleryImage {
   label: string;
 }
 
+export interface ProjectMetric {
+  value: string;
+  label: string;
+  detail?: string;
+}
+
+export interface ProjectTestimonial {
+  quote: string;
+  name: string;
+  role: string;
+}
+
 export interface ProjectItem {
   title: string;
   slug: string;
@@ -23,6 +35,8 @@ export interface ProjectItem {
   problem?: string;
   solution?: string;
   result?: string;
+  metrics?: ProjectMetric[];
+  testimonial?: ProjectTestimonial;
   liveUrl?: string;
   quote?: string;
   updatedAt?: string;

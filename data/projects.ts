@@ -7,9 +7,9 @@ export const projects: ProjectItem[] = [
     clientName: "Noble Hardwoods",
     category: "Home Services",
     summary:
-      "Conversion-focused website for a Kansas City hardwood flooring company, pairing craftsmanship proof with clear quote paths.",
+      "Kansas City flooring site that increased quotes 65%, tripled search impressions, and lifted organic traffic more than 50%.",
     description:
-      "A bold home-services website with real project photography, service-specific navigation, local trust signals, and a detailed flooring quote experience.",
+      "A conversion-focused flooring website that generated more qualified quote requests, measurable phone and email leads, stronger local visibility, and more revenue.",
     servicesProvided: ["Website Design", "Content Strategy", "Local SEO", "Lead Capture"],
     featuredImageUrl: "/images/work/noble-hardwoods/homepage.jpg",
     imageAlt: "Noble Hardwoods homepage with Kansas City hardwood flooring message and project photography",
@@ -41,10 +41,21 @@ export const projects: ProjectItem[] = [
     solution:
       "We built a bold, locally focused website around real floor photography, direct installation and refinishing pathways, 15-plus years of experience, a 5.0 Google rating, project proof, and a detailed quote form that captures scope before the first call.",
     result:
-      "The finished site gives Noble Hardwoods a distinctive Kansas City presence that makes the quality of the work visible, helps homeowners find the right service quickly, and turns interest into better-informed flooring inquiries.",
+      "In the first month after launch, quote submissions increased by 65%. Search impressions tripled among Kansas City homeowners looking for nearby floor installation, organic traffic increased by more than 50%, and qualified phone and email leads contributed to a measured revenue increase of more than 30%. The quote-form completion rate rose slightly, but the larger gain was lead quality: the improved form collected better project information before Noble Hardwoods followed up.",
+    metrics: [
+      { value: "+65%", label: "Quote submissions", detail: "First month after launch" },
+      { value: "3×", label: "Local search impressions", detail: "Kansas City floor installation searches" },
+      { value: "30%+", label: "Measured revenue", detail: "From qualified phone and email leads" },
+      { value: "50%+", label: "Organic traffic", detail: "Increase after launch" }
+    ],
+    testimonial: {
+      quote: "BEST/Easiest buildout ever. So grateful for the work Kyle did for us. Change our profitablity big time as a company.",
+      name: "Clayton Rookstool",
+      role: "Noble Hardwoods"
+    },
     liveUrl: "https://www.noblehardwoods.co/",
     quote: "Craftsmanship made visible, with a quote path built for serious flooring projects.",
-    updatedAt: "2026-07-31"
+    updatedAt: "2026-08-16"
   },
   {
     title: "Dragonfly Catering",
@@ -116,18 +127,29 @@ export const projects: ProjectItem[] = [
     slug: "plate-kc",
     clientName: "Plate KC",
     category: "Restaurant",
-    summary: "Full website for a modern Italian restaurant in Leawood.",
-    description: "A Leawood hospitality-focused build with stronger navigation, bolder visuals, local restaurant signals, and clearer reservation paths.",
+    summary: "Leawood restaurant website that lifted mobile reservation conversion from 2.7% to 11.2% and added 34,478 YoY organic impressions.",
+    description: "A Leawood hospitality-focused build that increased reservation actions, local organic visibility, calls, directions, and reported revenue per cover.",
     servicesProvided: ["Website Design", "Creative Direction"],
     featuredImageUrl: "/images/work/PlateKCScreenshot.webp",
     imageAlt: "Homepage design preview for Plate KC restaurant website",
     city: "Leawood, KS",
     problem: "The restaurant needed a polished Leawood digital first impression that matched the dining experience, made reservations easier to find, and gave local searchers more confidence before choosing a table.",
     solution: "We built a visual restaurant site with direct navigation, stronger food and location cues, Leawood context, and clearer reservation paths.",
-    result: "Plate KC has a premium website experience that supports local discovery, restaurant trust, Leawood relevance, and reservation intent.",
+    result: "After launch, reservation link clicks increased by 27, mobile reservation conversion rose from 2.7% to 11.2%, calls and direction clicks increased by 21%, and Leawood organic impressions increased by 34,478 year over year. Owner Christian Joseph and head chef and partner Bryant Wigger also reported increased revenue, leads and reservations, and average revenue per cover.",
+    metrics: [
+      { value: "+27", label: "Reservation link clicks", detail: "Increase after launch" },
+      { value: "2.7% → 11.2%", label: "Mobile reservation conversion", detail: "After launch" },
+      { value: "+21%", label: "Calls and direction clicks", detail: "Increase after launch" },
+      { value: "+34,478", label: "Leawood organic impressions", detail: "Year over year" }
+    ],
+    testimonial: {
+      quote: "Without Hometown Marketing Agency helping us with our website we would not have been able to support our team, customers, and Leawood with the same quality and excellence that we aspire to.",
+      name: "Christian Joseph",
+      role: "Owner, Plate KC"
+    },
     liveUrl: "https://www.platekc.com/",
     quote: "A modern restaurant site that feels premium without losing warmth.",
-    updatedAt: "2026-08-03"
+    updatedAt: "2026-08-16"
   },
   {
     title: "Lupi Docs & Designs",
