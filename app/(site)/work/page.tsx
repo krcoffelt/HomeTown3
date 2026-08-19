@@ -34,15 +34,15 @@ export default function WorkPage() {
   return (
     <PageTransition>
       <StructuredData data={schema} />
-      <section className="noise bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
-        <div className="site-container">
-          <PageHero
-            badge="Our Work"
-            title="Real websites for real organizations"
-            subtitle="Recent custom website design projects for small businesses, restaurants, contractors, publishers, ministries, and service brands."
-            light
-          />
-        </div>
+      <section className="border-b-2 border-foreground/90 bg-background">
+        <PageHero
+          badge="Our Work"
+          title="Real websites for real organizations"
+          subtitle="Recent custom website design projects for small businesses, restaurants, contractors, publishers, ministries, and service brands."
+          artwork="/images/brand-art/case-study-results-v2.png"
+          artworkAlt="Illustrated project results, charts, and creative work"
+          artworkLayout="background"
+        />
       </section>
 
       <SectionShell>

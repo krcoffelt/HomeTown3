@@ -30,36 +30,47 @@ const cards = [
 
 export function WhyHometown() {
   return (
-    <SectionShell className="noise bg-gradient-subtle">
+    <SectionShell className="paper-texture bg-secondary">
       <SectionHeading
         badge={homepageCopy.whyHometown.badge}
         title={homepageCopy.whyHometown.title}
         subtitle={homepageCopy.whyHometown.intro}
+        centered={false}
+        className="max-w-3xl"
       />
-      <div className="grid gap-4 md:grid-cols-3 md:grid-rows-2">
+      <div className="grid overflow-hidden rounded-2xl border-2 border-foreground bg-background shadow-hero lg:grid-cols-[0.86fr_1.14fr]">
         {cards.map((card, index) => {
           const Icon = card.icon;
+
+          if (card.featured) {
+            return (
+              <Reveal key={card.title} className="h-full lg:row-span-3">
+                <article className="flex h-full min-h-[23rem] flex-col bg-accent p-8 text-accent-foreground md:p-10">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-accent-foreground bg-accent-foreground/10">
+                    <Icon />
+                  </div>
+                  <h3 className="mt-8 text-3xl font-extrabold tracking-tight">{card.title}</h3>
+                  <p className="mt-4 max-w-md text-base font-medium leading-relaxed text-accent-foreground/88">{card.body}</p>
+                  <p className="mt-auto pt-10 text-sm font-extrabold uppercase tracking-[0.14em]">Talk directly with Kyle · (913) 991-6641</p>
+                </article>
+              </Reveal>
+            );
+          }
+
           return (
             <Reveal
               key={card.title}
               delay={index * 0.08}
-              className={card.featured ? "row-span-2" : card.title === "Small-Business Clarity" ? "md:col-span-2" : ""}
+              className="border-t-2 border-foreground first:border-t-0 lg:col-start-2 lg:border-l-2 lg:first:border-t-0"
             >
-              <article
-                className={
-                  card.featured
-                    ? "flex h-full flex-col rounded-2xl bg-accent p-8 text-accent-foreground shadow-elevated"
-                    : "light-panel flex h-full flex-col p-7 transition duration-300 hover:-translate-y-1 hover:shadow-card-hover"
-                }
-              >
-                <div className={card.featured ? "flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-foreground/12" : "flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent"}>
+              <article className="group grid h-full gap-5 p-7 transition-colors hover:bg-secondary sm:grid-cols-[3rem_1fr] md:p-8">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-foreground bg-background text-accent transition-transform group-hover:-rotate-6">
                   <Icon />
                 </div>
-                <h3 className="mt-6 text-2xl font-bold tracking-tight">{card.title}</h3>
-                <p className={card.featured ? "mt-4 text-base leading-relaxed text-accent-foreground/88" : "mt-4 text-base leading-relaxed text-muted-foreground"}>
-                  {card.body}
-                </p>
-                {card.featured ? <p className="mt-auto pt-8 text-sm font-bold">(913) 991-6641</p> : null}
+                <div>
+                  <h3 className="text-xl font-extrabold tracking-tight text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">{card.body}</p>
+                </div>
               </article>
             </Reveal>
           );

@@ -38,15 +38,15 @@ export default function ServicesPage() {
         ]}
       />
 
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
-        <div className="site-container">
-          <PageHero
-            badge="Small Business Marketing"
-            title="Three services. One measurable growth system."
-            subtitle="Build a website that converts, earn qualified visibility through SEO, and use Google and Meta ads to create demand—then track which work produces real leads."
-            light
-          />
-        </div>
+      <section className="border-b-2 border-foreground/90 bg-background">
+        <PageHero
+          badge="Small Business Marketing"
+          title="Three services. One measurable growth system."
+          subtitle="Build a website that converts, earn qualified visibility through SEO, and use Google and Meta ads to create demand—then track which work produces real leads."
+          artwork="/images/brand-art/connected-growth-v2.png"
+          artworkAlt="Three growth paths rising together above the Kansas City skyline"
+          artworkLayout="background"
+        />
       </section>
 
       <SectionShell>

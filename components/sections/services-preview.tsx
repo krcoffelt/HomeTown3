@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
 import { MagneticButton } from "@/components/ui/magnetic-button";
@@ -21,17 +22,31 @@ export function ServicesPreview() {
     .filter((service): service is (typeof services)[number] => Boolean(service));
 
   return (
-    <SectionShell className="noise bg-gradient-subtle">
-      <SectionHeading
-        badge="Services"
-        title={"Websites, SEO,\nand paid ads that convert"}
-        subtitle="Three connected growth channels for small businesses, measured by the calls, forms, qualified leads, rankings, and revenue signals they create."
-      />
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <SectionShell className="paper-texture bg-secondary">
+      <div className="mb-14 grid items-center gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
+        <SectionHeading
+          badge="Services"
+          title={"Websites, SEO,\nand paid ads that convert"}
+          subtitle="Three connected growth channels for small businesses, measured by the calls, forms, qualified leads, rankings, and revenue signals they create."
+          centered={false}
+          className="mb-0"
+        />
+        <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border-2 border-foreground bg-background shadow-hero">
+          <Image
+            src="/images/brand-art/three-channels.png"
+            alt="Three channels joining one clear path toward a business goal"
+            fill
+            loading="lazy"
+            sizes="(max-width: 1024px) 100vw, 58vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+      <div className="grid overflow-hidden rounded-2xl border-2 border-foreground bg-background shadow-card sm:grid-cols-2 lg:grid-cols-3">
         {homepageServices.map((service, index) => {
           const Icon = iconMap[service.slug] ?? CheckCircleIcon;
           return (
-            <Reveal key={service.slug} delay={index * 0.05}>
+            <Reveal key={service.slug} delay={index * 0.05} className="border-b-2 border-foreground last:border-b-0 sm:[&:nth-child(odd)]:border-r-2 sm:[&:nth-child(2)]:border-b-0 lg:border-b-0 lg:border-r-2 lg:last:border-r-0">
               <Link href={`/services/${service.slug}`} className="block h-full">
                 <ServiceCard
                   icon={<Icon className="h-5 w-5" />}
@@ -43,7 +58,7 @@ export function ServicesPreview() {
           );
         })}
       </div>
-      <div className="mt-12 flex flex-wrap justify-center gap-3">
+      <div className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 border-t-2 border-foreground/20 pt-8">
         <MagneticButton>
           <Link
             href="/services/website-design"

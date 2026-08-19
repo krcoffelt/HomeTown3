@@ -41,13 +41,15 @@ export default function ContactPage() {
   return (
     <PageTransition>
       <StructuredData data={schema} />
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="paper-texture border-b-2 border-foreground/90 bg-background pb-20 pt-32 md:pb-24 md:pt-40">
         <div className="site-container">
           <PageHero
             badge="Free Marketing Audit"
             title="Find the clearest path to more qualified leads"
             subtitle="We’ll review the available evidence across your website, SEO, ads, and tracking—then explain what is working, what is leaking opportunities, and what to do next."
-            light
+            centered={false}
+            artwork="/images/brand-art/strategy-audit.png"
+            artworkAlt="An illustrated audit, map, compass, and target"
           />
         </div>
       </section>

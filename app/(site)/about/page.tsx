@@ -56,15 +56,15 @@ export default function AboutPage() {
   return (
     <PageTransition>
       <StructuredData data={schema} />
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
-        <div className="site-container">
-          <PageHero
-            badge="About Hometown"
-            title="Small businesses deserve better marketing."
-            subtitle="Hometown Marketing Agency was built for small businesses that want clear strategy, better websites, stronger search visibility, and paid campaigns that generate measurable leads."
-            light
-          />
-        </div>
+      <section className="border-b-2 border-foreground/90 bg-background">
+        <PageHero
+          badge="About Hometown"
+          title="Small businesses deserve better marketing."
+          subtitle="Hometown Marketing Agency was built for small businesses that want clear strategy, better websites, stronger search visibility, and paid campaigns that generate measurable leads."
+          artwork="/images/brand-art/digital-design-workshop-v2.png"
+          artworkAlt="Illustrated tools for designing thoughtful digital experiences"
+          artworkLayout="background"
+        />
       </section>
 
       <SectionShell>

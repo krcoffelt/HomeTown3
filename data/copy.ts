@@ -1,5 +1,4 @@
 export const homepageCopy = {
-  heroBadge: "Small Business Marketing · Kansas City",
   heroTitleLineOne: "Kansas City Marketing Agency",
   heroTitleLineTwo: "Built for Real Leads",
   heroSubtitle:

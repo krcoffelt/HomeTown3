@@ -49,6 +49,8 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const auditHref = hasEmbeddedContactForm(pathname) ? "#form" : "/contact#form";
+  const hasPaperHero = new Set(["/", "/about", "/blog", "/contact", "/locations", "/services", "/work"]).has(pathname);
+  const useDarkInk = hasPaperHero && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -67,7 +69,7 @@ export function Navbar() {
         <div className="relative flex min-h-[4.5rem] items-center justify-between">
           <div
             className={cn(
-              "hidden transition-all duration-150 md:block",
+              "hidden transition-all duration-150 xl:block",
               scrolled ? "pointer-events-none -translate-x-3 opacity-0" : "translate-x-0 opacity-100"
             )}
           >
@@ -78,7 +80,7 @@ export function Navbar() {
                 alt="Hometown Marketing Agency"
                 width={260}
                 height={70}
-                className="h-10 w-auto md:h-14"
+                className={cn("h-10 w-auto md:h-14", useDarkInk && "invert")}
               />
             </Link>
           </div>
@@ -86,10 +88,12 @@ export function Navbar() {
           <nav
             aria-label="Main navigation"
             className={cn(
-              "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 transition-[background-color,border-color,box-shadow,transform] duration-500 md:absolute md:left-1/2 md:flex md:-translate-x-1/2 md:backdrop-blur-xl",
+                "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 transition-[background-color,border-color,box-shadow,transform] duration-500 xl:absolute xl:left-1/2 xl:flex xl:-translate-x-1/2 xl:backdrop-blur-xl",
               scrolled
                 ? "border-primary-foreground/10 bg-foreground/90 shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
-                : "border-primary-foreground/[0.08] bg-foreground/30"
+                : useDarkInk
+                  ? "border-foreground/15 bg-background/85 shadow-[3px_3px_0_hsl(var(--foreground)/0.12)]"
+                  : "border-primary-foreground/[0.08] bg-foreground/30"
             )}
           >
             {links.map((link) => {
@@ -104,7 +108,9 @@ export function Navbar() {
                     "relative rounded-full px-6 py-3 text-base font-medium transition-colors duration-300",
                     active
                       ? "bg-accent text-primary-foreground shadow-[0_2px_12px_hsl(var(--accent)/0.4)]"
-                      : "text-primary-foreground/70 hover:text-primary-foreground"
+                      : useDarkInk
+                        ? "text-foreground/70 hover:text-foreground"
+                        : "text-primary-foreground/70 hover:text-primary-foreground"
                   )}
                 >
                   {link.label}
@@ -115,7 +121,7 @@ export function Navbar() {
 
           <div
             className={cn(
-              "hidden transition-all duration-150 md:block",
+              "hidden transition-all duration-150 xl:block",
               scrolled ? "pointer-events-none translate-x-3 opacity-0" : "translate-x-0 opacity-100"
             )}
           >
@@ -124,7 +130,7 @@ export function Navbar() {
             </Button>
           </div>
 
-          <div className="flex w-full items-center justify-between md:hidden">
+          <div className="flex w-full items-center justify-between xl:hidden">
             <Link
               href="/"
               aria-label="Hometown home"
@@ -139,7 +145,7 @@ export function Navbar() {
                 alt="Hometown Marketing Agency"
                 width={210}
                 height={56}
-                className="h-10 w-auto"
+                className={cn("h-10 w-auto", useDarkInk && "invert")}
               />
             </Link>
             <button
@@ -147,7 +153,7 @@ export function Navbar() {
               aria-expanded={isOpen}
               aria-controls="mobile-nav"
               aria-label={isOpen ? "Close menu" : "Open menu"}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary-foreground/10 bg-foreground/90 text-primary-foreground shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-foreground bg-foreground text-primary-foreground shadow-[3px_3px_0_hsl(var(--accent))]"
               onClick={() => setIsOpen((current) => !current)}
             >
               {isOpen ? <CloseIcon /> : <MenuIcon />}
@@ -158,7 +164,7 @@ export function Navbar() {
         {isOpen ? (
           <div
             id="mobile-nav"
-            className="mt-4 rounded-[1.5rem] border border-primary-foreground/5 bg-foreground p-4 text-primary-foreground md:hidden"
+            className="mt-4 animate-fade-in-up rounded-[1.5rem] border-2 border-foreground bg-foreground p-4 text-primary-foreground shadow-hero xl:hidden"
           >
             <nav className="flex flex-col gap-2">
               {links.map((link) => {
@@ -170,7 +176,7 @@ export function Navbar() {
                     aria-current={active ? "page" : undefined}
                     className={cn(
                       "rounded-lg px-4 py-3 text-sm font-medium transition",
-                      active ? "bg-primary/10 text-primary" : "text-primary-foreground/50 hover:bg-primary/5 hover:text-primary-foreground"
+                      active ? "bg-accent text-accent-foreground" : "text-primary-foreground/60 hover:bg-primary-foreground/5 hover:text-primary-foreground"
                     )}
                   >
                     {link.label}

@@ -18,7 +18,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, category, imageUrl, imageAlt, link, linkExternal = true, linkLabel = "View Project" }: ProjectCardProps) {
   const content = (
-    <article className="group relative h-[400px] overflow-hidden rounded-2xl bg-foreground text-primary-foreground transition duration-300 hover:-translate-y-2 md:h-[480px]">
+    <article className="group relative h-[400px] overflow-hidden rounded-2xl border-2 border-foreground bg-foreground text-primary-foreground shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover md:h-[480px]">
       <Image
         src={imageUrl}
         alt={imageAlt}
@@ -28,7 +28,7 @@ export function ProjectCard({ title, description, category, imageUrl, imageAlt, 
         className="object-cover transition duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
-      <div className="absolute left-5 top-5 rounded-full bg-black px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+      <div className="absolute left-5 top-5 rounded-full border-2 border-white/70 bg-black px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white">
         {category}
       </div>
       <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">

@@ -21,7 +21,7 @@ function Stars() {
 export function TestimonialCard({ name, text, highlight, featured = false }: TestimonialCardProps) {
   if (featured) {
     return (
-      <article className="rounded-2xl bg-accent p-8 text-accent-foreground md:p-10">
+      <article className="rounded-2xl border-2 border-foreground bg-accent p-8 text-accent-foreground shadow-hero md:p-10">
         <QuoteIcon className="h-8 w-8" />
         <div className="mt-6">
           <Stars />
@@ -42,7 +42,7 @@ export function TestimonialCard({ name, text, highlight, featured = false }: Tes
   }
 
   return (
-    <article className="group relative rounded-2xl border border-border bg-card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-elevated">
+    <article className="group relative rounded-2xl border-2 border-foreground bg-card p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover">
       <span className="absolute inset-y-6 left-0 w-[3px] rounded-r-full bg-accent opacity-0 transition duration-300 group-hover:opacity-100" />
       <Stars />
       <p className="mt-4 text-base font-bold leading-snug text-foreground">{highlight}</p>

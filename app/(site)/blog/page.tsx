@@ -53,25 +53,25 @@ export default function BlogPage() {
     <div className="overflow-x-hidden bg-[#f9f9f9] text-foreground">
       <StructuredData data={schema} />
 
-      <section className="relative isolate overflow-hidden bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="paper-texture relative isolate overflow-hidden border-b-2 border-foreground bg-background pb-20 pt-32 text-foreground md:pb-28 md:pt-40">
         <Image
-          src="/images/hero-bg-desktop.jpg"
-          alt="Kansas City skyline at sunset"
+          src="/images/brand-art/digital-design-workshop.png"
+          alt="Illustrated website design workshop with sketches and digital tools"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-50"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/10" />
+        <div className="absolute inset-0 bg-background/22" />
         <div className="site-container relative z-10">
-          <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-primary-foreground/86 backdrop-blur">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="section-badge">
               Kansas City Marketing Agency
             </p>
-            <h1 className="mt-6 font-display text-[2.45rem] font-bold leading-[1.04] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl">
+            <h1 className="mt-7 font-display text-[2.45rem] font-extrabold leading-[1.02] tracking-[-0.04em] text-foreground sm:text-6xl md:text-7xl">
               Website design and marketing advice for Kansas City small businesses
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/78 md:text-xl">
+            <p className="mx-auto mt-6 max-w-2xl text-base font-medium leading-relaxed text-foreground/72 md:text-xl">
               Practical guides on websites, local SEO, paid ads, conversion tracking, and lead flow for owners who need clearer marketing decisions.
             </p>
           </div>

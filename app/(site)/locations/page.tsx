@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ContactCta } from "@/components/sections/contact-cta";
+import { PageHero } from "@/components/layout/page-hero";
 import { PageTransition } from "@/components/ui/page-transition";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
@@ -31,17 +32,16 @@ export default function LocationsHubPage() {
     <PageTransition>
       <StructuredData data={schema} />
 
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="paper-texture border-b-2 border-foreground/90 bg-background pb-20 pt-32 md:pb-24 md:pt-40">
         <div className="site-container">
-          <div className="mx-auto max-w-4xl text-center">
-            <span className="section-badge">Service Areas</span>
-            <h1 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.04] tracking-tight text-primary-foreground md:text-5xl lg:text-6xl">
-              Website design and local marketing pages built for the Kansas City metro.
-            </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-primary-foreground/70">
-              Explore city-specific pages for businesses across Kansas City, Johnson County, Jackson County, and nearby service areas.
-            </p>
-          </div>
+          <PageHero
+            badge="Service Areas"
+            title="Website design and local marketing pages built for the Kansas City metro."
+            subtitle="Explore city-specific pages for businesses across Kansas City, Johnson County, Jackson County, and nearby service areas."
+            centered={false}
+            artwork="/images/brand-art/search-discovery.png"
+            artworkAlt="Illustrated local search map, route, storefront, and compass"
+          />
         </div>
       </section>
 

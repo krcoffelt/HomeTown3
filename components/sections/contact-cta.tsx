@@ -23,10 +23,12 @@ export function ContactCta({
   const titleParts = accentText ? title.split(accentText) : [title];
 
   return (
-    <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
-      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px] md:block" />
+    <SectionShell className="page-section-cta relative overflow-hidden border-y-2 border-foreground bg-gradient-dark text-primary-foreground">
+      <div aria-hidden="true" className="pointer-events-none absolute -left-20 top-24 hidden h-40 w-40 rounded-full border-[24px] border-accent/70 md:block" />
+      <div aria-hidden="true" className="pointer-events-none absolute -right-20 top-1/3 hidden h-48 w-48 rotate-12 border-[22px] border-accent/55 md:block" />
       <div className="relative mx-auto max-w-5xl text-center">
-        <h2 className="mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.1] tracking-tight text-primary-foreground md:text-5xl lg:text-6xl">
+        <p className="mb-6 text-xs font-extrabold uppercase tracking-[0.22em] text-primary-foreground/60">Free · Practical · No-pressure</p>
+        <h2 className="mx-auto max-w-4xl text-balance text-4xl font-extrabold leading-[1.04] tracking-[-0.04em] text-primary-foreground md:text-5xl lg:text-6xl">
           {titleParts[0]}
           {accentText && titleParts.length > 1 ? (
             <>

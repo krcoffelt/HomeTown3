@@ -1,65 +1,40 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { CheckCircleIcon, MapPinIcon } from "@/components/ui/site-icons";
 import { homepageCopy } from "@/data/copy";
 
 export function HomeHero() {
   return (
-    <section className="relative min-h-[92vh] overflow-hidden bg-black">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0"
-      >
+    <section className="paper-texture relative min-h-[100svh] overflow-hidden bg-background text-foreground">
+      <div aria-hidden="true" className="absolute inset-0">
         <Image
-          src="/images/hero-bg-desktop.jpg"
+          src="/images/brand-art/neighborhood-commerce.png"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="artwork-drift origin-bottom scale-[1.32] object-contain object-bottom md:scale-100 md:object-cover md:object-center"
         />
-        <span className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0.75)_50%,rgba(0,0,0,0.6)_100%)]" />
+        <span className="absolute inset-x-0 top-0 h-[62%] bg-gradient-to-b from-background/45 via-background/20 to-transparent" />
       </div>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[-4rem] top-[12rem] hidden h-[500px] w-[500px] rounded-full bg-primary/8 opacity-70 blur-[150px] md:block"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-2rem] top-[8rem] hidden h-[400px] w-[400px] rounded-full bg-primary-glow/6 opacity-55 blur-[120px] md:block"
-      />
 
-      <div className="site-container relative z-10 flex min-h-[92vh] items-center pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="max-w-6xl text-primary-foreground">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/12 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em]">
-            <MapPinIcon className="h-4 w-4" />
-            {homepageCopy.heroBadge}
-          </div>
-
-          <h1 className="hero-title mt-8 max-w-6xl">
-            <span className="block">{homepageCopy.heroTitleLineOne} </span>
-            <span className="block pb-[0.08em] gradient-text">{homepageCopy.heroTitleLineTwo}</span>
+      <div className="site-container relative z-10 flex min-h-[100svh] items-center justify-center pb-32 pt-24 sm:pb-40 md:pb-44 md:pt-36">
+        <div className="mx-auto max-w-5xl -translate-y-8 text-center md:-translate-y-14 lg:-translate-y-20 xl:-translate-y-24">
+          <h1 className="hero-title hero-rise mx-auto max-w-5xl text-balance">
+            <span className="block">{homepageCopy.heroTitleLineOne}</span>
+            <span className="block pb-[0.08em] text-accent">{homepageCopy.heroTitleLineTwo}</span>
           </h1>
 
-          <p className="mt-8 max-w-3xl text-lg leading-relaxed text-primary-foreground/82 md:text-xl">
+          <p className="hero-rise hero-rise-delay-1 mx-auto mt-6 max-w-2xl text-base font-medium leading-relaxed text-foreground/75 sm:text-lg md:text-xl">
             {homepageCopy.heroSubtitle}
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="#form" className="h-14 px-8">Get a Free Marketing Audit</Button>
-            <Button href="/work" variant="secondary" className="h-14 px-8 border-primary-foreground/20 bg-transparent text-primary-foreground hover:border-primary-foreground hover:bg-primary-foreground/8">
+          <div className="hero-rise hero-rise-delay-2 mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button href="#form" className="h-14 w-full px-8 sm:w-auto">Get a Free Marketing Audit</Button>
+            <Button href="/work" variant="secondary" className="h-14 w-full border-2 border-foreground bg-background/85 px-8 shadow-[3px_3px_0_hsl(var(--foreground))] hover:shadow-none sm:w-auto">
               See Real Work
             </Button>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-6">
-            {homepageCopy.trustSignals.map((signal) => (
-              <div key={signal} className="flex items-center gap-2 text-sm text-primary-foreground/82">
-                <CheckCircleIcon className="h-4 w-4 text-accent" />
-                <span>{signal}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

@@ -21,9 +21,9 @@ interface ButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "group relative overflow-hidden rounded-full bg-accent px-6 py-3 text-accent-foreground shadow-[0_2px_12px_hsl(var(--accent)/0.35)] transition hover:bg-accent/90",
+    "group relative overflow-hidden rounded-full border-2 border-foreground bg-accent px-6 py-3 text-accent-foreground shadow-[3px_3px_0_hsl(var(--foreground))] transition hover:-translate-y-0.5 hover:shadow-[5px_5px_0_hsl(var(--foreground))]",
   secondary:
-    "rounded-full border border-foreground/12 bg-transparent px-6 py-3 text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated",
+    "rounded-full border-2 border-foreground bg-transparent px-6 py-3 text-foreground transition hover:-translate-y-0.5 hover:bg-secondary hover:shadow-[3px_3px_0_hsl(var(--foreground))]",
   ghost:
     "rounded-full px-4 py-3 text-foreground transition hover:bg-foreground/5"
 };
@@ -40,7 +40,7 @@ export function Button({
   variant = "primary"
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap text-sm font-bold tracking-[0.01em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-55",
+    "inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap text-sm font-extrabold tracking-[0.01em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-55",
     variants[variant],
     className
   );
