@@ -86,7 +86,7 @@ export default function BlogPage() {
                 <article>
                   <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-[#e2e8f0] bg-secondary">
                     <Image
-                      src={postImages[featuredPost.slug] ?? "/images/hero-bg-desktop.jpg"}
+                      src={featuredPost.image ?? postImages[featuredPost.slug] ?? "/images/hero-bg-desktop.jpg"}
                       alt={`${featuredPost.title} featured image`}
                       fill
                       sizes="(max-width: 1024px) 92vw, 760px"
@@ -121,7 +121,7 @@ export default function BlogPage() {
                   <Link key={post.href} href={post.href} className="group grid gap-6 md:grid-cols-[190px_minmax(0,1fr)]">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#e2e8f0] bg-secondary">
                       <Image
-                        src={postImages[post.slug] ?? "/images/hero-bg-desktop.jpg"}
+                        src={post.image ?? postImages[post.slug] ?? "/images/hero-bg-desktop.jpg"}
                         alt={`${post.title} article image`}
                         fill
                         sizes="(max-width: 768px) 92vw, 190px"
