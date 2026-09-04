@@ -28,7 +28,7 @@ function stripHash(path: string) {
 
 describe("long-form Kansas City guides", () => {
   it("keeps all five guide records complete and connected to physical routes", () => {
-    expect(guides).toHaveLength(5);
+    expect(guides).toHaveLength(6);
 
     for (const [slug, guide] of guides) {
       expect(guide.path).toBe(`/${slug}`);

@@ -2,6 +2,21 @@ import type { BlogPostItem } from "@/types";
 
 export const blogPosts: BlogPostItem[] = [
   {
+    title: "Google Ads AI for Kansas City Small Businesses",
+    slug: "google-ads-ai-ask-advisor-kansas-city",
+    href: "/google-ads-ai-ask-advisor-kansas-city",
+    category: "Google Ads",
+    excerpt:
+      "What Google's new Ask Advisor and AI reporting features can do—and what Kansas City advertisers should verify before approving campaign changes.",
+    publishedAt: "2026-09-03",
+    updatedAt: "2026-09-03",
+    readingTime: "10 min read",
+    image: "/images/brand-art/case-study-results-v2.png",
+    imageAlt: "Illustrated campaign dashboard showing Google Ads AI insights and business results",
+    targetKeywords: ["Google Ads AI", "Google Ads Ask Advisor", "AI for Google Ads", "Google Ads AI for small business"],
+    featured: true
+  },
+  {
     title: "Local SEO Checklist for Kansas City Businesses",
     slug: "local-seo-checklist-kansas-city-small-businesses",
     href: "/local-seo-checklist-kansas-city-small-businesses",
@@ -13,8 +28,7 @@ export const blogPosts: BlogPostItem[] = [
     readingTime: "11 min read",
     image: "/images/brand-art/search-discovery.png",
     imageAlt: "Illustration of a Kansas City business being discovered through local search",
-    targetKeywords: ["local SEO checklist", "local SEO for small business", "Kansas City local SEO", "small business SEO checklist"],
-    featured: true
+    targetKeywords: ["local SEO checklist", "local SEO for small business", "Kansas City local SEO", "small business SEO checklist"]
   },
   {
     title: "Website Redesign Checklist for Kansas City",

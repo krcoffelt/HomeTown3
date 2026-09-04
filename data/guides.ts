@@ -25,6 +25,7 @@ export interface GuidePageItem {
   }>;
   faqItems: Array<{ question: string; answer: string }>;
   relatedLinks: Array<{ label: string; href: string }>;
+  sourceLinks?: Array<{ label: string; href: string; note: string }>;
   ctaTitle: string;
   ctaAccent: string;
   ctaBody: string;
@@ -690,10 +691,184 @@ export const smallBusinessWebsiteChecklistGuide: GuidePageItem = {
   ctaLinks: [{ label: "Explore Website Design", href: "/services/website-design" }]
 };
 
+export const googleAdsAiAskAdvisorGuide: GuidePageItem = {
+  title: "Google Ads AI for Kansas City Small Businesses",
+  seoTitle: "Google Ads AI for Kansas City Small Businesses",
+  description: "Learn how Kansas City small businesses can use Google Ads Ask Advisor for reporting, troubleshooting, creative ideas, and safer campaign decisions.",
+  path: "/google-ads-ai-ask-advisor-kansas-city",
+  category: "Google Ads",
+  heroTitle: "Google Ads AI for Kansas City small businesses",
+  heroIntro: "Google is adding new AI insights, reporting, and Ask Advisor capabilities to Ads and Analytics. Here is what local owners can use now, what still needs human review, and how to protect lead quality.",
+  shortAnswerTitle: "Use Ask Advisor as an analyst and assistant—not an unsupervised campaign manager.",
+  shortAnswer: "Google's new AI tools can summarize changes, create reports, investigate performance, troubleshoot issues, and suggest campaign or creative improvements. They become useful when the account tracks qualified business outcomes. Review every recommendation for accuracy, budget impact, local targeting, and customer fit before applying it.",
+  publishedAt: "2026-09-03",
+  updatedAt: "2026-09-03",
+  displayDate: "September 3, 2026",
+  readingTime: "10 min read",
+  image: "/images/brand-art/case-study-results-v2.png",
+  imageAlt: "Illustrated campaign dashboard showing Google Ads AI insights and business results",
+  keyTakeaways: [
+    "Ask Advisor is a beta experience, so availability and capabilities may differ by account.",
+    "AI summaries can accelerate analysis but cannot verify whether a lead became a good customer.",
+    "Every suggested budget, targeting, creative, or conversion change still needs human approval.",
+    "Better call, form, qualified-lead, and sales data gives automated systems better signals."
+  ],
+  sections: [
+    {
+      id: "what-google-announced",
+      eyebrow: "The August Update",
+      title: "What Google added to Ads and Analytics in August 2026.",
+      paragraphs: [
+        "On August 10, Google announced additional AI and agentic experiences across Google Ads and Google Analytics. Google Analytics is adding AI Overviews on the homepage to summarize important changes since the user's last visit, with the ability to carry an insight into Ask Advisor for deeper analysis. Google also described optional phone or email notifications for those summaries.",
+        "In Google Ads, the refreshed homepage can surface personalized AI-powered insight cards and a prompt box for requesting a custom insight. Google also announced prompt-generated visual dashboards in Google Ads, with similar dashboard functionality planned for Google Analytics. Ask Advisor in Analytics can compare campaign performance with anonymized averages from similar businesses through a new benchmarking feature.",
+        "These features are not a reason to change every campaign. They are a faster interface for asking questions, organizing data, and finding areas that deserve investigation. Google notes that the newly announced capabilities are currently beta features for English-language accounts, so two Kansas City businesses may not see the same interface at the same time."
+      ],
+      items: [
+        "AI summaries of important Analytics changes",
+        "Personalized insight cards on the Google Ads homepage",
+        "Prompt-generated reports and visual dashboards",
+        "Ask Advisor analysis and anonymized performance benchmarks"
+      ]
+    },
+    {
+      id: "what-ask-advisor-can-do",
+      eyebrow: "Useful Assistance",
+      title: "Ask Advisor can shorten the path from a question to an account investigation.",
+      paragraphs: [
+        "Google describes Ask Advisor as a conversational experience built with Gemini capabilities inside its marketing products. In an eligible Ads account, an advertiser can ask questions about campaign performance, request reports, troubleshoot performance or policy issues, and get suggestions for text or image creative. Some recommendations can be implemented after the advertiser approves them.",
+        "That can help a small business owner who knows the business but does not know where every report lives. Instead of manually assembling several views, the owner can start with a direct question such as why conversions changed, which campaigns are pacing behind a target, or which search themes deserve a closer look. The answer should begin an investigation rather than end one.",
+        "Ask Advisor can also help explain platform terminology and organize a reporting view. It cannot sit in a sales conversation, inspect the quality of a completed job, or know why the team failed to answer a phone call unless that information is recorded and returned to the advertising system."
+      ],
+      items: [
+        "Summarize week-over-week campaign performance",
+        "Generate or organize reports around a business question",
+        "Investigate delivery, policy, or performance issues",
+        "Suggest text and image creative for human review"
+      ]
+    },
+    {
+      id: "prompts-to-test",
+      eyebrow: "Start With Better Questions",
+      title: "Five prompts a Kansas City business can use to find actionable problems.",
+      paragraphs: [
+        "The best prompt names the outcome, date range, campaign scope, and comparison. 'How are my ads doing?' leaves too much undefined. 'Compare qualified phone calls from brand and non-brand Search campaigns during the last 30 days with the previous 30 days' gives the system a clearer job and makes the result easier to verify.",
+        "Begin with reporting and diagnosis before asking the tool to change the account. If the response identifies a meaningful issue, open the underlying report, confirm the filters and conversion definition, and compare the explanation with what the sales team actually experienced."
+      ],
+      items: [
+        "Which campaigns generated qualified calls during the last 30 days?",
+        "What caused our cost per qualified lead to change from the previous period?",
+        "Which Kansas City locations are spending without producing primary conversions?",
+        "Show search terms that do not match the services on our landing pages.",
+        "Compare mobile and desktop conversion performance for our lead campaigns.",
+        "Which recommendation would have the largest budget impact if accepted?"
+      ],
+      callout: {
+        title: "Ask for the geography the business can actually serve.",
+        body: "A Blue Springs contractor may discover clicks from the far side of the metro that rarely become profitable jobs. Ask Advisor can help surface the pattern, but the owner still decides whether travel time, job value, and crew capacity justify the targeting."
+      }
+    },
+    {
+      id: "data-foundation",
+      eyebrow: "Garbage In, Confident Answer Out",
+      title: "AI recommendations are only as business-aware as the conversion data behind them.",
+      paragraphs: [
+        "An account that treats every button click, ten-second phone call, and completed customer sale as equivalent gives the bidding and reporting systems a distorted objective. Define primary conversions around meaningful outcomes such as completed lead forms, qualified calls, bookings, or purchases. Keep page views, scrolls, and early form interactions as secondary diagnostics rather than the main optimization goal.",
+        "The next layer is lead quality. Store the campaign and click context with each inquiry, then record whether the lead was relevant, qualified, quoted, won, and valuable. When the business can safely return appropriate offline conversion or value information, Google has more evidence about which interactions lead to real outcomes. Privacy, consent, and data-handling requirements still apply.",
+        "This is where a local owner has knowledge the platform does not. An Overland Park professional service may prefer three high-fit consultations over twelve vague forms. A Lee's Summit home-service company may value a specific job type or service radius. Those business definitions should shape conversions before AI is asked to improve performance."
+      ],
+      items: [
+        "Verify forms, calls, bookings, and purchases as primary conversions",
+        "Separate qualified leads from spam, vendors, and job seekers",
+        "Record lead stage, close outcome, and value where appropriate",
+        "Audit consent, retention, and customer-data handling"
+      ]
+    },
+    {
+      id: "what-not-to-automate-blindly",
+      eyebrow: "Keep Human Control",
+      title: "Review budget, targeting, creative, and conversion changes before approval.",
+      paragraphs: [
+        "Google's help documentation says advertisers are responsible for ensuring accepted Ask Advisor suggestions are accurate and relevant. Treat that as an operating rule. A recommendation may be technically valid inside the platform while conflicting with the business's margins, schedule, service area, brand voice, licensing, inventory, or sales capacity.",
+        "Budget increases deserve an explicit forecast and limit. Broader targeting deserves a search-term and location review. New creative needs factual and brand approval, especially because Ask Advisor may source generated images from the landing page or create them with Google AI. A conversion-goal change needs confirmation that the selected action represents business value—not merely an event that is easy to generate.",
+        "Apply one material change at a time when practical, record the date and hypothesis, and establish the metric and review window in advance. Reversible experimentation is useful. Accepting a long list of recommendations at once makes it difficult to learn which change improved or damaged performance."
+      ],
+      items: [
+        "Calculate the monthly and customer-acquisition impact of budget changes",
+        "Inspect actual search terms and user locations before broadening reach",
+        "Verify every claim, image, offer, and service detail in generated creative",
+        "Confirm that the optimization goal represents a qualified business outcome"
+      ]
+    },
+    {
+      id: "safe-weekly-workflow",
+      eyebrow: "A Practical Routine",
+      title: "Use a seven-step review before Ask Advisor changes the account.",
+      paragraphs: [
+        "Start by asking a reporting question tied to a primary business outcome. Confirm the date range, campaigns, attribution view, and conversion action in the underlying report. Compare the finding with qualified-lead and sales feedback. Then ask the tool to explain possible causes and show the evidence behind the recommendation.",
+        "Before approval, document the proposed change, expected result, maximum budget exposure, and conditions that would trigger a rollback. Make the change only after checking search intent, geography, landing-page readiness, brand accuracy, and team capacity. Review the result after enough relevant traffic and conversions have accumulated; do not declare success from a short fluctuation.",
+        "For a small Kansas City account, the greatest benefit may be time saved finding and explaining a problem—not automatic expansion. Use that saved time to review calls, improve the landing page, answer leads faster, and tell the system which customers were actually valuable."
+      ],
+      items: [
+        "Ask one outcome-based question",
+        "Open and verify the underlying report",
+        "Compare platform data with lead-quality feedback",
+        "Review the recommendation's scope and budget impact",
+        "Check targeting, landing page, creative, and capacity",
+        "Apply one documented change and schedule the review"
+      ],
+      callout: {
+        title: "The platform sees campaign activity; the business sees customer reality.",
+        body: "The safest workflow connects both views. Ask Advisor can reveal where performance changed, while the owner or agency determines whether that change created profitable Kansas City customers."
+      }
+    }
+  ],
+  faqItems: [
+    {
+      question: "What is Ask Advisor in Google Ads?",
+      answer: "Ask Advisor is Google's beta conversational assistant for marketing products. In eligible Google Ads accounts, it can answer account questions, generate reports, troubleshoot performance or policy issues, and suggest campaign or creative improvements."
+    },
+    {
+      question: "Can Google Ads Ask Advisor change campaigns automatically?",
+      answer: "Ask Advisor can suggest actions and may help implement them after approval. Google says advertisers remain responsible for checking that accepted suggestions are accurate and relevant, so budget, targeting, creative, and conversion changes should always be reviewed."
+    },
+    {
+      question: "Is Ask Advisor available to every Kansas City advertiser?",
+      answer: "Not necessarily. Google describes Ask Advisor as a beta experience for eligible English-language accounts, and its documentation says it is not currently available in manager accounts. Availability and capabilities can change as the rollout continues."
+    },
+    {
+      question: "What should a small business configure before using Google Ads AI?",
+      answer: "Verify primary conversion tracking, define a qualified lead, connect campaign context to inquiries, review location and search-term data, and establish budget and brand-approval rules. AI analysis is more useful when the underlying business signals are accurate."
+    }
+  ],
+  relatedLinks: [
+    { label: "Google Ads management", href: "/services/google-ads-management" },
+    { label: "Google Ads budget guide", href: "/google-ads-kansas-city-small-business-budget-guide" },
+    { label: "SEO vs. Google Ads", href: "/seo-vs-google-ads-kansas-city-small-businesses" },
+    { label: "Conversion-focused websites", href: "/services/website-design" }
+  ],
+  sourceLinks: [
+    {
+      label: "Google: Evolve your marketing with new AI tools",
+      href: "https://blog.google/products/ads-commerce/google-ads-analytics-ai-updates/",
+      note: "Google's August 10, 2026 announcement covering homepage insights, prompt-generated dashboards, Ask Advisor, and benchmarking."
+    },
+    {
+      label: "Google Ads Help: Ask Advisor in Google Ads",
+      href: "https://support.google.com/google-ads/answer/16574983?hl=en",
+      note: "Current beta documentation covering access, supported tasks, approval, generated creative, availability, and advertiser responsibility."
+    }
+  ],
+  ctaTitle: "Want a human review before Google Ads AI changes your account?",
+  ctaAccent: "human review",
+  ctaBody: "Hometown's free marketing audit reviews campaign structure, conversion tracking, local targeting, landing pages, and lead quality before recommending the next move.",
+  ctaLinks: [{ label: "Explore Google Ads Management", href: "/services/google-ads-management" }]
+};
+
 export const guidesBySlug = {
   "local-seo-checklist-kansas-city-small-businesses": localSeoChecklistGuide,
   "website-redesign-checklist-kansas-city": websiteRedesignChecklistGuide,
   "seo-vs-google-ads-kansas-city-small-businesses": seoVsGoogleAdsGuide,
   "google-ads-kansas-city-small-business-budget-guide": googleAdsSmallBusinessGuide,
-  "small-business-website-checklist-kansas-city": smallBusinessWebsiteChecklistGuide
+  "small-business-website-checklist-kansas-city": smallBusinessWebsiteChecklistGuide,
+  "google-ads-ai-ask-advisor-kansas-city": googleAdsAiAskAdvisorGuide
 } as const;

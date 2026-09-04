@@ -131,6 +131,32 @@ export function GuideArticlePage({ guide }: { guide: GuidePageItem }) {
         ))}
       </div>
 
+      {guide.sourceLinks?.length ? (
+        <SectionShell className="border-y border-border bg-secondary/35">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Official Sources</p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Check the current Google documentation before changing an account.</h2>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {guide.sourceLinks.map((source) => (
+                <a
+                  key={source.href}
+                  href={source.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:border-accent"
+                >
+                  <span className="flex items-center justify-between gap-4 font-bold text-foreground transition group-hover:text-accent">
+                    {source.label}
+                    <ArrowRightIcon className="h-4 w-4 shrink-0" />
+                  </span>
+                  <span className="mt-3 block text-sm leading-relaxed text-muted-foreground">{source.note}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </SectionShell>
+      ) : null}
+
       <SectionShell className="noise bg-gradient-dark text-primary-foreground">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
