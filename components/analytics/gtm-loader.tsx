@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getAnalyticsConsent } from "@/lib/analytics/consent";
 
 const SCRIPT_ID = "hometown-gtm-script";
 const GOOGLE_ADS_SCRIPT_ID = "hometown-google-ads-script";
@@ -42,21 +43,14 @@ export function GtmLoader({ gtmId, googleAdsId }: GtmLoaderProps) {
       enableGtm();
       enableGoogleAds();
     };
-    const onFirstInteraction = () => {
-      enableGtm();
-      enableGoogleAds();
-    };
-
     window.addEventListener("analytics-consent-granted", onConsentGranted as EventListener);
-    window.addEventListener("pointerdown", onFirstInteraction, { once: true, passive: true });
-    window.addEventListener("keydown", onFirstInteraction, { once: true });
-    window.addEventListener("scroll", onFirstInteraction, { once: true, passive: true });
+
+    if (getAnalyticsConsent() === "granted") {
+      onConsentGranted();
+    }
 
     return () => {
       window.removeEventListener("analytics-consent-granted", onConsentGranted as EventListener);
-      window.removeEventListener("pointerdown", onFirstInteraction);
-      window.removeEventListener("keydown", onFirstInteraction);
-      window.removeEventListener("scroll", onFirstInteraction);
     };
   }, [googleAdsId, gtmId]);
 

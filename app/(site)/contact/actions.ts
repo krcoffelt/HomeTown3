@@ -10,6 +10,8 @@ import type { ZodError } from "zod";
 export interface SubmitLeadState {
   ok: boolean;
   message: string;
+  trackLead: boolean;
+  conversionId?: string;
 }
 
 const GENERIC_SUBMISSION_ERROR = "Submission failed. Please try again shortly or contact us directly.";
@@ -36,10 +38,12 @@ function suspiciousTimingGuard(formData: FormData) {
   return elapsedMs >= 0 && elapsedMs < MIN_FORM_COMPLETION_MS;
 }
 
-function successState(): SubmitLeadState {
+function successState(trackLead = false, conversionId?: string): SubmitLeadState {
   return {
     ok: true,
-    message: SUCCESS_MESSAGE
+    message: SUCCESS_MESSAGE,
+    trackLead,
+    conversionId
   };
 }
 
@@ -153,7 +157,8 @@ async function insertLead(values: {
       });
       return {
         ok: false,
-        message: GENERIC_SUBMISSION_ERROR
+        message: GENERIC_SUBMISSION_ERROR,
+        trackLead: false
       };
     }
 
@@ -177,7 +182,7 @@ async function insertLead(values: {
       });
     }
 
-    return successState();
+    return successState(Boolean(values.requestId), values.requestId);
   } catch (error) {
     logEvent({
       level: "error",
@@ -192,7 +197,8 @@ async function insertLead(values: {
     });
     return {
       ok: false,
-      message: GENERIC_SUBMISSION_ERROR
+      message: GENERIC_SUBMISSION_ERROR,
+      trackLead: false
     };
   }
 }
@@ -262,7 +268,7 @@ export async function submitLead(
         issue: issue?.message ?? "Invalid submission"
       }
     });
-    return { ok: false, message: validationMessage(parsed.error) };
+    return { ok: false, message: validationMessage(parsed.error), trackLead: false };
   }
 
   return insertLead({

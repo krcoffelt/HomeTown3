@@ -7,9 +7,9 @@ import { LeadAttributionFields } from "@/components/analytics/lead-attribution-f
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
+import { analyticsEvents, pushDataLayerEvent, pushLeadSuccessEvent } from "@/lib/analytics/events";
 
-const initialState: SubmitLeadState = { ok: false, message: "" };
+const initialState: SubmitLeadState = { ok: false, message: "", trackLead: false };
 const initialValues = {
   name: "",
   businessName: "",
@@ -50,9 +50,9 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
   }, [state.ok]);
 
   useEffect(() => {
-    if (!state.ok) return;
-    pushDataLayerEvent(analyticsEvents.contactLeadSubmitSuccess);
-  }, [state.ok]);
+    if (!state.trackLead || !state.conversionId) return;
+    pushLeadSuccessEvent(analyticsEvents.contactLeadSubmitSuccess, state.conversionId);
+  }, [state.conversionId, state.trackLead]);
 
   useEffect(() => {
     if (!state.message || state.ok) return;
@@ -103,7 +103,6 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
         action={action}
         aria-label="Contact form"
         className="grid gap-5 pt-4 sm:gap-6 sm:pt-5"
-        onSubmit={() => pushDataLayerEvent(analyticsEvents.formSubmit)}
       >
         <input type="hidden" name="serviceNeeded" value="Free Marketing Audit" />
         <input type="hidden" name="startedAt" value={startedAt} />
