@@ -5,6 +5,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { site } from "@/data/site";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import { GtmLoader } from "@/components/analytics/gtm-loader";
+import { ConsentBanner } from "@/components/analytics/consent-banner";
 import { getCoreShareImage } from "@/lib/seo/routes";
 
 const GOOGLE_ADS_ID = "AW-17990702531";
@@ -67,6 +68,7 @@ export default function RootLayout({
       <body>
         <StructuredData data={globalSchema} />
         <GtmLoader gtmId={process.env.NEXT_PUBLIC_GTM_ID} googleAdsId={GOOGLE_ADS_ID} />
+        <ConsentBanner />
         {children}
       </body>
     </html>

@@ -83,7 +83,7 @@ function buildLeadEmailHtml(lead: LeadNotificationInput) {
 export async function sendLeadNotification(lead: LeadNotificationInput) {
   const resend = new Resend(getEnv("RESEND_API_KEY"));
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: getEnv("LEAD_FROM_EMAIL"),
     to: [getEnv("LEAD_NOTIFY_EMAIL")],
     replyTo: lead.email,
@@ -91,4 +91,8 @@ export async function sendLeadNotification(lead: LeadNotificationInput) {
     text: buildLeadEmailText(lead),
     html: buildLeadEmailHtml(lead)
   });
+
+  if (error) {
+    throw new Error("Lead notification provider rejected the email.", { cause: error });
+  }
 }
