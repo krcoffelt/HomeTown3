@@ -8,7 +8,7 @@ import { PageTransition } from "@/components/ui/page-transition";
 import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
 import { site } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, personSchema, webPageSchema } from "@/lib/seo/schema";
 
 const trustPoints = [
   "Websites that look professional and convert.",
@@ -35,7 +35,7 @@ const canonicalLinks = [
 ];
 
 export const metadata = createPageMetadata(
-  "About Hometown",
+  "About Kyle Coffelt & Hometown Marketing Agency, KC",
   "Learn more about the team, approach, and service area behind Hometown Marketing Agency.",
   "/about"
 );
@@ -43,10 +43,11 @@ export const metadata = createPageMetadata(
 export default function AboutPage() {
   const schema = [
     webPageSchema({
-      name: "About Hometown",
+      name: "About Kyle Coffelt & Hometown Marketing Agency",
       description: "Meet the team and approach behind Hometown Marketing Agency.",
       path: "/about"
     }),
+    personSchema(),
     breadcrumbSchema([
       { name: "Home", path: "/" },
       { name: "About", path: "/about" }

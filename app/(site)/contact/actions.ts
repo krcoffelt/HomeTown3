@@ -220,7 +220,7 @@ export async function submitLead(
         form: "contact"
       }
     });
-    return successState();
+    return successState(false);
   }
 
   if (suspiciousTimingGuard(formData)) {
@@ -234,7 +234,7 @@ export async function submitLead(
         form: "contact"
       }
     });
-    return successState();
+    return successState(false);
   }
 
   const parsed = leadSchema.safeParse({

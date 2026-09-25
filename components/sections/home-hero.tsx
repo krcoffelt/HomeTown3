@@ -7,7 +7,7 @@ export function HomeHero() {
     <section className="paper-texture relative min-h-[100svh] overflow-hidden bg-background text-foreground">
       <div aria-hidden="true" className="absolute inset-0">
         <Image
-          src="/images/brand-art/neighborhood-commerce.png"
+          src="/images/brand-art/neighborhood-commerce.webp"
           alt=""
           fill
           priority
@@ -21,7 +21,7 @@ export function HomeHero() {
         <div className="mx-auto max-w-5xl -translate-y-8 text-center md:-translate-y-14 lg:-translate-y-20 xl:-translate-y-24">
           <h1 className="hero-title hero-rise mx-auto max-w-5xl text-balance">
             <span className="block">{homepageCopy.heroTitleLineOne}</span>
-            <span className="block pb-[0.08em] text-accent">{homepageCopy.heroTitleLineTwo}</span>
+            <span className="block whitespace-nowrap pb-[0.08em] text-accent">{homepageCopy.heroTitleLineTwo}</span>
           </h1>
 
           <p className="hero-rise hero-rise-delay-1 mx-auto mt-6 max-w-2xl text-base font-medium leading-relaxed text-foreground/75 sm:text-lg md:text-xl">

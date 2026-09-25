@@ -218,7 +218,8 @@ img {
   }
 
   .hero-title {
-    @apply font-display text-[2.55rem] font-extrabold leading-[0.98] tracking-[-0.045em] sm:text-5xl md:text-6xl lg:text-[5.5rem];
+    font-size: clamp(1.65rem, 9.7vw, 2.55rem);
+    @apply font-display font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-5xl sm:leading-[0.98] md:text-6xl lg:text-[5.5rem];
   }
 
   .editorial-accent {

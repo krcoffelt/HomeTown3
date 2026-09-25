@@ -245,6 +245,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 </div>
               ))}
             </dl>
+            {project.measurementSource ? (
+              <p className="mt-5 text-sm leading-relaxed text-white/65">
+                <span className="font-bold text-white">Measurement sources:</span>{" "}
+                {project.measurementSource}
+              </p>
+            ) : null}
             {project.testimonial ? (
               <figure className="mt-9 border-t border-white/12 pt-8 md:mt-12 md:pt-10">
                 <blockquote className="max-w-4xl text-xl font-bold leading-relaxed text-white md:text-2xl">

@@ -6,6 +6,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CheckCircleIcon, ClockIcon, MapPinIcon } from "@/components/ui/site-icons";
 import type { GuidePageItem } from "@/data/guides";
+import { site } from "@/data/site";
 import { blogPostingSchema, breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
 
 export function GuideArticlePage({ guide }: { guide: GuidePageItem }) {
@@ -58,6 +59,31 @@ export function GuideArticlePage({ guide }: { guide: GuidePageItem }) {
               <Button href="#form" variant="secondary" className="border-primary-foreground/16 text-primary-foreground hover:text-primary-foreground">
                 Get a Free Marketing Audit
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-card">
+        <div className="site-container py-8 md:py-10">
+          <div className="flex max-w-3xl items-center gap-5">
+            <Image
+              src={site.founder.image}
+              alt={`${site.founder.name}, founder of ${site.brand.fullName}`}
+              width={88}
+              height={88}
+              sizes="88px"
+              className="h-20 w-20 shrink-0 rounded-full object-cover object-top ring-2 ring-accent/25 md:h-[88px] md:w-[88px]"
+            />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Written by</p>
+              <p className="mt-2 text-xl font-bold text-foreground">{site.founder.name}</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                Founder of Hometown Marketing Agency, helping small businesses improve websites, SEO, paid campaigns, and conversion tracking.
+              </p>
+              <Link href={site.founder.url} className="mt-3 inline-flex text-sm font-bold text-foreground underline decoration-accent underline-offset-4 transition hover:text-accent">
+                About Kyle and Hometown
+              </Link>
             </div>
           </div>
         </div>

@@ -100,7 +100,7 @@ describe("required SEO fields", () => {
     for (const service of services) {
       expect(service.seoTitle, `${service.slug} seoTitle`).toBeTruthy();
       expect(service.seoDescription, `${service.slug} seoDescription`).toBeTruthy();
-      expect(`${service.seoTitle} | Hometown`.length, `${service.slug} rendered title length`).toBeLessThanOrEqual(60);
+      expect(`${service.seoTitle} | ${site.brand.seoName}`.length, `${service.slug} rendered title length`).toBeLessThanOrEqual(60);
       expect(service.seoDescription!.length, `${service.slug} seoDescription length`).toBeLessThanOrEqual(160);
       expect(service.title, `${service.slug} title`).toBeTruthy();
       expect(service.shortDescription, `${service.slug} shortDescription`).toBeTruthy();
@@ -128,7 +128,7 @@ describe("required SEO fields", () => {
     for (const industry of industries) {
       expect(industry.seoTitle, `${industry.slug} seoTitle`).toBeTruthy();
       expect(industry.seoDescription, `${industry.slug} seoDescription`).toBeTruthy();
-      expect(`${industry.seoTitle} | Hometown`.length, `${industry.slug} rendered title length`).toBeLessThanOrEqual(60);
+      expect(`${industry.seoTitle} | ${site.brand.seoName}`.length, `${industry.slug} rendered title length`).toBeLessThanOrEqual(60);
       expect(industry.seoDescription.length, `${industry.slug} seoDescription length`).toBeLessThanOrEqual(160);
       expect(industry.updatedAt, `${industry.slug} updatedAt`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       expect(industry.faqItems.length, `${industry.slug} FAQ items`).toBeGreaterThan(0);
@@ -149,6 +149,10 @@ describe("required SEO fields", () => {
       for (const metric of project.metrics ?? []) {
         expect(metric.value, `${project.slug} metric value`).toBeTruthy();
         expect(metric.label, `${project.slug} metric label`).toBeTruthy();
+      }
+
+      if (project.metrics?.length) {
+        expect(project.measurementSource, `${project.slug} measurement source`).toBeTruthy();
       }
 
       if (project.testimonial) {

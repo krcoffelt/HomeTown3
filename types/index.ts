@@ -36,6 +36,7 @@ export interface ProjectItem {
   solution?: string;
   result?: string;
   metrics?: ProjectMetric[];
+  measurementSource?: string;
   testimonial?: ProjectTestimonial;
   liveUrl?: string;
   quote?: string;

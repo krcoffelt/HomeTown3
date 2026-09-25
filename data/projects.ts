@@ -48,6 +48,8 @@ export const projects: ProjectItem[] = [
       { value: "30%+", label: "Measured revenue", detail: "From qualified phone and email leads" },
       { value: "50%+", label: "Organic traffic", detail: "Increase after launch" }
     ],
+    measurementSource:
+      "Measured with first-party website analytics, search-performance reporting, quote and lead records, and client-reported revenue for the stated post-launch period.",
     testimonial: {
       quote: "BEST/Easiest buildout ever. So grateful for the work Kyle did for us. Change our profitablity big time as a company.",
       name: "Clayton Rookstool",
@@ -55,7 +57,7 @@ export const projects: ProjectItem[] = [
     },
     liveUrl: "https://www.noblehardwoods.co/",
     quote: "Craftsmanship made visible, with a quote path built for serious flooring projects.",
-    updatedAt: "2026-08-16"
+    updatedAt: "2026-08-28"
   },
   {
     title: "Dragonfly Catering",
@@ -142,6 +144,8 @@ export const projects: ProjectItem[] = [
       { value: "+21%", label: "Calls and direction clicks", detail: "Increase after launch" },
       { value: "+34,478", label: "Leawood organic impressions", detail: "Year over year" }
     ],
+    measurementSource:
+      "Measured with first-party website analytics, reservation-link events, local search reporting, and client-reported business outcomes for the stated comparison periods.",
     testimonial: {
       quote: "Without Hometown Marketing Agency helping us with our website we would not have been able to support our team, customers, and Leawood with the same quality and excellence that we aspire to.",
       name: "Christian Joseph",
@@ -149,7 +153,7 @@ export const projects: ProjectItem[] = [
     },
     liveUrl: "https://www.platekc.com/",
     quote: "A modern restaurant site that feels premium without losing warmth.",
-    updatedAt: "2026-08-16"
+    updatedAt: "2026-08-28"
   },
   {
     title: "Lupi Docs & Designs",
@@ -201,18 +205,31 @@ export const projects: ProjectItem[] = [
     slug: "wrapped-up-moving",
     clientName: "Wrapped Up Moving",
     category: "Home Services",
-    summary: "Quote-focused website for a Kansas City moving company.",
-    description: "A service-business build with strong local credibility, bold hero messaging, and a direct quote-request flow.",
-    servicesProvided: ["Website Design", "Lead Generation"],
+    summary:
+      "Kansas City moving campaign that generated 139 leads, booked 95 jobs, and delivered a 12.7× blended ad return.",
+    description:
+      "A tracked moving-company growth system combining a conversion-focused website, Google and Meta ads, local visibility, and qualified lead generation.",
+    servicesProvided: ["Website Design", "Google Ads", "Meta Ads", "Lead Generation", "Conversion Tracking"],
     featuredImageUrl: "/images/WrappedUpMoving_screenshot.webp",
     imageAlt: "Homepage preview for Wrapped Up Moving website",
     city: "Kansas City, MO",
-    problem: "The moving company needed to turn local search and referral traffic into quote requests quickly.",
-    solution: "We focused the site around trust, service clarity, local credibility, and a prominent quote-request flow.",
-    result: "The site now gives moving prospects a faster path from landing page to quote request.",
+    problem:
+      "Wrapped Up Moving needed to replace an inconsistent, untracked inquiry flow with a measurable system that could generate qualified moving leads and connect marketing spend to booked jobs.",
+    solution:
+      "We built the website around trust, service clarity, local credibility, and a direct quote path, then connected Google and Meta campaigns to conversion tracking that followed form submissions through booked moves.",
+    result:
+      "In the most recent month, the website attracted 2,000 visitors and generated 139 form leads, up from zero. Ninety-five of those leads became jobs—a 68.35% lead-to-job conversion rate. Google and Meta campaigns averaged a blended 12.7× ROI at a $17.35 cost per lead. From March through August 2026, the Google Business Profile also recorded 135 interactions, including 104 website clicks and 27 calls, along with 1,435 profile views and appearances in 199 searches.",
+    metrics: [
+      { value: "139", label: "Form leads", detail: "Up from zero" },
+      { value: "95", label: "Booked jobs", detail: "68.35% lead-to-job conversion" },
+      { value: "12.7×", label: "Blended Google & Meta ROI", detail: "Average across campaigns" },
+      { value: "$17.35", label: "Cost per lead", detail: "Average across campaigns" }
+    ],
+    measurementSource:
+      "Measured with first-party website and form analytics, booked-job records, Google and Meta campaign reporting, and Google Business Profile reporting for the stated period.",
     liveUrl: "https://www.wrappedupmoving.com/",
-    quote: "Built to feel trustworthy, local, and ready to turn visitors into quote requests.",
-    updatedAt: "2026-05-22"
+    quote: "A measurable moving-company growth system built to turn traffic into leads—and leads into booked jobs.",
+    updatedAt: "2026-08-28"
   },
   {
     title: "ZJ Carpentry & More",

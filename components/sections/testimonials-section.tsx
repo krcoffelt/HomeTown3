@@ -3,6 +3,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TestimonialCard } from "@/components/ui/testimonial-card";
 import { testimonials } from "@/data/copy";
+import { site } from "@/data/site";
 
 export function TestimonialsSection() {
   const [featured, ...rest] = testimonials.slice(0, 5);
@@ -34,6 +35,16 @@ export function TestimonialsSection() {
             </Reveal>
           ))}
         </div>
+      </div>
+      <div className="mt-8 text-center">
+        <a
+          href={site.googleReviewsUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="text-sm font-bold text-foreground underline decoration-accent underline-offset-4 transition hover:text-accent"
+        >
+          Read all reviews on Google
+        </a>
       </div>
     </SectionShell>
   );

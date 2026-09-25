@@ -20,9 +20,31 @@ const initialValues = {
 
 interface ContactFormProps {
   dark?: boolean;
+  detailsLabel?: string;
+  detailsPlaceholder?: string;
+  formId?: string;
+  heading?: string;
+  helperText?: string;
+  serviceNeeded?: string;
+  submitLabel?: string;
+  successBody?: string;
+  successEvent?: string;
+  successTitle?: string;
 }
 
-export function ContactForm({ dark: _dark = false }: ContactFormProps) {
+export function ContactForm({
+  dark: _dark = false,
+  detailsLabel = "What should we audit?",
+  detailsPlaceholder = "What do you sell, where do leads come from today, and what are you unsure is working?",
+  formId = "contact-form",
+  heading = "Where should we send your audit follow-up?",
+  helperText = "We'll ask for a few more details next. Takes under a minute.",
+  serviceNeeded = "Free Marketing Audit",
+  submitLabel = "Request My Free Marketing Audit",
+  successBody = "We'll review your details and reach out to schedule the consultation.",
+  successEvent = analyticsEvents.contactLeadSubmitSuccess,
+  successTitle = "Your audit request is in."
+}: ContactFormProps) {
   const [state, action, pending] = useActionState(submitLead, initialState);
   const [values, setValues] = useState(initialValues);
   const [hasStarted, setHasStarted] = useState(false);
@@ -51,8 +73,8 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
 
   useEffect(() => {
     if (!state.trackLead || !state.conversionId) return;
-    pushLeadSuccessEvent(analyticsEvents.contactLeadSubmitSuccess, state.conversionId);
-  }, [state.conversionId, state.trackLead]);
+    pushLeadSuccessEvent(successEvent, state.conversionId);
+  }, [state.conversionId, state.trackLead, successEvent]);
 
   useEffect(() => {
     if (!state.message || state.ok) return;
@@ -81,10 +103,10 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
           <CheckCircleIcon className="h-7 w-7" />
         </div>
         <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-foreground">
-          Your audit request is in.
+          {successTitle}
         </h3>
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-          We&apos;ll review your details and reach out to schedule the consultation.
+          {successBody}
         </p>
       </div>
     );
@@ -94,17 +116,17 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
     <div className="rounded-[2.25rem] border border-black/8 bg-card p-6 shadow-[var(--shadow-elevated)] sm:p-8 md:p-10">
       <div className="pb-1">
         <h3 className="text-[1.3rem] font-bold tracking-tight text-foreground sm:text-[1.55rem]">
-          Where should we send your audit follow-up?
+          {heading}
         </h3>
       </div>
 
       <form
-        id="contact-form"
+        id={formId}
         action={action}
         aria-label="Contact form"
         className="grid gap-5 pt-4 sm:gap-6 sm:pt-5"
       >
-        <input type="hidden" name="serviceNeeded" value="Free Marketing Audit" />
+        <input type="hidden" name="serviceNeeded" value={serviceNeeded} />
         <input type="hidden" name="startedAt" value={startedAt} />
         <LeadAttributionFields />
 
@@ -131,7 +153,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
             onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
           />
           {!expanded ? (
-            <p className={helperClass}>We&apos;ll ask for a few more details next. Takes under a minute.</p>
+            <p className={helperClass}>{helperText}</p>
           ) : null}
         </div>
 
@@ -196,7 +218,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
 
                 <div className="space-y-2">
                   <label htmlFor="contact-projectDetails" className={labelClass}>
-                    What should we audit?
+                    {detailsLabel}
                   </label>
                   <Textarea
                     id="contact-projectDetails"
@@ -204,7 +226,7 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
                     required={expanded}
                     rows={4}
                     value={values.projectDetails}
-                    placeholder="What do you sell, where do leads come from today, and what are you unsure is working?"
+                    placeholder={detailsPlaceholder}
                     className={textareaClass}
                     onFocus={markStarted}
                     onChange={(event) =>
@@ -230,12 +252,12 @@ export function ContactForm({ dark: _dark = false }: ContactFormProps) {
           ) : (
             <button
               type="submit"
-              form="contact-form"
+              form={formId}
               className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-[1.1rem] bg-gradient-to-r from-black to-black/85 px-8 text-base font-bold tracking-[0.01em] text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-hero)]"
               data-analytics="cta-contact"
               disabled={pending}
             >
-              {pending ? "Sending..." : "Request My Free Marketing Audit"}
+              {pending ? "Sending..." : submitLabel}
             </button>
           )}
 

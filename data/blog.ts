@@ -107,6 +107,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A DecksRXKC website breakdown for deck builders, contractors, and home-service businesses that need stronger project proof and quote-request paths.",
     publishedAt: "2026-06-19",
+    updatedAt: "2026-09-25",
     readingTime: "6 min read",
     image: "/images/work/decksrxkc-website-preview.webp",
     imageAlt: "DecksRXKC website homepage preview",

@@ -7,10 +7,23 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, MapPinIcon } from "@/components/ui/site-icons";
 import { locations } from "@/data/locations";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
+
+const locationFaqItems = [
+  {
+    question: "Do you provide website design across Johnson County?",
+    answer:
+      "Yes. Hometown serves Overland Park, Olathe, Leawood, Lenexa, Shawnee, Prairie Village, and nearby Johnson County businesses. The city pages explain the local fit and connect visitors to the primary website-design service."
+  },
+  {
+    question: "Should every Johnson County city have a separate website-design page?",
+    answer:
+      "No. A separate page should exist only when it can answer distinct local intent with useful city context and relevant proof. Nearby areas can be covered naturally from the closest strong page instead of creating thin duplicates."
+  }
+];
 
 export const metadata = createPageMetadata(
-  "Kansas City Area Location Pages",
+  "Web Design Service Areas Across Kansas City",
   "Website design, SEO, and paid ads support for businesses across the Kansas City metro.",
   "/locations"
 );
@@ -18,14 +31,15 @@ export const metadata = createPageMetadata(
 export default function LocationsHubPage() {
   const schema = [
     webPageSchema({
-      name: "Locations",
+      name: "Web Design Service Areas Across Kansas City",
       description: "Service area pages for Kansas City metro businesses.",
       path: "/locations"
     }),
     breadcrumbSchema([
       { name: "Home", path: "/" },
       { name: "Locations", path: "/locations" }
-    ])
+    ]),
+    faqItemsSchema(locationFaqItems)
   ];
 
   return (
@@ -69,6 +83,21 @@ export default function LocationsHubPage() {
               </Link>
             ))}
           </div>
+
+          <section className="mx-auto mt-16 max-w-4xl rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] md:p-10">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Johnson County Website Design</p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+              Website design support across Johnson County without thin city pages.
+            </h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {locationFaqItems.map((item) => (
+                <article key={item.question}>
+                  <h3 className="text-lg font-bold text-foreground">{item.question}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
           <div className="mt-12 flex justify-center">
             <Button href="#form" className="px-8">

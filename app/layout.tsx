@@ -13,8 +13,8 @@ const GOOGLE_ADS_ID = "AW-17990702531";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.title} | ${site.brand.shortName}`,
-    template: `%s | ${site.brand.shortName}`
+    default: `${site.title} | ${site.brand.seoName}`,
+    template: `%s | ${site.brand.seoName}`
   },
   applicationName: site.brand.fullName,
   description: site.description,

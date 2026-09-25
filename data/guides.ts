@@ -565,7 +565,7 @@ export const googleAdsSmallBusinessGuide: GuidePageItem = {
 
 export const smallBusinessWebsiteChecklistGuide: GuidePageItem = {
   title: "Small Business Website Checklist for Kansas City",
-  seoTitle: "Small Business Website Checklist for Kansas City",
+  seoTitle: "Kansas City Small Business Website Checklist",
   description: "Use this Kansas City small-business website checklist to plan pages, local proof, mobile UX, lead capture, SEO basics, and launch tracking.",
   path: "/small-business-website-checklist-kansas-city",
   category: "Small Business Websites",
@@ -574,7 +574,7 @@ export const smallBusinessWebsiteChecklistGuide: GuidePageItem = {
   shortAnswerTitle: "A good small-business website makes the business easy to understand, trust, and contact.",
   shortAnswer: "Start with a clear offer, focused service pages, real proof, accurate service-area information, and one obvious next step. Then make the experience fast and accessible on mobile, establish search-friendly structure, and verify every form, call, analytics event, and sitemap entry before launch.",
   publishedAt: "2026-08-28",
-  updatedAt: "2026-08-28",
+  updatedAt: "2026-09-25",
   displayDate: "August 28, 2026",
   readingTime: "11 min read",
   image: "/images/brand-art/strategy-audit.png",

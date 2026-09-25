@@ -14,6 +14,7 @@ function absoluteUrl(path: string) {
 const organizationId = `${site.url}/#organization`;
 const localBusinessId = `${site.url}/#localbusiness`;
 const websiteId = `${site.url}/#website`;
+const personId = `${site.url}/about#kyle-coffelt`;
 
 function contactPointSchema() {
   return {
@@ -29,6 +30,28 @@ function contactPointSchema() {
 
 function maybe<T>(value: T | null | undefined | false) {
   return value ? value : undefined;
+}
+
+function personEntitySchema() {
+  return {
+    "@type": "Person",
+    "@id": personId,
+    name: site.founder.name,
+    jobTitle: site.founder.jobTitle,
+    description: site.founder.description,
+    url: absoluteUrl(site.founder.url),
+    image: absoluteUrl(site.founder.image),
+    worksFor: {
+      "@id": organizationId
+    }
+  };
+}
+
+export function personSchema() {
+  return {
+    "@context": "https://schema.org",
+    ...personEntitySchema()
+  };
 }
 
 const knowsAbout = [
@@ -223,9 +246,7 @@ export function blogPostingSchema({
       "@type": "WebPage",
       "@id": `${url}#webpage`
     },
-    author: {
-      "@id": organizationId
-    },
+    author: personEntitySchema(),
     publisher: {
       "@id": organizationId
     }

@@ -7,6 +7,7 @@ import { industries } from "@/data/industries";
 import { locations } from "@/data/locations";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
+import { site } from "@/data/site";
 import { coreRouteSeoEntries } from "@/lib/seo/routes";
 import { getContentSitemapXml, getImagesSitemapXml } from "@/lib/seo/sitemaps";
 
@@ -32,7 +33,7 @@ describe("long-form Kansas City guides", () => {
 
     for (const [slug, guide] of guides) {
       expect(guide.path).toBe(`/${slug}`);
-      expect(`${guide.seoTitle} | Hometown`.length).toBeLessThanOrEqual(60);
+      expect(`${guide.seoTitle} | ${site.brand.seoName}`.length).toBeLessThanOrEqual(60);
       expect(guide.description.length).toBeLessThanOrEqual(160);
       expect(guide.sections.length).toBeGreaterThanOrEqual(6);
       expect(guide.faqItems.length).toBeGreaterThanOrEqual(4);

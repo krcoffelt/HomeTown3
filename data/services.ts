@@ -5,7 +5,7 @@ export const services: ServiceItem[] = [
     title: "Conversion-Focused Websites",
     slug: "website-design",
     seoTitle: "Website Design Kansas City",
-    heroTitle: "Websites built to turn visits into real customers",
+    heroTitle: "Website design in Kansas City that turns visits into customers",
     heroBadge: "Website Design for Small Businesses",
     shortDescription: "Fast, credible small-business websites built around calls, forms, bookings, and qualified leads.",
     description:
@@ -77,13 +77,13 @@ export const services: ServiceItem[] = [
       { label: "View website work", href: "/work" },
       { label: "Schedule a free marketing audit", href: "/contact#form" }
     ],
-    updatedAt: "2026-08-15"
+    updatedAt: "2026-09-25"
   },
   {
     title: "SEO That Builds Visibility",
     slug: "search-engine-optimization",
     seoTitle: "SEO Agency Kansas City",
-    heroTitle: "SEO that builds real rankings and qualified demand",
+    heroTitle: "Kansas City SEO that builds rankings and qualified demand",
     heroBadge: "SEO for Small Businesses",
     shortDescription: "Technical, local, and content SEO tied to rankings, qualified traffic, and the leads your business needs.",
     description:
@@ -155,13 +155,13 @@ export const services: ServiceItem[] = [
       { label: "Kansas City service areas", href: "/locations" },
       { label: "Schedule a free marketing audit", href: "/contact#form" }
     ],
-    updatedAt: "2026-08-15"
+    updatedAt: "2026-09-25"
   },
   {
     title: "Google & Meta Ads",
     slug: "google-ads-management",
     seoTitle: "Google Ads Management Kansas City",
-    heroTitle: "Paid ads managed for leads and revenue—not empty reach",
+    heroTitle: "Google Ads management in Kansas City for leads and revenue",
     heroBadge: "Google & Meta Ads for Small Businesses",
     shortDescription: "Google and Meta campaigns built around qualified leads, real conversion tracking, and responsible growth.",
     description:
@@ -233,7 +233,7 @@ export const services: ServiceItem[] = [
       { label: "View selected work", href: "/work" },
       { label: "Schedule a free marketing audit", href: "/contact#form" }
     ],
-    updatedAt: "2026-08-15"
+    updatedAt: "2026-09-25"
   }
 ];
 

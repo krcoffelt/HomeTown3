@@ -8,6 +8,8 @@ export const analyticsEvents = {
   formStart: "form_start",
   formSubmit: "form_submit",
   formError: "form_error",
+  auditPageView: "view_marketing_audit_page",
+  auditLeadSubmitSuccess: "marketing_audit_lead_submit_success",
   offerPageView: "view_offer_page",
   offerLeadSubmitSuccess: "offer_lead_submit_success",
   contactLeadSubmitSuccess: "contact_lead_submit_success"
@@ -62,4 +64,9 @@ export function pushLeadSuccessEvent(successEvent: string, conversionId: string)
   }
 
   emitLeadSuccessEvent(successEvent, conversionId);
+}
+
+export function pushLeadSuccessEvents(successEvent: string) {
+  pushDataLayerEvent(successEvent);
+  pushDataLayerEvent(analyticsEvents.formSubmit);
 }

@@ -10,7 +10,7 @@ import { blogPostingSchema, breadcrumbSchema, webPageSchema } from "@/lib/seo/sc
 import { site } from "@/data/site";
 
 const pagePath = "/deck-contractor-website-design-kansas-city";
-const pageTitle = "Deck Contractor Website Design Kansas City | DecksRXKC";
+const pageTitle = "Deck Contractor Website Design Kansas City | Hometown KC";
 const pageDescription =
   "A breakdown of the DecksRXKC website and what deck builders, contractors, and home-service businesses should include to earn more quote requests.";
 const previewImage = "/images/work/decksrxkc-website-preview.webp";
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     description: pageDescription,
     type: "article",
     url: `${site.url}${pagePath}`,
-    siteName: site.brand.shortName,
+    siteName: site.brand.fullName,
     images: [
       {
         url: `${site.url}${previewImage}`,
@@ -100,7 +100,7 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
       description: pageDescription,
       path: pagePath,
       datePublished: "2026-06-19",
-      dateModified: "2026-06-19",
+      dateModified: "2026-09-25",
       image: previewImage
     })
   ];

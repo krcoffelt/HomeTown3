@@ -55,8 +55,9 @@ The app also accepts the older aliases `FROM_EMAIL` and `LEAD_NOTIFICATION_EMAIL
   - `phone_click`
   - `email_click`
   - `form_start`
-  - `form_submit`
-  - `generate_lead` (form submit)
+  - `form_submit` (pushed only after the server confirms a lead was saved)
+  - `generate_lead` (GA4 event tag triggered by the `form_submit` custom event)
+- In GA4 Admin, mark `generate_lead` as a key event so successful inquiries appear in key-event and conversion reporting.
 
 ## Post-Deploy SEO + Trust QA
 

@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { faqSchema, webPageSchema } from "@/lib/seo/schema";
 
 export const metadata = createPageMetadata(
-  "Kansas City Marketing Agency for Small Businesses",
+  "Kansas City Marketing Agency for Real Leads",
   "Small-business marketing built for real leads: conversion-focused websites, SEO, and Google and Meta ads with clear conversion tracking.",
   "/"
 );

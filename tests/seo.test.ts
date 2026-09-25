@@ -21,22 +21,22 @@ import {
 import { getContentSitemapXml, getImagesSitemapXml, getLocationsSitemapXml, getPagesSitemapXml, getServicesSitemapXml } from "@/lib/seo/sitemaps";
 
 describe("SEO metadata", () => {
-  it("adds the short Hometown title suffix and canonical URL", () => {
+  it("adds the distinct Hometown KC title suffix and canonical URL", () => {
     const metadata = createPageMetadata(
       "Website Design Kansas City",
       "Custom websites for Kansas City small businesses.",
       "/services/website-design"
     );
 
-    expect(metadata.title).toEqual({ absolute: "Website Design Kansas City | Hometown" });
+    expect(metadata.title).toEqual({ absolute: "Website Design Kansas City | Hometown KC" });
     expect(metadata.alternates).toEqual({ canonical: `${site.url}/services/website-design` });
     expect(metadata.robots).toEqual({ index: true, follow: true });
   });
 
   it("does not duplicate the brand in titles", () => {
-    const metadata = createPageMetadata("Kansas City Marketing Agency | Hometown", "Description", "/");
+    const metadata = createPageMetadata("Kansas City Marketing Agency | Hometown KC", "Description", "/");
 
-    expect(metadata.title).toEqual({ absolute: "Kansas City Marketing Agency | Hometown" });
+    expect(metadata.title).toEqual({ absolute: "Kansas City Marketing Agency | Hometown KC" });
   });
 });
 
@@ -142,7 +142,7 @@ describe("structured data helpers", () => {
         })
       ])
     );
-    expect(schema.sameAs).toBeUndefined();
+    expect(schema.sameAs).toContain("https://www.designrush.com/agency/profile/hometown-marketing-agency");
   });
 
   it("adds the same conservative entity signals to local business schema", () => {
@@ -151,7 +151,7 @@ describe("structured data helpers", () => {
     expect(schema["@type"]).toBe("ProfessionalService");
     expect(schema.knowsAbout).toEqual(expect.arrayContaining(["restaurant website design", "contractor website design"]));
     expect(schema.hasOfferCatalog.name).toBe("Hometown Marketing Agency services");
-    expect(schema.sameAs).toBeUndefined();
+    expect(schema.sameAs).toContain("https://www.designrush.com/agency/profile/hometown-marketing-agency");
   });
 
   it("builds WebPage schema with absolute URLs", () => {
@@ -176,6 +176,11 @@ describe("structured data helpers", () => {
 
     expect(schema["@type"]).toBe("BlogPosting");
     expect(schema.url).toBe(`${site.url}/website-builder-vs-custom-website-for-small-businesses`);
+    expect(schema.author).toMatchObject({
+      "@type": "Person",
+      name: "Kyle Coffelt",
+      worksFor: { "@id": `${site.url}/#organization` }
+    });
     expect(schema.publisher).toEqual({ "@id": `${site.url}/#organization` });
   });
 
