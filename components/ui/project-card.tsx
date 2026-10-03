@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRightIcon } from "@/components/ui/site-icons";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
+import { cn } from "@/lib/utils/cn";
 
 interface ProjectCardProps {
   title: string;
@@ -14,34 +15,49 @@ interface ProjectCardProps {
   link?: string;
   linkExternal?: boolean;
   linkLabel?: string;
+  meta?: string;
+  className?: string;
 }
 
-export function ProjectCard({ title, description, category, imageUrl, imageAlt, link, linkExternal = true, linkLabel = "View Project" }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  description,
+  category,
+  imageUrl,
+  imageAlt,
+  link,
+  linkExternal = true,
+  linkLabel = "View project",
+  meta,
+  className
+}: ProjectCardProps) {
   const content = (
-    <article className="group relative h-[400px] overflow-hidden rounded-2xl border-2 border-foreground bg-foreground text-primary-foreground shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover md:h-[480px]">
-      <Image
-        src={imageUrl}
-        alt={imageAlt}
-        fill
-        loading="lazy"
-        sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover transition duration-700 group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
-      <div className="absolute left-5 top-5 rounded-full border-2 border-white/70 bg-black px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white">
-        {category}
-      </div>
-      <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-        <h3 className="text-2xl font-bold">{title}</h3>
-        <p className="mt-3 max-w-md translate-y-4 text-sm leading-relaxed text-primary-foreground/75 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-          {description}
-        </p>
+    <article className={cn("group", className)}>
+      <div className="relative overflow-hidden rounded-[1.25rem] bg-secondary">
+        <div className="relative aspect-[4/3]">
+          <Image
+            src={imageUrl}
+            alt={imageAlt}
+            fill
+            sizes="(max-width: 768px) 92vw, 46vw"
+            className="object-cover object-top transition-transform duration-[1.4s] ease-out-expo group-hover:scale-[1.05]"
+          />
+        </div>
         {link ? (
-          <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary-foreground">
+          <span className="pointer-events-none absolute bottom-4 right-4 flex translate-y-3 items-center gap-2 rounded-full bg-ink py-2 pl-4 pr-2 text-sm text-primary-foreground opacity-0 transition duration-500 ease-out-expo group-hover:translate-y-0 group-hover:opacity-100">
             {linkLabel}
-            <ArrowRightIcon className="h-4 w-4" />
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-foreground text-ink">
+              <ArrowUpRightIcon className="h-3.5 w-3.5" />
+            </span>
           </span>
         ) : null}
+      </div>
+      <div className="mt-5 flex items-start justify-between gap-6">
+        <div>
+          <h3 className="text-2xl font-semibold tracking-[-0.035em] md:text-[1.75rem]">{title}</h3>
+          <p className="mt-2 max-w-md leading-relaxed text-muted-foreground">{description}</p>
+        </div>
+        <span className="mono-label shrink-0 pt-2 text-muted-foreground">{meta ?? category}</span>
       </div>
     </article>
   );
@@ -49,16 +65,15 @@ export function ProjectCard({ title, description, category, imageUrl, imageAlt, 
   if (!link) return content;
 
   if (!linkExternal) {
-    return <Link href={link}>{content}</Link>;
+    return (
+      <Link href={link} className="block">
+        {content}
+      </Link>
+    );
   }
 
   return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noreferrer"
-      onClick={() => pushDataLayerEvent(analyticsEvents.outboundWebsiteClick)}
-    >
+    <a href={link} target="_blank" rel="noreferrer" className="block" onClick={() => pushDataLayerEvent(analyticsEvents.outboundWebsiteClick)}>
       {content}
     </a>
   );

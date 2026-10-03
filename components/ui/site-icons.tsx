@@ -186,3 +186,20 @@ export function CloseIcon(props: IconProps) {
     </IconBase>
   );
 }
+
+export function ArrowUpRightIcon(props: IconProps) {
+  return (
+    <IconBase {...props}>
+      <path d="M7 17 17 7" />
+      <path d="M8 7h9v9" />
+    </IconBase>
+  );
+}
+
+export function StarIcon(props: IconProps) {
+  return (
+    <IconBase fill="currentColor" stroke="none" {...props}>
+      <path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9L12 2.8Z" />
+    </IconBase>
+  );
+}

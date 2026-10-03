@@ -68,14 +68,14 @@ export default function WebsiteBuilderComparisonPage() {
   ];
 
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-clip bg-background">
       <StructuredData data={schema} />
 
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="grain relative overflow-hidden bg-ink pb-16 pt-36 text-primary-foreground md:pb-24 md:pt-48">
         <div className="site-container">
           <div className="max-w-4xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Small Business Websites</p>
-            <h1 className="mt-6 font-display text-[2.35rem] font-bold leading-[1.02] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl">
+            <p className="eyebrow">Small Business Websites</p>
+            <h1 className="mt-6 font-display text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.04em] text-primary-foreground sm:text-6xl md:text-7xl">
               Website builder vs custom website for small businesses
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-primary-foreground/76 md:text-xl">
@@ -88,8 +88,8 @@ export default function WebsiteBuilderComparisonPage() {
       <SectionShell>
         <div className="grid gap-6 lg:grid-cols-2">
           <section className="light-panel p-7 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">A Builder May Work If</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">You only need the basics online.</h2>
+            <p className="eyebrow">A Builder May Work If</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">You only need the basics online.</h2>
             <div className="mt-8 grid gap-3">
               {builderFit.map((item) => (
                 <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
@@ -101,8 +101,8 @@ export default function WebsiteBuilderComparisonPage() {
           </section>
 
           <section className="dark-panel p-7 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Go Custom If</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
+            <p className="eyebrow">Go Custom If</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-primary-foreground">
               The website needs to help win customers.
             </h2>
             <div className="mt-8 grid gap-3">
@@ -119,8 +119,8 @@ export default function WebsiteBuilderComparisonPage() {
 
       <SectionShell className="pt-0">
         <div className="light-panel p-7 md:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Decision Guide</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+          <p className="eyebrow">Decision Guide</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">
             The real question is whether the site is just a page or a sales asset.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground">
@@ -153,7 +153,7 @@ export default function WebsiteBuilderComparisonPage() {
       </SectionShell>
 
       <SectionShell className="pt-0">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card px-2 shadow-[var(--shadow-card)] md:px-6">
+        <div className="mx-auto max-w-3xl rounded-[1.25rem] border border-foreground/[0.08] bg-card px-2 md:px-6">
           {faqItems.map((item, index) => (
             <details
               key={item.question}

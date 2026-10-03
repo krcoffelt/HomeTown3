@@ -3,12 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactCta } from "@/components/sections/contact-cta";
-import { PageHero } from "@/components/layout/page-hero";
+import { PageIntro } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
 import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
+import { Accordion } from "@/components/ui/accordion";
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
 import { locations } from "@/data/locations";
 import { getProjectBySlug } from "@/data/projects";
 import { getServiceBySlug, services } from "@/data/services";
@@ -81,126 +83,113 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   return (
     <PageTransition>
       <StructuredData data={schema} />
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
-        <div className="site-container">
-          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-primary-foreground/62">
-            <Link href="/" className="transition hover:text-primary-foreground">
-              Home
-            </Link>
-            <span>/</span>
-            <Link href="/services" className="transition hover:text-primary-foreground">
-              Services
-            </Link>
-            <span>/</span>
-            <span className="text-primary-foreground">{service.title}</span>
-          </nav>
-          <PageHero
-            badge={service.heroBadge ?? "Service"}
-            title={service.heroTitle ?? service.title}
-            subtitle={service.description}
-            light
-          />
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="#form" className="h-14 px-8">
-              Get a Free Marketing Audit
+      <PageIntro
+        crumbs={[{ name: "Home", href: "/" }, { name: "Services", href: "/services" }, { name: service.title }]}
+        badge={service.heroBadge ?? "Service"}
+        title={service.heroTitle ?? service.title}
+        subtitle={service.description}
+        actions={
+          <>
+            <Button href="#form" variant="primary">
+              Get a free marketing audit
             </Button>
-            <Button
-              href="/work"
-              variant="secondary"
-              className="h-14 border-primary-foreground/20 px-8 text-primary-foreground hover:border-primary-foreground hover:text-primary-foreground"
-            >
-              See Our Work
+            <Button href="/work" variant="outline-light" arrow={false}>
+              See our work
             </Button>
+          </>
+        }
+      >
+        {proofProjects?.length ? (
+          <div className="mt-14 grid gap-px overflow-hidden rounded-[1.25rem] bg-primary-foreground/10 sm:grid-cols-3">
+            {proofProjects.slice(0, 3).map((project) => (
+              <Link
+                key={project.slug}
+                href={`/case-studies/${project.slug}`}
+                className="group flex items-center gap-4 bg-ink p-4 transition-colors hover:bg-ink-soft"
+              >
+                <span className="relative h-14 w-20 shrink-0 overflow-hidden rounded-md">
+                  <Image src={project.featuredImageUrl} alt="" fill sizes="80px" className="object-cover object-top" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate font-medium">{project.clientName}</span>
+                  <span className="mono-label block truncate text-primary-foreground/45">{project.city ?? "Kansas City metro"}</span>
+                </span>
+                <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-primary-foreground/50 transition-transform duration-500 group-hover:rotate-45 group-hover:text-primary-foreground" />
+              </Link>
+            ))}
           </div>
-          {proofProjects?.length ? (
-            <div className="mx-auto mt-8 grid max-w-4xl gap-3 sm:grid-cols-3">
-              {proofProjects.slice(0, 3).map((project) => (
-                <Link
-                  key={project.slug}
-                  href={`/case-studies/${project.slug}`}
-                  className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-4 py-3 text-left transition hover:-translate-y-0.5 hover:border-accent/70"
-                >
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{project.category}</p>
-                  <p className="mt-2 text-sm font-bold text-primary-foreground">{project.clientName}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-primary-foreground/62">{project.city ?? "Kansas City metro"} proof</p>
-                </Link>
-              ))}
+        ) : null}
+      </PageIntro>
+
+      <SectionShell>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+            <p className="eyebrow">What&apos;s included</p>
+            <h2 className="section-title mt-6">
+              Scope built around <span className="serif-accent">real</span> business needs.
+            </h2>
+            <div className="mt-10 rounded-[1.25rem] bg-ink p-7 text-primary-foreground md:p-8">
+              <p className="mono-label text-primary-foreground/50">Best for</p>
+              <ul className="mt-5 grid gap-4">
+                {service.idealFor.map((item) => (
+                  <li key={item} className="flex gap-3 leading-relaxed text-primary-foreground/85">
+                    <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 border-t border-primary-foreground/10 pt-6 text-sm leading-relaxed text-primary-foreground/60">
+                {service.shortDescription}
+              </p>
             </div>
-          ) : null}
+          </div>
+          <ol className="border-t border-foreground/12 lg:col-span-7">
+            {service.deliverables.map((item, index) => (
+              <Reveal as="li" key={item} delay={index * 0.05} className="border-b border-foreground/12 py-7 md:py-9">
+                <span className="text-xl font-medium leading-snug tracking-[-0.025em] md:text-[1.65rem]">{item}</span>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </SectionShell>
+
+      <section aria-labelledby="handle-heading" className="bg-secondary py-24 md:py-32">
+        <div className="site-container">
+          <div className="grid gap-8 md:grid-cols-12">
+            <p className="eyebrow md:col-span-4">What we handle</p>
+            <h2 id="handle-heading" className="section-title md:col-span-8">
+              Strategy, build, and measurement — <span className="serif-accent">in one place.</span>
+            </h2>
+          </div>
+          <ul className="mt-14 grid gap-px overflow-hidden rounded-[1.25rem] bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3 md:mt-20">
+            {service.features.map((feature) => (
+              <li key={feature} className="flex min-h-[10rem] flex-col justify-end bg-card p-6 md:p-8">
+                <span className="text-lg font-medium leading-snug tracking-[-0.02em]">{feature}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <SectionShell>
-        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-          <section className="light-panel p-7 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">What&apos;s Included</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-              Scope built around real business needs.
-            </h2>
-            <div className="mt-8 grid gap-4">
-              {service.deliverables.map((item) => (
-                <div key={item} className="rounded-2xl border border-border bg-secondary px-5 py-4 text-base leading-relaxed text-foreground">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <aside className="dark-panel p-7 md:p-9">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Best Next Step</p>
-            <p className="mt-4 text-4xl font-bold tracking-tight text-primary-foreground">Start with the evidence.</p>
-            <p className="mt-4 text-base leading-relaxed text-primary-foreground/72">{service.shortDescription}</p>
-
-            <div className="mt-8 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.03] p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/55">Best For</p>
-              <div className="mt-4 grid gap-3">
-                {service.idealFor.map((item) => (
-                  <p key={item} className="text-base leading-relaxed text-primary-foreground/84">
-                    {item}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <Button href="#form" className="mt-6 w-full">
-              Get a Free Marketing Audit
-            </Button>
-          </aside>
-        </div>
-      </SectionShell>
-
-      <SectionShell className="pt-0">
-        <div className="light-panel p-7 md:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">What We Handle</p>
-          <div className="mt-7 grid gap-4 md:grid-cols-2">
-            {service.features.map((feature) => (
-              <div key={feature} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                <CheckCircleIcon className="mt-0.5 h-4 w-4 text-accent" />
-                <span>{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </SectionShell>
-
       {service.detailSections?.length ? (
-        <SectionShell className="pt-0">
-          <div className="grid gap-6 lg:grid-cols-2">
+        <SectionShell>
+          <div className="grid gap-20 md:gap-28">
             {service.detailSections.map((section) => (
-              <article key={section.title} className="light-panel p-7 md:p-10">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{section.eyebrow}</p>
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">{section.title}</h2>
-                <p className="mt-5 text-base leading-relaxed text-muted-foreground">{section.body}</p>
-                {section.items?.length ? (
-                  <div className="mt-7 grid gap-3">
-                    {section.items.map((item) => (
-                      <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                        <CheckCircleIcon className="mt-0.5 h-4 w-4 text-accent" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                ) : null}
+              <article key={section.title} className="grid gap-8 md:grid-cols-12">
+                <p className="eyebrow md:col-span-4">{section.eyebrow}</p>
+                <div className="md:col-span-8">
+                  <h2 data-reveal="up" className="section-title">{section.title}</h2>
+                  <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">{section.body}</p>
+                  {section.items?.length ? (
+                    <ul className="mt-8 flex flex-wrap gap-2">
+                      {section.items.map((item) => (
+                        <li key={item} className="rounded-full border border-foreground/15 px-4 py-2 text-sm">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
               </article>
             ))}
           </div>
@@ -209,158 +198,140 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {proofProjects?.length ? (
         <SectionShell className="pt-0">
-          <div className="mb-9 max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Selected Work</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-              Work from Kansas City small-business projects.
-            </h2>
+          <div className="flex flex-col justify-between gap-6 border-t border-foreground/12 pt-10 md:flex-row md:items-end">
+            <div>
+              <p className="eyebrow">Selected work</p>
+              <h2 className="section-title mt-6 max-w-2xl">Work from Kansas City small-business projects.</h2>
+            </div>
+            <Button href="/work" variant="secondary">
+              All projects
+            </Button>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid gap-x-6 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
             {proofProjects.map((project) => (
-              <Link
-                key={project.slug}
-                href={`/case-studies/${project.slug}`}
-                className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+              <Link key={project.slug} href={`/case-studies/${project.slug}`} className="group block">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-secondary">
                   <Image
                     src={project.featuredImageUrl}
                     alt={project.imageAlt}
                     fill
                     sizes="(max-width: 768px) 92vw, 31vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.04]"
                   />
                 </div>
-                <div className="p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
-                  <h3 className="mt-3 text-xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
-                  {project.problem && project.result ? (
-                    <div className="mt-5 space-y-3 border-t border-border pt-5">
-                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                        {project.city ?? "Kansas City metro"}
-                      </p>
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        <span className="font-bold text-foreground">Problem:</span> {project.problem}
-                      </p>
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        <span className="font-bold text-foreground">Result:</span> {project.result}
-                      </p>
-                    </div>
-                  ) : null}
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
-                    Read case study
-                    <ArrowRightIcon className="h-4 w-4" />
+                <div className="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl font-semibold tracking-[-0.035em]">{project.clientName}</h3>
+                    <p className="mono-label mt-2 text-muted-foreground">
+                      {project.category} · {project.city ?? "Kansas City metro"}
+                    </p>
+                  </div>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-foreground/15 transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
+                    <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" />
                   </span>
                 </div>
+                <p className="mt-4 leading-relaxed text-muted-foreground">{project.summary}</p>
+                {project.problem && project.result ? (
+                  <dl className="mt-5 grid gap-3 border-t border-foreground/10 pt-5 text-sm leading-relaxed text-muted-foreground">
+                    <div>
+                      <dt className="inline font-medium text-foreground">Problem: </dt>
+                      <dd className="inline">{project.problem}</dd>
+                    </div>
+                    <div>
+                      <dt className="inline font-medium text-foreground">Result: </dt>
+                      <dd className="inline">{project.result}</dd>
+                    </div>
+                  </dl>
+                ) : null}
               </Link>
             ))}
           </div>
         </SectionShell>
       ) : null}
 
-      {service.slug === "website-design" ? (
-        <SectionShell className="pt-0">
-          <div className="dark-panel p-7 md:p-10">
-            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Website Design by Service Area</p>
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
-                  Website design for Kansas City and nearby business owners.
-                </h2>
-                <p className="mt-5 text-base leading-relaxed text-primary-foreground/72">
-                  These local pages connect our website, SEO, and paid-ad work to the communities where small businesses are growing.
+      <section aria-labelledby="service-process-heading" className="grain bg-ink py-24 text-primary-foreground md:py-32">
+        <div className="site-container">
+          <div className="grid gap-8 md:grid-cols-12">
+            <p className="eyebrow md:col-span-4">Process</p>
+            <h2 id="service-process-heading" className="section-title md:col-span-8">
+              A straightforward path from audit to <span className="serif-accent">measurable improvement.</span>
+            </h2>
+          </div>
+          <ol className="mt-14 grid gap-px overflow-hidden rounded-[1.25rem] bg-primary-foreground/10 md:mt-20 md:grid-cols-3">
+            {service.process.map((step) => (
+              <li key={step} className="flex min-h-[16rem] flex-col bg-ink p-7 md:p-9">
+                <p className="mt-auto pt-10 text-lg leading-relaxed text-primary-foreground/85">{step}</p>
+              </li>
+            ))}
+          </ol>
+
+          {service.slug === "website-design" ? (
+            <div className="mt-24 grid gap-10 border-t border-primary-foreground/10 pt-14 md:grid-cols-12">
+              <div className="md:col-span-4">
+                <p className="eyebrow">By service area</p>
+                <p className="mt-6 max-w-sm leading-relaxed text-primary-foreground/60">
+                  Website design for Kansas City and nearby business owners. These local pages connect our website, SEO, and paid-ad
+                  work to the communities where small businesses are growing.
                 </p>
               </div>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <Link
-                  href="/locations"
-                  className="group rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent/70"
-                >
-                  <p className="text-sm font-bold text-primary-foreground">All service areas</p>
-                  <p className="mt-2 text-xs leading-relaxed text-primary-foreground/62">
-                    Website design and marketing pages for the Kansas City metro.
-                  </p>
-                </Link>
-                {locations.map((location) => (
+              <ul className="grid gap-x-8 sm:grid-cols-2 md:col-span-8">
+                <li>
                   <Link
-                    key={location.slug}
-                    href={`/locations/${location.slug}`}
-                    className="group rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent/70"
+                    href="/locations"
+                    className="group flex items-center justify-between border-b border-primary-foreground/10 py-4 text-lg transition-colors hover:text-[hsl(229_100%_75%)]"
                   >
-                    <p className="text-sm font-bold text-primary-foreground">{location.city}, {location.state}</p>
-                    <p className="mt-2 text-xs leading-relaxed text-primary-foreground/62">
-                      Website design and local marketing for {location.city} businesses.
-                    </p>
+                    All service areas
+                    <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" />
                   </Link>
+                </li>
+                {locations.map((location) => (
+                  <li key={location.slug}>
+                    <Link
+                      href={`/locations/${location.slug}`}
+                      className="group flex items-center justify-between border-b border-primary-foreground/10 py-4 text-lg transition-colors hover:text-[hsl(229_100%_75%)]"
+                    >
+                      {location.city}, {location.state}
+                      <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" />
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-          </div>
-        </SectionShell>
-      ) : null}
-
-      <SectionShell className="pt-0">
-        <div className="dark-panel p-7 md:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Process</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
-            A straightforward process from audit to measurable improvement.
-          </h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {service.process.map((step, index) => (
-              <article key={step} className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-5">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Step {index + 1}</p>
-                <p className="mt-3 text-base leading-relaxed text-primary-foreground">{step}</p>
-              </article>
-            ))}
-          </div>
+          ) : null}
         </div>
-      </SectionShell>
+      </section>
 
       {service.faqItems?.length ? (
-        <SectionShell className="pt-0">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-8 text-center">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">FAQs</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-                Questions business owners ask before starting.
-              </h2>
+        <SectionShell>
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-4">
+              <p className="eyebrow">FAQs</p>
+              <h2 className="section-title mt-6">Questions owners ask before starting.</h2>
             </div>
-            <div className="rounded-2xl border border-border bg-card px-2 shadow-[var(--shadow-card)] md:px-6">
-              {service.faqItems.map((item, index) => (
-                <details
-                  key={item.question}
-                  className={`group border-b border-border ${index === service.faqItems!.length - 1 ? "border-b-0" : ""}`}
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-6 pl-3 text-left text-base font-bold text-card-foreground md:pl-4 md:text-lg">
-                    {item.question}
-                    <span className="text-muted-foreground transition group-open:rotate-45">+</span>
-                  </summary>
-                  <div className="pb-6 text-sm leading-relaxed text-muted-foreground md:text-base">{item.answer}</div>
-                </details>
-              ))}
+            <div className="lg:col-span-8">
+              <Accordion items={service.faqItems} />
             </div>
           </div>
         </SectionShell>
       ) : null}
 
-      <SectionShell className="pt-0">
-        <div className="light-panel p-7 md:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Related Pages</p>
-          <div className="mt-6 flex flex-wrap gap-3">
+      <section aria-label="Related pages" className="border-t border-foreground/10 bg-background py-14">
+        <div className="site-container flex flex-col gap-6 md:flex-row md:items-center">
+          <p className="mono-label shrink-0 text-muted-foreground md:w-1/3">Related pages</p>
+          <div className="flex flex-wrap gap-2">
             {relatedLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                className="group inline-flex items-center gap-2 rounded-full border border-foreground/15 px-4 py-2 text-sm transition-colors hover:border-foreground hover:bg-foreground hover:text-background"
               >
                 {link.label}
-                <ArrowRightIcon className="h-4 w-4" />
+                <ArrowUpRightIcon className="h-3.5 w-3.5" />
               </Link>
             ))}
           </div>
         </div>
-      </SectionShell>
+      </section>
 
       <ContactCta
         title={`Ready to audit your ${service.title.toLowerCase()} opportunity?`}

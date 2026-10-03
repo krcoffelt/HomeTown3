@@ -109,10 +109,10 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
   ];
 
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-clip bg-background">
       <StructuredData data={schema} />
 
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="grain relative overflow-hidden bg-ink pb-16 pt-36 text-primary-foreground md:pb-24 md:pt-48">
         <div className="site-container">
           <PageHero
             badge={industry.primaryKeyword}
@@ -127,8 +127,8 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         <div className="grid gap-6 lg:grid-cols-2">
           {industry.sections.map((section) => (
             <article key={section.title} className="light-panel p-7 md:p-10">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{section.eyebrow}</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">{section.title}</h2>
+              <p className="eyebrow">{section.eyebrow}</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">{section.title}</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">{section.body}</p>
               <div className="mt-7 grid gap-3">
                 {section.items.map((item) => (
@@ -145,8 +145,8 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
       <SectionShell className="pt-0">
         <div className="mb-9 max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Relevant Work</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+          <p className="eyebrow">Relevant Work</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">
             Proof from relevant website builds.
           </h2>
         </div>
@@ -155,7 +155,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             <Link
               key={project.slug}
               href={`/case-studies/${project.slug}`}
-              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+              className="group overflow-hidden rounded-[1.25rem] border border-foreground/[0.08] bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
                 <Image
@@ -167,8 +167,8 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 />
               </div>
               <div className="p-6">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
-                <h3 className="mt-3 text-xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
+                <p className="mono-label text-accent">{project.category}</p>
+                <h3 className="mt-3 text-xl font-semibold tracking-[-0.04em] text-foreground">{project.clientName}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.result ?? project.summary}</p>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
                   Read case study
@@ -181,7 +181,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
       </SectionShell>
 
       <SectionShell className="pt-0">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card px-2 shadow-[var(--shadow-card)] md:px-6">
+        <div className="mx-auto max-w-3xl rounded-[1.25rem] border border-foreground/[0.08] bg-card px-2 md:px-6">
           {industry.faqItems.map((item, index) => (
             <details
               key={item.question}
@@ -202,8 +202,8 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
           <div className="dark-panel p-7 md:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Related Guides</p>
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
+                <p className="eyebrow">Related Guides</p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-primary-foreground">
                   More help for planning a lead-focused website.
                 </h2>
               </div>
@@ -212,7 +212,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent"
+                    className="group rounded-[1.25rem] border border-primary-foreground/10 bg-primary-foreground/[0.04] px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent"
                   >
                     <span className="flex items-center justify-between gap-4 text-base font-bold text-primary-foreground">
                       {item.label}

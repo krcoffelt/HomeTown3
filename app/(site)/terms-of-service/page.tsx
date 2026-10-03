@@ -56,7 +56,7 @@ export default function TermsOfServicePage() {
   return (
     <PageTransition>
       <StructuredData data={schema} />
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="grain relative overflow-hidden bg-ink pb-16 pt-36 text-primary-foreground md:pb-24 md:pt-48">
         <div className="site-container">
           <PageHero
             badge="Terms"
@@ -75,12 +75,12 @@ export default function TermsOfServicePage() {
           <div className="mt-8 space-y-8">
             {sections.map((section) => (
               <section key={section.title}>
-                <h2 className="text-2xl font-bold tracking-tight text-foreground">{section.title}</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-foreground">{section.title}</h2>
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground">{section.body}</p>
               </section>
             ))}
           </div>
-          <div className="mt-10 rounded-2xl border border-border bg-secondary p-6 text-base leading-relaxed text-muted-foreground">
+          <div className="mt-10 rounded-[1rem] bg-secondary p-6 text-base leading-relaxed text-muted-foreground">
             Any project work, deliverables, and payment terms are ultimately governed by the written agreement created for that specific client engagement.
           </div>
         </div>

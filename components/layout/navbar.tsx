@@ -2,17 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Wordmark } from "@/components/layout/wordmark";
+import { LocalTime } from "@/components/motion/local-time";
 import { Button } from "@/components/ui/button";
-import { CloseIcon, MenuIcon } from "@/components/ui/site-icons";
+import { site } from "@/data/site";
+import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils/cn";
 
 const links = [
-  { href: "/", label: "Home" },
+  { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
-  { href: "/work", label: "Work" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Journal" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -48,12 +50,18 @@ export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
   const auditHref = hasEmbeddedContactForm(pathname) ? "#form" : "/contact#form";
-  const hasPaperHero = new Set(["/", "/about", "/blog", "/contact", "/locations", "/services", "/work"]).has(pathname);
-  const useDarkInk = hasPaperHero && !scrolled;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 40);
+      setHidden(y > 240 && y > lastY.current + 4);
+      if (y < lastY.current - 4 || y <= 240) setHidden(false);
+      lastY.current = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -63,110 +71,34 @@ export function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    document.documentElement.style.overflow = isOpen ? "hidden" : "";
+    if (!isOpen) return;
+    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setIsOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen]);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className={cn("site-container transition-all duration-300", scrolled ? "pt-4 pb-4" : "pt-7 pb-6")}>
-        <div className="relative flex min-h-[4.5rem] items-center justify-between">
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 text-primary-foreground transition-transform duration-700 ease-out-expo",
+          hidden && !isOpen ? "-translate-y-full" : "translate-y-0"
+        )}
+      >
+        <div className="site-container pt-3 md:pt-4">
           <div
             className={cn(
-              "hidden transition-all duration-150 xl:block",
-              scrolled ? "pointer-events-none -translate-x-3 opacity-0" : "translate-x-0 opacity-100"
+              "relative flex h-14 items-center justify-between rounded-full pl-5 pr-2 transition-[background-color,box-shadow,backdrop-filter] duration-500 md:h-16 md:pl-6",
+              scrolled && !isOpen ? "glass-dark shadow-[0_16px_40px_-24px_rgb(0_0_0/0.6)]" : "bg-transparent"
             )}
           >
-            <Link href="/" aria-label="Hometown home">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/HometownLogoWhite2026-sm.png"
-                alt="Hometown Marketing Agency"
-                width={260}
-                height={70}
-                className={cn("h-10 w-auto md:h-14", useDarkInk && "invert")}
-              />
+            <Link href="/" aria-label="Hometown Marketing Agency home" className="relative z-10 text-[1.55rem] md:text-[1.7rem]">
+              <Wordmark />
             </Link>
-          </div>
 
-          <nav
-            aria-label="Main navigation"
-            className={cn(
-                "mx-auto hidden items-center gap-2 rounded-full border px-2 py-2 transition-[background-color,border-color,box-shadow,transform] duration-500 xl:absolute xl:left-1/2 xl:flex xl:-translate-x-1/2 xl:backdrop-blur-xl",
-              scrolled
-                ? "border-primary-foreground/10 bg-foreground/90 shadow-[0_12px_30px_hsl(var(--foreground)/0.35)]"
-                : useDarkInk
-                  ? "border-foreground/15 bg-background/85 shadow-[3px_3px_0_hsl(var(--foreground)/0.12)]"
-                  : "border-primary-foreground/[0.08] bg-foreground/30"
-            )}
-          >
-            {links.map((link) => {
-              const active = isActivePath(pathname, link.href);
-
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={active ? "page" : undefined}
-                  className={cn(
-                    "relative rounded-full px-6 py-3 text-base font-medium transition-colors duration-300",
-                    active
-                      ? "bg-accent text-primary-foreground shadow-[0_2px_12px_hsl(var(--accent)/0.4)]"
-                      : useDarkInk
-                        ? "text-foreground/70 hover:text-foreground"
-                        : "text-primary-foreground/70 hover:text-primary-foreground"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div
-            className={cn(
-              "hidden transition-all duration-150 xl:block",
-              scrolled ? "pointer-events-none translate-x-3 opacity-0" : "translate-x-0 opacity-100"
-            )}
-          >
-            <Button href={auditHref} className="h-12 px-7 text-base">
-              Get a Free Audit
-            </Button>
-          </div>
-
-          <div className="flex w-full items-center justify-between xl:hidden">
-            <Link
-              href="/"
-              aria-label="Hometown home"
-              className={cn(
-                "transition-all duration-300 ease-out",
-                scrolled ? "pointer-events-none -translate-x-2 opacity-0" : "translate-x-0 opacity-100"
-              )}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/HometownLogoWhite2026-sm.png"
-                alt="Hometown Marketing Agency"
-                width={210}
-                height={56}
-                className={cn("h-10 w-auto", useDarkInk && "invert")}
-              />
-            </Link>
-            <button
-              type="button"
-              aria-expanded={isOpen}
-              aria-controls="mobile-nav"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-foreground bg-foreground text-primary-foreground shadow-[3px_3px_0_hsl(var(--accent))]"
-              onClick={() => setIsOpen((current) => !current)}
-            >
-              {isOpen ? <CloseIcon /> : <MenuIcon />}
-            </button>
-          </div>
-        </div>
-
-        {isOpen ? (
-          <div
-            id="mobile-nav"
-            className="mt-4 animate-fade-in-up rounded-[1.5rem] border-2 border-foreground bg-foreground p-4 text-primary-foreground shadow-hero xl:hidden"
-          >
-            <nav className="flex flex-col gap-2">
+            <nav aria-label="Main navigation" className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex">
               {links.map((link) => {
                 const active = isActivePath(pathname, link.href);
                 return (
@@ -175,21 +107,118 @@ export function Navbar() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "rounded-lg px-4 py-3 text-sm font-medium transition",
-                      active ? "bg-accent text-accent-foreground" : "text-primary-foreground/60 hover:bg-primary-foreground/5 hover:text-primary-foreground"
+                      "group relative rounded-full px-4 py-2 text-[0.95rem] transition-colors duration-300",
+                      active ? "text-primary-foreground" : "text-primary-foreground/65 hover:text-primary-foreground"
                     )}
                   >
-                    {link.label}
+                    <span className="roll" data-text={link.label}>
+                      <span>{link.label}</span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent transition-opacity duration-300",
+                        active ? "opacity-100" : "opacity-0"
+                      )}
+                    />
                   </Link>
                 );
               })}
             </nav>
-            <Button href={auditHref} className="mt-4 w-full">
-              Get a Free Marketing Audit
-            </Button>
+
+            <div className="relative z-10 flex items-center gap-4">
+              <span className="mono-label hidden items-center gap-2 text-primary-foreground/55 xl:inline-flex">
+                <span className="pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-[#3ddc84]" />
+                KC <LocalTime />
+              </span>
+              <Button href={auditHref} variant="light" className="hidden h-11 text-sm md:inline-flex" dataAnalytics="nav-audit">
+                Free audit
+              </Button>
+              <button
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls="mobile-nav"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+                className="group inline-flex h-11 items-center gap-3 rounded-full bg-primary-foreground pl-5 pr-4 text-sm font-medium text-ink lg:hidden"
+                onClick={() => setIsOpen((current) => !current)}
+              >
+                {isOpen ? "Close" : "Menu"}
+                <span aria-hidden="true" className="relative block h-2.5 w-4">
+                  <span
+                    className={cn(
+                      "absolute left-0 top-0 h-[1.5px] w-full bg-current transition-transform duration-500 ease-out-expo",
+                      isOpen && "translate-y-[4.5px] rotate-45"
+                    )}
+                  />
+                  <span
+                    className={cn(
+                      "absolute bottom-0 left-0 h-[1.5px] w-full bg-current transition-transform duration-500 ease-out-expo",
+                      isOpen && "-translate-y-[4.5px] -rotate-45"
+                    )}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
-        ) : null}
+        </div>
+      </header>
+
+      <div
+        id="mobile-nav"
+        aria-hidden={!isOpen}
+        className={cn(
+          "fixed inset-0 z-40 flex flex-col bg-ink text-primary-foreground transition-[clip-path] duration-700 ease-in-out-quart lg:hidden",
+          isOpen ? "[clip-path:inset(0_0_0_0)]" : "pointer-events-none [clip-path:inset(0_0_100%_0)]"
+        )}
+      >
+        <div className="site-container flex flex-1 flex-col justify-between pb-8 pt-28">
+          <nav aria-label="Mobile navigation" className="flex flex-col">
+            {[{ href: "/", label: "Home" }, ...links].map((link, index) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                tabIndex={isOpen ? 0 : -1}
+                aria-current={isActivePath(pathname, link.href) ? "page" : undefined}
+                className="group flex items-baseline justify-between border-b border-primary-foreground/10 py-3"
+              >
+                <span className="line-mask">
+                  <span
+                    className={cn(
+                      "block text-[2.6rem] font-semibold leading-none tracking-[-0.05em] transition-transform duration-700 ease-out-expo sm:text-6xl",
+                      isOpen ? "translate-y-0" : "translate-y-full"
+                    )}
+                    style={{ transitionDelay: isOpen ? `${150 + index * 50}ms` : "0ms" }}
+                  >
+                    {link.label}
+                  </span>
+                </span>
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-10 grid gap-6">
+            <Button href={auditHref} variant="primary" className="h-14 w-full justify-between text-base">
+              Get a free marketing audit
+            </Button>
+            <div className="flex flex-wrap justify-between gap-4 text-sm text-primary-foreground/60">
+              <a
+                href={`tel:${site.contactPhone}`}
+                tabIndex={isOpen ? 0 : -1}
+                onClick={() => pushDataLayerEvent(analyticsEvents.phoneClick)}
+              >
+                {site.contactPhone}
+              </a>
+              <a
+                href={`mailto:${site.contactEmail}`}
+                tabIndex={isOpen ? 0 : -1}
+                onClick={() => pushDataLayerEvent(analyticsEvents.emailClick)}
+              >
+                {site.contactEmail}
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+    </>
   );
 }

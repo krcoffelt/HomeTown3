@@ -2,11 +2,14 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PageHero } from "@/components/layout/page-hero";
+import { PageIntro } from "@/components/layout/page-hero";
 import { SectionShell } from "@/components/layout/section-shell";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, CheckCircleIcon } from "@/components/ui/site-icons";
+import { TrackedAnchor } from "@/components/analytics/tracked-anchor";
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
+import { analyticsEvents } from "@/lib/analytics/events";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, creativeWorkSchema, webPageSchema } from "@/lib/seo/schema";
@@ -112,226 +115,259 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ];
 
+  const currentIndex = caseStudyProjects.findIndex((item) => item.slug === project.slug);
+  const nextProject = caseStudyProjects[(currentIndex + 1) % caseStudyProjects.length];
+
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-clip bg-background">
       <StructuredData data={schema} />
 
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
-        <div className="site-container">
-          <PageHero
-            badge={`${project.category} Website Case Study`}
-            title={`${project.clientName}: website design built around real outcomes`}
-            subtitle={project.summary}
-            light
-          />
+      <PageIntro
+        crumbs={[{ name: "Home", href: "/" }, { name: "Work", href: "/work" }, { name: project.clientName }]}
+        badge={`${project.category} website case study`}
+        title={`${project.clientName}: website design built around real outcomes`}
+        titleLines={[
+          project.clientName,
+          <span key="sub" className="serif-accent text-primary-foreground/60">
+            website design built around real outcomes
+          </span>
+        ]}
+        subtitle={project.summary}
+        className="pb-0 md:pb-0"
+      >
+        <dl className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-t-[1.25rem] bg-primary-foreground/10 md:grid-cols-4">
+          <div className="bg-ink p-5 md:p-6">
+            <dt className="mono-label text-primary-foreground/45">Client</dt>
+            <dd className="mt-3 font-medium">{project.clientName}</dd>
+          </div>
+          <div className="bg-ink p-5 md:p-6">
+            <dt className="mono-label text-primary-foreground/45">Market</dt>
+            <dd className="mt-3 font-medium">{project.city ?? "Kansas City metro"}</dd>
+          </div>
+          <div className="bg-ink p-5 md:p-6">
+            <dt className="mono-label text-primary-foreground/45">Services</dt>
+            <dd className="mt-3 text-sm leading-relaxed text-primary-foreground/80">{project.servicesProvided.join(", ")}</dd>
+          </div>
+          <div className="bg-ink p-5 md:p-6">
+            <dt className="mono-label text-primary-foreground/45">Live site</dt>
+            <dd className="mt-3">
+              {project.liveUrl ? (
+                <TrackedAnchor
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  eventName={analyticsEvents.outboundWebsiteClick}
+                  className="link-underline inline-flex items-center gap-1.5 font-medium"
+                >
+                  Visit website <ArrowUpRightIcon className="h-3.5 w-3.5" />
+                </TrackedAnchor>
+              ) : (
+                <span className="text-primary-foreground/60">—</span>
+              )}
+            </dd>
+          </div>
+        </dl>
+      </PageIntro>
+
+      <section aria-label="Project preview" className="relative">
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1/2 bg-ink" />
+        <div className="site-container relative">
+          <Reveal variant="clip">
+            <div className="browser-frame">
+              <div className="flex items-center gap-1.5 bg-secondary px-4 py-3" aria-hidden="true">
+                {[0, 1, 2].map((dot) => (
+                  <span key={dot} className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
+                ))}
+              </div>
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={project.featuredImageUrl}
+                  alt={project.imageAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 1440px) 94vw, 1360px"
+                  className="object-cover object-top"
+                />
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       <SectionShell>
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-secondary shadow-[var(--shadow-card)]">
-            <Image
-              src={project.featuredImageUrl}
-              alt={project.imageAlt}
-              fill
-              priority
-              sizes="(max-width: 1024px) 92vw, 52vw"
-              className="object-cover"
-            />
-          </div>
-          <aside className="dark-panel p-7 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Project Snapshot</p>
-            <div className="mt-6 grid gap-5">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Client</p>
-                <p className="mt-2 text-lg font-bold text-primary-foreground">{project.clientName}</p>
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Market</p>
-                <p className="mt-2 text-lg font-bold text-primary-foreground">{project.city ?? "Kansas City metro"}</p>
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Services</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {project.servicesProvided.map((service) => (
-                    <span key={service} className="rounded-full border border-white/10 px-3 py-1 text-xs font-bold text-primary-foreground/78">
-                      {service}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              {project.liveUrl ? (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-primary-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
-                >
-                  Visit Live Website
-                  <ArrowRightIcon className="h-4 w-4" />
-                </a>
-              ) : null}
-            </div>
-          </aside>
-        </div>
-      </SectionShell>
-
-      {project.galleryImages?.length ? (
-        <SectionShell className="pt-0">
-          <div className="mb-9 max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Inside the Website</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              A connected experience across every important page.
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              The design system carries the same visual direction, clear hierarchy, and conversion path from the homepage into the pages customers use to make a decision.
-            </p>
-          </div>
-          <div className="grid gap-6 lg:grid-cols-2">
-            {project.galleryImages.map((image) => (
-              <figure
-                key={image.url}
-                className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
-              >
-                <div className="relative aspect-[36/25] overflow-hidden bg-secondary">
-                  <Image
-                    src={image.url}
-                    alt={image.alt}
-                    fill
-                    sizes="(max-width: 1024px) 92vw, 46vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  />
-                </div>
-                <figcaption className="flex items-center justify-between gap-4 px-5 py-4">
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{image.label}</span>
-                  <span className="text-sm text-muted-foreground">{project.clientName}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </SectionShell>
-      ) : null}
-
-      <SectionShell className="pt-0">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-16 md:gap-24">
           {[
-            { label: "Problem", body: project.problem },
-            { label: "Solution", body: project.solution },
-            { label: "Result", body: project.result }
-          ].map((item) => (
-            <article key={item.label} className="light-panel p-7 md:p-8">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{item.label}</p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{item.body}</p>
+            { label: "The problem", body: project.problem },
+            { label: "The solution", body: project.solution },
+            { label: "The result", body: project.result }
+          ].map((item, index) => (
+            <article key={item.label} className="grid gap-6 border-t border-foreground/12 pt-8 md:grid-cols-12">
+              <p className="mono-label text-muted-foreground md:col-span-4">
+                {item.label}
+              </p>
+              <p data-reveal="up" className="text-xl leading-[1.45] tracking-[-0.02em] md:col-span-8 md:text-[1.75rem] md:leading-[1.35]">
+                {item.body}
+              </p>
             </article>
           ))}
         </div>
       </SectionShell>
 
       {project.metrics?.length ? (
-        <SectionShell className="pt-0">
-          <div className="noise overflow-hidden rounded-3xl bg-black p-7 text-white md:p-10 lg:p-12">
-            <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Measured Results</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-                Performance tied to real customer actions.
+        <section aria-labelledby="results-heading" className="grain bg-ink py-24 text-primary-foreground md:py-32">
+          <div className="site-container">
+            <div className="grid gap-8 md:grid-cols-12">
+              <p className="eyebrow md:col-span-4">Measured results</p>
+              <h2 id="results-heading" className="section-title md:col-span-8">
+                Performance tied to <span className="serif-accent">real customer actions.</span>
               </h2>
             </div>
-            <dl className="mt-9 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            <dl className="mt-14 grid gap-px overflow-hidden rounded-[1.25rem] bg-primary-foreground/10 sm:grid-cols-2 lg:grid-cols-4 md:mt-20">
               {project.metrics.map((metric) => (
-                <div key={metric.label} className="bg-black p-5 md:p-6">
-                  <dd className="text-3xl font-bold tracking-tight text-white md:text-4xl">{metric.value}</dd>
-                  <dt className="mt-3 text-sm font-bold leading-snug text-white">{metric.label}</dt>
-                  {metric.detail ? <p className="mt-2 text-xs uppercase tracking-[0.14em] text-white/55">{metric.detail}</p> : null}
+                <div key={metric.label} className="flex flex-col bg-ink p-6 md:p-8">
+                  <dd className="order-2 mt-auto pt-10 font-display text-[clamp(2.5rem,4.4vw,4rem)] font-semibold leading-none tracking-[-0.05em]">
+                    {metric.value}
+                  </dd>
+                  <dt className="order-1 font-medium">
+                    {metric.label}
+                    {metric.detail ? <span className="mt-1 block text-sm font-normal text-primary-foreground/50">{metric.detail}</span> : null}
+                  </dt>
                 </div>
               ))}
             </dl>
             {project.measurementSource ? (
-              <p className="mt-5 text-sm leading-relaxed text-white/65">
-                <span className="font-bold text-white">Measurement sources:</span>{" "}
-                {project.measurementSource}
+              <p className="mt-6 max-w-3xl text-sm leading-relaxed text-primary-foreground/50">
+                <span className="text-primary-foreground/80">Measurement sources:</span> {project.measurementSource}
               </p>
             ) : null}
             {project.testimonial ? (
-              <figure className="mt-9 border-t border-white/12 pt-8 md:mt-12 md:pt-10">
-                <blockquote className="max-w-4xl text-xl font-bold leading-relaxed text-white md:text-2xl">
+              <figure className="mt-20 border-t border-primary-foreground/10 pt-12 md:mt-28">
+                <blockquote className="max-w-5xl font-display text-[clamp(1.75rem,3.4vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.04em]">
                   &ldquo;{project.testimonial.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-6">
-                  <p className="font-bold text-white">{project.testimonial.name}</p>
-                  <p className="mt-1 text-sm text-white/60">{project.testimonial.role}</p>
+                <figcaption className="mt-8">
+                  <p className="font-medium">{project.testimonial.name}</p>
+                  <p className="mt-1 text-sm text-primary-foreground/55">{project.testimonial.role}</p>
                 </figcaption>
               </figure>
             ) : null}
+          </div>
+        </section>
+      ) : null}
+
+      {project.galleryImages?.length ? (
+        <SectionShell>
+          <div className="grid gap-8 md:grid-cols-12">
+            <p className="eyebrow md:col-span-4">Inside the website</p>
+            <div className="md:col-span-8">
+              <h2 className="section-title">A connected experience across every important page.</h2>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                The design system carries the same visual direction, clear hierarchy, and conversion path from the homepage into the pages
+                customers use to make a decision.
+              </p>
+            </div>
+          </div>
+          <div className="mt-14 grid gap-6 md:mt-20 lg:grid-cols-2">
+            {project.galleryImages.map((image, index) => (
+              <Reveal key={image.url} delay={(index % 2) * 0.08}>
+                <figure className="group">
+                  <div className="relative aspect-[36/25] overflow-hidden rounded-[1.25rem] bg-secondary">
+                    <Image
+                      src={image.url}
+                      alt={image.alt}
+                      fill
+                      sizes="(max-width: 1024px) 92vw, 46vw"
+                      className="object-cover object-top transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <figcaption className="mt-4 flex items-center justify-between gap-4">
+                    <span className="font-medium">{image.label}</span>
+                    <span className="mono-label text-muted-foreground">{project.clientName}</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </SectionShell>
       ) : null}
 
       <SectionShell className="pt-0">
-        <div className="light-panel p-7 md:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Why It Matters for SEO</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-            Case studies give search engines and customers more specific proof.
-          </h2>
-          <div className="mt-7 grid gap-4 md:grid-cols-2">
-            {[
-              "Shows real industry fit instead of generic service claims",
-              "Creates internal links back to the website-design offer",
-              project.slug === "project-salvation"
-                ? "Builds topical proof for ministry, evangelist, and event website searches"
-                : `Builds specific proof for ${project.category.toLowerCase()} and small-business website searches`,
-              "Supports future industry pages with relevant examples"
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                <CheckCircleIcon className="mt-0.5 h-4 w-4 text-accent" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </SectionShell>
-
-      <SectionShell className="pt-0">
-        <div className="light-panel p-7 md:p-10">
-          <div className="grid gap-7 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Related Pages</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-                Keep exploring the services behind this project.
-              </h2>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {contextualLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group rounded-2xl border border-border bg-background px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent"
-                >
-                  <p className="text-sm font-bold text-foreground transition group-hover:text-accent">{link.label}</p>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{link.description}</p>
-                </Link>
+        <div className="grid gap-12 border-t border-foreground/12 pt-14 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="eyebrow">Why it matters for SEO</p>
+            <p className="mt-6 text-xl font-medium leading-snug tracking-[-0.02em]">
+              Case studies give search engines and customers more specific proof.
+            </p>
+            <ul className="mt-8 grid gap-3 text-muted-foreground">
+              {[
+                "Shows real industry fit instead of generic service claims",
+                "Creates internal links back to the website-design offer",
+                project.slug === "project-salvation"
+                  ? "Builds topical proof for ministry, evangelist, and event website searches"
+                  : `Builds specific proof for ${project.category.toLowerCase()} and small-business website searches`,
+                "Supports future industry pages with relevant examples"
+              ].map((item) => (
+                <li key={item} className="flex gap-3 leading-relaxed">
+                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <p className="mono-label text-muted-foreground">Keep exploring the services behind this project</p>
+            <ul className="mt-6 border-b border-foreground/12">
+              {contextualLinks.map((link) => (
+                <li key={link.href} className="border-t border-foreground/12">
+                  <Link href={link.href} className="group flex items-center justify-between gap-6 py-5">
+                    <span>
+                      <span className="block text-xl font-medium tracking-[-0.02em] transition-colors group-hover:text-accent">{link.label}</span>
+                      <span className="mt-1 block text-sm text-muted-foreground">{link.description}</span>
+                    </span>
+                    <ArrowUpRightIcon className="h-5 w-5 shrink-0 transition-transform duration-500 group-hover:rotate-45" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </SectionShell>
 
-      <SectionShell className="page-section-cta noise bg-gradient-dark text-primary-foreground">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-4xl font-bold tracking-tight md:text-5xl">Want a website built around the same kind of clarity?</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/services/website-design" className="h-14 px-8">
-              Website Design Service
-            </Button>
-            <Link
-              href="/work"
-              className="inline-flex h-14 items-center gap-2 rounded-full border border-white/10 px-8 text-sm font-bold text-primary-foreground transition hover:-translate-y-0.5 hover:border-accent"
-            >
-              More Work
-              <ArrowRightIcon className="h-4 w-4" />
-            </Link>
+      {nextProject && nextProject.slug !== project.slug ? (
+        <section aria-label="Next case study" className="grain bg-ink text-primary-foreground">
+          <Link href={`/case-studies/${nextProject.slug}`} className="group site-container grid gap-10 py-24 md:grid-cols-12 md:items-center md:py-32">
+            <div className="md:col-span-7">
+              <p className="mono-label text-primary-foreground/45">Next case study</p>
+              <p className="mt-6 font-display text-[clamp(3rem,8vw,8rem)] font-semibold leading-[0.9] tracking-[-0.06em] transition-transform duration-700 ease-out-expo group-hover:translate-x-3">
+                {nextProject.clientName}
+              </p>
+              <p className="mt-6 max-w-lg text-primary-foreground/60">{nextProject.summary}</p>
+            </div>
+            <div className="md:col-span-5">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[1.25rem]">
+                <Image
+                  src={nextProject.featuredImageUrl}
+                  alt={nextProject.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 92vw, 40vw"
+                  className="object-cover object-top transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.05]"
+                />
+              </div>
+            </div>
+          </Link>
+          <div className="site-container flex flex-wrap items-center justify-between gap-4 border-t border-primary-foreground/10 py-8">
+            <p className="text-lg">Want a website built around the same kind of clarity?</p>
+            <div className="flex flex-wrap gap-3">
+              <Button href="/services/website-design" variant="primary">
+                Website design service
+              </Button>
+              <Button href="/work" variant="outline-light" arrow={false}>
+                More work
+              </Button>
+            </div>
           </div>
-        </div>
-      </SectionShell>
+        </section>
+      ) : null}
     </div>
   );
 }

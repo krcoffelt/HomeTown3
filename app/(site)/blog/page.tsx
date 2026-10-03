@@ -3,7 +3,9 @@ import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { StructuredData } from "@/components/seo/structured-data";
-import { ArrowRightIcon } from "@/components/ui/site-icons";
+import { PageIntro } from "@/components/layout/page-hero";
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
 import { blogPosts, plannedBlogTopics } from "@/data/blog";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
@@ -50,189 +52,158 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="overflow-x-hidden bg-[#f9f9f9] text-foreground">
+    <div className="overflow-x-clip bg-background text-foreground">
       <StructuredData data={schema} />
 
-      <section className="paper-texture relative isolate overflow-hidden border-b-2 border-foreground bg-background pb-20 pt-32 text-foreground md:pb-28 md:pt-40">
-        <Image
-          src="/images/brand-art/digital-design-workshop.png"
-          alt="Illustrated website design workshop with sketches and digital tools"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-background/22" />
-        <div className="site-container relative z-10">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="section-badge">
-              Kansas City Marketing Agency
-            </p>
-            <h1 className="mt-7 font-display text-[2.45rem] font-extrabold leading-[1.02] tracking-[-0.04em] text-foreground sm:text-6xl md:text-7xl">
-              Website design and marketing advice for Kansas City small businesses
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base font-medium leading-relaxed text-foreground/72 md:text-xl">
-              Practical guides on websites, local SEO, paid ads, conversion tracking, and lead flow for owners who need clearer marketing decisions.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageIntro
+        badge="The Hometown journal"
+        title="Website design and marketing advice for Kansas City small businesses"
+        subtitle="Practical guides on websites, local SEO, paid ads, conversion tracking, and lead flow for owners who need clearer marketing decisions."
+      />
 
-      <SectionShell className="bg-[#f9f9f9]">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_350px]">
-          <main className="min-w-0">
-            {featuredPost ? (
-              <Link href={featuredPost.href} className="group block">
-                <article>
-                  <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-[#e2e8f0] bg-secondary">
-                    <Image
-                      src={featuredPost.image ?? postImages[featuredPost.slug] ?? "/images/hero-bg-desktop.jpg"}
-                      alt={`${featuredPost.title} featured image`}
-                      fill
-                      sizes="(max-width: 1024px) 92vw, 760px"
-                      className="object-cover transition duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="mt-7">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{featuredPost.category}</span>
-                      <span className="text-sm text-muted-foreground">{formatDate(featuredPost.publishedAt)}</span>
-                      <span className="text-sm text-muted-foreground">{featuredPost.readingTime}</span>
-                    </div>
-                    <h2 className="mt-4 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-foreground transition group-hover:text-accent md:text-4xl">
-                      {featuredPost.title}
-                    </h2>
-                    <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">{featuredPost.excerpt}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-accent transition group-hover:gap-3">
-                      Read full guide
-                      <ArrowRightIcon className="h-4 w-4" />
-                    </span>
-                  </div>
-                </article>
-              </Link>
-            ) : null}
+      {featuredPost ? (
+        <SectionShell className="pb-0 md:pb-0">
+          <Link href={featuredPost.href} className="group grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-secondary lg:col-span-7">
+              <Image
+                src={featuredPost.image ?? postImages[featuredPost.slug] ?? "/images/hero-bg-desktop.jpg"}
+                alt={featuredPost.imageAlt ?? `${featuredPost.title} featured image`}
+                fill
+                priority
+                sizes="(max-width: 1024px) 92vw, 56vw"
+                className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.04]"
+              />
+              <span className="mono-label absolute left-4 top-4 rounded-full bg-ink px-3 py-1.5 text-primary-foreground">Featured</span>
+            </div>
+            <article className="lg:col-span-5">
+              <p className="mono-label flex flex-wrap gap-x-4 gap-y-1 text-muted-foreground">
+                <span className="text-accent">{featuredPost.category}</span>
+                <span>{formatDate(featuredPost.publishedAt)}</span>
+                <span>{featuredPost.readingTime}</span>
+              </p>
+              <h2 className="mt-6 font-display text-[clamp(2rem,3.6vw,3.5rem)] font-semibold leading-[1] tracking-[-0.045em] transition-colors group-hover:text-accent">
+                {featuredPost.title}
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{featuredPost.excerpt}</p>
+              <span className="mt-8 inline-flex items-center gap-3 font-medium">
+                Read the full guide
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-primary-foreground transition-colors group-hover:bg-accent">
+                  <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" />
+                </span>
+              </span>
+            </article>
+          </Link>
+        </SectionShell>
+      ) : null}
 
-            <div className="my-14 h-px bg-[#e2e8f0]" />
-
-            <section>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground">Recent Articles</h2>
-              <div className="mt-8 grid gap-9">
-                {latestPosts.map((post) => (
-                  <Link key={post.href} href={post.href} className="group grid gap-6 md:grid-cols-[190px_minmax(0,1fr)]">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#e2e8f0] bg-secondary">
+      <SectionShell>
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-10">
+          <section aria-labelledby="recent-heading" className="min-w-0 lg:col-span-8">
+            <div className="flex items-end justify-between border-b border-foreground/12 pb-6">
+              <h2 id="recent-heading" className="section-title">
+                Recent <span className="serif-accent">articles</span>
+              </h2>
+              <span className="mono-label text-muted-foreground">{latestPosts.length} posts</span>
+            </div>
+            <ul>
+              {latestPosts.map((post, index) => (
+                <Reveal as="li" key={post.href} delay={(index % 4) * 0.05} className="border-b border-foreground/12">
+                  <Link href={post.href} className="group grid gap-6 py-8 sm:grid-cols-[180px_minmax(0,1fr)] sm:items-center">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-[0.9rem] bg-secondary">
                       <Image
                         src={post.image ?? postImages[post.slug] ?? "/images/hero-bg-desktop.jpg"}
-                        alt={`${post.title} article image`}
+                        alt={post.imageAlt ?? `${post.title} article image`}
                         fill
-                        sizes="(max-width: 768px) 92vw, 190px"
-                        className="object-cover transition duration-700 group-hover:scale-105"
+                        sizes="(max-width: 640px) 92vw, 180px"
+                        className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.06]"
                       />
                     </div>
-                    <article className="self-center">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{post.category}</span>
-                        <span className="text-sm text-muted-foreground">{formatDate(post.publishedAt)}</span>
+                    <article className="flex items-start justify-between gap-6">
+                      <div>
+                        <p className="mono-label flex flex-wrap gap-x-4 text-muted-foreground">
+                          <span className="text-accent">{post.category}</span>
+                          <span>{formatDate(post.publishedAt)}</span>
+                        </p>
+                        <h3 className="mt-3 text-2xl font-semibold leading-[1.1] tracking-[-0.035em] transition-colors group-hover:text-accent md:text-[1.75rem]">
+                          {post.title}
+                        </h3>
+                        <p className="mt-3 line-clamp-2 leading-relaxed text-muted-foreground">{post.excerpt}</p>
                       </div>
-                      <h3 className="mt-3 text-2xl font-bold leading-tight tracking-tight text-foreground transition group-hover:text-accent">
-                        {post.title}
-                      </h3>
-                      <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+                      <ArrowUpRightIcon className="mt-1 hidden h-5 w-5 shrink-0 transition-transform duration-500 group-hover:rotate-45 sm:block" />
                     </article>
                   </Link>
-                ))}
-              </div>
-            </section>
-          </main>
+                </Reveal>
+              ))}
+            </ul>
+          </section>
 
-          <aside className="space-y-10 lg:pt-0">
-            <section className="rounded-lg border border-[#e2e8f0] bg-white p-7">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground">Start Here</h2>
-              <div className="mt-5 grid gap-3">
+          <aside className="grid content-start gap-12 lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
+            <section aria-labelledby="start-heading" className="rounded-[1.25rem] bg-ink p-7 text-primary-foreground">
+              <h2 id="start-heading" className="mono-label text-primary-foreground/50">
+                Start here
+              </h2>
+              <ul className="mt-5 border-b border-primary-foreground/10">
                 {[
-                  { label: "Website Design Kansas City", href: "/services/website-design" },
+                  { label: "Website design Kansas City", href: "/services/website-design" },
                   { label: "Free small business marketing audit", href: "/contact#form" },
-                  { label: "Small business website design Kansas City", href: "/services/website-design" },
-                  { label: "View Website Work", href: "/work" }
+                  { label: "View website work", href: "/work" },
+                  { label: "Learn our story", href: "/about" }
                 ].map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="group flex items-center justify-between gap-4 rounded-md border border-[#e2e8f0] bg-[#f9f9f9] px-4 py-3 text-sm font-bold text-foreground transition hover:border-accent hover:text-accent"
-                  >
-                    {link.label}
-                    <ArrowRightIcon className="h-4 w-4" />
-                  </Link>
+                  <li key={link.label} className="border-t border-primary-foreground/10">
+                    <Link href={link.href} className="group flex items-center justify-between gap-4 py-3.5 transition-colors hover:text-[hsl(229_100%_75%)]">
+                      {link.label}
+                      <ArrowUpRightIcon className="h-4 w-4 shrink-0 transition-transform duration-500 group-hover:rotate-45" />
+                    </Link>
+                  </li>
                 ))}
-              </div>
-            </section>
-
-            <section className="rounded-lg bg-accent p-7 text-accent-foreground">
-              <h2 className="text-2xl font-bold tracking-tight">Weekly Local Growth</h2>
-              <p className="mt-3 text-sm leading-relaxed text-accent-foreground/82">
-                Get practical website, SEO, and paid ads notes for Kansas City small-business decisions.
+              </ul>
+              <p className="mt-6 text-sm leading-relaxed text-primary-foreground/55">
+                Hometown builds websites and marketing systems for Kansas City small businesses that need clearer visibility and better lead
+                flow.
               </p>
-              <form className="mt-6 space-y-3">
-                <input
-                  type="email"
-                  placeholder="Email address"
-                  className="h-12 w-full rounded-md border-0 bg-white px-4 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:ring-2 focus:ring-white/50"
-                />
-                <button className="h-12 w-full rounded-md bg-black px-4 text-xs font-bold uppercase tracking-[0.18em] text-white transition hover:bg-black/85">
-                  Subscribe Now
-                </button>
-              </form>
             </section>
 
-            <section>
-              <h2 className="border-b border-[#e2e8f0] pb-4 text-2xl font-bold tracking-tight text-foreground">Categories</h2>
-              <div className="mt-5 grid gap-3">
+            <section aria-labelledby="categories-heading">
+              <h2 id="categories-heading" className="mono-label text-muted-foreground">
+                Categories
+              </h2>
+              <ul className="mt-4 border-b border-foreground/12">
                 {categories.map((category) => {
                   const count = blogPosts.filter((post) => post.category === category).length;
                   return (
-                    <div key={category} className="flex items-center justify-between gap-4 text-sm text-foreground">
+                    <li key={category} className="flex items-center justify-between gap-4 border-t border-foreground/12 py-3">
                       <span>{category}</span>
-                      <span className="rounded bg-[#eeeeee] px-2 py-1 text-xs font-bold text-muted-foreground">{count}</span>
-                    </div>
+                      <span className="font-mono text-xs text-muted-foreground">{count}</span>
+                    </li>
                   );
                 })}
-              </div>
-            </section>
-
-            <section className="rounded-lg bg-[#f3f3f4] p-7">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground">About Hometown</h2>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Hometown builds websites and marketing systems for Kansas City small businesses that need clearer visibility and better lead flow.
-              </p>
-              <Link href="/about" className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-accent transition hover:gap-3">
-                Learn our story
-                <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground">Tags</h2>
-              <div className="mt-5 flex flex-wrap gap-2">
+              </ul>
+              <ul className="mt-6 flex flex-wrap gap-2" aria-label="Topics">
                 {editorialTags.map((tag) => (
-                  <span key={tag} className="rounded bg-[#eeeeee] px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                  <li key={tag} className="rounded-full border border-foreground/15 px-3 py-1.5 text-xs">
                     {tag}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </section>
 
-            <section>
-              <h2 className="border-b border-[#e2e8f0] pb-4 text-2xl font-bold tracking-tight text-foreground">Upcoming Topics</h2>
-              <div className="mt-5 grid gap-3">
+            <section aria-labelledby="upcoming-heading">
+              <h2 id="upcoming-heading" className="mono-label text-muted-foreground">
+                Upcoming topics
+              </h2>
+              <ul className="mt-4 border-b border-foreground/12">
                 {plannedBlogTopics.map((topic) => (
-                  <Link key={topic.title} href={topic.target} className="group block border-b border-[#e2e8f0] pb-4 last:border-b-0">
-                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{topic.category}</span>
-                    <span className="mt-2 flex items-start justify-between gap-3 text-sm font-bold leading-snug text-foreground transition group-hover:text-accent">
-                      {topic.title}
-                      <ArrowRightIcon className="mt-0.5 h-4 w-4 shrink-0" />
-                    </span>
-                  </Link>
+                  <li key={topic.title} className="border-t border-foreground/12">
+                    <Link href={topic.target} className="group block py-4">
+                      <span className="mono-label text-accent">{topic.category}</span>
+                      <span className="mt-2 flex items-start justify-between gap-3 font-medium leading-snug transition-colors group-hover:text-accent">
+                        {topic.title}
+                        <ArrowUpRightIcon className="mt-0.5 h-4 w-4 shrink-0" />
+                      </span>
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </section>
           </aside>
         </div>

@@ -106,15 +106,15 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
   ];
 
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-clip bg-background">
       <StructuredData data={schema} />
 
-      <section className="noise bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="grain relative overflow-hidden bg-ink pb-16 pt-36 text-primary-foreground md:pb-24 md:pt-48">
         <div className="site-container">
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div>
-              <p className="section-badge">Contractor Website Design</p>
-              <h1 className="mt-6 text-balance font-display text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
+              <p className="eyebrow">Contractor Website Design</p>
+              <h1 className="mt-6 text-balance font-display text-5xl font-semibold leading-[1.02] tracking-[-0.03em] md:text-7xl">
                 Deck contractor website design for DecksRXKC
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/72">
@@ -138,7 +138,7 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
                 </Link>
               </div>
             </div>
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_28px_100px_rgba(0,0,0,0.4)]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/5 shadow-[0_28px_100px_rgba(0,0,0,0.4)]">
               <Image
                 src={previewImage}
                 alt="DecksRXKC website homepage preview"
@@ -154,8 +154,8 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
 
       <SectionShell>
         <article className="mx-auto max-w-4xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">The Strategy</p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          <p className="eyebrow">The Strategy</p>
+          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] text-foreground md:text-5xl">
             A deck contractor website has to sell trust before the quote.
           </h2>
           <div className="mt-7 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -176,18 +176,18 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
         <div className="grid gap-5 md:grid-cols-2">
           {trustSignals.map((signal) => (
             <article key={signal.title} className="light-panel p-7 md:p-8">
-              <h3 className="text-2xl font-bold tracking-tight text-foreground">{signal.title}</h3>
+              <h3 className="text-2xl font-semibold tracking-[-0.03em] text-foreground">{signal.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{signal.body}</p>
             </article>
           ))}
         </div>
       </SectionShell>
 
-      <SectionShell className="noise bg-gradient-dark text-primary-foreground">
+      <SectionShell className="grain bg-ink text-primary-foreground">
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">What Stands Out</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+            <p className="eyebrow">What Stands Out</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] md:text-5xl">
               What the DecksRXKC website gets right.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-primary-foreground/68">
@@ -204,7 +204,7 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
               "Navigation built around homeowner intent",
               "Mobile-friendly paths to services and contact"
             ].map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.035] p-5">
+              <div key={item} className="flex items-start gap-3 rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-5">
                 <CheckCircleIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span className="text-sm leading-relaxed text-primary-foreground/78">{item}</span>
               </div>
@@ -216,8 +216,8 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
       <SectionShell>
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <article>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Website Checklist</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+            <p className="eyebrow">Website Checklist</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] text-foreground md:text-5xl">
               What every deck builder website should include.
             </h2>
             <div className="mt-7 space-y-5 text-base leading-relaxed text-muted-foreground">
@@ -232,7 +232,7 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
             </div>
           </article>
           <aside className="light-panel p-7 md:p-8">
-            <h3 className="text-2xl font-bold tracking-tight text-foreground">Deck Contractor Website Essentials</h3>
+            <h3 className="text-2xl font-semibold tracking-[-0.03em] text-foreground">Deck Contractor Website Essentials</h3>
             <div className="mt-6 space-y-4">
               {deckWebsiteChecklist.map((item) => (
                 <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
@@ -247,8 +247,8 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
 
       <SectionShell className="pt-0">
         <div className="light-panel p-7 md:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">SEO Lessons</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+          <p className="eyebrow">SEO Lessons</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">
             SEO lessons for deck builders and contractors.
           </h2>
           <div className="mt-7 grid gap-4 md:grid-cols-2">

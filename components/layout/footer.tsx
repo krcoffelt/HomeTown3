@@ -1,112 +1,129 @@
 "use client";
 
 import Link from "next/link";
-import { Reveal } from "@/components/ui/reveal";
-import { MailIcon, MapPinIcon, PhoneIcon } from "@/components/ui/site-icons";
+import { LocalTime } from "@/components/motion/local-time";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
 import { site } from "@/data/site";
 import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
-const pageLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/locations", label: "Locations" },
-  { href: "/work", label: "Work" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" }
+const columns = [
+  {
+    title: "Studio",
+    links: [
+      { href: "/work", label: "Work" },
+      { href: "/about", label: "About" },
+      { href: "/blog", label: "Journal" },
+      { href: "/contact", label: "Contact" }
+    ]
+  },
+  {
+    title: "Services",
+    links: [
+      { href: "/services/website-design", label: "Website design" },
+      { href: "/services/search-engine-optimization", label: "SEO" },
+      { href: "/services/google-ads-management", label: "Google & Meta ads" },
+      { href: "/services", label: "All services" }
+    ]
+  },
+  {
+    title: "Local",
+    links: [
+      { href: "/locations", label: "Service areas" },
+      { href: "/locations/leawood-ks", label: "Leawood" },
+      { href: "/industries/restaurant-website-design-kansas-city", label: "Restaurants" },
+      { href: "/industries/construction-website-design-kansas-city", label: "Contractors" }
+    ]
+  }
 ];
 
 const legalLinks = [
-  { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/terms-of-service", label: "Terms of Service" },
-  { href: "/cookie-policy", label: "Cookie Policy" }
+  { href: "/privacy-policy", label: "Privacy" },
+  { href: "/terms-of-service", label: "Terms" },
+  { href: "/cookie-policy", label: "Cookies" }
 ];
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t-8 border-accent bg-black text-primary-foreground">
-      <div aria-hidden="true" className="pointer-events-none absolute right-[-6rem] top-[-4rem] hidden h-[400px] w-[400px] rounded-full bg-primary/3 blur-[120px] md:block" />
-      <div aria-hidden="true" className="pointer-events-none absolute left-[-8rem] bottom-[-8rem] hidden h-[340px] w-[340px] rounded-full bg-accent/10 blur-[110px] md:block" />
-      <div className="site-container pt-20 pb-10 md:pt-28">
-        <Reveal>
-          <p className="max-w-5xl font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.04em] text-primary-foreground/20 sm:text-5xl md:text-6xl lg:text-7xl">
-            Built here. Built for the businesses that make Kansas City feel like home.
-          </p>
-        </Reveal>
-
-        <div className="mt-20 grid gap-12 border-t border-white/6 pt-14 md:grid-cols-[minmax(0,1.4fr)_0.7fr_0.95fr] md:pt-16">
+    <footer className="grain relative overflow-hidden bg-ink text-primary-foreground">
+      <div className="site-container pt-20 md:pt-28">
+        <div className="grid gap-14 border-b border-primary-foreground/10 pb-16 lg:grid-cols-[1.25fr_2fr] lg:gap-20">
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/HometownLogoWhite2026-sm.png"
-              alt="Hometown Marketing Agency"
-              width={260}
-              height={70}
-              className="h-20 w-auto md:h-24"
-            />
-            <p className="mt-8 max-w-md text-sm leading-8 text-primary-foreground/70">
-              Websites, SEO, and Google and Meta ads for small businesses—built around real leads, clear reporting, and conversion data you can use.
+            <p className="eyebrow">Hometown Marketing Agency</p>
+            <p className="mt-6 max-w-md text-2xl font-medium leading-[1.2] tracking-[-0.03em] text-primary-foreground md:text-[2rem]">
+              Built here, for the businesses that make Kansas City feel like{" "}
+              <span className="serif-accent">home.</span>
             </p>
+            <div className="mt-10 grid gap-2 text-primary-foreground/70">
+              <a
+                href={`mailto:${site.contactEmail}`}
+                data-analytics="email_click"
+                className="link-underline w-fit text-lg text-primary-foreground"
+                onClick={() => pushDataLayerEvent(analyticsEvents.emailClick)}
+              >
+                {site.contactEmail}
+              </a>
+              <a
+                href={`tel:${site.contactPhone}`}
+                data-analytics="phone_click"
+                className="link-underline w-fit text-lg text-primary-foreground"
+                onClick={() => pushDataLayerEvent(analyticsEvents.phoneClick)}
+              >
+                {site.contactPhone}
+              </a>
+            </div>
           </div>
 
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-primary-foreground/58">Pages</p>
-            <ul className="mt-7 space-y-5 text-base text-primary-foreground/70">
-              {pageLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="transition hover:text-primary-foreground">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-primary-foreground/58">Contact</p>
-            <ul className="mt-7 space-y-5 text-base text-primary-foreground/70">
-              <li className="flex items-start gap-3">
-                <MailIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                <a
-                  href={`mailto:${site.contactEmail}`}
-                  data-analytics="email_click"
-                  className="transition hover:text-primary-foreground"
-                  onClick={() => pushDataLayerEvent(analyticsEvents.emailClick)}
-                >
-                  {site.contactEmail}
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <PhoneIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                <a
-                  href={`tel:${site.contactPhone}`}
-                  data-analytics="phone_click"
-                  className="transition hover:text-primary-foreground"
-                  onClick={() => pushDataLayerEvent(analyticsEvents.phoneClick)}
-                >
-                  {site.contactPhone}
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPinIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                <span>{site.location}</span>
-              </li>
-            </ul>
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+            {columns.map((column) => (
+              <div key={column.title}>
+                <p className="mono-label text-primary-foreground/45">{column.title}</p>
+                <ul className="mt-6 space-y-3">
+                  {column.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="group inline-flex items-center gap-1.5 text-[0.98rem] text-primary-foreground/75 transition-colors hover:text-primary-foreground"
+                      >
+                        {link.label}
+                        <ArrowUpRightIcon className="h-3.5 w-3.5 -translate-x-1 opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div className="col-span-2 sm:col-span-3">
+              <p className="mono-label text-primary-foreground/45">Visit</p>
+              <p className="mt-4 text-[0.98rem] leading-relaxed text-primary-foreground/70">
+                {site.address.streetAddress}, {site.address.addressLocality}, {site.address.addressRegion}{" "}
+                {site.address.postalCode} · Serving the Kansas City metro · <LocalTime />
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/14 py-8 text-xs text-primary-foreground/60 md:mt-20 md:flex-row md:items-center md:justify-between">
-          <p>© {year} Hometown Marketing Agency. All rights reserved.</p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
+        <div className="flex flex-col gap-4 py-7 text-sm text-primary-foreground/50 md:flex-row md:items-center md:justify-between">
+          <p>© {year} Hometown Marketing Agency</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="transition hover:text-primary-foreground/60">
+              <Link key={link.href} href={link.href} className="transition-colors hover:text-primary-foreground">
                 {link.label}
               </Link>
             ))}
+            <a href="#main-content" className="inline-flex items-center gap-2 transition-colors hover:text-primary-foreground">
+              Back to top ↑
+            </a>
           </div>
         </div>
+      </div>
+
+      <div aria-hidden="true" className="pointer-events-none select-none overflow-hidden">
+        <p className="-mb-[0.2em] whitespace-nowrap text-center leading-[0.8] text-primary-foreground" style={{ fontSize: "22vw" }}>
+          <span className="font-display font-extrabold tracking-[-0.07em]">HOME</span>
+          <span className="font-serif italic tracking-[-0.04em]">town</span>
+        </p>
       </div>
     </footer>
   );

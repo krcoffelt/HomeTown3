@@ -53,11 +53,11 @@ export function ContactForm({
   const [startedAt, setStartedAt] = useState("");
   const emailRef = useRef<HTMLInputElement>(null);
 
-  const labelClass = "text-[0.78rem] font-semibold tracking-[0.01em] text-foreground";
+  const labelClass = "mono-label text-muted-foreground";
   const inputClass =
-    "h-12 rounded-xl border-black/10 bg-secondary text-foreground placeholder:text-muted-foreground/70 focus-visible:border-foreground/30";
+    "h-12 rounded-none border-0 border-b border-foreground/15 bg-transparent px-0 text-[1.05rem] text-foreground placeholder:text-muted-foreground/55 focus-visible:border-accent focus-visible:outline-0";
   const textareaClass =
-    "min-h-[140px] rounded-xl border-black/10 bg-secondary text-foreground placeholder:text-muted-foreground/70 focus-visible:border-foreground/30";
+    "min-h-[120px] rounded-none border-0 border-b border-foreground/15 bg-transparent px-0 text-[1.05rem] text-foreground placeholder:text-muted-foreground/55 focus-visible:border-accent focus-visible:outline-0";
   const helperClass = "text-sm leading-relaxed text-muted-foreground";
 
   useEffect(() => {
@@ -98,11 +98,11 @@ export function ContactForm({
 
   if (submitted) {
     return (
-      <div className="rounded-[2.25rem] border border-black/8 bg-card p-8 text-center shadow-[var(--shadow-elevated)] sm:p-10">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-accent">
+      <div className="rounded-[1.5rem] bg-card p-8 text-foreground sm:p-12" role="status">
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground">
           <CheckCircleIcon className="h-7 w-7" />
         </div>
-        <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-foreground">
+        <h3 className="mt-8 font-display text-3xl font-semibold tracking-[-0.04em] text-foreground md:text-4xl">
           {successTitle}
         </h3>
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -113,11 +113,12 @@ export function ContactForm({
   }
 
   return (
-    <div className="rounded-[2.25rem] border border-black/8 bg-card p-6 shadow-[var(--shadow-elevated)] sm:p-8 md:p-10">
-      <div className="pb-1">
-        <h3 className="text-[1.3rem] font-bold tracking-tight text-foreground sm:text-[1.55rem]">
+    <div className="rounded-[1.5rem] bg-card p-6 text-foreground sm:p-10">
+      <div className="flex items-start justify-between gap-6 pb-2">
+        <h3 className="max-w-[22ch] font-display text-[1.5rem] font-semibold leading-[1.1] tracking-[-0.035em] text-foreground sm:text-[1.85rem]">
           {heading}
         </h3>
+        <span className="mono-label mt-2 shrink-0 text-muted-foreground">{expanded ? "2 / 2" : "1 / 2"}</span>
       </div>
 
       <form
@@ -148,7 +149,7 @@ export function ContactForm({
             autoComplete="email"
             value={values.email}
             placeholder="Email address"
-            className={`${inputClass} h-14 rounded-[1.1rem] border-black/10 bg-secondary px-5 text-lg`}
+            className={`${inputClass} h-16 text-xl sm:text-2xl`}
             onFocus={markStarted}
             onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
           />
@@ -159,8 +160,8 @@ export function ContactForm({
 
         {expanded ? (
             <div>
-              <div className="grid gap-5 rounded-[1.25rem] border border-black/8 bg-background/60 p-4 sm:p-5">
-                <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-7 pt-2">
+                <div className="grid gap-7 sm:grid-cols-2">
                   <div className="space-y-2">
                     <label htmlFor="contact-name" className={labelClass}>
                       Your Name
@@ -241,33 +242,40 @@ export function ContactForm({
         <div className="flex flex-col gap-3">
           {!expanded ? (
             <button
+              key="continue"
               type="button"
-              className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-[1.1rem] bg-gradient-to-r from-black to-black/85 px-8 text-base font-bold tracking-[0.01em] text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-hero)]"
+              className="group inline-flex h-16 w-full items-center justify-between gap-2 rounded-full bg-ink pl-7 pr-2 text-base font-medium text-primary-foreground transition-colors duration-300 hover:bg-accent disabled:opacity-60"
               data-analytics="cta-contact"
               onClick={revealDetails}
             >
               Continue
-              <ArrowRightIcon className="h-4 w-4" />
+              <span aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-foreground text-ink">
+                <ArrowRightIcon className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:translate-x-0.5" />
+              </span>
             </button>
           ) : (
             <button
+              key="submit"
               type="submit"
               form={formId}
-              className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-[1.1rem] bg-gradient-to-r from-black to-black/85 px-8 text-base font-bold tracking-[0.01em] text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-hero)]"
+              className="group inline-flex h-16 w-full items-center justify-between gap-2 rounded-full bg-ink pl-7 pr-2 text-base font-medium text-primary-foreground transition-colors duration-300 hover:bg-accent disabled:opacity-60"
               data-analytics="cta-contact"
               disabled={pending}
             >
               {pending ? "Sending..." : submitLabel}
+              <span aria-hidden="true" className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground text-ink">
+                <ArrowRightIcon className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:translate-x-0.5" />
+              </span>
             </button>
           )}
 
           <p className="text-xs leading-relaxed text-muted-foreground">
             By submitting, you agree to our{" "}
-            <Link href="/privacy-policy" className="transition hover:text-foreground">
+            <Link href="/privacy-policy" className="underline underline-offset-2 transition hover:text-foreground">
               Privacy Policy
             </Link>{" "}
             and{" "}
-            <Link href="/terms-of-service" className="transition hover:text-foreground">
+            <Link href="/terms-of-service" className="underline underline-offset-2 transition hover:text-foreground">
               Terms of Service
             </Link>
             .

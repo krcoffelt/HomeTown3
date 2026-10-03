@@ -40,13 +40,22 @@ const config: Config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))"
         },
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          soft: "hsl(var(--ink-soft))"
+        },
+        paper: "hsl(var(--paper))",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))"
         }
       },
       maxWidth: {
-        shell: "1280px"
+        shell: "1440px"
+      },
+      transitionTimingFunction: {
+        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "in-out-quart": "cubic-bezier(0.76, 0, 0.24, 1)"
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -64,7 +73,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
-        display: ["var(--font-display)"]
+        display: ["var(--font-display)"],
+        serif: ["var(--font-serif)"],
+        mono: ["var(--font-mono)"]
       },
       keyframes: {
         marquee: {

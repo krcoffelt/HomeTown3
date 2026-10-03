@@ -1,22 +1,33 @@
+import Image from "next/image";
 import Link from "next/link";
 import { TrackedAnchor } from "@/components/analytics/tracked-anchor";
-import { PageHero } from "@/components/layout/page-hero";
+import { SplitLines } from "@/components/motion/split-lines";
+import { LocalTime } from "@/components/motion/local-time";
 import { SectionShell } from "@/components/layout/section-shell";
-import { ContactCta } from "@/components/sections/contact-cta";
-import { FounderNote } from "@/components/sections/founder-note";
+import { ContactForm } from "@/components/sections/contact-form";
 import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
-import { MailIcon, MapPinIcon, PhoneIcon } from "@/components/ui/site-icons";
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
+import { homepageCopy } from "@/data/copy";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/data/site";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 import { analyticsEvents } from "@/lib/analytics/events";
 
-const infoCards = [
-  { label: site.contactDisplay.emailLabel, value: site.contactEmail, href: `mailto:${site.contactEmail}`, icon: MailIcon },
-  { label: site.contactDisplay.phoneLabel, value: site.contactPhone, href: `tel:${site.contactPhone}`, icon: PhoneIcon },
-  { label: "Location", value: site.location, icon: MapPinIcon },
-  { label: "Response Time", value: site.contactDisplay.responseTime, icon: MailIcon }
+const nextSteps = [
+  {
+    title: "We review the evidence",
+    body: "Before we talk, we look at your website, search visibility, ads, and tracking so the call starts with useful context."
+  },
+  {
+    title: "A focused conversation",
+    body: "We walk through what is working, what is leaking leads, and which channel should come first. No pitch deck."
+  },
+  {
+    title: "A clear next step",
+    body: "You leave with a prioritized plan—whether that's a focused fix, a rebuild, SEO, or paid campaigns."
+  }
 ];
 
 export const metadata = createPageMetadata(
@@ -41,89 +52,131 @@ export default function ContactPage() {
   return (
     <PageTransition>
       <StructuredData data={schema} />
-      <section className="paper-texture border-b-2 border-foreground/90 bg-background pb-20 pt-32 md:pb-24 md:pt-40">
-        <div className="site-container">
-          <PageHero
-            badge="Free Marketing Audit"
-            title="Find the clearest path to more qualified leads"
-            subtitle="We’ll review the available evidence across your website, SEO, ads, and tracking—then explain what is working, what is leaking opportunities, and what to do next."
-            centered={false}
-            artwork="/images/brand-art/strategy-audit.png"
-            artworkAlt="An illustrated audit, map, compass, and target"
-          />
+      <section className="grain relative overflow-hidden bg-ink pb-20 pt-36 text-primary-foreground md:pb-28 md:pt-48">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-[20%] -top-[30%] h-[70vw] w-[70vw] glow [--glow-alpha:0.32]"
+        />
+        <div className="site-container relative grid gap-14 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-6">
+            <p className="hero-rise eyebrow">Free marketing audit</p>
+            <SplitLines
+              as="h1"
+              trigger="load"
+              lines={[
+                "Find the clearest",
+                <>
+                  path to <span className="serif-accent">more</span>
+                </>,
+                "qualified leads."
+              ]}
+              className="mt-8 font-display text-[clamp(2.8rem,6.4vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.055em]"
+            />
+            <p className="hero-rise hero-rise-delay-2 mt-8 max-w-lg text-lg leading-relaxed text-primary-foreground/65">
+              We&apos;ll review the available evidence across your website, SEO, ads, and tracking—then explain what is working, what is
+              leaking opportunities, and what to do next.
+            </p>
+
+            <dl className="hero-rise hero-rise-delay-3 mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[1.25rem] bg-primary-foreground/10">
+              <div className="bg-ink p-5">
+                <dt className="mono-label text-primary-foreground/45">{site.contactDisplay.emailLabel}</dt>
+                <dd className="mt-3 break-all">
+                  <TrackedAnchor href={`mailto:${site.contactEmail}`} eventName={analyticsEvents.emailClick} className="link-underline">
+                    {site.contactEmail}
+                  </TrackedAnchor>
+                </dd>
+              </div>
+              <div className="bg-ink p-5">
+                <dt className="mono-label text-primary-foreground/45">{site.contactDisplay.phoneLabel}</dt>
+                <dd className="mt-3">
+                  <TrackedAnchor href={`tel:${site.contactPhone}`} eventName={analyticsEvents.phoneClick} className="link-underline">
+                    {site.contactPhone}
+                  </TrackedAnchor>
+                </dd>
+              </div>
+              <div className="bg-ink p-5">
+                <dt className="mono-label text-primary-foreground/45">Location</dt>
+                <dd className="mt-3">{site.location}</dd>
+              </div>
+              <div className="bg-ink p-5">
+                <dt className="mono-label text-primary-foreground/45">Response time</dt>
+                <dd className="mt-3">
+                  {site.contactDisplay.responseTime}
+                  <span className="mt-1 block text-sm text-primary-foreground/45">
+                    It&apos;s <LocalTime /> in KC
+                  </span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div id="form" className="hero-rise hero-rise-delay-2 scroll-mt-28 lg:col-span-6">
+            <ContactForm dark />
+          </div>
         </div>
       </section>
 
       <SectionShell>
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="space-y-6">
-            <FounderNote />
-            <div className="grid gap-4">
-              {infoCards.map((card) => {
-                const Icon = card.icon;
-                const content = (
-                  <div className="light-panel p-5">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">{card.label}</p>
-                        <p className="mt-2 text-sm font-medium text-foreground">{card.value}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-
-                if (!card.href) return <div key={card.label}>{content}</div>;
-
-                const trackingEvent =
-                  card.label === site.contactDisplay.emailLabel
-                    ? analyticsEvents.emailClick
-                    : card.label === site.contactDisplay.phoneLabel
-                      ? analyticsEvents.phoneClick
-                      : null;
-
-                return (
-                  <TrackedAnchor key={card.label} href={card.href} eventName={trackingEvent ?? undefined}>
-                    {content}
-                  </TrackedAnchor>
-                );
-              })}
-            </div>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-1">
-            <Link href="/about" className="light-panel block p-7 transition hover:-translate-y-0.5 hover:shadow-elevated">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">About Hometown</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Learn more about who you&apos;ll be working with and how Hometown approaches websites and marketing.
-              </p>
-            </Link>
-            <Link href="/locations" className="light-panel block p-7 transition hover:-translate-y-0.5 hover:shadow-elevated">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Service Areas</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Explore local pages for Kansas City, Johnson County, Jackson County, and nearby metro businesses.
-              </p>
-            </Link>
-            <Link href="#form" className="dark-panel block p-7 transition hover:-translate-y-0.5 hover:shadow-elevated">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">Start Your Audit</p>
-              <p className="mt-3 text-sm leading-relaxed text-primary-foreground/72">
-                Share the basics below. We&apos;ll review them before the consultation so the conversation starts with useful context.
-              </p>
-            </Link>
-          </div>
+        <div className="grid gap-8 md:grid-cols-12">
+          <p className="eyebrow md:col-span-4">What happens next</p>
+          <h2 className="section-title md:col-span-8">
+            A conversation that starts with <span className="serif-accent">your data</span>, not a sales script.
+          </h2>
         </div>
+        <ol className="mt-14 grid gap-px overflow-hidden rounded-[1.5rem] bg-foreground/10 md:mt-20 md:grid-cols-3">
+          {nextSteps.map((step, index) => (
+            <Reveal as="li" key={step.title} delay={index * 0.08} className="flex min-h-[18rem] flex-col bg-card p-7 md:p-9">
+              <h3 className="mt-auto text-2xl font-semibold tracking-[-0.035em]">{step.title}</h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">{step.body}</p>
+            </Reveal>
+          ))}
+        </ol>
       </SectionShell>
 
-      <ContactCta
-        title="Schedule your free marketing audit."
-        accentText="free marketing audit."
-        body="Tell us what your business sells, how leads arrive today, and what you are unsure is working. We’ll follow up to schedule the consultation."
-        links={[
-          { href: "/services", label: "View Services" },
-          { href: "/locations", label: "Service Areas" }
-        ]}
-      />
+      <SectionShell className="pt-0">
+        <div className="grid gap-12 border-t border-foreground/12 pt-14 lg:grid-cols-12">
+          <div className="flex gap-6 lg:col-span-6">
+            <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-[1rem] bg-secondary">
+              <Image
+                src={site.founder.image}
+                alt={`${site.founder.name}, founder of Hometown Marketing Agency`}
+                fill
+                sizes="96px"
+                className="object-cover object-[50%_30%]"
+              />
+            </div>
+            <div>
+              <p className="mono-label text-muted-foreground">Founder note</p>
+              <p className="mt-4 text-lg leading-relaxed">{homepageCopy.founderNote}</p>
+            </div>
+          </div>
+          <ul className="border-b border-foreground/12 lg:col-span-5 lg:col-start-8">
+            {[
+              {
+                href: "/about",
+                label: "About Hometown",
+                body: "Learn more about who you'll be working with and how Hometown approaches websites and marketing."
+              },
+              {
+                href: "/locations",
+                label: "Service areas",
+                body: "Local pages for Kansas City, Johnson County, Jackson County, and nearby metro businesses."
+              },
+              { href: "/work", label: "Recent work", body: "Case studies and live websites for Kansas City small businesses." }
+            ].map((link) => (
+              <li key={link.href} className="border-t border-foreground/12">
+                <Link href={link.href} className="group flex items-start justify-between gap-6 py-5">
+                  <span>
+                    <span className="block text-xl font-medium tracking-[-0.02em] transition-colors group-hover:text-accent">{link.label}</span>
+                    <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{link.body}</span>
+                  </span>
+                  <ArrowUpRightIcon className="mt-1 h-5 w-5 shrink-0 transition-transform duration-500 group-hover:rotate-45" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </SectionShell>
     </PageTransition>
   );
 }

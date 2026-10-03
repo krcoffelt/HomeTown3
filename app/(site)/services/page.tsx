@@ -1,19 +1,33 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ContactCta } from "@/components/sections/contact-cta";
-import { PageHero } from "@/components/layout/page-hero";
-import { SectionShell } from "@/components/layout/section-shell";
+import { PageIntro } from "@/components/layout/page-hero";
+import { Process } from "@/components/sections/home/process";
 import { PageTransition } from "@/components/ui/page-transition";
 import { Reveal } from "@/components/ui/reveal";
-import { ArrowRightIcon, CheckCircleIcon, GlobeIcon, TargetIcon } from "@/components/ui/site-icons";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
+import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { StructuredData } from "@/components/seo/structured-data";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 
-const iconMap: Record<string, typeof GlobeIcon> = {
-  "website-design": GlobeIcon,
-  "search-engine-optimization": GlobeIcon,
-  "google-ads-management": TargetIcon
+const serviceVisuals: Record<string, { image: string; alt: string; label: string }> = {
+  "website-design": {
+    image: "/images/work/noble-hardwoods/homepage.jpg",
+    alt: "Noble Hardwoods conversion-focused website homepage",
+    label: "Noble Hardwoods · +65% quote requests"
+  },
+  "search-engine-optimization": {
+    image: "/images/work/PlateKCScreenshot.webp",
+    alt: "Plate KC restaurant website homepage",
+    label: "Plate KC · +34,478 organic impressions"
+  },
+  "google-ads-management": {
+    image: "/images/WrappedUpMoving_screenshot.webp",
+    alt: "Wrapped Up Moving website homepage",
+    label: "Wrapped Up Moving · 12.7× blended ROI"
+  }
 };
 
 export const metadata = createPageMetadata(
@@ -38,75 +52,122 @@ export default function ServicesPage() {
         ]}
       />
 
-      <section className="border-b-2 border-foreground/90 bg-background">
-        <PageHero
-          badge="Small Business Marketing"
-          title="Three services. One measurable growth system."
-          subtitle="Build a website that converts, earn qualified visibility through SEO, and use Google and Meta ads to create demand—then track which work produces real leads."
-          artwork="/images/brand-art/connected-growth-v2.png"
-          artworkAlt="Three growth paths rising together above the Kansas City skyline"
-          artworkLayout="background"
-        />
-      </section>
+      <PageIntro
+        badge="Small business marketing"
+        title="Three services. One measurable growth system."
+        titleLines={[
+          "Three services.",
+          <>
+            One <span className="serif-accent">measurable</span>
+          </>,
+          "growth system."
+        ]}
+        subtitle="Build a website that converts, earn qualified visibility through SEO, and use Google and Meta ads to create demand—then track which work produces real leads."
+        actions={
+          <>
+            <Button href="#form" variant="light">
+              Get a free marketing audit
+            </Button>
+            <Button href="/work" variant="outline-light" arrow={false}>
+              See the work
+            </Button>
+          </>
+        }
+      />
 
-      <SectionShell>
-        <div className="grid gap-6 lg:grid-cols-3">
+      <section aria-label="Services" className="bg-background py-24 md:py-36">
+        <div className="site-container grid gap-24 md:gap-36">
           {services.map((service, index) => {
-            const Icon = iconMap[service.slug] ?? GlobeIcon;
+            const visual = serviceVisuals[service.slug];
+            const flip = index % 2 === 1;
             return (
-              <Reveal key={service.slug} delay={index * 0.06}>
-                <article className="light-panel flex h-full flex-col p-7 md:p-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h2 className="mt-6 text-2xl font-bold tracking-tight text-foreground">{service.title}</h2>
-                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">{service.shortDescription}</p>
-                  <ul className="mt-7 space-y-3">
-                    {service.features.slice(0, 4).map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                        <CheckCircleIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+              <article key={service.slug} className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+                <div className={flip ? "lg:order-2 lg:col-span-5 lg:col-start-8" : "lg:col-span-5"}>
+                  <p className="mono-label text-muted-foreground">
+                    {service.metaTags.join(" · ")}
+                  </p>
+                  <Reveal>
+                    <h2 className="mt-6 font-display text-[clamp(2.4rem,4.4vw,4.25rem)] font-semibold leading-[0.96] tracking-[-0.05em]">
+                      {service.title}
+                    </h2>
+                  </Reveal>
+                  <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{service.description}</p>
+
+                  <ul className="mt-10 border-t border-foreground/10">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-baseline gap-4 border-b border-foreground/10 py-3.5">
+                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 translate-y-[-2px] rounded-full bg-accent" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
+
+                  <div className="mt-10">
+                    <Button href={`/services/${service.slug}`} variant="dark">
+                      {`Explore ${service.seoTitle?.replace(" Kansas City", "") ?? service.title}`}
+                    </Button>
+                  </div>
+                </div>
+
+                {visual ? (
                   <Link
                     href={`/services/${service.slug}`}
-                    className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-bold text-foreground transition hover:text-accent"
+                    className={`group block lg:col-span-7 ${flip ? "lg:order-1" : ""}`}
+                    aria-label={`${service.title} details`}
                   >
-                    Explore {service.title}
-                    <ArrowRightIcon className="h-4 w-4" />
+                    <Reveal variant="clip">
+                      <div className="relative overflow-hidden rounded-[1.5rem] bg-ink p-4 sm:p-6 md:p-10">
+                        <div className="browser-frame">
+                          <div className="relative aspect-[16/10]">
+                            <Image
+                              src={visual.image}
+                              alt={visual.alt}
+                              fill
+                              sizes="(max-width: 1024px) 92vw, 56vw"
+                              className="object-cover object-top transition-transform duration-[1.4s] ease-out-expo group-hover:scale-[1.03]"
+                            />
+                          </div>
+                        </div>
+                        <div className="mt-5 flex items-center justify-between text-sm text-primary-foreground/70 md:mt-8">
+                          <span className="mono-label">{visual.label}</span>
+                          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground text-ink transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                            <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" />
+                          </span>
+                        </div>
+                      </div>
+                    </Reveal>
                   </Link>
-                </article>
-              </Reveal>
+                ) : null}
+              </article>
             );
           })}
         </div>
-      </SectionShell>
+      </section>
 
-      <SectionShell className="pt-0">
-        <div className="dark-panel p-7 md:p-10">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">How It Connects</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
-                Traffic only matters when the experience can convert it.
-              </h2>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                ["Website", "Turn attention into trust and action."],
-                ["SEO", "Earn visibility from qualified searches."],
-                ["Paid Ads", "Create demand and measure the response."]
-              ].map(([title, body]) => (
-                <div key={title} className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] p-5">
-                  <p className="font-bold text-primary-foreground">{title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-primary-foreground/68">{body}</p>
-                </div>
-              ))}
-            </div>
+      <section aria-labelledby="connects-heading" className="grain bg-ink py-24 text-primary-foreground md:py-32">
+        <div className="site-container">
+          <div className="grid gap-8 md:grid-cols-12">
+            <p className="eyebrow md:col-span-4">How it connects</p>
+            <h2 id="connects-heading" className="display-md md:col-span-8">
+              Traffic only matters when the experience can <span className="serif-accent">convert it.</span>
+            </h2>
+          </div>
+          <div className="mt-16 grid gap-px overflow-hidden rounded-[1.5rem] bg-primary-foreground/10 md:mt-20 md:grid-cols-3">
+            {[
+              ["Website", "Turns attention into trust and action."],
+              ["SEO", "Earns visibility from qualified searches."],
+              ["Paid ads", "Creates demand and measures the response."]
+            ].map(([title, body]) => (
+              <div key={title} className="bg-ink p-7 md:p-9">
+                <p className="text-3xl font-semibold tracking-[-0.04em]">{title}</p>
+                <p className="mt-3 text-primary-foreground/60">{body}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </SectionShell>
+      </section>
+
+      <Process />
 
       <ContactCta
         title="Not sure which channel is holding growth back?"

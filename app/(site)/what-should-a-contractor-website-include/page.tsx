@@ -114,14 +114,14 @@ export default function ContractorWebsiteChecklistPage() {
   ];
 
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-clip bg-background">
       <StructuredData data={schema} />
 
-      <section className="noise bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="grain relative overflow-hidden bg-ink pb-16 pt-36 text-primary-foreground md:pb-24 md:pt-48">
         <div className="site-container">
           <div className="max-w-4xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Contractor Websites</p>
-            <h1 className="mt-6 font-display text-[2.35rem] font-bold leading-[1.02] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl">
+            <p className="eyebrow">Contractor Websites</p>
+            <h1 className="mt-6 font-display text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.04em] text-primary-foreground sm:text-6xl md:text-7xl">
               What should a contractor website include?
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-primary-foreground/76 md:text-xl">
@@ -142,8 +142,8 @@ export default function ContractorWebsiteChecklistPage() {
       <SectionShell>
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <aside className="dark-panel p-7 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">The Short Answer</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">Your website needs to answer three questions fast.</h2>
+            <p className="eyebrow">The Short Answer</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-primary-foreground">Your website needs to answer three questions fast.</h2>
             <div className="mt-7 grid gap-4">
               {["Can you do the job?", "Have you done work like this before?", "How do I get a quote?"].map((item) => (
                 <div key={item} className="flex items-start gap-3 text-sm leading-relaxed text-primary-foreground/76">
@@ -155,8 +155,8 @@ export default function ContractorWebsiteChecklistPage() {
           </aside>
 
           <section className="light-panel p-7 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Why It Matters</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Most customers are comparing trust before they choose who to call.</h2>
+            <p className="eyebrow">Why It Matters</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">Most customers are comparing trust before they choose who to call.</h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 Contractor and home-service customers usually want proof before they reach out. They are looking for signs that the business is real, experienced, local, responsive, and capable of handling their specific project.
@@ -171,13 +171,13 @@ export default function ContractorWebsiteChecklistPage() {
 
       <SectionShell className="pt-0">
         <div className="mb-9 max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Website Checklist</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Six essentials every contractor website should cover.</h2>
+          <p className="eyebrow">Website Checklist</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">Six essentials every contractor website should cover.</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {essentials.map((item) => (
-            <article key={item.title} className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
-              <h3 className="text-lg font-bold tracking-tight text-foreground">{item.title}</h3>
+            <article key={item.title} className="rounded-[1.25rem] border border-foreground/[0.08] bg-card p-6">
+              <h3 className="text-lg font-semibold tracking-[-0.04em] text-foreground">{item.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
             </article>
           ))}
@@ -187,8 +187,8 @@ export default function ContractorWebsiteChecklistPage() {
       <SectionShell className="pt-0">
         <div className="grid gap-6 lg:grid-cols-2">
           <section className="light-panel p-7 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Quote Flow</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Make the next step obvious from every page.</h2>
+            <p className="eyebrow">Quote Flow</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">Make the next step obvious from every page.</h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               A contractor website should not make people hunt for the phone number or wonder what details to send. The quote path should be simple, especially on mobile.
             </p>
@@ -203,8 +203,8 @@ export default function ContractorWebsiteChecklistPage() {
           </section>
 
           <section className="dark-panel p-7 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">Local SEO Structure</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">Help Google understand what you do and where you do it.</h2>
+            <p className="eyebrow">Local SEO Structure</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-primary-foreground">Help Google understand what you do and where you do it.</h2>
             <p className="mt-5 text-base leading-relaxed text-primary-foreground/74">
               Good SEO starts with clear structure. Contractors usually need more than one generic services page if they want to show up for specific jobs and service areas.
             </p>
@@ -224,15 +224,15 @@ export default function ContractorWebsiteChecklistPage() {
         <div className="light-panel p-7 md:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Common Mistakes</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">The site should not make customers work to trust you.</h2>
+              <p className="eyebrow">Common Mistakes</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">The site should not make customers work to trust you.</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                 The biggest contractor website problems are usually simple: vague services, weak proof, poor mobile experience, and no clear path to request an estimate.
               </p>
             </div>
             <div className="grid gap-3 md:grid-cols-2">
               {mistakes.map((item) => (
-                <div key={item} className="rounded-2xl border border-border bg-background px-5 py-4 text-sm leading-relaxed text-muted-foreground">
+                <div key={item} className="rounded-[1rem] border border-foreground/10 bg-background px-5 py-4 text-sm leading-relaxed text-muted-foreground">
                   {item}
                 </div>
               ))}
@@ -244,8 +244,8 @@ export default function ContractorWebsiteChecklistPage() {
       <SectionShell className="pt-0">
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Where to Go Next</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">Build the website around the jobs you want more of.</h2>
+            <p className="eyebrow">Where to Go Next</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">Build the website around the jobs you want more of.</h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               A remodeler, carpenter, HVAC company, landscaper, and moving company should not all have the same website. The best structure depends on the services, geography, proof, and quote process.
             </p>
@@ -260,7 +260,7 @@ export default function ContractorWebsiteChecklistPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-card px-5 py-4 text-sm font-bold text-foreground shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                className="group flex items-center justify-between gap-4 rounded-[1.25rem] border border-foreground/[0.08] bg-card px-5 py-4 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
               >
                 {link.label}
                 <ArrowRightIcon className="h-4 w-4" />
@@ -271,7 +271,7 @@ export default function ContractorWebsiteChecklistPage() {
       </SectionShell>
 
       <SectionShell className="pt-0">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card px-2 shadow-[var(--shadow-card)] md:px-6">
+        <div className="mx-auto max-w-3xl rounded-[1.25rem] border border-foreground/[0.08] bg-card px-2 md:px-6">
           {faqItems.map((item, index) => (
             <details
               key={item.question}

@@ -76,15 +76,15 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
   ];
 
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-clip bg-background">
       <StructuredData data={schema} />
 
-      <section className="noise bg-black pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
+      <section className="grain relative overflow-hidden bg-ink pb-16 pt-36 text-primary-foreground md:pb-24 md:pt-48">
         <div className="site-container">
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div>
-              <p className="section-badge">Ministry Website Design</p>
-              <h1 className="mt-6 text-balance font-display text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
+              <p className="eyebrow">Ministry Website Design</p>
+              <h1 className="mt-6 text-balance font-display text-5xl font-semibold leading-[1.02] tracking-[-0.03em] md:text-7xl">
                 Ministry website design for Project Salvation
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/72">
@@ -107,7 +107,7 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
                 </Link>
               </div>
             </div>
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_28px_100px_rgba(0,0,0,0.4)]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/5 shadow-[0_28px_100px_rgba(0,0,0,0.4)]">
               <Image
                 src="/images/work/project-salvation.jpg"
                 alt="Project Salvation website homepage preview"
@@ -123,8 +123,8 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
 
       <SectionShell>
         <article className="mx-auto max-w-4xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">The Strategy</p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          <p className="eyebrow">The Strategy</p>
+          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] text-foreground md:text-5xl">
             A ministry website has to move people from inspiration to action.
           </h2>
           <div className="mt-7 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -145,18 +145,18 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
         <div className="grid gap-5 md:grid-cols-2">
           {priorities.map((priority) => (
             <article key={priority.title} className="light-panel p-7 md:p-8">
-              <h3 className="text-2xl font-bold tracking-tight text-foreground">{priority.title}</h3>
+              <h3 className="text-2xl font-semibold tracking-[-0.03em] text-foreground">{priority.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{priority.body}</p>
             </article>
           ))}
         </div>
       </SectionShell>
 
-      <SectionShell className="noise bg-gradient-dark text-primary-foreground">
+      <SectionShell className="grain bg-ink text-primary-foreground">
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">What We Built</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+            <p className="eyebrow">What We Built</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] md:text-5xl">
               A conversion-focused website for an evangelistic tour.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-primary-foreground/68">
@@ -166,7 +166,7 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {buildHighlights.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.035] p-5">
+              <div key={item} className="flex items-start gap-3 rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-5">
                 <CheckCircleIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span className="text-sm leading-relaxed text-primary-foreground/78">{item}</span>
               </div>
@@ -178,8 +178,8 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
       <SectionShell>
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <article>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">SEO Angle</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+            <p className="eyebrow">SEO Angle</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] text-foreground md:text-5xl">
               This page should rank for ministry and evangelist website searches, not Kansas City local terms.
             </h2>
             <div className="mt-7 space-y-5 text-base leading-relaxed text-muted-foreground">
@@ -195,7 +195,7 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
             </div>
           </article>
           <aside className="light-panel p-7 md:p-8">
-            <h3 className="text-2xl font-bold tracking-tight text-foreground">Keyword Targets</h3>
+            <h3 className="text-2xl font-semibold tracking-[-0.03em] text-foreground">Keyword Targets</h3>
             <div className="mt-5 flex flex-wrap gap-2">
               {[
                 "ministry website design",
@@ -215,8 +215,8 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
 
       <SectionShell className="pt-0">
         <div className="light-panel p-7 md:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Takeaways</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+          <p className="eyebrow">Takeaways</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">
             What other ministries can learn from the Project Salvation build.
           </h2>
           <div className="mt-7 grid gap-4 md:grid-cols-2">

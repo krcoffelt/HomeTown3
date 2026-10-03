@@ -9,7 +9,7 @@ export default function CampaignLayout({
       >
         Skip to main content
       </a>
-      <main id="main-content" className="overflow-x-hidden" tabIndex={-1}>
+      <main id="main-content" className="overflow-x-clip" tabIndex={-1}>
         {children}
       </main>
     </>

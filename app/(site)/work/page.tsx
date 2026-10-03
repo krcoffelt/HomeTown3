@@ -1,15 +1,23 @@
-import { PageHero } from "@/components/layout/page-hero";
-import { SectionShell } from "@/components/layout/section-shell";
+import Link from "next/link";
+import { PageIntro } from "@/components/layout/page-hero";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { WorkGrid } from "@/components/sections/work-grid";
-import { MagneticButton } from "@/components/ui/magnetic-button";
 import { PageTransition } from "@/components/ui/page-transition";
-import { ArrowRightIcon } from "@/components/ui/site-icons";
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
 import { StructuredData } from "@/components/seo/structured-data";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 import { projects } from "@/data/projects";
-import Link from "next/link";
+
+const exploreLinks = [
+  { href: "/services/website-design", label: "Website design Kansas City" },
+  { href: "/industries/restaurant-website-design-kansas-city", label: "Restaurant website design" },
+  { href: "/industries/construction-website-design-kansas-city", label: "Contractor website design" },
+  { href: "/industries/home-services-website-design-kansas-city", label: "Home-service website design" },
+  { href: "/locations/leawood-ks", label: "Leawood website design" },
+  { href: "#form", label: "Get a free marketing audit" }
+];
 
 export const metadata = createPageMetadata(
   "Kansas City Website Design Work",
@@ -34,108 +42,69 @@ export default function WorkPage() {
   return (
     <PageTransition>
       <StructuredData data={schema} />
-      <section className="border-b-2 border-foreground/90 bg-background">
-        <PageHero
-          badge="Our Work"
-          title="Real websites for real organizations"
-          subtitle="Recent custom website design projects for small businesses, restaurants, contractors, publishers, ministries, and service brands."
-          artwork="/images/brand-art/case-study-results-v2.png"
-          artworkAlt="Illustrated project results, charts, and creative work"
-          artworkLayout="background"
-        />
+      <PageIntro
+        badge={`Our work — ${projects.length} projects`}
+        title="Real websites for real organizations"
+        titleLines={[
+          "Real websites",
+          <>
+            for <span className="serif-accent">real</span> organizations.
+          </>
+        ]}
+        subtitle="Recent custom website design projects for small businesses, restaurants, contractors, publishers, ministries, and service brands."
+      />
+
+      <section aria-label="Projects" className="bg-background pb-48 pt-16 md:pt-24">
+        <div className="site-container">
+          <WorkGrid />
+        </div>
       </section>
 
-      <SectionShell>
-        <WorkGrid />
-        {caseStudyProjects.length ? (
-          <div className="mt-16 rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] md:p-10">
-            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Case Studies</p>
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-                  Website projects with a clearer problem, solution, and result.
-                </h2>
-              </div>
-              <div className="grid gap-3">
-                {caseStudyProjects.map((project) => (
-                  <Link
-                    key={project.slug}
-                    href={`/case-studies/${project.slug}`}
-                    className="group flex flex-col gap-2 rounded-2xl border border-border bg-background px-5 py-4 transition hover:-translate-y-0.5 hover:border-accent sm:flex-row sm:items-center sm:justify-between"
-                  >
-                    <div>
-                      <p className="text-base font-bold text-foreground">{project.clientName}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">{project.result}</p>
-                    </div>
-                    <span className="inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
-                      Read
-                      <ArrowRightIcon className="h-4 w-4" />
+      {caseStudyProjects.length ? (
+        <section aria-labelledby="case-studies-heading" className="grain bg-ink py-24 text-primary-foreground md:py-32">
+          <div className="site-container">
+            <div className="grid gap-8 md:grid-cols-12">
+              <p className="eyebrow md:col-span-4">Case studies</p>
+              <h2 id="case-studies-heading" className="section-title md:col-span-8">
+                Projects with a clear problem, solution, and <span className="serif-accent">measured result.</span>
+              </h2>
+            </div>
+            <ul className="mt-14 border-b border-primary-foreground/12 md:mt-20">
+              {caseStudyProjects.map((project, index) => (
+                <Reveal as="li" key={project.slug} delay={index * 0.06} className="border-t border-primary-foreground/12">
+                  <Link href={`/case-studies/${project.slug}`} className="group grid gap-4 py-8 md:grid-cols-12 md:items-center md:gap-6 md:py-10">
+                    <span className="text-[clamp(2rem,4vw,3.75rem)] font-semibold leading-none tracking-[-0.05em] transition-transform duration-700 ease-out-expo md:col-span-5 md:group-hover:translate-x-3">
+                      {project.clientName}
                     </span>
+                    <span className="leading-relaxed text-primary-foreground/60 md:col-span-6">{project.summary}</span>
+                    <span className="hidden justify-end md:col-span-1 md:flex">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary-foreground/20 transition-colors duration-500 group-hover:border-accent group-hover:bg-accent">
+                        <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" />
+                      </span>
+                    </span>
+                  </Link>
+                </Reveal>
+              ))}
+            </ul>
+
+            <div className="mt-16 flex flex-col gap-6 md:flex-row md:items-center">
+              <p className="mono-label shrink-0 text-primary-foreground/45 md:w-1/3">Explore</p>
+              <div className="flex flex-wrap gap-2">
+                {exploreLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 px-4 py-2 text-sm text-primary-foreground/80 transition-colors hover:border-primary-foreground hover:bg-primary-foreground hover:text-ink"
+                  >
+                    {link.label}
+                    <ArrowUpRightIcon className="h-3.5 w-3.5" />
                   </Link>
                 ))}
               </div>
             </div>
           </div>
-        ) : null}
-        <div className="mt-14 flex justify-center">
-          <div className="flex flex-wrap justify-center gap-3">
-            <MagneticButton>
-              <Link
-                href="/services/website-design"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
-              >
-                Website Design Kansas City
-                <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link
-                href="#form"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
-              >
-                Get a Free Marketing Audit
-                <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link
-                href="/industries/restaurant-website-design-kansas-city"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
-              >
-                Restaurant Website Design
-                <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link
-                href="/industries/construction-website-design-kansas-city"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
-              >
-                Contractor Website Design
-                <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link
-                href="/industries/home-services-website-design-kansas-city"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
-              >
-                Home-Service Website Design
-                <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link
-                href="/locations/leawood-ks"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-6 py-3 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-foreground hover:shadow-elevated"
-              >
-                Leawood Website Design
-                <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </MagneticButton>
-          </div>
-        </div>
-      </SectionShell>
+        </section>
+      ) : null}
 
       <ContactCta
         title="Want your website to feel this intentional?"

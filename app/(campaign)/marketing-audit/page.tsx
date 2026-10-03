@@ -224,8 +224,7 @@ export default function MarketingAuditPage() {
               {auditAreas.map((area) => {
                 const Icon = area.icon;
                 return (
-                  <article key={area.number} className="group grid gap-5 border-b border-black/16 py-8 sm:grid-cols-[5rem_1fr_auto] sm:items-start sm:py-10">
-                    <span className="text-sm font-bold tracking-[0.18em] text-accent">{area.number}</span>
+                  <article key={area.number} className="group grid gap-5 border-b border-black/16 py-8 sm:grid-cols-[1fr_auto] sm:items-start sm:py-10">
                     <div>
                       <h3 className="text-2xl font-bold tracking-[-0.025em] text-black sm:text-3xl">{area.title}</h3>
                       <p className="mt-3 max-w-2xl text-base leading-7 text-black/60">{area.body}</p>
@@ -299,8 +298,7 @@ export default function MarketingAuditPage() {
             </div>
             <div className="border-t border-white/16">
               {steps.map((step, index) => (
-                <div key={step.title} className="grid gap-4 border-b border-white/16 py-7 sm:grid-cols-[4rem_1fr] sm:py-8">
-                  <span className="font-bold text-[#68a0ff]">0{index + 1}</span>
+                <div key={step.title} className="border-b border-white/16 py-7 sm:py-8">
                   <div>
                     <h3 className="text-xl font-bold tracking-tight sm:text-2xl">{step.title}</h3>
                     <p className="mt-2 max-w-2xl text-base leading-7 text-white/62">{step.body}</p>

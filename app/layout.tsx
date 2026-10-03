@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Instrument_Serif, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { StructuredData } from "@/components/seo/structured-data";
@@ -6,9 +7,31 @@ import { site } from "@/data/site";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import { GtmLoader } from "@/components/analytics/gtm-loader";
 import { ConsentBanner } from "@/components/analytics/consent-banner";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { getCoreShareImage } from "@/lib/seo/routes";
 
 const GOOGLE_ADS_ID = "AW-17990702531";
+
+const fontSans = Inter_Tight({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter-tight"
+});
+
+const fontSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-instrument-serif"
+});
+
+const fontMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-jetbrains-mono"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -55,8 +78,9 @@ export default function RootLayout({
   const globalSchema = [organizationSchema(), websiteSchema(), localBusinessSchema()];
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable}`} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         {process.env.NODE_ENV === "development" && (
           <Script
             src="//unpkg.com/react-grab/dist/index.global.js"
@@ -69,6 +93,7 @@ export default function RootLayout({
         <StructuredData data={globalSchema} />
         <GtmLoader gtmId={process.env.NEXT_PUBLIC_GTM_ID} googleAdsId={GOOGLE_ADS_ID} />
         <ConsentBanner />
+        <MotionProvider />
         {children}
       </body>
     </html>

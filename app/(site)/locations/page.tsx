@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ContactCta } from "@/components/sections/contact-cta";
-import { PageHero } from "@/components/layout/page-hero";
+import { PageIntro } from "@/components/layout/page-hero";
+import { Accordion } from "@/components/ui/accordion";
 import { PageTransition } from "@/components/ui/page-transition";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, MapPinIcon } from "@/components/ui/site-icons";
+import { ArrowUpRightIcon } from "@/components/ui/site-icons";
 import { locations } from "@/data/locations";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
@@ -46,64 +47,52 @@ export default function LocationsHubPage() {
     <PageTransition>
       <StructuredData data={schema} />
 
-      <section className="paper-texture border-b-2 border-foreground/90 bg-background pb-20 pt-32 md:pb-24 md:pt-40">
-        <div className="site-container">
-          <PageHero
-            badge="Service Areas"
-            title="Website design and local marketing pages built for the Kansas City metro."
-            subtitle="Explore city-specific pages for businesses across Kansas City, Johnson County, Jackson County, and nearby service areas."
-            centered={false}
-            artwork="/images/brand-art/search-discovery.png"
-            artworkAlt="Illustrated local search map, route, storefront, and compass"
-          />
-        </div>
-      </section>
+      <PageIntro
+        badge={`Service areas — ${locations.length} cities`}
+        title="Website design and local marketing pages built for the Kansas City metro."
+        subtitle="Explore city-specific pages for businesses across Kansas City, Johnson County, Jackson County, and nearby service areas."
+      />
 
-      <section className="bg-background py-20 md:py-28">
+      <section aria-label="Cities" className="bg-background py-20 md:py-28">
         <div className="site-container">
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <ul className="border-b border-foreground/12">
             {locations.map((location) => (
-              <Link
-                key={location.slug}
-                href={`/locations/${location.slug}`}
-                className="group rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
-                  <MapPinIcon className="h-5 w-5" />
-                </div>
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-accent">
-                  {location.city}, {location.state}
-                </p>
-                <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground">{location.heroTitle}</h2>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{location.localAngle}</p>
-                <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
-                  View city page
-                  <ArrowRightIcon className="h-4 w-4" />
-                </div>
-              </Link>
+              <li key={location.slug} className="border-t border-foreground/12">
+                <Link href={`/locations/${location.slug}`} className="group grid gap-3 py-7 md:grid-cols-12 md:items-center md:gap-6 md:py-9">
+                  <span className="text-[clamp(2rem,4.4vw,4rem)] font-semibold leading-none tracking-[-0.05em] transition-transform duration-700 ease-out-expo md:col-span-5 md:group-hover:translate-x-3">
+                    {location.city}
+                    <span className="serif-accent ml-3 text-[0.6em] text-muted-foreground">{location.state}</span>
+                  </span>
+                  <span className="md:col-span-6">
+                    <span className="block font-medium">{location.heroTitle}</span>
+                    <span className="mt-1 block leading-relaxed text-muted-foreground">{location.localAngle}</span>
+                  </span>
+                  <span className="hidden justify-end md:col-span-1 md:flex">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground/15 transition-colors duration-500 group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
+                      <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" />
+                    </span>
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <section className="mx-auto mt-16 max-w-4xl rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Johnson County Website Design</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
-              Website design support across Johnson County without thin city pages.
-            </h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {locationFaqItems.map((item) => (
-                <article key={item.question}>
-                  <h3 className="text-lg font-bold text-foreground">{item.question}</h3>
-                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">{item.answer}</p>
-                </article>
-              ))}
+          <section aria-labelledby="jocos-heading" className="mt-24 grid gap-10 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <p className="eyebrow">Johnson County website design</p>
+              <h2 id="jocos-heading" className="section-title mt-6">
+                Support across Johnson County <span className="serif-accent">without thin city pages.</span>
+              </h2>
+              <div className="mt-8">
+                <Button href="#form" variant="dark">
+                  Get a free marketing audit
+                </Button>
+              </div>
+            </div>
+            <div className="md:col-span-7 md:col-start-6">
+              <Accordion items={locationFaqItems} />
             </div>
           </section>
-
-          <div className="mt-12 flex justify-center">
-            <Button href="#form" className="px-8">
-              Get a Free Marketing Audit
-            </Button>
-          </div>
         </div>
       </section>
 

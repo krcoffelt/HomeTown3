@@ -1,13 +1,13 @@
 import { ContactCta } from "@/components/sections/contact-cta";
-import { StructuredData } from "@/components/seo/structured-data";
-import { FeaturedWork } from "@/components/sections/featured-work";
 import { FAQSection } from "@/components/sections/faq-section";
 import { HomeHero } from "@/components/sections/home-hero";
-import { HomeSteps } from "@/components/sections/home-steps";
-import { ServicesPreview } from "@/components/sections/services-preview";
-import { SocialProofStrip } from "@/components/sections/social-proof-strip";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
-import { WhyHometown } from "@/components/sections/why-hometown";
+import { Manifesto } from "@/components/sections/home/manifesto";
+import { Process } from "@/components/sections/home/process";
+import { ProofBand } from "@/components/sections/home/proof-band";
+import { Reviews } from "@/components/sections/home/reviews";
+import { SelectedWork } from "@/components/sections/home/selected-work";
+import { ServicesList } from "@/components/sections/home/services-list";
+import { StructuredData } from "@/components/seo/structured-data";
 import { PageTransition } from "@/components/ui/page-transition";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { faqSchema, webPageSchema } from "@/lib/seo/schema";
@@ -32,12 +32,12 @@ export default function HomePage() {
     <PageTransition>
       <StructuredData data={schema} />
       <HomeHero />
-      <SocialProofStrip />
-      <WhyHometown />
-      <HomeSteps />
-      <ServicesPreview />
-      <FeaturedWork />
-      <TestimonialsSection />
+      <ProofBand />
+      <Manifesto />
+      <SelectedWork />
+      <ServicesList />
+      <Process />
+      <Reviews />
       <FAQSection page="home" ctaHref="#form" />
       <ContactCta />
     </PageTransition>

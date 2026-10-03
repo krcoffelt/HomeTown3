@@ -77,12 +77,12 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
   ];
 
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-clip bg-background">
       <StructuredData data={schema} />
 
-      <section className="relative overflow-hidden bg-gradient-dark pt-32 pb-20 text-primary-foreground md:pt-40 md:pb-28">
-        <div aria-hidden="true" className="pointer-events-none absolute right-0 top-0 h-[420px] w-[420px] rounded-full bg-accent/10 blur-[140px]" />
-        <div aria-hidden="true" className="pointer-events-none absolute left-[-4rem] bottom-[-6rem] h-[320px] w-[320px] rounded-full bg-primary/5 blur-[120px]" />
+      <section className="grain relative overflow-hidden bg-ink pb-16 pt-36 text-primary-foreground md:pb-24 md:pt-48">
+        <div aria-hidden="true" className="pointer-events-none absolute right-0 top-0 h-[420px] w-[420px] glow [--glow-alpha:0.16]" />
+        <div aria-hidden="true" className="pointer-events-none absolute left-[-4rem] bottom-[-6rem] h-[320px] w-[320px] hidden" />
 
         <div className="site-container relative">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -109,7 +109,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
 
             <div className="lg:col-span-5">
               <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[var(--shadow-hero)] backdrop-blur-sm md:p-8">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Built for {location.city}</p>
+                <p className="eyebrow">Built for {location.city}</p>
                 <p className="mt-5 text-xl leading-relaxed text-primary-foreground">{location.localAngle}</p>
               </div>
             </div>
@@ -136,14 +136,14 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
       <section className="bg-background py-20 md:py-28">
         <div className="site-container">
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] md:p-10">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">How we help businesses in {location.city}</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">{location.introTitle}</h2>
+            <div className="rounded-[1.5rem] border border-border bg-card p-7 md:p-10">
+              <p className="eyebrow">How we help businesses in {location.city}</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">{location.introTitle}</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">{location.introDescription}</p>
             </div>
 
-            <div className="rounded-3xl border border-primary-foreground/10 bg-gradient-dark p-7 text-primary-foreground shadow-[var(--shadow-hero)] md:p-10">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">What that looks like</p>
+            <div className="rounded-[1.5rem] border border-primary-foreground/10 bg-ink p-7 text-primary-foreground shadow-[var(--shadow-hero)] md:p-10">
+              <p className="eyebrow">What that looks like</p>
               <div className="mt-6 grid gap-4">
                 {location.whyPoints.map((point) => (
                   <div key={point} className="flex items-start gap-3 text-sm leading-relaxed text-primary-foreground/78">
@@ -157,13 +157,13 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
         </div>
       </section>
 
-      <section className="noise bg-secondary/30 py-20 md:py-28">
+      <section className="grain bg-secondary/30 py-20 md:py-28">
         <div className="site-container">
           <div className="mb-10 max-w-2xl">
-            <span className="inline-block rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground sm:text-xs">
+            <span className="eyebrow">
               Core Services
             </span>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.03em] text-foreground md:text-4xl">
               The services that matter most for {location.city} businesses.
             </h2>
           </div>
@@ -175,13 +175,13 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+                  className="group rounded-[1.5rem] border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[1.25rem] bg-accent/10 text-accent">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-accent">Real leads. Clear data.</p>
-                  <h3 className="mt-3 text-2xl font-bold tracking-tight text-foreground">{service.title}</h3>
+                  <p className="mt-6 mono-label text-accent">Real leads. Clear data.</p>
+                  <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-foreground">{service.title}</h3>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">{service.shortDescription}</p>
                   <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
                     View service
@@ -199,7 +199,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
               { label: `Start a ${location.city} Project`, href: "#form" }
             ].map((link) => (
               <Link
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 className="rounded-full border border-border bg-card px-4 py-2 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent"
               >
@@ -215,9 +215,9 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
           <div className="site-container">
             <div className="grid gap-6 lg:grid-cols-2">
               {location.seoSections.map((section) => (
-                <article key={section.title} className="rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] md:p-10">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{section.eyebrow}</p>
-                  <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground">{section.title}</h2>
+                <article key={section.title} className="rounded-[1.5rem] border border-border bg-card p-7 md:p-10">
+                  <p className="eyebrow">{section.eyebrow}</p>
+                  <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">{section.title}</h2>
                   <p className="mt-5 text-base leading-relaxed text-muted-foreground">{section.body}</p>
                   <div className="mt-7 grid gap-3">
                     {section.items.map((item) => (
@@ -229,9 +229,9 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
                   </div>
                 </article>
               ))}
-              <article className="rounded-3xl border border-primary-foreground/10 bg-gradient-dark p-7 text-primary-foreground shadow-[var(--shadow-hero)] md:p-10">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/58">Primary SEO Focus</p>
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground">
+              <article className="rounded-[1.5rem] border border-primary-foreground/10 bg-ink p-7 text-primary-foreground shadow-[var(--shadow-hero)] md:p-10">
+                <p className="eyebrow">Primary SEO Focus</p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-primary-foreground">
                   Website design first, then marketing that builds on the site.
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-primary-foreground/72">
@@ -252,7 +252,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
             <span className="inline-block rounded-full border border-border bg-card px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground sm:text-xs">
               Selected Work
             </span>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.03em] text-foreground md:text-4xl">
               Real work that backs up the promise.
             </h2>
           </div>
@@ -273,8 +273,8 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
                     />
                   </div>
                   <div className="p-6">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
-                    <h3 className="mt-3 text-xl font-bold tracking-tight text-foreground">{project.clientName}</h3>
+                    <p className="mono-label text-accent">{project.category}</p>
+                    <h3 className="mt-3 text-xl font-semibold tracking-[-0.04em] text-foreground">{project.clientName}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
                     <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-foreground transition group-hover:text-accent">
                       {hasCaseStudy ? "Read case study" : "View live site"}
@@ -289,7 +289,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
                   <Link
                     key={project.slug}
                     href={projectHref}
-                    className="group overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+                    className="group overflow-hidden rounded-[1.5rem] border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
                   >
                     {projectCard}
                   </Link>
@@ -302,7 +302,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
                   href={projectHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+                  className="group overflow-hidden rounded-[1.5rem] border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
                 >
                   {projectCard}
                 </a>
@@ -312,15 +312,15 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-gradient-dark py-20 text-primary-foreground md:py-28">
-        <div aria-hidden="true" className="pointer-events-none absolute right-[-6rem] top-[-6rem] h-[260px] w-[260px] rounded-full bg-accent/10 blur-[100px]" />
+      <section className="relative overflow-hidden bg-ink py-20 text-primary-foreground md:py-28">
+        <div aria-hidden="true" className="pointer-events-none absolute right-[-6rem] top-[-6rem] h-[260px] w-[260px] glow [--glow-alpha:0.16]" />
         <div className="site-container">
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
               <span className="inline-block rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground/70 sm:text-xs">
                 Why Hometown
               </span>
-              <h2 className="mt-5 text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
+              <h2 className="mt-5 text-3xl font-semibold tracking-[-0.03em] text-primary-foreground md:text-4xl">
                 {location.whyTitle}
               </h2>
               <p className="mt-5 text-base leading-relaxed text-primary-foreground/72">{location.whyDescription}</p>
@@ -328,7 +328,7 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
 
             <div className="grid gap-4">
               {location.whyPoints.map((point) => (
-                <div key={point} className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm leading-relaxed text-primary-foreground/84">
+                <div key={point} className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] px-5 py-4 text-sm leading-relaxed text-primary-foreground/84">
                   {point}
                 </div>
               ))}
@@ -343,12 +343,12 @@ export default async function LocationDetailPage({ params }: LocationPageProps) 
             <span className="inline-block rounded-full border border-border bg-card px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground sm:text-xs">
               FAQs
             </span>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.03em] text-foreground md:text-4xl">
               Questions businesses in {location.city} usually ask.
             </h2>
           </div>
 
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card px-2 shadow-[var(--shadow-card)] md:px-6">
+          <div className="mx-auto max-w-3xl rounded-[1.25rem] border border-foreground/[0.08] bg-card px-2 md:px-6">
             {location.faqItems.map((item, index) => (
               <details
                 key={item.question}
