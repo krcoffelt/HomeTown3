@@ -1,3 +1,5 @@
+import { PhotoCredit } from "@/components/sections/article-photo";
+import { getBlogCardPhoto } from "@/data/article-photography";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
@@ -66,8 +68,8 @@ export default function BlogPage() {
           <Link href={featuredPost.href} className="group grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-secondary lg:col-span-7">
               <Image
-                src={featuredPost.image ?? postImages[featuredPost.slug] ?? "/images/hero-bg-desktop.jpg"}
-                alt={featuredPost.imageAlt ?? `${featuredPost.title} featured image`}
+                src={getBlogCardPhoto(featuredPost.slug)?.src ?? featuredPost.image ?? postImages[featuredPost.slug] ?? "/images/hero-bg-desktop.jpg"}
+                alt={getBlogCardPhoto(featuredPost.slug)?.alt ?? featuredPost.imageAlt ?? `${featuredPost.title} featured image`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 92vw, 56vw"
@@ -93,6 +95,7 @@ export default function BlogPage() {
               </span>
             </article>
           </Link>
+          {getBlogCardPhoto(featuredPost.slug) ? <p className="mt-4"><PhotoCredit photo={getBlogCardPhoto(featuredPost.slug)!} /></p> : null}
         </SectionShell>
       ) : null}
 
@@ -111,8 +114,8 @@ export default function BlogPage() {
                   <Link href={post.href} className="group grid gap-6 py-8 sm:grid-cols-[180px_minmax(0,1fr)] sm:items-center">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-[0.9rem] bg-secondary">
                       <Image
-                        src={post.image ?? postImages[post.slug] ?? "/images/hero-bg-desktop.jpg"}
-                        alt={post.imageAlt ?? `${post.title} article image`}
+                        src={getBlogCardPhoto(post.slug)?.src ?? post.image ?? postImages[post.slug] ?? "/images/hero-bg-desktop.jpg"}
+                        alt={getBlogCardPhoto(post.slug)?.alt ?? post.imageAlt ?? `${post.title} article image`}
                         fill
                         sizes="(max-width: 640px) 92vw, 180px"
                         className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.06]"
@@ -132,6 +135,7 @@ export default function BlogPage() {
                       <ArrowUpRightIcon className="mt-1 hidden h-5 w-5 shrink-0 transition-transform duration-500 group-hover:rotate-45 sm:block" />
                     </article>
                   </Link>
+                  {getBlogCardPhoto(post.slug) ? <p className="-mt-3 mb-6"><PhotoCredit photo={getBlogCardPhoto(post.slug)!} /></p> : null}
                 </Reveal>
               ))}
             </ul>

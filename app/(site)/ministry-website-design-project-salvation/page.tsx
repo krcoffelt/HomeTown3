@@ -1,3 +1,4 @@
+import { ArticlePhotoSection } from "@/components/sections/article-photo";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
@@ -70,7 +71,7 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
         "A Project Salvation website case study and guide for ministries, evangelists, churches, and Christian events that need stronger websites.",
       path: pagePath,
       datePublished: "2026-06-08",
-      dateModified: "2026-06-08",
+      dateModified: "2026-10-16",
       image: "/images/work/project-salvation.jpg"
     })
   ];
@@ -140,6 +141,8 @@ export default function MinistryWebsiteDesignProjectSalvationPage() {
           </div>
         </article>
       </SectionShell>
+
+      <ArticlePhotoSection slug="ministry-website-design-project-salvation" />
 
       <SectionShell className="pt-0">
         <div className="grid gap-5 md:grid-cols-2">

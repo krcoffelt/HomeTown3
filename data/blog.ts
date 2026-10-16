@@ -22,7 +22,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "What Google's new Ask Advisor and AI reporting features can do—and what Kansas City advertisers should verify before approving campaign changes.",
     publishedAt: "2026-09-03",
-    updatedAt: "2026-09-03",
+    updatedAt: "2026-10-16",
     readingTime: "10 min read",
     image: "/images/brand-art/case-study-results-v2.png",
     imageAlt: "Illustrated campaign dashboard showing Google Ads AI insights and business results",
@@ -37,7 +37,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A prioritized local SEO checklist covering Google Business Profile, service and location pages, reviews, technical health, and qualified-lead tracking.",
     publishedAt: "2026-08-28",
-    updatedAt: "2026-08-28",
+    updatedAt: "2026-10-16",
     readingTime: "11 min read",
     image: "/images/brand-art/search-discovery.png",
     imageAlt: "Illustration of a Kansas City business being discovered through local search",
@@ -51,7 +51,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A pre-launch website redesign checklist for preserving useful content, rankings, redirects, conversion paths, and measurement.",
     publishedAt: "2026-08-28",
-    updatedAt: "2026-08-28",
+    updatedAt: "2026-10-16",
     readingTime: "12 min read",
     image: "/images/brand-art/digital-design-workshop.png",
     imageAlt: "Illustrated workshop for planning a small-business website redesign",
@@ -65,7 +65,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A decision guide for choosing SEO, Google Ads, or website improvements based on timeline, economics, demand, and lead-flow readiness.",
     publishedAt: "2026-08-28",
-    updatedAt: "2026-08-28",
+    updatedAt: "2026-10-16",
     readingTime: "10 min read",
     image: "/images/brand-art/three-channels.png",
     imageAlt: "Illustration comparing organic search and paid advertising channels",
@@ -79,7 +79,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "How to size a responsible Google Ads test around local demand, customer economics, focused targeting, landing pages, and qualified leads.",
     publishedAt: "2026-08-28",
-    updatedAt: "2026-08-28",
+    updatedAt: "2026-10-16",
     readingTime: "11 min read",
     image: "/images/brand-art/connected-growth-v2.png",
     imageAlt: "Illustration of paid search campaigns connected to qualified business leads",
@@ -93,7 +93,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A complete planning and launch checklist for pages, messaging, proof, mobile UX, accessibility, local SEO, and conversion tracking.",
     publishedAt: "2026-08-28",
-    updatedAt: "2026-08-28",
+    updatedAt: "2026-10-16",
     readingTime: "11 min read",
     image: "/images/brand-art/strategy-audit.png",
     imageAlt: "Illustrated checklist for planning a Kansas City small-business website",
@@ -107,6 +107,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A breakdown of the Project Salvation website build and what ministries, evangelists, and event-driven organizations should prioritize online.",
     publishedAt: "2026-06-08",
+    updatedAt: "2026-10-16",
     readingTime: "6 min read",
     image: "/images/work/project-salvation.jpg",
     imageAlt: "Project Salvation website homepage preview",
@@ -120,7 +121,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A DecksRXKC website breakdown for deck builders, contractors, and home-service businesses that need stronger project proof and quote-request paths.",
     publishedAt: "2026-06-19",
-    updatedAt: "2026-09-25",
+    updatedAt: "2026-10-16",
     readingTime: "6 min read",
     image: "/images/work/decksrxkc-website-preview.webp",
     imageAlt: "DecksRXKC website homepage preview",
@@ -139,6 +140,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A practical checklist for contractors, remodelers, and home-service businesses that need a website built around project proof, local trust, and quote requests.",
     publishedAt: "2026-05-14",
+    updatedAt: "2026-10-16",
     readingTime: "6 min read",
     targetKeywords: ["contractor website design", "construction website design Kansas City", "contractor website checklist"]
   },
@@ -150,6 +152,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A practical comparison for owners deciding whether a DIY website builder is enough or whether a custom website will do more for trust, SEO, and leads.",
     publishedAt: "2026-05-11",
+    updatedAt: "2026-10-16",
     readingTime: "5 min read",
     targetKeywords: ["website builders for small business", "custom website for small business", "small business website design"]
   }

@@ -1,3 +1,5 @@
+import { ArticlePhoto } from "@/components/sections/article-photo";
+import { articlePhotography } from "@/data/article-photography";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
@@ -10,6 +12,7 @@ import { site } from "@/data/site";
 import { blogPostingSchema, breadcrumbSchema, faqItemsSchema, webPageSchema } from "@/lib/seo/schema";
 
 export function GuideArticlePage({ guide }: { guide: GuidePageItem }) {
+  const photo = articlePhotography[guide.path.slice(1)];
   const schema = [
     webPageSchema({ name: guide.title, description: guide.description, path: guide.path }),
     breadcrumbSchema([
@@ -176,6 +179,7 @@ export function GuideArticlePage({ guide }: { guide: GuidePageItem }) {
                   ) : null}
                 </div>
               </div>
+              {photo?.afterSection === section.id ? <ArticlePhoto photo={photo} /> : null}
             </article>
           </SectionShell>
         ))}

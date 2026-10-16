@@ -1,3 +1,4 @@
+import { ArticlePhotoSection } from "@/components/sections/article-photo";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
 import { ContactCta } from "@/components/sections/contact-cta";
@@ -109,7 +110,8 @@ export default function ContractorWebsiteChecklistPage() {
       description:
         "A contractor website checklist covering service pages, project proof, local SEO structure, quote forms, and conversion tracking.",
       path: "/what-should-a-contractor-website-include",
-      datePublished: "2026-05-14"
+      datePublished: "2026-05-14",
+      dateModified: "2026-10-16"
     })
   ];
 
@@ -128,7 +130,7 @@ export default function ContractorWebsiteChecklistPage() {
               A contractor website should prove the work, explain the services, build local trust, and make it easy for a qualified customer to request a quote.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button href="#form" className="h-14 px-8">
+              <Button href="/contact#form" className="h-14 px-8">
                 Get a Free Marketing Audit
               </Button>
               <Button href="/industries/construction-website-design-kansas-city" variant="secondary" className="h-14 px-8 text-primary-foreground hover:text-primary-foreground">
@@ -168,6 +170,8 @@ export default function ContractorWebsiteChecklistPage() {
           </section>
         </div>
       </SectionShell>
+
+      <ArticlePhotoSection slug="what-should-a-contractor-website-include" />
 
       <SectionShell className="pt-0">
         <div className="mb-9 max-w-3xl">

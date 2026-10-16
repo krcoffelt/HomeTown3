@@ -1,3 +1,4 @@
+import { articlePhotography } from "@/data/article-photography";
 import { locations } from "@/data/locations";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
@@ -193,6 +194,12 @@ export function getImagesSitemapXml() {
     ...projectEntries,
     ...caseStudyEntries,
     ...caseStudyGalleryEntries,
-    ...articleImageEntries
+    ...articleImageEntries,
+    ...blogPosts.filter((post) => articlePhotography[post.slug]).map((post) => ({
+      pageLoc: post.href,
+      imageLoc: articlePhotography[post.slug].src,
+      title: articlePhotography[post.slug].alt,
+      caption: `Stock photo by ${articlePhotography[post.slug].photographer} via Pexels. ${articlePhotography[post.slug].caption}`
+    }))
   ]);
 }

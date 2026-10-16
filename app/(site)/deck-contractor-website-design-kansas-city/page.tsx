@@ -1,3 +1,4 @@
+import { ArticlePhotoSection } from "@/components/sections/article-photo";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -100,7 +101,7 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
       description: pageDescription,
       path: pagePath,
       datePublished: "2026-06-19",
-      dateModified: "2026-09-25",
+      dateModified: "2026-10-16",
       image: previewImage
     })
   ];
@@ -171,6 +172,8 @@ export default function DeckContractorWebsiteDesignKansasCityPage() {
           </div>
         </article>
       </SectionShell>
+
+      <ArticlePhotoSection slug="deck-contractor-website-design-kansas-city" />
 
       <SectionShell className="pt-0">
         <div className="grid gap-5 md:grid-cols-2">

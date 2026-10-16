@@ -1,3 +1,4 @@
+import { ArticlePhotoSection } from "@/components/sections/article-photo";
 import Link from "next/link";
 import { SectionShell } from "@/components/layout/section-shell";
 import { ContactCta } from "@/components/sections/contact-cta";
@@ -49,7 +50,8 @@ export default function WebsiteBuilderComparisonPage() {
       description:
         "A practical comparison for small businesses choosing between DIY website builders and custom website design.",
       path: "/website-builder-vs-custom-website-for-small-businesses",
-      datePublished: "2026-05-11"
+      datePublished: "2026-05-11",
+      dateModified: "2026-10-16"
     })
   ];
 
@@ -116,6 +118,8 @@ export default function WebsiteBuilderComparisonPage() {
           </section>
         </div>
       </SectionShell>
+
+      <ArticlePhotoSection slug="website-builder-vs-custom-website-for-small-businesses" />
 
       <SectionShell className="pt-0">
         <div className="light-panel p-7 md:p-10">
