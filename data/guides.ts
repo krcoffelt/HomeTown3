@@ -1,3 +1,5 @@
+import { websiteQuoteGuide } from "@/data/website-quote-guide";
+
 export interface GuidePageItem {
   title: string;
   seoTitle: string;
@@ -21,11 +23,14 @@ export interface GuidePageItem {
     title: string;
     paragraphs: string[];
     items?: string[];
+    links?: Array<{ label: string; href: string }>;
+    table?: { caption: string; headings: string[]; rows: string[][] };
     callout?: { title: string; body: string };
   }>;
   faqItems: Array<{ question: string; answer: string }>;
   relatedLinks: Array<{ label: string; href: string }>;
   sourceLinks?: Array<{ label: string; href: string; note: string }>;
+  sourceTitle?: string;
   ctaTitle: string;
   ctaAccent: string;
   ctaBody: string;
@@ -865,6 +870,7 @@ export const googleAdsAiAskAdvisorGuide: GuidePageItem = {
 };
 
 export const guidesBySlug = {
+  "small-business-website-quote-kansas-city": websiteQuoteGuide,
   "local-seo-checklist-kansas-city-small-businesses": localSeoChecklistGuide,
   "website-redesign-checklist-kansas-city": websiteRedesignChecklistGuide,
   "seo-vs-google-ads-kansas-city-small-businesses": seoVsGoogleAdsGuide,

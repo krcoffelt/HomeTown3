@@ -28,8 +28,8 @@ function stripHash(path: string) {
 }
 
 describe("long-form Kansas City guides", () => {
-  it("keeps all five guide records complete and connected to physical routes", () => {
-    expect(guides).toHaveLength(6);
+  it("keeps all guide records complete and connected to physical routes", () => {
+    expect(guides).toHaveLength(7);
 
     for (const [slug, guide] of guides) {
       expect(guide.path).toBe(`/${slug}`);
@@ -50,7 +50,7 @@ describe("long-form Kansas City guides", () => {
 
   it("keeps every guide link pointed at a known canonical route", () => {
     for (const [, guide] of guides) {
-      for (const link of [...guide.relatedLinks, ...guide.ctaLinks]) {
+      for (const link of [...guide.relatedLinks, ...guide.ctaLinks, ...guide.sections.flatMap((section) => section.links ?? [])]) {
         expect(knownRoutes.has(stripHash(link.href)), `${guide.path} -> ${link.href}`).toBe(true);
       }
     }

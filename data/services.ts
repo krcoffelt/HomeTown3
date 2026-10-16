@@ -72,12 +72,13 @@ export const services: ServiceItem[] = [
       }
     ],
     relatedLinks: [
+      { label: "What to compare in a website quote", href: "/small-business-website-quote-kansas-city" },
       { label: "Search engine optimization", href: "/services/search-engine-optimization" },
       { label: "Google and Meta ads", href: "/services/google-ads-management" },
       { label: "View website work", href: "/work" },
       { label: "Schedule a free marketing audit", href: "/contact#form" }
     ],
-    updatedAt: "2026-09-25"
+    updatedAt: "2026-10-16"
   },
   {
     title: "SEO That Builds Visibility",

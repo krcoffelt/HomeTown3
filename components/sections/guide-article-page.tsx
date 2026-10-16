@@ -56,7 +56,7 @@ export function GuideArticlePage({ guide }: { guide: GuidePageItem }) {
             </div>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button href="#guide">Read the guide</Button>
-              <Button href="#form" variant="secondary" className="border-primary-foreground/16 text-primary-foreground hover:text-primary-foreground">
+              <Button href="/contact#form" variant="secondary" className="border-primary-foreground/16 text-primary-foreground hover:text-primary-foreground">
                 Get a Free Marketing Audit
               </Button>
             </div>
@@ -124,11 +124,37 @@ export function GuideArticlePage({ guide }: { guide: GuidePageItem }) {
                 <div>
                   <p className="eyebrow">{section.eyebrow}</p>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h2 className="text-3xl font-semibold tracking-[-0.03em] text-foreground md:text-4xl">{section.title}</h2>
                   <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
                     {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                   </div>
+
+                  {section.links?.map((link) => (
+                    <p key={link.href} className="mt-5 leading-relaxed">
+                      <Link href={link.href} className="font-medium underline decoration-accent underline-offset-4 hover:text-accent">{link.label}</Link>
+                    </p>
+                  ))}
+
+                  {section.table ? (
+                    <div className="mt-8 overflow-x-auto rounded-xl border border-border" role="region" aria-label={section.table.caption} tabIndex={0}>
+                      <table className="w-full min-w-[560px] border-collapse text-left text-sm leading-relaxed">
+                        <caption className="bg-secondary/55 p-5 text-left font-semibold text-foreground">{section.table.caption}</caption>
+                        <thead className="bg-secondary/35">
+                          <tr>{section.table.headings.map((heading) => <th key={heading} scope="col" className="p-4 font-semibold">{heading}</th>)}</tr>
+                        </thead>
+                        <tbody>
+                          {section.table.rows.map((row) => (
+                            <tr key={row[0]} className="border-t border-border">
+                              {row.map((cell, index) => index === 0
+                                ? <th key={index} scope="row" className="p-4 align-top font-medium text-foreground">{cell}</th>
+                                : <td key={index} className="p-4 align-top text-muted-foreground">{cell}</td>)}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : null}
 
                   {section.items?.length ? (
                     <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -159,7 +185,7 @@ export function GuideArticlePage({ guide }: { guide: GuidePageItem }) {
         <SectionShell className="border-y border-border bg-secondary/35">
           <div className="mx-auto max-w-5xl">
             <p className="eyebrow">Official Sources</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">Check the current Google documentation before changing an account.</h2>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground">{guide.sourceTitle ?? "Check the current Google documentation before changing an account."}</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {guide.sourceLinks.map((source) => (
                 <a

@@ -2,6 +2,19 @@ import type { BlogPostItem } from "@/types";
 
 export const blogPosts: BlogPostItem[] = [
   {
+    title: "What Goes Into a Small-Business Website Quote in Kansas City?",
+    slug: "small-business-website-quote-kansas-city",
+    href: "/small-business-website-quote-kansas-city",
+    category: "Website Planning",
+    excerpt: "Compare website proposals by pages, content, integrations, migration, testing, ownership, and ongoing responsibilities—with a practical quote worksheet.",
+    publishedAt: "2026-10-16",
+    updatedAt: "2026-10-16",
+    readingTime: "9 min read",
+    image: "/images/brand-art/digital-design-workshop.png",
+    imageAlt: "Illustrated website planning workshop with design tools and page layouts",
+    targetKeywords: ["small business website quote", "website quote Kansas City", "what should a website quote include", "how to compare website quotes"]
+  },
+  {
     title: "Google Ads AI for Kansas City Small Businesses",
     slug: "google-ads-ai-ask-advisor-kansas-city",
     href: "/google-ads-ai-ask-advisor-kansas-city",
