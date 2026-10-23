@@ -2,6 +2,20 @@ import type { BlogPostItem } from "@/types";
 
 export const blogPosts: BlogPostItem[] = [
   {
+    title: "SEO for Service Businesses: How to Rank Locally",
+    slug: "seo-for-service-businesses",
+    href: "/seo-for-service-businesses",
+    category: "Local SEO",
+    excerpt: "A practical guide to choosing local keywords, building useful service pages, improving Google visibility, and turning the right searches into qualified inquiries.",
+    publishedAt: "2026-10-23",
+    updatedAt: "2026-10-23",
+    readingTime: "9 min read",
+    image: "/images/brand-art/search-discovery.png",
+    imageAlt: "Illustration of a local service business being discovered through search",
+    targetKeywords: ["seo for service businesses", "seo for service based businesses", "local seo for service area businesses", "service area business seo"],
+    featured: true
+  },
+  {
     title: "What Goes Into a Small-Business Website Quote in Kansas City?",
     slug: "small-business-website-quote-kansas-city",
     href: "/small-business-website-quote-kansas-city",
@@ -27,7 +41,7 @@ export const blogPosts: BlogPostItem[] = [
     image: "/images/brand-art/case-study-results-v2.png",
     imageAlt: "Illustrated campaign dashboard showing Google Ads AI insights and business results",
     targetKeywords: ["Google Ads AI", "Google Ads Ask Advisor", "AI for Google Ads", "Google Ads AI for small business"],
-    featured: true
+    featured: false
   },
   {
     title: "Local SEO Checklist for Kansas City Businesses",

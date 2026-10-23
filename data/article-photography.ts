@@ -16,6 +16,15 @@ export interface ArticlePhotoItem {
 const licenseHref = "https://www.pexels.com/license/";
 const verifiedAt = "2026-10-16";
 export const articlePhotography: Record<string, ArticlePhotoItem> = {
+  "seo-for-service-businesses": {
+    src: "/images/blog/pexels/8970645.webp",
+    alt: "Business planning clipboard and stationery next to an open laptop",
+    caption: "Start the search plan with the jobs you want to book and the places you can realistically serve.",
+    photographer: "Leeloo The First",
+    photographerHref: "https://www.pexels.com/@leeloothefirst/",
+    sourceHref: "https://www.pexels.com/photo/business-plan-by-laptop-8970645/",
+    afterSection: "keyword-to-page-map", useOnCard: true, licenseHref, verifiedAt
+  },
   "small-business-website-quote-kansas-city": {
     src: "/images/blog/pexels/5424636.webp",
     alt: "Person reviewing printed design documents beside an open laptop",

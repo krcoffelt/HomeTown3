@@ -151,12 +151,13 @@ export const services: ServiceItem[] = [
       }
     ],
     relatedLinks: [
+      { label: "SEO for service businesses: a practical guide", href: "/seo-for-service-businesses" },
       { label: "Conversion-focused websites", href: "/services/website-design" },
       { label: "Google and Meta ads", href: "/services/google-ads-management" },
       { label: "Kansas City service areas", href: "/locations" },
       { label: "Schedule a free marketing audit", href: "/contact#form" }
     ],
-    updatedAt: "2026-09-25"
+    updatedAt: "2026-10-23"
   },
   {
     title: "Google & Meta Ads",

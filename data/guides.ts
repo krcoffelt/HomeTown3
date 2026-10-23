@@ -1,4 +1,5 @@
 import { websiteQuoteGuide } from "@/data/website-quote-guide";
+import { serviceBusinessSeoGuide } from "@/data/service-business-seo-guide";
 
 export interface GuidePageItem {
   title: string;
@@ -870,6 +871,7 @@ export const googleAdsAiAskAdvisorGuide: GuidePageItem = {
 };
 
 export const guidesBySlug = {
+  "seo-for-service-businesses": serviceBusinessSeoGuide,
   "small-business-website-quote-kansas-city": websiteQuoteGuide,
   "local-seo-checklist-kansas-city-small-businesses": localSeoChecklistGuide,
   "website-redesign-checklist-kansas-city": websiteRedesignChecklistGuide,

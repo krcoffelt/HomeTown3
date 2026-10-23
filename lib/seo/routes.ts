@@ -27,7 +27,7 @@ export const coreRouteSeoEntries: CoreRouteSeoEntry[] = [
   { id: "work", path: "/work", changeFrequency: "monthly", updatedAt: "2026-07-31", shareImage: site.routeShareImages["/work"] },
   { id: "contact", path: "/contact", changeFrequency: "monthly", updatedAt: "2026-06-20", shareImage: site.routeShareImages["/contact"] },
   { id: "about", path: "/about", changeFrequency: "monthly", updatedAt: "2026-09-25", shareImage: site.routeShareImages["/about"] },
-  { id: "blog", path: "/blog", changeFrequency: "weekly", updatedAt: "2026-10-16", shareImage: site.routeShareImages["/blog"] },
+  { id: "blog", path: "/blog", changeFrequency: "weekly", updatedAt: "2026-10-23", shareImage: site.routeShareImages["/blog"] },
   { id: "privacy", path: "/privacy-policy", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/privacy-policy"] },
   { id: "terms", path: "/terms-of-service", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/terms-of-service"] },
   { id: "cookies", path: "/cookie-policy", changeFrequency: "yearly", updatedAt: "2026-04-16", shareImage: site.routeShareImages["/cookie-policy"] }
