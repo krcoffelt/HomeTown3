@@ -56,6 +56,19 @@ const relatedPageLinks: Record<string, Array<{ label: string; href: string; desc
     { label: "Contractor website checklist", href: "/what-should-a-contractor-website-include", description: "A practical guide to project proof, service pages, and estimate-request flow." },
     { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
   ],
+  "blue-river-home-care": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites built around trust, local relevance, and lead flow." },
+    { label: "Home-Service Website Design", href: "/industries/home-services-website-design-kansas-city", description: "Lead-focused website design for local service teams, from movers to home care." },
+    { label: "SEO That Builds Visibility", href: "/services/search-engine-optimization", description: "Local SEO and content that helps families find you." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ],
+  "acs-painting-kc": [
+    { label: "Website Design", href: "/services/website-design", description: "Custom websites built around trust, local relevance, and lead flow." },
+    { label: "Contractor Website Design", href: "/industries/construction-website-design-kansas-city", description: "Website strategy for contractors that need project proof and estimate requests." },
+    { label: "Home-Service Website Design", href: "/industries/home-services-website-design-kansas-city", description: "Lead-focused website design for painters and local service teams." },
+    { label: "Contractor website checklist", href: "/what-should-a-contractor-website-include", description: "A practical guide to project proof, service pages, and estimate-request flow." },
+    { label: "More Website Work", href: "/work", description: "Recent Hometown website projects and case studies." }
+  ],
   "project-salvation": [
     { label: "Website Design", href: "/services/website-design", description: "Custom websites built around clarity, trust, and conversion paths." },
     { label: "Ministry Website Article", href: "/ministry-website-design-project-salvation", description: "A deeper breakdown of the Project Salvation website strategy." },
@@ -304,7 +317,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 "Creates internal links back to the website-design offer",
                 project.slug === "project-salvation"
                   ? "Builds topical proof for ministry, evangelist, and event website searches"
-                  : `Builds specific proof for ${project.category.toLowerCase()} and small-business website searches`,
+                  : project.slug === "acs-painting-kc"
+                    ? "Builds specific proof for painting contractor and home services website searches"
+                    : project.slug === "blue-river-home-care"
+                      ? "Builds specific proof for home care and small-business website searches"
+                      : `Builds specific proof for ${project.category.toLowerCase()} and small-business website searches`,
                 "Supports future industry pages with relevant examples"
               ].map((item) => (
                 <li key={item} className="flex gap-3 leading-relaxed">

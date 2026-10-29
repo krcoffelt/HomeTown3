@@ -111,7 +111,7 @@ export default function ContractorWebsiteChecklistPage() {
         "A contractor website checklist covering service pages, project proof, local SEO structure, quote forms, and conversion tracking.",
       path: "/what-should-a-contractor-website-include",
       datePublished: "2026-05-14",
-      dateModified: "2026-10-16"
+      dateModified: "2026-10-29"
     })
   ];
 
@@ -259,6 +259,7 @@ export default function ContractorWebsiteChecklistPage() {
               { label: "Contractor website design Kansas City", href: "/industries/construction-website-design-kansas-city" },
               { label: "Home services website design Kansas City", href: "/industries/home-services-website-design-kansas-city" },
               { label: "Website design Kansas City", href: "/services/website-design" },
+              { label: "ACS Painting KC: project proof and a simple estimate path", href: "/case-studies/acs-painting-kc" },
               { label: "See website work", href: "/work" }
             ].map((link) => (
               <Link

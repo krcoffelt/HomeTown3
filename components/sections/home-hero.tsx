@@ -14,7 +14,9 @@ const reelSlugs = [
   "project-salvation",
   "zj-carpentry-and-more",
   "lupi-docs",
-  "voxwhite"
+  "voxwhite",
+  "blue-river-home-care",
+  "acs-painting-kc"
 ];
 
 function RotatingBadge() {
@@ -122,7 +124,7 @@ export function HomeHero() {
           {[...reel, ...reel].map((project, index) => (
             <Link
               key={`${project.slug}-${index}`}
-              href={project.metrics ? `/case-studies/${project.slug}` : "/work"}
+              href={project.problem && project.solution && project.result ? `/case-studies/${project.slug}` : "/work"}
               tabIndex={index >= reel.length ? -1 : undefined}
               aria-hidden={index >= reel.length ? true : undefined}
               className="group relative block w-[72vw] shrink-0 overflow-hidden rounded-xl bg-ink-soft sm:w-[44vw] lg:w-[30vw]"

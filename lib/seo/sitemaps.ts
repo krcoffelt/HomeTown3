@@ -83,11 +83,20 @@ ${maps}
 
 export function getPagesSitemapXml() {
   return buildUrlSet(
-    coreRouteSeoEntries.map((entry) => ({
-      loc: entry.path,
-      lastmod: entry.updatedAt,
-      changefreq: entry.changeFrequency
-    }))
+    [
+      ...coreRouteSeoEntries.map((entry) => ({
+        loc: entry.path,
+        lastmod: entry.updatedAt,
+        changefreq: entry.changeFrequency
+      })),
+      ...projects
+        .filter((project) => project.problem && project.solution && project.result)
+        .map((project) => ({
+          loc: `/case-studies/${project.slug}`,
+          lastmod: project.updatedAt,
+          changefreq: "monthly"
+        }))
+    ]
   );
 }
 

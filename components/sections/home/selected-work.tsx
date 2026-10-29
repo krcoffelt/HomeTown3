@@ -6,7 +6,7 @@ import { ArrowUpRightIcon } from "@/components/ui/site-icons";
 import { projects } from "@/data/projects";
 import { cn } from "@/lib/utils/cn";
 
-const featuredSlugs = ["wrapped-up-moving", "noble-hardwoods", "plate-kc", "dragonfly-catering", "project-salvation"];
+const featuredSlugs = ["wrapped-up-moving", "noble-hardwoods", "plate-kc", "dragonfly-catering", "project-salvation", "blue-river-home-care", "acs-painting-kc"];
 
 function BrowserShot({ src, alt, dark }: { src: string; alt: string; dark: boolean }) {
   return (

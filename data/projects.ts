@@ -248,6 +248,52 @@ export const projects: ProjectItem[] = [
     liveUrl: "https://zjcarpentry.com",
     quote: "Built to feel polished, trustworthy, and ready to turn homeowner interest into quote requests.",
     updatedAt: "2026-05-22"
+  },
+  {
+    title: "Blue River Home Care",
+    slug: "blue-river-home-care",
+    clientName: "Blue River Home Care",
+    category: "Home Services",
+    summary: "Belton home care website built around free consultations, family guides, and eight local service-area pages.",
+    description: "A family-focused home care website connecting clear service information, cost guidance, local coverage, and a free consultation with the Belton team.",
+    servicesProvided: ["Website Design", "Content Strategy", "Local SEO", "Lead Capture"],
+    featuredImageUrl: "/images/work/blue-river-home-care/homepage.jpg",
+    imageAlt: "Blue River Home Care homepage with Belton in-home senior care message and free consultation call to action",
+    galleryImages: [
+      { url: "/images/work/blue-river-home-care/services.jpg", alt: "Blue River Home Care companion care page explaining support for seniors at home", label: "Services" },
+      { url: "/images/work/blue-river-home-care/resources.jpg", alt: "Blue River Home Care resources hub with family guides on home care cost and decisions", label: "Family Resources" },
+      { url: "/images/work/blue-river-home-care/about.jpg", alt: "Blue River Home Care about page introducing the Belton home care team", label: "About" },
+      { url: "/images/work/blue-river-home-care/consultation.jpg", alt: "Blue River Home Care free consultation page with family-friendly intake form", label: "Free Consultation" }
+    ],
+    city: "Belton, MO (South Kansas City metro)",
+    problem: "Blue River Home Care needed a website that could earn the trust of families making a hard decision about a parent's care, answer cost questions before the first call, and make a consultation with a local person feel approachable.",
+    solution: "We built a warm, family-focused site around a free consultation with Chris Jennen, clear companionship and daily-support services, eleven family guides on cost and care decisions, and eight local service-area pages connecting families to the Belton team.",
+    result: "The finished site gives Blue River a calm, credible digital front door that answers families' biggest questions about care and cost and makes a free consultation with Chris the clear next step. Families can explore companion care and in-home caregiving, understand coverage across Cass, Jackson, Clay, and Platte counties, and prepare for a conversation at their own pace. The consultation form asks about timing and contact preferences while reminding families to leave out sensitive personal and medical details.",
+    liveUrl: "https://blueriverhomecare.com/",
+    updatedAt: "2026-10-29"
+  },
+  {
+    title: "ACS Painting KC",
+    slug: "acs-painting-kc",
+    clientName: "ACS Painting KC",
+    category: "Home Services",
+    summary: "Woman-owned Northland painting company website built around real project proof, verified credentials, and fast estimate requests.",
+    description: "A Northland painting website connecting real crew photography, detailed project stories, before-and-after comparisons, and a simple written-estimate request path.",
+    servicesProvided: ["Website Design", "Content Strategy", "Local SEO", "Lead Capture"],
+    featuredImageUrl: "/images/work/acs-painting-kc/homepage.jpg",
+    imageAlt: "ACS Painting KC homepage with Northland Kansas City painting message and free estimate call to action",
+    galleryImages: [
+      { url: "/images/work/acs-painting-kc/projects.jpg", alt: "ACS Painting KC project page with before and after Tudor exterior repaint", label: "Projects" },
+      { url: "/images/work/acs-painting-kc/services.jpg", alt: "ACS Painting KC cabinet painting and refinishing service page explaining preparation and finish options", label: "Services" },
+      { url: "/images/work/acs-painting-kc/about.jpg", alt: "ACS Painting KC about page with BBB and women-owned small business credentials", label: "About" },
+      { url: "/images/work/acs-painting-kc/contact.jpg", alt: "ACS Painting KC free estimate form with simple project intake fields", label: "Estimate Request" }
+    ],
+    city: "Kansas City Northland, MO",
+    problem: "ACS Painting KC needed a website that proved the quality of its prep and finish work, organized project photography beyond collages, showed its BBB and women-owned credentials, and made it easy for Northland homeowners to request a written estimate.",
+    solution: "We built a painting site around real crew photography, before-and-after sliders, five detailed project write-ups, dedicated exterior, interior, cabinet, deck, and wood rot service pages, linked BBB and SBA credentials, and a short estimate form that takes about a minute.",
+    result: "The finished site gives ACS a credible home that shows homeowners how their project will be prepped and painted and makes a free written estimate the obvious next step. Project stories explain the starting point, preparation, work, and finish, while interactive comparisons let visitors inspect the changes. The estimate form collects project type, timing, and city or ZIP without requiring a street address, and the four-step process explains what follows from estimate to final walkthrough.",
+    liveUrl: "https://acspaintingkc.com/",
+    updatedAt: "2026-10-29"
   }
 ];
 

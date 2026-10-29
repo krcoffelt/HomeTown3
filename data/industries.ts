@@ -18,7 +18,7 @@ export const industries: IndustryItem[] = [
       "contractor website design Kansas City",
       "contractor seo Kansas City"
     ],
-    proofProjectSlugs: ["noble-hardwoods", "zj-carpentry-and-more", "wrapped-up-moving"],
+    proofProjectSlugs: ["noble-hardwoods", "zj-carpentry-and-more", "wrapped-up-moving", "acs-painting-kc"],
     sections: [
       {
         eyebrow: "Contractor Fit",
@@ -64,7 +64,7 @@ export const industries: IndustryItem[] = [
           "Contractor web design needs to show project proof quickly, explain service lines clearly, build trust with homeowners, and make estimate requests easy from mobile devices."
       }
     ],
-    updatedAt: "2026-08-03"
+    updatedAt: "2026-10-29"
   },
   {
     title: "Home Services Website Design Kansas City",
@@ -84,7 +84,7 @@ export const industries: IndustryItem[] = [
       "HVAC website design Kansas City",
       "contractor website design Kansas City"
     ],
-    proofProjectSlugs: ["noble-hardwoods", "wrapped-up-moving", "zj-carpentry-and-more"],
+    proofProjectSlugs: ["noble-hardwoods", "wrapped-up-moving", "zj-carpentry-and-more", "blue-river-home-care", "acs-painting-kc"],
     sections: [
       {
         eyebrow: "Service Business Fit",
@@ -125,7 +125,7 @@ export const industries: IndustryItem[] = [
           "Yes. Real project photos are usually one of the strongest trust signals for home-service websites."
       }
     ],
-    updatedAt: "2026-08-03"
+    updatedAt: "2026-10-29"
   },
   {
     title: "Restaurant Website Design Kansas City",

@@ -222,6 +222,26 @@ describe("sitemaps", () => {
     expect(contentSitemap).toContain(`${site.url}/case-studies/noble-hardwoods`);
   });
 
+  it.each(["blue-river-home-care", "acs-painting-kc"])("publishes %s with its screenshot set in the sitemaps", (slug) => {
+    const project = projects.find((item) => item.slug === slug)!;
+    const url = `${site.url}/case-studies/${slug}`;
+    expect(getPagesSitemapXml()).toContain(url);
+    expect(getContentSitemapXml()).toContain(url);
+    expect(project.problem && project.solution && project.result).toBeTruthy();
+    expect(project.galleryImages).toHaveLength(4);
+    for (const image of [project.featuredImageUrl, ...project.galleryImages!.map((item) => item.url)]) {
+      expect(getImagesSitemapXml()).toContain(`${site.url}${image}`);
+    }
+  });
+
+  it("keeps the new case studies in the next-project chain", () => {
+    const caseStudies = projects.filter((project) => project.problem && project.solution && project.result);
+    const nextSlug = (slug: string) => caseStudies[(caseStudies.findIndex((project) => project.slug === slug) + 1) % caseStudies.length].slug;
+    expect(nextSlug("zj-carpentry-and-more")).toBe("blue-river-home-care");
+    expect(nextSlug("blue-river-home-care")).toBe("acs-painting-kc");
+    expect(nextSlug("acs-painting-kc")).toBe("noble-hardwoods");
+  });
+
   it("includes Dragonfly Catering case-study screenshots in the image sitemap", () => {
     const imageSitemap = getImagesSitemapXml();
 

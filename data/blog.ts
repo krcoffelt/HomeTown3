@@ -154,7 +154,7 @@ export const blogPosts: BlogPostItem[] = [
     excerpt:
       "A practical checklist for contractors, remodelers, and home-service businesses that need a website built around project proof, local trust, and quote requests.",
     publishedAt: "2026-05-14",
-    updatedAt: "2026-10-16",
+    updatedAt: "2026-10-29",
     readingTime: "6 min read",
     targetKeywords: ["contractor website design", "construction website design Kansas City", "contractor website checklist"]
   },
