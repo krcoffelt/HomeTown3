@@ -19,7 +19,7 @@ export function Manifesto() {
           <p className="eyebrow md:col-span-3">{homepageCopy.whyHometown.badge}</p>
           <ScrollWords
             className="font-display text-[clamp(1.85rem,4.2vw,4rem)] font-medium leading-[1.08] tracking-[-0.04em] md:col-span-9"
-            text="We're a Kansas City studio for owner-led businesses. We build websites that convert, SEO that earns real rankings, and ads tied to qualified leads — then show you exactly what's working, in plain English."
+            text="We're a Kansas City marketing agency for local businesses. We build websites that convert, SEO that earns real rankings, and ads tied to qualified leads — then show you exactly what's working, in plain English."
             accentWords={["convert", "rankings", "leads"]}
           />
         </div>

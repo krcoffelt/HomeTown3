@@ -8,7 +8,7 @@ export const faqs: FAQItem[] = [
   {
     question: "What is included in the free marketing audit?",
     answer:
-      "We review the clearest available signals across your website, search visibility, paid campaigns, conversion tracking, and lead flow. You get a practical conversation about what is working, what needs attention, and the highest-value next step.",
+      "We review your website, Google visibility, ads, and tracking. Then we explain what needs attention and where we’d start.",
     page: "home"
   },
   {

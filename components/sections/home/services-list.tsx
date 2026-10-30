@@ -12,7 +12,7 @@ const shortNames: Record<string, { name: string; accent: string; image: string; 
   },
   "search-engine-optimization": {
     name: "SEO",
-    accent: "that ranks",
+    accent: "that helps customers find you",
     image: "/images/work/PlateKCScreenshot.webp",
     alt: "Plate KC restaurant website homepage"
   },
@@ -33,8 +33,8 @@ export function ServicesList() {
           <p className="eyebrow md:col-span-4">What we do</p>
           <div className="md:col-span-8">
             <h2 id="services-heading" data-reveal="up" className="max-w-3xl text-3xl font-medium leading-[1.12] tracking-[-0.035em] md:text-[2.75rem]">
-              Three connected channels.{" "}
-              <span className="text-primary-foreground/50">One system, measured by the leads it creates.</span>
+              Websites, SEO, and ads{" "}
+              <span className="text-primary-foreground/50">that help local businesses get more customers.</span>
             </h2>
           </div>
         </div>

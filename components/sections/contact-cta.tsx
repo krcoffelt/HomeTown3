@@ -19,8 +19,8 @@ interface ContactCtaProps {
 }
 
 export function ContactCta({
-  title = "Find out what is actually driving your growth.",
-  accentText = "actually driving your growth.",
+  title = "Find your next opportunity to get more customers.",
+  accentText = "get more customers.",
   body = "Schedule a free marketing audit. We'll review the available data, find the biggest opportunity, and give you a clear next step for your website, SEO, or paid ads.",
   links = [{ href: "/services", label: "Explore Our Services" }]
 }: ContactCtaProps) {

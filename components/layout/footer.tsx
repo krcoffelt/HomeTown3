@@ -8,7 +8,7 @@ import { analyticsEvents, pushDataLayerEvent } from "@/lib/analytics/events";
 
 const columns = [
   {
-    title: "Studio",
+    title: "Hometown",
     links: [
       { href: "/work", label: "Work" },
       { href: "/about", label: "About" },

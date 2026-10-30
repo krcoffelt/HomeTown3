@@ -52,7 +52,7 @@ export function SelectedWork() {
           </div>
           <div className="flex items-center gap-6">
             <p className="hidden max-w-xs text-muted-foreground lg:block">
-              Custom builds for local businesses — measured by what they produce after launch.
+              See how we’ve helped local businesses improve their websites and bring in more inquiries.
             </p>
             <Button href="/work" variant="secondary">
               All projects
