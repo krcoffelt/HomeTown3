@@ -84,8 +84,27 @@ export const sections: { title: string; intro: string; fields: IntakeField[] }[]
     { id: "signature", label: "Typed signature (full name)", required: true }, { id: "signatureDate", label: "Date", type: "date", required: true }
   ] }
 ];
-export type ClientConfig = { name: string; greeting: string; serviceOptions?: string[]; prefill: Record<string, string | string[]>; needsConfirmation: string[] };
+export type ClientConfig = { name: string; greeting: string; appearance?: "dark"; serviceOptions?: string[]; prefill: Record<string, string | string[]>; needsConfirmation: string[] };
 export const intakeClients: Record<string, ClientConfig> = {
+  "noble-hardwoods": {
+    name: "Noble Hardwoods", greeting: "Clayton", appearance: "dark",
+    needsConfirmation: ["mainPhone", "legalName", "dbas", "ownerName", "employees", "primaryCategory"],
+    serviceOptions: ["Hardwood floor installation", "Sanding and refinishing", "Hardwood floor repairs", "Dustless sanding", "Stairs and railings", "Custom hardwood floors", "Floor maintenance", "Other"],
+    prefill: {
+      listingName: "Noble Hardwoods", legalName: "Zera Services, LLC", dbas: "Noble Hardwoods",
+      mainPhone: "(816) 312-9131", publicEmail: "info@noblehardwoods.co", website: "https://www.noblehardwoods.co/",
+      ownerName: "Clayton Rookstool", ownerTitle: "Owner-Operator", employees: "16",
+      primaryCategory: "Wood floor installation service",
+      services: ["Hardwood floor installation", "Sanding and refinishing", "Hardwood floor repairs", "Dustless sanding", "Stairs and railings", "Custom hardwood floors"],
+      customers: ["Residential"], freeEstimates: "Yes",
+      serviceCities: "Kansas City, Overland Park, Leawood, Lenexa, Prairie Village, Mission Hills, Fairway, Westwood, Shawnee, Olathe, Lawrence; Brookside, Waldo, and Briarcliff neighborhoods",
+      shortDescription: "Noble Hardwoods installs, refinishes, repairs, and restores hardwood floors for homeowners across the Kansas City metro.",
+      longDescription: "Noble Hardwoods provides hardwood floor installation, sanding and refinishing, repairs, dustless sanding, stairs and railings, and custom hardwood floors for homeowners across the Kansas City metro. The team works with solid and engineered hardwood, blends new boards with existing floors, and restores worn or damaged wood. From the first estimate to the final walkthrough, Noble focuses on craftsmanship, clear communication, careful preparation, and respect for the home. Free estimates help homeowners plan the right approach for their floors.",
+      socialInstagram: "https://www.instagram.com/noblehardwoodskcmo/", reviewLink: "https://g.page/r/CVDjg6Cs_lh_EAE/review",
+      accountGoogleExists: "Yes", accountBBBExists: "Yes",
+      ...Object.fromEntries(days.slice(0, 5).flatMap(day => [[`${day}Status`, "Open"], [`${day}Open`, "07:00"], [`${day}Close`, "17:00"]]))
+    }
+  },
   "acs-painting-kc": {
     name: "ACS Painting KC", greeting: "Ashlie", needsConfirmation: ["legalName", "dbas", "mainPhone", "mailingAddress"],
     prefill: {
@@ -106,6 +125,16 @@ export function initialAnswers(client: ClientConfig): Answers {
 }
 
 export function getIntakeSections(client: ClientConfig) {
-  if (!client.serviceOptions) return sections;
-  return sections.map(section => ({ ...section, fields: section.fields.map(field => field.id === "services" ? { ...field, options: client.serviceOptions } : field) }));
+  return sections.map(section => ({
+    ...section,
+    fields: section.fields.map(field => {
+      if (field.id === "services" && client.serviceOptions) return { ...field, options: client.serviceOptions };
+      if (client.appearance !== "dark") return field;
+      if (field.id === "legalName") return { ...field, hint: "Confirm which LLC owns Noble Hardwoods." };
+      if (field.id === "dbas") return { ...field, hint: "Confirm any registered trade names." };
+      if (field.id === "employees") return { ...field, hint: "Confirm your current team size." };
+      if (field.id === "primaryCategory") return { ...field, hint: "Suggested category. Confirm the best match for your business." };
+      return field;
+    })
+  }));
 }

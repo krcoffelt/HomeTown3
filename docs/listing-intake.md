@@ -51,3 +51,20 @@ Production verification passed:
 - Email notifications are intentionally omitted.
 
 Synthetic deployment QA row: `07b2e41c-dce5-4ed7-a4ad-9e4c879c2e4f`. Its signature explicitly identifies it as a test rather than client authorization. Screenshots and the JSON verification report are saved under the ignored `output/playwright/` directory.
+
+
+## Noble Hardwoods
+
+Route: `/intake/noble-hardwoods`. Uses the same private table and media bucket, scoped under `client_slug = noble-hardwoods`, with its own browser draft key. No email notifications.
+
+The Noble intake uses a scoped dark theme with white text, shorter instructions, paired fields, grouped daily hours, and expandable directory account rows. All twelve sections and existing data fields remain available. ACS retains its light theme. Client config `appearance: "dark"` selects the compact layout.
+
+Prefill sources reviewed November 6, 2026:
+
+- [Official contact page](https://www.noblehardwoods.co/contact): phone, public email, weekday hours, Google review URL, Instagram URL, and existing directory links.
+- [Official about page](https://www.noblehardwoods.co/about): Clayton Rookstool, Owner-Operator, and 16-person team. Owner name and employee count require confirmation; a public business email is not assumed to be the owner’s private email.
+- [Official home page](https://www.noblehardwoods.co/): hardwood services, free estimates, and the relationship to Zera Services, LLC.
+- [Official service areas](https://www.noblehardwoods.co/service-areas): cities and neighborhoods served.
+- [BBB profile](https://www.bbb.org/us/mo/kansas-city/profile/hardwood-floor-contractors/noble-hardwoods-llc-0714-1000025951): a differing legal-name presentation. The legal entity and DBA are explicitly left unconfirmed.
+
+The primary category and long description are editable suggestions. Saturday/Sunday hours, year founded, private addresses, recovery email, credentials, and permission grants are not guessed.

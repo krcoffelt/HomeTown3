@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { POST } from "@/app/api/intake/route";
-import { initialAnswers, intakeClients, permissionFields } from "@/lib/intake/config";
+import { initialAnswers, intakeClients, permissionFields, type Answers } from "@/lib/intake/config";
 import { submissionSchema, validateAnswers } from "@/lib/intake/validation";
 import nextConfig from "@/next.config";
 import { getPagesSitemapXml, getServicesSitemapXml, getLocationsSitemapXml, getContentSitemapXml, getImagesSitemapXml } from "@/lib/seo/sitemaps";
@@ -12,7 +12,7 @@ const id = "d282aa7f-20ad-4030-9f57-ed6f01b453f9";
 function validSubmission() {
   return {
     id, clientSlug: "acs-painting-kc", startedAt: Date.now() - 5000, websiteTrap: "", uploads: [],
-    answers: { ...initialAnswers(intakeClients["acs-painting-kc"]), ownerName: "Intake Test", ownerEmail: "intake-test@example.com", mainPhone: "8165550100", signature: "Intake Test", signatureDate: "2026-10-29", ...Object.fromEntries(permissionFields.map(p => [p.id, true])) }
+    answers: { ...initialAnswers(intakeClients["acs-painting-kc"]), ownerName: "Intake Test", ownerEmail: "intake-test@example.com", mainPhone: "8165550100", signature: "Intake Test", signatureDate: "2026-10-29", ...Object.fromEntries(permissionFields.map(p => [p.id, true])) } as Answers
   };
 }
 function request(body: unknown) { return new Request("https://hometownkc.agency/api/intake", { method: "POST", headers: { "Content-Type": "application/json", Origin: "https://hometownkc.agency" }, body: JSON.stringify(body) }); }
@@ -38,6 +38,28 @@ describe("listing intake validation and persistence", () => {
     expect(initial.mainPhone).toBe("");
     expect(initial.publicEmail).toBe("services@acspaintingkc.com");
     expect(initial.SundayStatus).toBe("Closed");
+  });
+  it("validates Noble’s flooring services and keeps uncertain business details unconfirmed", () => {
+    const noble = intakeClients["noble-hardwoods"];
+    const answers = initialAnswers(noble);
+    expect(noble.appearance).toBe("dark");
+    expect(answers.mainPhone).toBe("");
+    expect(answers.ownerName).toBe("");
+    expect(answers.legalName__confirmed).toBe(false);
+    expect(answers.publicEmail).toBe("info@noblehardwoods.co");
+    expect(answers.MondayOpen).toBe("07:00");
+    expect(answers.SaturdayStatus).toBe("");
+    const input = { ...validSubmission(), clientSlug: "noble-hardwoods", answers: { ...answers, ownerName: "Noble QA", ownerEmail: "intake-test@example.com", mainPhone: "8165550100", signature: "Synthetic QA", signatureDate: "2026-11-06", ...Object.fromEntries(permissionFields.map(field => [field.id, true])) } as Answers };
+    expect(submissionSchema.safeParse(input).success).toBe(true);
+    input.answers.services = ["Interior painting"];
+    expect(submissionSchema.safeParse(input).success).toBe(false);
+  });
+  it("persists Noble under its own slug and client name", async () => {
+    const input = validSubmission();
+    input.clientSlug = "noble-hardwoods";
+    input.answers = { ...input.answers, services: ["Hardwood floor installation"] };
+    expect((await POST(request(input))).status).toBe(200);
+    expect(insert).toHaveBeenCalledWith(expect.objectContaining({ client_slug: "noble-hardwoods", data: expect.objectContaining({ clientName: "Noble Hardwoods" }) }));
   });
   it("accepts valid answers, and rejects unknown clients including inherited object keys", () => {
     expect(submissionSchema.safeParse(validSubmission()).success).toBe(true);

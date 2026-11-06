@@ -59,6 +59,30 @@ describe("intake browser draft and response handling", () => {
     expect(JSON.parse(localStorage.getItem(key)!).uploads[0]).toMatchObject({ name: "qa.png", type: "image/png" });
     vi.unstubAllEnvs();
   });
+  it("shows Noble’s compact layout, tailored services, and separate draft", async () => {
+    const noble = intakeClients["noble-hardwoods"];
+    render(<IntakeForm client={noble} slug="noble-hardwoods" />);
+    expect(screen.getByRole("heading", { level: 1, name: "Noble Hardwoods" })).toBeInTheDocument();
+    expect(screen.queryByText("A consistent presence.")).not.toBeInTheDocument();
+    expect(screen.queryByText("The details / 01")).not.toBeInTheDocument();
+    expect(localStorage.getItem(key)).toBeNull();
+    expect(localStorage.getItem("hometown-listing-intake:v1:noble-hardwoods")).not.toBeNull();
+    fireEvent.change(screen.getByLabelText("Jump to a section"), { target: { value: "5" } });
+    fireEvent.click(screen.getByRole("checkbox", { name: "Services offered: correct as is" }));
+    expect(screen.getByRole("checkbox", { name: "Hardwood floor installation" })).toBeInTheDocument();
+    expect(screen.queryByRole("checkbox", { name: "Interior painting" })).not.toBeInTheDocument();
+  });
+  it("lets Noble correct grouped weekday hours and enter unknown weekend hours", () => {
+    render(<IntakeForm client={intakeClients["noble-hardwoods"]} slug="noble-hardwoods" />);
+    fireEvent.change(screen.getByLabelText("Jump to a section"), { target: { value: "3" } });
+    fireEvent.click(screen.getByRole("checkbox", { name: "Monday: correct as is" }));
+    fireEvent.change(document.querySelector("#MondayStatus")!, { target: { value: "Open" } });
+    fireEvent.change(document.querySelector("#MondayOpen")!, { target: { value: "08:00" } });
+    fireEvent.change(document.querySelector("#MondayClose")!, { target: { value: "18:00" } });
+    fireEvent.change(document.querySelector("#SaturdayStatus")!, { target: { value: "Closed" } });
+    const saved = JSON.parse(localStorage.getItem("hometown-listing-intake:v1:noble-hardwoods")!);
+    expect(saved.answers).toMatchObject({ MondayStatus: "Open", MondayOpen: "08:00", MondayClose: "18:00", MondayStatus__confirmed: false, SaturdayStatus: "Closed" });
+  });
   it("opens a correction input when a prefilled value is unchecked", async () => {
     render(<IntakeForm client={client} slug="acs-painting-kc" />);
     const confirm = await screen.findByRole("checkbox", { name: "Business listing name: correct as is" });
