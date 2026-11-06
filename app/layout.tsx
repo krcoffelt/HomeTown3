@@ -5,8 +5,7 @@ import "./globals.css";
 import { StructuredData } from "@/components/seo/structured-data";
 import { site } from "@/data/site";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo/schema";
-import { GtmLoader } from "@/components/analytics/gtm-loader";
-import { ConsentBanner } from "@/components/analytics/consent-banner";
+import { PublicSiteAnalytics } from "@/components/analytics/public-site-analytics";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { getCoreShareImage } from "@/lib/seo/routes";
 
@@ -91,8 +90,7 @@ export default function RootLayout({
       </head>
       <body>
         <StructuredData data={globalSchema} />
-        <GtmLoader gtmId={process.env.NEXT_PUBLIC_GTM_ID} googleAdsId={GOOGLE_ADS_ID} />
-        <ConsentBanner />
+        <PublicSiteAnalytics gtmId={process.env.NEXT_PUBLIC_GTM_ID} googleAdsId={GOOGLE_ADS_ID} />
         <MotionProvider />
         {children}
       </body>

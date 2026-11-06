@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" }
         ]
+      },
+      {
+        source: "/intake/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noimageindex" },
+          { key: "Cache-Control", value: "private, no-store" },
+          { key: "Referrer-Policy", value: "no-referrer" }
+        ]
       }
     ];
   },
