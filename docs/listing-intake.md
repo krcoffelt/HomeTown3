@@ -68,3 +68,14 @@ Prefill sources reviewed November 6, 2026:
 - [BBB profile](https://www.bbb.org/us/mo/kansas-city/profile/hardwood-floor-contractors/noble-hardwoods-llc-0714-1000025951): a differing legal-name presentation. The legal entity and DBA are explicitly left unconfirmed.
 
 The primary category and long description are editable suggestions. Saturday/Sunday hours, year founded, private addresses, recovery email, credentials, and permission grants are not guessed.
+
+Noble release verification (November 6, 2026):
+
+- Published application commit `56b219d` in Netlify deploy `6aee2b31c0c5216fe536e43b`. Both Noble and ACS intake routes return HTTP 200 with noindex; unknown clients return HTTP 404.
+- All 78 tests, typecheck, lint, and production build pass. Known existing warnings: stale Browserslist data, Next lint deprecation, and edge-route static generation notice.
+- Desktop (1280px) and phone (390px) rendering verified without horizontal overflow. Dark text contrast: white 19.30:1, secondary text 10.45:1 against the page background. No marketing tags loaded on direct intake visits.
+- Browser submission reached the thank-you screen and persisted a Noble row with 162 answers. Row `6f69633a-f779-4571-9b22-dc5652337b48` is explicitly marked synthetic QA, not client authorization.
+- API/upload QA row `bc31e1fe-90bf-4ef0-a350-80584d37ecb6` has 162 answers and one private upload. A duplicate request retains one row. Actual anonymous SELECT/UPDATE/DELETE and storage download/list attempts are denied; staff can retrieve the uploaded bytes.
+- Grouped hours and directory-account answers persist in the browser draft. Source-specific service validation rejects the ACS painting options for Noble.
+- Health, robots, and all six sitemap endpoints return HTTP 200; sitemaps exclude intake URLs.
+- Final screenshots and verification JSON are in `output/playwright/noble-*` (ignored local artifacts).
