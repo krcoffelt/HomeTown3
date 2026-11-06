@@ -1,13 +1,13 @@
 .dark {
-  --background: 222 24% 6%;
+  --background: 0 0% 0%;
   --foreground: 0 0% 100%;
   --card: 222 20% 10%;
-  --border: 220 13% 28%;
-  --input: 220 12% 43%;
-  --muted-foreground: 220 14% 76%;
-  --secondary: 222 18% 16%;
+  --border: 220 9% 54%;
+  --input: 0 0% 100%;
+  --muted-foreground: 220 15% 92%;
+  --secondary: 222 16% 22%;
   --ink: 0 0% 100%;
-  --accent: 225 100% 78%;
+  --accent: 225 100% 85%;
   --accent-foreground: 224 35% 12%;
   --destructive: 0 95% 76%;
   min-height: 100vh;
@@ -19,9 +19,10 @@
 .dark input:not([type="checkbox"]):not([type="file"]),
 .dark select,
 .dark textarea {
-  background: #191e28;
-  color: white;
-  border-color: #687181;
+  background: #ffffff;
+  color: #080a0e;
+  border: 2px solid #ffffff;
+  color-scheme: light;
   border-radius: 8px;
 }
 
@@ -29,33 +30,33 @@
 .dark select:focus-visible,
 .dark textarea:focus-visible,
 .dark summary:focus-visible {
-  outline: 2px solid #adc0ff;
+  outline: 3px solid #b4c7ff;
   outline-offset: 3px;
 }
 
-.dark input[type="checkbox"] { accent-color: #b0c0ff; }
-.dark input::placeholder, .dark textarea::placeholder { color: #abb5c5; }
+.dark input[type="checkbox"] { accent-color: #ffffff; color-scheme: light; outline: 1px solid #ffffff; outline-offset: 1px; }
+.dark input::placeholder, .dark textarea::placeholder { color: #4b5563; }
 .dark :disabled { cursor: wait; }
 
 .fields { display: grid; gap: 28px 24px; }
 .field { min-width: 0; }
 .field > label { display: inline-block; font-size: 15px; font-weight: 600; }
-.prefill { margin-top: 10px; padding: 14px 16px; border: 1px solid #3a4454; border-radius: 8px; background: #151a23; }
+.prefill { margin-top: 10px; padding: 14px 16px; border: 1px solid #a4adbd; border-radius: 8px; background: #171c26; }
 .prefill > p { margin: 0; color: white; }
-.prefill label { font-size: 13px; color: #d0d7e4; }
+.prefill label { font-size: 13px; color: #f1f4fa; }
 
-.hoursDay { border-bottom: 1px solid #343d4d; padding: 18px 0; }
+.hoursDay { border-bottom: 1px solid #8993a5; padding: 18px 0; }
 .hoursDay:first-child { padding-top: 0; }
 .hoursDay legend { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
 .hoursControls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
-.hoursControls label { color: #d0d7e4; font-size: 13px; }
+.hoursControls label { color: #f1f4fa; font-size: 13px; }
 .hoursControls label:first-child { grid-column: 1 / -1; }
-.account { border-bottom: 1px solid #343d4d; }
+.account { border-bottom: 1px solid #8993a5; }
 .account summary { display: flex; min-height: 58px; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-weight: 500; }
 .account summary::after { content: "+"; color: #b0c0ff; font-size: 22px; }
 .account[open] summary::after { content: "−"; }
 .account[open] { padding-bottom: 24px; }
-.account summary span { margin-left: auto; color: #b9c4d5; font-size: 12px; font-weight: 400; }
+.account summary span { margin-left: auto; color: #f1f4fa; font-size: 12px; font-weight: 400; }
 
 @media (min-width: 640px) {
   .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -67,3 +68,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .dark button, .dark a, .dark summary { transition: background-color 150ms ease, color 150ms ease; }
 }
+
+.dark nav button:not([aria-current="step"]) { color: #ffffff; }
+.dark nav button[aria-current="step"] { outline: 2px solid white; outline-offset: 2px; font-weight: 600; }
+.dark button:focus-visible, .dark a:focus-visible { outline: 3px solid #b4c7ff; outline-offset: 4px; }
