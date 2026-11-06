@@ -39,4 +39,15 @@ select id, public, file_size_limit from storage.buckets where id = 'listing-inta
 
 Last checked November 6, 2026. Migration 0004 was applied through the Supabase SQL Editor in project `hznyoeypttgulttwmtba`. A synthetic form submission is persisted with status `new`, 156 answer fields, and one uploaded-media reference. An actual REST SELECT using the public key returns HTTP 401 / PostgreSQL code `42501` and exposes no rows. Earlier SQL checks confirmed RLS enabled, anon INSERT allowed, anon SELECT/UPDATE/DELETE denied, and the media bucket private. The most recent local verification passed all 74 tests, typecheck, lint, and production build.
 
-Deployment remains pending: `https://hometownkc.agency/intake/acs-painting-kc` currently returns HTTP 404. The prior local preview server has stopped. Publish the site changes and run the final submission, mobile, noindex, and sitemap smoke checks on the deployed route before sharing it with a client. Email notifications are intentionally omitted.
+Published November 6, 2026 at `https://hometownkc.agency/intake/acs-painting-kc` through the existing GitHub → Netlify production pipeline. Application commit: `2935e38`. Netlify deploy: `6aedfdbc52eb6a2a935463ee`.
+
+Production verification passed:
+
+- Intake route HTTP 200; unknown client HTTP 404; noindex metadata and X-Robots-Tag present.
+- Desktop (1280px) and phone (390px) layouts render without horizontal overflow. Direct intake visits load no marketing tags.
+- Live API submission saved one row with 156 answer fields and one private uploaded image. A retry with the same UUID returned success and kept the row count at one.
+- Actual anon SELECT, UPDATE, and DELETE attempts are denied. Anonymous storage download and listing are denied; a staff read verifies the uploaded bytes.
+- Health and robots routes return HTTP 200. All six sitemap endpoints return HTTP 200 and exclude intake URLs.
+- Email notifications are intentionally omitted.
+
+Synthetic deployment QA row: `07b2e41c-dce5-4ed7-a4ad-9e4c879c2e4f`. Its signature explicitly identifies it as a test rather than client authorization. Screenshots and the JSON verification report are saved under the ignored `output/playwright/` directory.
